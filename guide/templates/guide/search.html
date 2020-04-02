@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/search.css' %}"/>
+    <title>
+        template test
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'guide/guide_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="search_container">
+            <div class="search_title">
+                {{search_word}}に関する検索結果
+            </div>
+            <div class="search_form">
+
+            </div>
+        </div>
+        <div class="guide_container">
+            <div class="guide_message">
+                {{number_of_guide}}件のガイドがヒットしました。
+
+            </div>
+
+            <div class="pagination">
+                <div class="pagination_previous">
+                    {% if page_obj.has_previous %}
+                    <a href="?search_word={{search_word}}&page=1">&laquo;</a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                    {% endif %}
+                </div>
+                <div class="pagination_current">
+                    {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+                </div>
+                <div class="pagination_next">
+                    {% if page_obj.has_next %}
+                    <a href="?search_word={{search_word}}&page={{ page_obj.next_page_number}}"> 次へ </a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="guide_area">
+                {% for guide in guide_list %}
+                <div class="guide_panel">
+                    <a href="{% url 'guide:detail' guide.id %}">
+                        <div class="guide_character_icon">
+                            <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
+                                 class="guide_character_icon_img">
+                        </div>
+                        <div class="guide_maininfo">
+                            {{guide.title}}<br>
+                            by {{guide.author.userprofile.nick_name}}<br>
+                            {{guide.category.name}}ガイド<br>
+
+                            {{guide.pub_date}}<br>
+
+                        </div>
+                        <div class="guide_subinfo">
+                            view : {{guide.number_of_preview}}<br>
+                            高評価:<br>
+                            低評価:<br>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+
+            <div class="pagination">
+                <div class="pagination_previous">
+                    {% if page_obj.has_previous %}
+                    <a href="?search_word={{search_word}}&page=1">&laquo;</a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                    {% endif %}
+                </div>
+                <div class="pagination_current">
+                    {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+                </div>
+                <div class="pagination_next">
+                    {% if page_obj.has_next %}
+                    <a href="?search_word={{search_word}}&page={{ page_obj.next_page_number}}"> 次へ </a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>
+</html>

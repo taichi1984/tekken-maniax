@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/favorite_guide.css' %}"/>
+    <title>
+        {{user.username}}さんのガイド一覧
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'guide/guide_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title">
+            {{user.username}}さんのお気に入りガイド一覧
+        </div>
+        <table class="favorite_table">
+            <tr>
+                <th>ガイドタイトル</th>
+                <th>キャラクター</th>
+                <th>カテゴリ</th>
+                <th>投稿者</th>
+                <th>最終更新日</th>
+            </tr>
+
+            {% for favorite in favorite_list %}
+            <tr>
+                <td><a href="{% url 'guide:detail' favorite.guide.id %}">{{favorite.guide}}</a></td>
+                <td>{{favorite.guide.character}}</td>
+                <td>{{favorite.guide.category}}</td>
+                <td>{{favorite.guide.author.userprofile.nick_name}}</td>
+                <td>{{favorite.guide.update_date}}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+         <div class="pagination">
+                <div class="pagination_previous">
+                    {% if page_obj.has_previous %}
+                    <a href="?search_word={{search_word}}&page=1">&laquo;</a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                    {% endif %}
+                </div>
+                <div class="pagination_current">
+                    {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+                </div>
+                <div class="pagination_next">
+                    {% if page_obj.has_next %}
+                    <a href="?search_word={{search_word}}&page={{ page_obj.next_page_number}}"> 次へ </a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+
+    </main>
+
+</div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+</body>

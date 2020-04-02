@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/your_guide.css' %}"/>
+    <title>
+        {{user.username}}さんのガイド一覧
+    </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{% static 'guide/js/your_guide.js' %}"></script>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'guide/guide_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title">
+            {{user.username}}さんの投稿したガイド一覧
+        </div>
+        <table class="manage_guide_table" border="3">
+            <tr>
+                <th>記事タイトル</th>
+
+                <th>カテゴリ</th>
+                <th>キャラクター</th>
+
+                <th>更新ボタン</th>
+                <th>表示、非表示切替</th>
+
+                <th>削除ボタン</th>
+            </tr>
+            {% for guide in guide_list %}
+            <tr>
+                <td><a href="{% url 'guide:detail' guide.id %}">{{guide.title}}</a></td>
+                <td>{{guide.category.name}}</td>
+                <td>{{guide.character.first_name_en}} {{guide.character.family_name_en}}</td>
+                <td><a href="{% url 'guide:update' guide.id %}">更新</a></td>
+                <td><a href="{% url 'guide:change_state_guide' guide.id %}">
+                    {% ifequal guide.publishing_setting 0 %}
+                    表示する
+                    {% else %}
+                    非表示にする
+                    {% endifequal %}
+                               </form>
+  </a></td>
+                <td>
+                    <form name="delete_guide_form" method="POST" action="{% url 'guide:delete' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name = "guide_id" value="{{guide.id}}">
+                        <button name="delete_guide">削除</button>
+                   </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="pagination">
+                <div class="pagination_previous">
+                    {% if page_obj.has_previous %}
+                    <a href="?search_word={{search_word}}&page=1">&laquo;</a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                    {% endif %}
+                </div>
+                <div class="pagination_current">
+                    {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+                </div>
+                <div class="pagination_next">
+                    {% if page_obj.has_next %}
+                    <a href="?search_word={{search_word}}&page={{ page_obj.next_page_number}}"> 次へ </a>　　
+                    <a href="?search_word={{search_word}}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+    </main>
+
+
+</div>
+  <footer>
+        {% include "top/footer.html" %}
+    </footer>
+</body>

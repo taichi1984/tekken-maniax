@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/create.css' %}"/>
+    <title>
+        ガイド新規作成ページ
+    </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{% static 'guide/js/jquery.selection.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{% static 'guide/js/edit.js' %}"></script>
+</head>
+
+
+<body>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'guide/guide_header.html' %}
+</header>
+
+<script type="text/javascript"></script>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title_field">
+            <h1>ガイド作成ページ</h1>
+        </div>
+        <div class="edit_guide_introduction">
+            <div class="guide_introduction">
+                ガイドを作成できるページです。<br/>
+                ガイドを作ってあなたの知識をみんなと共有しましょう!<br/>
+            </div>
+
+            <div class="guide_help_menu">
+                <div class="guide_help_menu_item">
+                    <a href="">ガイドの書き方</a>はこちら
+                </div>
+            </div>
+        </div>
+        <form action="{% url 'guide:create'%}" method="post" id="guide_form" name="guide_form">
+            <div class="guide_editor" name="guide_editor">
+
+                {% csrf_token %}
+                <div class="guide_header">
+                    <div class="guide_editor_title">
+                        新規ガイド
+                    </div>
+                    <div class="guide_header_item">
+                        <div class="guide_header_item_label">
+                            ガイドのタイトル
+                        </div>
+                        <div class="guide_header_item_input">
+
+                            <input type="text" name="guide_title">
+                        </div>
+                    </div>
+                    <div class="guide_header_item">
+                        <div class="guide_header_item_label">
+                            ガイドのカテゴリ
+                        </div>
+                        <div class="guide_header_item_input">
+
+                            <select name="guide_category">
+                                {% for category in category_list %}
+                                <option value="{{ category.id }}">{{category.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="guide_header_item">
+                        <div class="guide_header_item_label">
+                            キャラクター
+                        </div>
+                        <div class="guide_header_item_input">
+
+                            <select name="guide_character">
+                                {{character_list.0}}
+                                {% for character in character_list %}
+                                <option value="{{ character.id }}">{{character.first_name_en}}
+                                    {{character.family_name_en}}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide_section" name="guide_section">
+                    <div class="guide_section_title">
+                        <input type="text" name="guide_section_title" size="60" value="セクションのタイトル">
+                    </div>
+
+                    <div class="guide_section_article">
+                        <textarea name="guide_section_article" cols="100" rows="30">ここに記事を書くことができます。</textarea>
+                    </div>
+                    <div class="guide_section_button_area" name="guide_section_button_area">
+                        <input type="button" name="delete_section_button" value="セクション削除">
+                        <input type="button" name="preview_section_button" value="簡易プレビュー">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </main>
+
+</div>
+<footer class="footer">
+    <div class="edit_button_area">
+        <input type="button" name="add_section_button" value="セクション追加">
+        <input type="button" class="edit_button" name="add_link_button" value="リンク">
+        <input type="button" class="edit_button" name="add_youtube_button" value="Youtube">
+        <input type="button" class="edit_button" name="add_bold_button" value="太字">
+        <input type="button" class="edit_button" name="add_italic_button" value="斜体">
+        <input type="button" class="edit_button" name="add_bolditalic_button" value="太字/斜体">
+        <input type="button" class="edit_button" name="preview_button" value="プレビューを確認">
+        <input type="submit" class="edit_button submit_button" name="post_guide_button" value="投稿する">
+    </div>
+</footer>
+
+
+</body>
+</html>

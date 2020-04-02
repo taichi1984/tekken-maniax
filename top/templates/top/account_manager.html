@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/account_manager.css' %}"/>
+    <title>
+        アカウント管理ページ
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'top/account_manager_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="user_information">
+            <div class="user_information_title">
+                あなたのプロフィール
+            </div>
+            <div class="user_name">
+                ユーザーID  : {{user}}<br>
+            </div>
+            <div class="nick_name">
+                ニックネーム : {{user.userprofile.nick_name}}<br>
+            </div>
+            <div class="email">
+                メールアドレス : {{user.email}}<br>
+            </div>
+            <div class="user_introduction">
+                自己紹介   　:<br>
+                {{user.userprofile.introduction|linebreaksbr}}<br>
+            </div>
+
+        </div>
+        <div class="user_guide">
+            <div class="user_guide_title">
+                あなたの書いたガイド一覧
+            </div>
+            <div class="user_guide_area">
+                {% for guide in guide_list %}
+                <div class="guide_panel">
+                    <a href="{% url 'guide:detail' guide.id %}">
+                        <div class="guide_character_icon">
+                            <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
+                                 class="guide_character_icon_img">
+                            {{guide.character}}
+                        </div>
+                        <div class="guide_maininfo">
+                            {{guide.title}}<br>
+                            by {{guide.author.userprofile.nick_name}}<br>
+                            {{guide.category.name}}ガイド<br>
+
+                            {{guide.pub_date}}<br>
+
+                        </div>
+                        <div class="guide_subinfo">
+                            view : {{guide.number_of_preview}}<br>
+                            高評価:<br>
+                            低評価:<br>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="user_comment">
+
+        </div>
+
+
+    </main>
+
+</div>
+</body>
+</html>
