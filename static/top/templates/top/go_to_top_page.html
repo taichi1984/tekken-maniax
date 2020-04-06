@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
+    {% if user.is_authenticated %}
+    <meta http-equiv="Refresh" content="2;{% url 'top:index' %}">
+    {% endif %}
+    <title>
+        template test
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+
+</header>
+<body>
+
+
+
+<div class="wrapper">
+    <main class="main">
+        トップページへ移動します。
+
+    </main>
+
+</div>
+</body>
+</html>

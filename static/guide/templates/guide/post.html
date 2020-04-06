@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'guide/guide_header.html' %}
+</header>
+<body>
+
+投稿が完了しました。
+<a href="{% url 'guide:index' %}">トップページ</a>へ遷移します。
+</body>
+</html>

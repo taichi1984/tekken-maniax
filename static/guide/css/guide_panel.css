@@ -1,0 +1,41 @@
+.guide_panel {
+    padding: 10px;
+    display: flex;
+    height: 200px;
+    width: 250px;
+    margin:10px 10px 10px 10px;
+    border:solid 1px black;
+    color:black;
+    box-shadow:10px 10px 10px rgba(0,0,0,0.6);
+    background-color:white;
+
+}
+
+.guide_panel a {
+    color: black;
+}
+
+.guide_panel:hover{
+    background-color:yellow;
+}
+
+
+
+.guide_character_icon {
+    padding: 5px;
+
+}
+
+.guide_character_icon_img {
+    height: 80px;
+    width: 80px;
+
+}
+
+.guide_maininfo {
+    float: left;
+}
+
+.guide_subinfo {
+    float: left;
+}

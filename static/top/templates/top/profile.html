@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/profile.css' %}"/>
+    <title>
+        プロフィール編集ページ
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'top/account_manager_header.html' %}
+</header>
+<body>
+
+
+<div class="wrapper">
+    <H1>プロフィール更新</H1>
+    <form action="{% url 'top:update_profile' %}" method="POST">
+        {% csrf_token %}
+        <main class="main">
+            <table>
+                {{form}}
+            </table>
+        </main>
+        <input type="hidden" name="next" value="top:account_manager">
+        <input type="submit" value="更新">
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,301 @@
+@import url("/static/top/css/site_header.css");
+@import url("guide_header.css");
+@import url("/static/top/css/footer.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0px;
+    background-color: white;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 970px;
+    margin: 30px auto 40px;
+    min-height: 100vh;
+}
+
+main {
+    width: 100%;
+    display: block;
+    margin: 30px auto 40px;
+}
+
+.page_title_field {
+
+    position: relative;
+    align-items: center;
+    background-color: black;
+    height: 300px;
+    width: 100%;
+    background-size: 100%;
+}
+
+.page_type{
+    padding:10px;
+}
+.page_summary {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    height: 100px;
+    background-color: rgba(150, 150, 150, 0.8);
+    width: 98%;
+
+}
+
+.page_summary_icon {
+    width: 15%;
+
+}
+
+.page_summary_title {
+    width: 60%;
+
+}
+
+.page_summary_vote {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+}
+
+.vote_area {
+    display: flex;
+    width: 220px;
+
+
+}
+
+.good_evaluation_area {
+    margin: 6px;
+}
+
+
+.good_evaluation_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+.good_evaluation_pushed_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+
+.good_evaluation_img {
+    width: 30px;
+    height: 30px;
+}
+
+.bad_evaluation_area{
+    margin:5px;
+}
+
+.bad_evaluation_pushed_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+
+.bad_evaluation_button {
+    height: 40px;
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+
+.favorite_area {
+    margin: 3px;
+}
+
+.evaluation_favorite_area {
+    background-color: blue;
+    width: 300px;
+}
+
+.favorite_button {
+    height: 40px;
+    width: 200px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: black;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.favorite_pushed_button {
+    height: 40px;
+    width: 200px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: black;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.table_of_contents {
+    margin-top: 10px;
+    background-color: rgb(68, 68, 68);
+    height: 200px;
+    width: 100%;
+}
+
+.table_of_contents a {
+    color:white;
+}
+
+.table_of_contents a:hover {
+    color:aqua;
+}
+.table_of_contents_title {
+    padding: 10px 0 0 30px;
+
+}
+
+.table_of_contents_listdiv {
+    padding: 10px 0 0 30px;
+}
+
+.table_of_contents_list {
+    list-style: inside;
+    list-style-type: decimal;
+}
+
+.sections_field {
+    width: 100%;
+
+}
+
+.section {
+    width: 100%;
+    margin:50px 0px 30px 0px;
+
+    background-color: rgb(68, 68, 68);
+    height:auto;
+
+}
+
+.section_title {
+    padding:10px 10px 10px 20px;
+    height: 10%;
+    background-color: rgb(68, 68, 68);
+    border-bottom:solid 3px #272828;
+
+}
+
+.section_article {
+    height: 90%;
+    padding:10px 10px 10px 30px;
+    background-color: rgb(68, 68, 68)
+
+}
+
+.author_field {
+    margin-top:50px;
+    width: 100%;
+    height: 300px;
+}
+
+
+.author_title {
+    padding:10px 10px 10px 20px;
+    height: 10%;
+    background-color: rgb(68, 68, 68);
+    border-bottom:solid 3px #272828;
+
+}
+
+.author_content {
+    padding:10px 10px 10px 30px;
+    height: 90%;
+    padding:10px;
+    background-color: rgb(68, 68, 68)
+
+}
+
+.comment_area {
+    margin-top:100px;
+    width: 100%;
+}
+
+.comment_form {
+    padding:10px 10px 10px 30px;
+    background-color: rgb(68, 68, 68);
+}
+.comment_form_label{
+
+}
+
+.comment_form_comment{
+
+}
+
+.comments {
+    margin-top:20px;
+    background-color: rgb(68, 68, 68);
+
+}
+
+.comments_title {
+    padding:10px 10px 10px 20px;
+}
+
+.comment {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-bottom:4px double white;
+}
+.comment_contributor{
+    font-weight:bold;
+
+}
+.comment_comment{
+    padding:10px 10px 10px 10px;
+
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
+    <title>
+        template test
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+
+</header>
+
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title_field">
+            TEKKEN MANIAX
+        </div>
+        <div class="page_introduction_field">
+            <div class="page_introduction_field_section">
+                このサイトは鉄拳に関する情報サイトになる予定です。
+            </div>
+            <div class="page_introduction_field_section">
+                <div class="title_of_contents_label">
+					<a href="{% url 'guide:index' %}">Tekken GUIDE</a>
+                </div>
+                <div class="title_of_contents_contents">
+					鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br/>
+					初心者～上級者まで実力問わず、有用な情報を共有できます<br/>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+<footer>
+	{% include 'top/footer.html' %}
+</footer>
+</body>
+
+</html>
