@@ -154,12 +154,10 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Email送信テスト用
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-'''
-SSL関連の設定
 SECURE_SSL_REDIRECT = True;
 SESSION_COOKIE_SECURE = True;
 CSRF_COOKIE_SECURE = True;
-'''
+
 
 # CERTBOT用の変数追記
 CERT_ROOT = os.path.join(BASE_DIR, '.well-known')

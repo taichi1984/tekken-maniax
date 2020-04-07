@@ -4,7 +4,6 @@
     <list default="true" id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tekkenSite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +189,7 @@
       <workItem from="1585698887286" duration="25000" />
       <workItem from="1585700725585" duration="14943000" />
       <workItem from="1585785096596" duration="4401000" />
-      <workItem from="1586224707157" duration="4422000" />
+      <workItem from="1586224707157" duration="6381000" />
     </task>
     <servers />
   </component>
