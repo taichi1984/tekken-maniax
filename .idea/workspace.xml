@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tekkenSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tekkenSite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tekkenSite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +190,7 @@
       <workItem from="1585698887286" duration="25000" />
       <workItem from="1585700725585" duration="14943000" />
       <workItem from="1585785096596" duration="4401000" />
-      <workItem from="1586224707157" duration="2848000" />
+      <workItem from="1586224707157" duration="4422000" />
     </task>
     <servers />
   </component>
@@ -257,10 +255,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="7" y="200" width="1736" height="856" key="dock-window-1/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1584874191831" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585729730646">
+    <state x="585" y="280" width="672" height="678" key="search.everywhere.popup" timestamp="1586231697893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="280" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1585318807422" />
+    <state x="585" y="280" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586231697893" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1585729730646" />
     <state x="2731" y="265" width="672" height="757" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1585725067167" />
   </component>
