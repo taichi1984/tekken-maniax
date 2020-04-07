@@ -154,9 +154,15 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Email送信テスト用
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-SECURE_SSL_REDIRECT = True;
-SESSION_COOKIE_SECURE = True;
-CSRF_COOKIE_SECURE = True;
+
+if os.name == 'nt':
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+else:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 
 # CERTBOT用の変数追記
