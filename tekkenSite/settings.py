@@ -152,3 +152,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # Email送信テスト用
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# CERTBOT用の変数追記
+CERT_ROOT = os.path.join(BASE_DIR, '.well-known')
+CERT_URL = '/.well-known/'

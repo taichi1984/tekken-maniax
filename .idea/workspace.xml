@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="" />
+    <list default="true" id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tekkenSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tekkenSite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +37,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1WZUqWc52vS3hz0EpxFY4Ts3npc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -39,6 +49,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/top/static/top/css" />
@@ -181,6 +192,7 @@
       <workItem from="1585698887286" duration="25000" />
       <workItem from="1585700725585" duration="14943000" />
       <workItem from="1585785096596" duration="4401000" />
+      <workItem from="1586224707157" duration="2848000" />
     </task>
     <servers />
   </component>
@@ -231,10 +243,10 @@
     <state x="606" y="199" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1581237217835" />
     <state x="606" y="199" key="SettingsEditor/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008963727" />
     <state x="2104" y="74" key="SettingsEditor/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1585724942425" />
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585785127831">
+    <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586225781917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1585785127831" />
+    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586225781917" />
     <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@1920.0.1920.1160" timestamp="1585580902823" />
     <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1585698908921" />
     <state x="0" y="272" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583855452132">
