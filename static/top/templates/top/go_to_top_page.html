@@ -2,10 +2,23 @@
 {% load static %}
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
     {% if user.is_authenticated %}
-    <meta http-equiv="Refresh" content="2;{% url 'top:index' %}">
+        <meta http-equiv="Refresh" content="2;{% url 'top:index' %}">
     {% endif %}
     <title>
         template test
@@ -16,7 +29,6 @@
 
 </header>
 <body>
-
 
 
 <div class="wrapper">

@@ -3,6 +3,19 @@
 
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/reset.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/account_manager.css' %}"/>
@@ -23,17 +36,17 @@
                 あなたのプロフィール
             </div>
             <div class="user_name">
-                ユーザーID  : {{user}}<br>
+                ユーザーID : {{ user }}<br>
             </div>
             <div class="nick_name">
-                ニックネーム : {{user.userprofile.nick_name}}<br>
+                ニックネーム : {{ user.userprofile.nick_name }}<br>
             </div>
             <div class="email">
-                メールアドレス : {{user.email}}<br>
+                メールアドレス : {{ user.email }}<br>
             </div>
             <div class="user_introduction">
-                自己紹介   　:<br>
-                {{user.userprofile.introduction|linebreaksbr}}<br>
+                自己紹介 　:<br>
+                {{ user.userprofile.introduction|linebreaksbr }}<br>
             </div>
 
         </div>
@@ -43,28 +56,28 @@
             </div>
             <div class="user_guide_area">
                 {% for guide in guide_list %}
-                <div class="guide_panel">
-                    <a href="{% url 'guide:detail' guide.id %}">
-                        <div class="guide_character_icon">
-                            <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
-                                 class="guide_character_icon_img">
-                            {{guide.character}}
-                        </div>
-                        <div class="guide_maininfo">
-                            {{guide.title}}<br>
-                            by {{guide.author.userprofile.nick_name}}<br>
-                            {{guide.category.name}}ガイド<br>
+                    <div class="guide_panel">
+                        <a href="{% url 'guide:detail' guide.id %}">
+                            <div class="guide_character_icon">
+                                <img src="/static/guide/image/character_icon_{{ guide.character.id }}.jpg"
+                                     class="guide_character_icon_img">
+                                {{ guide.character }}
+                            </div>
+                            <div class="guide_maininfo">
+                                {{ guide.title }}<br>
+                                by {{ guide.author.userprofile.nick_name }}<br>
+                                {{ guide.category.name }}ガイド<br>
 
-                            {{guide.pub_date}}<br>
+                                {{ guide.pub_date }}<br>
 
-                        </div>
-                        <div class="guide_subinfo">
-                            view : {{guide.number_of_preview}}<br>
-                            高評価:<br>
-                            低評価:<br>
-                        </div>
-                    </a>
-                </div>
+                            </div>
+                            <div class="guide_subinfo">
+                                view : {{ guide.number_of_preview }}<br>
+                                高評価:<br>
+                                低評価:<br>
+                            </div>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
 

@@ -2,10 +2,23 @@
 {% load static %}
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/register.css' %}"/>
     {% if user.is_authenticated %}
-    <meta http-equiv="Refresh" content="2;{% url 'top:index' %}">
+        <meta http-equiv="Refresh" content="2;{% url 'top:index' %}">
     {% endif %}
     <title>
         template test
@@ -23,58 +36,58 @@
         <h1>ユーザー新規登録</h1>
 
         {% if user.is_authenticated %}
-        トップページへ移動します。
+            トップページへ移動します。
         {% else %}
-        ユーザーの新規登録ができます。<br>
-        Eメールアドレスは通知とパスワードを忘れたときに使用されます。<br/>
-        <br>
+            ユーザーの新規登録ができます。<br>
+            Eメールアドレスは通知とパスワードを忘れたときに使用されます。<br/>
+            <br>
 
-        <form action="" method="post" id="register_form" name="register_form">
-            {% csrf_token %}
-            <div class="form_item">
-                <div class="form_item_label">
-                    ユーザー名
+            <form action="" method="post" id="register_form" name="register_form">
+                {% csrf_token %}
+                <div class="form_item">
+                    <div class="form_item_label">
+                        ユーザー名
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
                 </div>
-                <div class="form_item_form">
-                    {{ form.username }}
-                     {{ form.username.errors }}
+                <div class="form_item">
+                    <div class="form_item_label">
+                        Ｅメールアドレス
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.email }}
+                    </div>
                 </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    Ｅメールアドレス
+                <div class="form_item">
+                    <div class="form_item_label">
+                        パスワード
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    </div>
                 </div>
-                <div class="form_item_form">
-                    {{ form.email }}
+                <div class="form_item">
+                    <div class="form_item_label">
+                        パスワード(確認用)
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    </div>
                 </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    パスワード
-                </div>
-                <div class="form_item_form">
-                    {{ form.password1}}
-                    {{ form.password1.errors}}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    パスワード(確認用)
-                </div>
-                <div class="form_item_form">
-                    {{ form.password2 }}
-                     {{ form.password2.errors}}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
+                <div class="form_item">
+                    <div class="form_item_label">
 
+                    </div>
+                    <div class="form_item_form">
+                        <input type="submit" value="登録">
+                    </div>
                 </div>
-                <div class="form_item_form">
-                    <input type="submit" value ="登録">
-                </div>
-            </div>
-        </form>
+            </form>
         {% endif %}
     </main>
 </div>

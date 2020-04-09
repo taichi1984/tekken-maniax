@@ -2,26 +2,39 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}" />
-	<title>
-		template test
-	</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
+    <title>
+        template test
+    </title>
 </head>
 <header class="header">
-	{% include 'top/site_header.html' %}
+    {% include 'top/site_header.html' %}
 
 </header>
 
 <body>
 
-	<div class="wrapper">
-		<main class="main">
-			ユーザーの新規登録が完了しました!
+<div class="wrapper">
+    <main class="main">
+        ユーザーの新規登録が完了しました!
 
-		</main>
+    </main>
 
-	</div>
+</div>
 </body>
 
 </html>

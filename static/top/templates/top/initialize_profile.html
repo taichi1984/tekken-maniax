@@ -2,6 +2,19 @@
 {% load static %}
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
     <title>
@@ -19,13 +32,13 @@
     <form action="{% url 'top:update_profile' %}" method="POST">
         {% csrf_token %}
         < class="main">
-            <H1>アカウント登録ありがとうございます！</H1>
-            プロフィールの初期設定ページです。<br>
-            以下の情報を入力してください。<br>
-            ガイドを書いた際の一番下にあなたのプロフィールが表示されます。<br>
-            <table>
-                {{form.as_table}}
-            </table>
+        <H1>アカウント登録ありがとうございます！</H1>
+        プロフィールの初期設定ページです。<br>
+        以下の情報を入力してください。<br>
+        ガイドを書いた際の一番下にあなたのプロフィールが表示されます。<br>
+        <table>
+            {{ form.as_table }}
+        </table>
         </main>
         <input type="hidden" name="next" value="top:registration_finish">
         <input type="submit" value="更新">

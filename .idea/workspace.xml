@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
-      <change afterPath="$PROJECT_DIR$/top/templates/top/notation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/taich.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tekkenSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tekkenSite.iml" afterDir="false" />
+    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/how_to_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/notation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/preview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_tekkenguide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_tekkenguide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/account_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/account_manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/change_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/change_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/change_email_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/change_email_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/delete_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/delete_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/delete_account_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/delete_account_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/go_to_top_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/go_to_top_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/initialize_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/initialize_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/registration_finish.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/registration_finish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/templates/top/user_infomation.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/templates/top/user_infomation.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,18 +108,30 @@
       <updated>1586315980837</updated>
       <workItem from="1586315984491" duration="646000" />
       <workItem from="1586394606218" duration="1214000" />
-      <workItem from="1586396134160" duration="594000" />
+      <workItem from="1586396134160" duration="1113000" />
     </task>
+    <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
+      <created>1586396741524</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586396741524</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。" />
+    <option name="LAST_COMMIT_MESSAGE" value="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1586395644025">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1586396738707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586395644025" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396738707" />
     <state x="758" y="285" key="FileChooserDialogImpl" timestamp="1586395134661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -133,6 +140,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="185" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396521643" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586396761049">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396761049" />
     <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1586396136442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

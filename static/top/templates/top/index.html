@@ -2,6 +2,19 @@
 <html>
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
     <title>
@@ -26,11 +39,11 @@
             </div>
             <div class="page_introduction_field_section">
                 <div class="title_of_contents_label">
-					<a href="{% url 'guide:index' %}">Tekken GUIDE</a>
+                    <a href="{% url 'guide:index' %}">Tekken GUIDE</a>
                 </div>
                 <div class="title_of_contents_contents">
-					鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br/>
-					初心者～上級者まで実力問わず、有用な情報を共有できます<br/>
+                    鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br/>
+                    初心者～上級者まで実力問わず、有用な情報を共有できます<br/>
                 </div>
             </div>
         </div>
@@ -38,7 +51,7 @@
 
 </div>
 <footer>
-	{% include 'top/footer.html' %}
+    {% include 'top/footer.html' %}
 </footer>
 </body>
 
