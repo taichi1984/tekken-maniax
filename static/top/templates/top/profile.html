@@ -2,19 +2,6 @@
 {% load static %}
 <html>
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-163168954-1');
-    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/profile.css' %}"/>
     <title>
@@ -29,17 +16,71 @@
 
 
 <div class="wrapper">
-    <H1>プロフィール更新</H1>
-    <form action="{% url 'top:update_profile' %}" method="POST">
-        {% csrf_token %}
-        <main class="main">
-            <table>
-                {{ form }}
-            </table>
-        </main>
-        <input type="hidden" name="next" value="top:account_manager">
-        <input type="submit" value="更新">
-    </form>
+    <main class="main">
+        <H1>プロフィール更新</H1>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form_item">
+                <div class="form_item_label">
+                    ニックネーム
+                </div>
+                <div class="form_item_form">
+                    {{ form.nick_name }}
+                    {{ form.nick_name.errors }}
+                </div>
+            </div>
+
+            <div class="form_item">
+                <div class="form_item_label">
+                    メインキャラクター
+                </div>
+                <div class="form_item_form">
+                    {{ form.main_character }}
+                    {{ form.main_character.errors }}
+                </div>
+            </div>
+            <div class="form_item">
+                <div class="form_item_label">
+                    Twitter ID
+                </div>
+                <div class="form_item_form">
+                    @{{ form.twitter_account }}
+                    {{ form.twitter_account.errors }}
+                </div>
+            </div>
+            <div class="form_item">
+                <div class="form_item_label">
+                    YouTube チャンネル URL
+                </div>
+                <div class="form_item_form">
+                    {{ form.youtube_channel_url }}
+                    {{ form.youtube_channel_url.errors }}
+                </div>
+            </div>
+            <div class="form_item">
+                <div class="form_item_label">
+                    Twitch URL
+                </div>
+                <div class="form_item_form">
+                    {{ form.twitch_url }}
+                    {{ form.twitch_url.errors }}
+                </div>
+            </div>
+            <div class="form_item">
+                <div class="form_item_label">
+                    自己紹介
+                </div>
+                <div class="form_item_form">
+                    {{ form.introduction }}
+                    {{ form.introduction.errors }}
+                </div>
+            </div>
+
+            <input type="hidden" name="next" value="top:account_manager">
+            <input type="submit" value="更新">
+        </form>
+    </main>
 
 </div>
 </body>

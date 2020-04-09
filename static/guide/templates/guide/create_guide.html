@@ -3,6 +3,19 @@
 
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/create.css' %}"/>
     <title>
@@ -40,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'guide:create'%}" method="post" id="guide_form" name="guide_form">
+        <form action="{% url 'guide:create' %}" method="post" id="guide_form" name="guide_form">
             <div class="guide_editor" name="guide_editor">
 
                 {% csrf_token %}
@@ -65,7 +78,7 @@
 
                             <select name="guide_category">
                                 {% for category in category_list %}
-                                <option value="{{ category.id }}">{{category.name}}</option>
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -77,11 +90,11 @@
                         <div class="guide_header_item_input">
 
                             <select name="guide_character">
-                                {{character_list.0}}
+                                {{ character_list.0 }}
                                 {% for character in character_list %}
-                                <option value="{{ character.id }}">{{character.first_name_en}}
-                                    {{character.family_name_en}}
-                                </option>
+                                    <option value="{{ character.id }}">{{ character.first_name_en }}
+                                        {{ character.family_name_en }}
+                                    </option>
                                 {% endfor %}
                             </select>
                         </div>

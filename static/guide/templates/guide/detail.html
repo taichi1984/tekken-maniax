@@ -3,11 +3,24 @@
 
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/detail.css' %}"/>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="{% static 'guide/js/evaluation.js' %}"></script>
     <meta charset="UTF-8">
-    <title>ガイド:{{guide.title}}</title>
+    <title>ガイド:{{ guide.title }}</title>
 </head>
 <body>
 <header class="header">
@@ -22,20 +35,20 @@
 <div class="wrapper">
     <main>
         <div class="page_title_field"
-             style="background-image:url('/static/guide/image/character_wp_{{guide.character.id}}.jpg')">
+             style="background-image:url('/static/guide/image/character_wp_{{ guide.character.id }}.jpg')">
             <div class="page_type">
-                カテゴリ:{{guide.category.name}}<br>
-                キャラクター:{{guide.character.first_name_en}} {{guide.character.family_name_en}}<br>
+                カテゴリ:{{ guide.category.name }}<br>
+                キャラクター:{{ guide.character.first_name_en }} {{ guide.character.family_name_en }}<br>
             </div>
             <div class="page_summary">
                 <div class="page_summary_icon">
-                    <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg" width="100" height="100">
+                    <img src="/static/guide/image/character_icon_{{ guide.character.id }}.jpg" width="100" height="100">
 
                 </div>
                 <div class="page_summary_title">
-                    <h1>{{guide.title}}</h1>
-                    投稿者:{{guide.author.userprofile.nick_name}}(id:{{guide.author}})<br>
-                    閲覧数:{{guide.number_of_preview}} view
+                    <h1>{{ guide.title }}</h1>
+                    投稿者:{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})<br>
+                    閲覧数:{{ guide.number_of_preview }} view
 
                 </div>
 
@@ -43,48 +56,50 @@
                     <div class="vote_area">
                         <div id="good_evaluation_area" class="good_evaluation_area">
                             {% if user.is_authenticated %}
-                            {% ifequal evaluation.evaluation 1 %}
-                            <button type="button" class="good_evaluation_pushed_button" name="good_evaluation_pushed"
-                                    value="good_evaluation_pushed">
-                                <img src="{% static 'guide/image/good_evaluation.jpg'%}" width="20px">
-                            </button>
+                                {% ifequal evaluation.evaluation 1 %}
+                                    <button type="button" class="good_evaluation_pushed_button"
+                                            name="good_evaluation_pushed"
+                                            value="good_evaluation_pushed">
+                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="good_evaluation_button" name="good_evaluation"
+                                            value="good_evaluation">
+                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% endifequal %}
                             {% else %}
-                            <button type="button" class="good_evaluation_button" name="good_evaluation"
-                                    value="good_evaluation">
-                                <img src="{% static 'guide/image/good_evaluation.jpg'%}" width="20px">
-                            </button>
-                            {% endifequal %}
-                            {% else %}
-                            <img src="{% static 'guide/image/good_evaluation.jpg'%}" width="40px">
+                                <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="40px">
                             {% endif %}
-                            : {{numof_good_evaluations}}
+                            : {{ numof_good_evaluations }}
                         </div>
                         <div id="bad_evaluation_area" class="bad_evaluation_area">
                             {% if user.is_authenticated %}
-                            {% ifequal evaluation.evaluation 2 %}
-                            <button type="button" class="bad_evaluation_pushed_button" name="bad_evaluation_pushed"
-                                    value="bad_evaliation_pushed">
-                                <img src="{% static 'guide/image/bad_evaluation.jpg'%}" width="20px">
-                            </button>
+                                {% ifequal evaluation.evaluation 2 %}
+                                    <button type="button" class="bad_evaluation_pushed_button"
+                                            name="bad_evaluation_pushed"
+                                            value="bad_evaliation_pushed">
+                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="bad_evaluation_button" name="bad_evaluation"
+                                            value="bad_evaliation">
+                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% endifequal %}
                             {% else %}
-                            <button type="button" class="bad_evaluation_button" name="bad_evaluation"
-                                    value="bad_evaliation">
-                                <img src="{% static 'guide/image/bad_evaluation.jpg'%}" width="20px">
-                            </button>
-                            {% endifequal %}
-                            {% else %}
-                            <img src="{% static 'guide/image/bad_evaluation.jpg'%}" width="40px">
+                                <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="40px">
                             {% endif %}
-                            : {{numof_bad_evaluations}}
+                            : {{ numof_bad_evaluations }}
                         </div>
                     </div>
                     <div class="favorite_area">
                         <div id="page_summary_favorite" class="page_summary_favorite">
-                            {% ifequal favorite.user user%}
-                            <button type="button" class="favorite_pushed_button" name="release_favorite">お気に入り追加済み
-                            </button>
+                            {% ifequal favorite.user user %}
+                                <button type="button" class="favorite_pushed_button" name="release_favorite">お気に入り追加済み
+                                </button>
                             {% else %}
-                            <button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>
+                                <button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>
                             {% endifequal %}
 
                         </div>
@@ -93,9 +108,9 @@
             </div>
         </div>
 
-      <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+        <div class="advertisement">
+            <img src="" width="920" height="300">
+        </div>
 
         <div class="table_of_contents">
             <div class="table_of_contents_title">
@@ -104,41 +119,40 @@
             <div class="table_of_contents_listdiv">
                 <ul class="table_of_contents_list">
                     {% for section in guide_sections %}
-                    <li><a href="#section{{forloop.counter}}">{{section.title}}</a></li>
+                        <li><a href="#section{{ forloop.counter }}">{{ section.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
 
         <div class="sections_field">
-            {% for section in guide_sections%}
+            {% for section in guide_sections %}
 
 
-            <div id="section{{forloop.counter}}" class="section">
-                <div class="section_title">
-                    {{section.title}}
+                <div id="section{{ forloop.counter }}" class="section">
+                    <div class="section_title">
+                        {{ section.title }}
+                    </div>
+                    <div class="section_article">
+                        {{ section.article|safe }}
+                    </div>
                 </div>
-                <div class="section_article">
-                    {{section.article|safe}}
-                </div>
-            </div>
 
             {% endfor %}
 
 
         </div>
         <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+            <img src="" width="920" height="300">
+        </div>
 
         <div class="author_field">
             <div class="author_title">投稿者情報</div>
             <div class="author_content">
-                投稿者:{{guide.author.userprofile.nick_name}} (id : {{guide.author}})<br/>
-                {{guide.author.userprofile.introduction|safe}}
+                投稿者:{{ guide.author.userprofile.nick_name }} (id : {{ guide.author }})<br/>
+                {{ guide.author.userprofile.introduction|safe }}
             </div>
         </div>
-
 
 
         <div class="comment_area">
@@ -149,20 +163,20 @@
                 </div>
                 <hr>
                 {% if user.is_authenticated %}
-                <table>
+                    <table>
 
-                    <form action="{% url 'guide:post_comment' guide.id %}" method="POST">
-                        {% csrf_token %}
-                        {{ form.as_table }}
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" value="投稿"></td>
-                        </tr>
-                    </form>
-                </table>
+                        <form action="{% url 'guide:post_comment' guide.id %}" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_table }}
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="投稿"></td>
+                            </tr>
+                        </form>
+                    </table>
 
                 {% else %}
-                コメントをするにはログインする必要があります。
+                    コメントをするにはログインする必要があります。
                 {% endif %}
 
 
@@ -173,38 +187,38 @@
                 </div>
                 <hr>
                 {% for comment in comment_list %}
-                <div class="comment">
-                    {{guide.author}}
-                    {{comment.contributor}}
-                    {% if comment.contributor == user or user == guide.author %}
-                    <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
-                        {% csrf_token %}
-                        <div class="comment_contributor">
-                            {{forloop.counter}} .　{{comment.contributor}} <input type="submit" value="削除">
-                        </div>
-                        <input type="hidden" name="next" value="{{request.path}}">
-                    </form>
-                    {%　else %}
-                        <div class="comment_contributor">
-                            {{forloop.counter}} .　{{comment.contributor}}
-                        </div>
-                    {% endif %}
+                    <div class="comment">
+                        {{ guide.author }}
+                        {{ comment.contributor }}
+                        {% if comment.contributor == user or user == guide.author %}
+                            <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
+                                {% csrf_token %}
+                                <div class="comment_contributor">
+                                    {{ forloop.counter }} .　{{ comment.contributor }} <input type="submit" value="削除">
+                                </div>
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                            </form>
+                            {% 　else %}
+                            <div class="comment_contributor">
+                                {{ forloop.counter }} .　{{ comment.contributor }}
+                            </div>
+                        {% endif %}
 
 
-                    <div class="comment_comment">
-                        {{ comment.comment |safe}}
+                        <div class="comment_comment">
+                            {{ comment.comment |safe }}
+                        </div>
+
+
                     </div>
-
-
-                </div>
 
                 {% endfor %}
             </div>
         </div>
 
         <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+            <img src="" width="920" height="300">
+        </div>
 
 
     </main>

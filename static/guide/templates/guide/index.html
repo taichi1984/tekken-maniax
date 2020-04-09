@@ -2,6 +2,19 @@
 {% load static %}
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
     <title>
@@ -78,19 +91,19 @@
 
                 <div class="character_guide_area">
                     {% for key, value in character_guide_list.items %}
-                    <div class="character_guide_item">
-                        <a href="{% url 'guide:search' %}?search_word={{value.character.first_name_en}} ">
-                            <img class="character_guide_icon_img"
-                                 src="/static/guide/image/character_icon_{{value.character.id}}.jpg" width="100"
-                                 height="100">
-                        </a>
-                        <div class="character_guide_character_name">
-                            {{value.character}}
+                        <div class="character_guide_item">
+                            <a href="{% url 'guide:search' %}?search_word={{ value.character.first_name_en }} ">
+                                <img class="character_guide_icon_img"
+                                     src="/static/guide/image/character_icon_{{ value.character.id }}.jpg" width="100"
+                                     height="100">
+                            </a>
+                            <div class="character_guide_character_name">
+                                {{ value.character }}
+                            </div>
+                            <div class=" character_guide_num_of_guides">
+                                <span class="num_of_guides">{{ value.num }}</span> 件
+                            </div>
                         </div>
-                        <div class=" character_guide_num_of_guides">
-                            <span class="num_of_guides">{{value.num}}</span> 件
-                        </div>
-                    </div>
                     {% endfor %}
 
                 </div>
@@ -101,27 +114,27 @@
                 </div>
                 <div class="latest_guide_area">
                     {% for guide in latest_guide_list %}
-                    <div class="guide_panel">
-                        <a href="{% url 'guide:detail' guide.id %}">
-                            <div class="guide_character_icon">
-                                <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
-                                     class="guide_character_icon_img">
-                            </div>
-                            <div class="guide_maininfo">
-                                {{guide.title}}<br>
-                                by {{guide.author.userprofile.nick_name}}<br>
-                                {{guide.category.name}}ガイド<br>
+                        <div class="guide_panel">
+                            <a href="{% url 'guide:detail' guide.id %}">
+                                <div class="guide_character_icon">
+                                    <img src="/static/guide/image/character_icon_{{ guide.character.id }}.jpg"
+                                         class="guide_character_icon_img">
+                                </div>
+                                <div class="guide_maininfo">
+                                    {{ guide.title }}<br>
+                                    by {{ guide.author.userprofile.nick_name }}<br>
+                                    {{ guide.category.name }}ガイド<br>
 
-                                {{guide.pub_date}}<br>
+                                    {{ guide.pub_date }}<br>
 
-                            </div>
-                            <div class="guide_subinfo">
-                                view : {{guide.number_of_preview}}<br>
-                                高評価:<br>
-                                低評価:<br>
-                            </div>
-                        </a>
-                    </div>
+                                </div>
+                                <div class="guide_subinfo">
+                                    view : {{ guide.number_of_preview }}<br>
+                                    高評価:<br>
+                                    低評価:<br>
+                                </div>
+                            </a>
+                        </div>
                     {% endfor %}
                 </div>
 

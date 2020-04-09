@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 {% load static %}
 
-<html>
+<html lang="ja">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/create.css' %}"/>
     <title>
         ガイド新規作成ページ
@@ -40,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'guide:create'%}" method="post" id="guide_form" name="guide_form">
+        <form action="{% url 'guide:create' %}" method="post" id="guide_form" name="guide_form">
             <div class="guide_editor" name="guide_editor">
 
                 {% csrf_token %}
@@ -54,7 +67,7 @@
                         </div>
                         <div class="guide_header_item_input">
 
-                            <input type="text" name="guide_title" value="{{guide.title}}">
+                            <input type="text" name="guide_title" value="{{ guide.title }}">
                         </div>
                     </div>
                     <div class="guide_header_item">
@@ -66,11 +79,11 @@
 
                             <select name="guide_category">
                                 {% for category in category_list %}
-                                {% ifequal category.id guide.category.id %}
-                                <option selected value="{{ category.id }}">{{category.name}}</option>
-                                {% else %}
-                                <option value="{{ category.id }}">{{category.name}}</option>
-                                {% endifequal %}
+                                    {% ifequal category.id guide.category.id %}
+                                        <option selected value="{{ category.id }}">{{ category.name }}</option>
+                                    {% else %}
+                                        <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endifequal %}
                                 {% endfor %}
                             </select>
 
@@ -83,40 +96,40 @@
                         <div class="guide_header_item_input">
 
                             <select name="guide_character">
-                                {{character_list.0}}
+                                {{ character_list.0 }}
                                 {% for character in character_list %}
-                                {% ifequal character.id guide.character.id %}
-                                <option selected value="{{ character.id }}">{{character.first_name_en}}
-                                    {{character.family_name_en}}
-                                </option>
-                                {% else %}
-                                <option value="{{ character.id }}">{{character.first_name_en}}
-                                    {{character.family_name_en}}
-                                </option>
-                                {% endifequal %}
+                                    {% ifequal character.id guide.character.id %}
+                                        <option selected value="{{ character.id }}">{{ character.first_name_en }}
+                                            {{ character.family_name_en }}
+                                        </option>
+                                    {% else %}
+                                        <option value="{{ character.id }}">{{ character.first_name_en }}
+                                            {{ character.family_name_en }}
+                                        </option>
+                                    {% endifequal %}
                                 {% endfor %}
                             </select>
                             </select>
                         </div>
                     </div>
                 </div>
-{% for article in article_list %}
-                <div class="guide_section" name="guide_section">
-                    <div class="guide_section_title">
-                        <input type="text" name="guide_section_title" size="60" value="{{article.title}}">
-                    </div>
+                {% for article in article_list %}
+                    <div class="guide_section" name="guide_section">
+                        <div class="guide_section_title">
+                            <input type="text" name="guide_section_title" size="60" value="{{ article.title }}">
+                        </div>
 
-                    <div class="guide_section_article">
-                        <textarea name="guide_section_article" cols="100" rows="30">{{article.article}}</textarea>
+                        <div class="guide_section_article">
+                            <textarea name="guide_section_article" cols="100" rows="30">{{ article.article }}</textarea>
+                        </div>
+                        <div class="guide_section_button_area" name="guide_section_button_area">
+                            <input type="button" name="delete_section_button" value="セクション削除">
+                            <input type="button" name="preview_section_button" value="簡易プレビュー">
+                        </div>
                     </div>
-                    <div class="guide_section_button_area" name="guide_section_button_area">
-                        <input type="button" name="delete_section_button" value="セクション削除">
-                        <input type="button" name="preview_section_button" value="簡易プレビュー">
-                    </div>
-                </div>
-		 {% endfor %}
+                {% endfor %}
             </div>
-            <input type ="hidden" name="guide_id" value="{{guide.id}}">
+            <input type="hidden" name="guide_id" value="{{ guide.id }}">
         </form>
 
     </main>

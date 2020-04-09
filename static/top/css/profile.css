@@ -57,3 +57,17 @@ main {
     font-size:30px;
     font-weight:bold;
 }
+
+.form_item{
+
+    display:flex;
+    flex-direction: row;
+}
+
+.form_item_label{
+    width:200px;
+    margin:0px 10px 10px 10px;
+}
+.form_item_form{
+    margin:0px 10px 10px 10px;
+}

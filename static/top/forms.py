@@ -28,4 +28,7 @@ class UserCreationForm(UserCreationForm):
 class UserProfileUpdateForm(forms.Form):
     nick_name = forms.CharField(label="ニックネーム", max_length="50")
     main_character = UserProfileCharacterModelChoiceField(queryset=Character.objects.all(), label="メインキャラクター")
+    twitter_account = forms.CharField(label="twitter ID", required=False)
+    youtube_channel_url = forms.CharField(label="Youtubeチャンネル URL", required=False)
+    twitch_url = forms.CharField(label="Twitch URL", required=False)
     introduction = forms.CharField(label="自己紹介", widget=forms.Textarea)

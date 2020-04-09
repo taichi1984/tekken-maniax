@@ -259,7 +259,7 @@ def vote_evaluation(request):
     data[1] = numof_good_evaluations
     data[2] = numof_bad_evaluations
     data = json.dumps(data)
-    # ここまで
+    # TODO 関数化すべき　ここまで
 
     return HttpResponse(data)
 

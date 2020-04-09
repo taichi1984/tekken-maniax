@@ -15,7 +15,7 @@ urlpatterns = [
     path('account_manager/change_email/', views.change_email, name='change_email'),
     path('account_manager/', views.account_manager, name='account_manager'),
     path('account_manager/profile/', views.profile, name='profile'),
-    path('account_manager/profile/update_profile', views.update_profile, name='update_profile')
+    #path('account_manager/profile/update_profile', views.update_profile, name='update_profile')
     ]
 
 
