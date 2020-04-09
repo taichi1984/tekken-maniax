@@ -3,6 +3,19 @@
 
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/preview.css' %}"/>
     <meta charset="UTF-8">
     <title>Title test</title>
@@ -12,18 +25,18 @@
     <main>
         <div class="page_title_field">
             <div class="page_type">
-                鉄拳:{{guide_tekken_title.0.name}}<br>
-                カテゴリ:{{guide_category}}<br>
-                キャラクター:{{guide_character}}<br>
+                鉄拳:{{ guide_tekken_title.0.name }}<br>
+                カテゴリ:{{ guide_category }}<br>
+                キャラクター:{{ guide_character }}<br>
 
             </div>
             <div class="page_summary">
                 <div class="page_summary_icon">
-                    <img src="{% static 'guide/image/alisa_icon.jpg'%}" width="100" height="100">
+                    <img src="{% static 'guide/image/alisa_icon.jpg' %}" width="100" height="100">
                 </div>
                 <div class="page_summary_title">
-                     <h1>{{guide_title}}</h1>
-                    投稿者:{{user.userprofile.nick_name}}(id:{{user.username}})<br>
+                    <h1>{{ guide_title }}</h1>
+                    投稿者:{{ user.userprofile.nick_name }}(id:{{ user.username }})<br>
                     閲覧数:000001 view
 
                 </div>
@@ -35,8 +48,8 @@
 
         </div>
         <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+            <img src="" width="920" height="300">
+        </div>
 
         <div class="table_of_contents">
             <div class="table_of_contents_title">
@@ -45,39 +58,39 @@
             <div class="table_of_contents_listdiv">
                 <ul class="table_of_contents_list">
                     {% for section in guide_sections %}
-                    <li><a href="#section{{forloop.counter}}">{{section.title}}</a></li>
+                        <li><a href="#section{{ forloop.counter }}">{{ section.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
 
         <div class="sections_field">
-            {% for section in guide_sections%}
+            {% for section in guide_sections %}
 
 
-            <div id="section{{forloop.counter}}" class="section">
-                <div class="section_title">
-                    {{section.title}}
+                <div id="section{{ forloop.counter }}" class="section">
+                    <div class="section_title">
+                        {{ section.title }}
+                    </div>
+                    <div class="section_article">
+                        {{ section.article|safe }}
+                    </div>
                 </div>
-                <div class="section_article">
-                    {{section.article|safe}}
-                </div>
-            </div>
 
             {% endfor %}
 
 
         </div>
         <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+            <img src="" width="920" height="300">
+        </div>
         <div class="author_field">
-            <div class="author_title">投稿者 : {{user.userprofile.nick_name}} さん(id : {{user.username}})</div>
-            <div class="author_content">{{user.userprofile.introduction}}</div>
+            <div class="author_title">投稿者 : {{ user.userprofile.nick_name }} さん(id : {{ user.username }})</div>
+            <div class="author_content">{{ user.userprofile.introduction }}</div>
         </div>
         <div class="advertisement">
-            <img src ="" width="920" height="300">
-         </div>
+            <img src="" width="920" height="300">
+        </div>
     </main>
 </div>
 </body>

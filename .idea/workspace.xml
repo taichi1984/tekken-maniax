@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="">
+    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
+      <change afterPath="$PROJECT_DIR$/top/templates/top/notation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/taich.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tekkenSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tekkenSite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/how_to_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/notation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,106 +41,53 @@
     <expand />
     <select />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="JavaScript File" />
-        <option value="CSS File" />
-        <option value="HTML File" />
-      </list>
-    </option>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1WZUqWc52vS3hz0EpxFY4Ts3npc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1aF0Lj8Dtgm2GMTtydPcd1igWWP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/top/static/top/css" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/top/templates/top" />
+    <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkenSite\top\static\top\css" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\top\static\top\css" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\top\templates\top" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\top\templates\registration" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\guide\templates\guide" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\guide\static\guide\image" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\guide\templates\guide" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\top\templates\registration" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\top\templates\top" />
-      <recent name="C:\Users\taich\Desktop\tekkenSite\tekkenSite\guide\static\guide\js" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tekkensite_insertdata">
-    <configuration name="tekkensite_insertdata" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tekkenSite" />
+  <component name="RunManager">
+    <configuration name="tekkensite" type="Python.DjangoServer" factoryName="Django server">
+      <module name="tekkensite" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../tekkenSiteDB" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../tekkenSiteDB/tekkensite_insertdata.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tekkenSite" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../.." />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../test (2).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.tekkensite_insertdata" />
-      <item itemvalue="Python.test (2)" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.tekkensite_insertdata" />
-        <item itemvalue="Python.test (2)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -138,58 +102,18 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\taich\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7ec5ab7d-5315-4978-8caf-8b3081f0615a" name="Default" comment="" />
-      <created>1579342027010</created>
+      <changelist id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="" />
+      <created>1586315980837</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1579342027010</updated>
-      <workItem from="1579356806260" duration="85569000" />
-      <workItem from="1579734689804" duration="160000" />
-      <workItem from="1579782578936" duration="6588000" />
-      <workItem from="1579873989937" duration="4765000" />
-      <workItem from="1580045193695" duration="17289000" />
-      <workItem from="1580366683760" duration="11474000" />
-      <workItem from="1580649929379" duration="18342000" />
-      <workItem from="1580791332088" duration="11539000" />
-      <workItem from="1580827223762" duration="1274000" />
-      <workItem from="1580915565288" duration="6008000" />
-      <workItem from="1580984256398" duration="667000" />
-      <workItem from="1580984938841" duration="19156000" />
-      <workItem from="1581039651302" duration="11695000" />
-      <workItem from="1581236868064" duration="16751000" />
-      <workItem from="1581409879384" duration="24282000" />
-      <workItem from="1581489045074" duration="21775000" />
-      <workItem from="1581741198749" duration="45127000" />
-      <workItem from="1582023415507" duration="9408000" />
-      <workItem from="1582258764626" duration="19497000" />
-      <workItem from="1582539035367" duration="5219000" />
-      <workItem from="1582706296932" duration="18494000" />
-      <workItem from="1582805460451" duration="6638000" />
-      <workItem from="1583068130177" duration="1549000" />
-      <workItem from="1583222416668" duration="8475000" />
-      <workItem from="1583326326252" duration="5276000" />
-      <workItem from="1583531335404" duration="1856000" />
-      <workItem from="1583769875325" duration="7819000" />
-      <workItem from="1583919984530" duration="12901000" />
-      <workItem from="1584022656702" duration="17834000" />
-      <workItem from="1584248838320" duration="5319000" />
-      <workItem from="1584603530808" duration="743000" />
-      <workItem from="1584692335128" duration="35539000" />
-      <workItem from="1584874182423" duration="5661000" />
-      <workItem from="1585295421343" duration="12950000" />
-      <workItem from="1585408906659" duration="598000" />
-      <workItem from="1585547829347" duration="1198000" />
-      <workItem from="1585698512816" duration="104000" />
-      <workItem from="1585698626049" duration="15000" />
-      <workItem from="1585698793719" duration="10000" />
-      <workItem from="1585698887286" duration="25000" />
-      <workItem from="1585700725585" duration="14943000" />
-      <workItem from="1585785096596" duration="4401000" />
-      <workItem from="1586224707157" duration="7994000" />
+      <updated>1586315980837</updated>
+      <workItem from="1586315984491" duration="646000" />
+      <workItem from="1586394606218" duration="1214000" />
+      <workItem from="1586396134160" duration="594000" />
     </task>
     <servers />
   </component>
@@ -197,72 +121,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581009056579">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1586395644025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="533" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581009056579" />
-    <state x="723" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581041894527">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586395644025" />
+    <state x="758" y="285" key="FileChooserDialogImpl" timestamp="1586395134661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="723" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1581041894527" />
-    <state x="172" y="172" width="1736" height="856" key="DiffContextDialog" timestamp="1581042264213">
+    <state x="758" y="285" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586395134661" />
+    <state x="486" y="185" key="SettingsEditor" timestamp="1586396521643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="172" y="172" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1581042264213" />
-    <state x="878" y="311" key="FileChooserDialogImpl" timestamp="1583570859549">
+    <state x="486" y="185" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396521643" />
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1586396136442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="878" y="311" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1160@0.0.1920.1040" timestamp="1583570859549" />
-    <state x="878" y="311" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1580984772239" />
-    <state width="1860" height="274" key="GridCell.Tab.0.bottom" timestamp="1581010033122">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1860" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008886085" />
-    <state width="1860" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1581010033122" />
-    <state width="1860" height="274" key="GridCell.Tab.0.center" timestamp="1581010033122">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1860" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008886085" />
-    <state width="1860" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1581010033122" />
-    <state width="1860" height="274" key="GridCell.Tab.0.left" timestamp="1581010033122">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1860" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008886085" />
-    <state width="1860" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1581010033122" />
-    <state width="1860" height="274" key="GridCell.Tab.0.right" timestamp="1581010033122">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1860" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008886085" />
-    <state width="1860" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1581010033122" />
-    <state x="2104" y="74" key="SettingsEditor" timestamp="1585724942425">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="606" y="199" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1581237217835" />
-    <state x="606" y="199" key="SettingsEditor/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1581008963727" />
-    <state x="2104" y="74" key="SettingsEditor/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1585724942425" />
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586225781917">
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396136442" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1586316027453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586225781917" />
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@1920.0.1920.1160" timestamp="1585580902823" />
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1585698908921" />
-    <state x="0" y="272" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583855452132">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="0" y="272" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1583855452132" />
-    <state x="7" y="200" width="1736" height="856" key="dock-window-1" timestamp="1584874191831">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="7" y="200" width="1736" height="856" key="dock-window-1/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1584874191831" />
-    <state x="585" y="280" width="672" height="678" key="search.everywhere.popup" timestamp="1586231697893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="280" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586231697893" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1585729730646" />
-    <state x="2731" y="265" width="672" height="757" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@1920.0.1920.1160" timestamp="1585725067167" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tekkenSite$tekkensite_insertdata.coverage" NAME="tekkensite_insertdata Coverage Results" MODIFIED="1581008886076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../tekkenSiteDB" />
-    <SUITE FILE_PATH="coverage/tekkenSite$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1580992115820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../.." />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586316027453" />
   </component>
 </project>
