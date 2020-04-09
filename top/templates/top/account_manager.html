@@ -18,63 +18,60 @@
 
 <div class="wrapper">
     <main class="main">
-        <div class="user_information">
-            <div class="user_information_title">
-                あなたのプロフィール
-            </div>
-            <div class="user_name">
-                ユーザーID  : {{user}}<br>
-            </div>
-            <div class="nick_name">
-                ニックネーム : {{user.userprofile.nick_name}}<br>
-            </div>
-            <div class="email">
-                メールアドレス : {{user.email}}<br>
-            </div>
-            <div class="user_introduction">
-                自己紹介   　:<br>
-                {{user.userprofile.introduction|linebreaksbr}}<br>
-            </div>
-
+        <div class="user_information_title">
+            あなたのプロフィール
         </div>
-        <div class="user_guide">
-            <div class="user_guide_title">
-                あなたの書いたガイド一覧
-            </div>
-            <div class="user_guide_area">
-                {% for guide in guide_list %}
-                <div class="guide_panel">
-                    <a href="{% url 'guide:detail' guide.id %}">
-                        <div class="guide_character_icon">
-                            <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
-                                 class="guide_character_icon_img">
-                            {{guide.character}}
-                        </div>
-                        <div class="guide_maininfo">
-                            {{guide.title}}<br>
-                            by {{guide.author.userprofile.nick_name}}<br>
-                            {{guide.category.name}}ガイド<br>
+        <table class="profile_table">
+            <tr>
+                <th>ユーザーID</th>
+                <td>{{ user }}</td>
+            </tr>
+            <tr>
+                <th>ニックネーム</th>
+                <td>{{ user.userprofile.nick_name }}</td>
+            </tr>
+            <tr>
+                <th>登録メールアドレス</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>メインキャラクター</th>
+                <td>{{ user.userprofile.main_character }}</td>
+            </tr>
+            <tr>
+                <th>twitter ID</th>
+                <td>
+                    <a href="https://twitter.com/{{ user.userprofile.twitter_account }}">@{{ user.userprofile.twitter_account }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Youtube チャンネル URL</th>
+                <td><a href="{{ user.userprofile.youtube_channel_url }}">{{ user.userprofile.youtube_channel_url }}</a></td>
+            </tr>
+            <tr>
+                <th>Twitch URL</th>
+                <td><a href="{{ user.userprofile.twitch_url }}">{{ user.userprofile.twitch_url }}</a></td>
+            </tr>
+            <tr>
+                <th>自己紹介文</th>
+                <td> {{ user.userprofile.introduction|linebreaksbr }}</td>
+            </tr>
+        </table>
 
-                            {{guide.pub_date}}<br>
 
-                        </div>
-                        <div class="guide_subinfo">
-                            view : {{guide.number_of_preview}}<br>
-                            高評価:<br>
-                            低評価:<br>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
+<div class="user_guide">
+    <div class="user_guide_title">
+        あなたの書いたガイド一覧
+    </div>
+    <div class="user_guide_area">
+        <a href="{% url 'guide:your_guide' %}">あなたの書いたガイド一覧ページへ</a>
+    </div>
 
-        </div>
-        <div class="user_comment">
+</div>
+<div class="user_comment">
 
-        </div>
-
-
-    </main>
+</div>
+</main>
 
 </div>
 </body>

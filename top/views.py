@@ -1,7 +1,7 @@
 from django.contrib.auth import login, logout
 from django.urls import reverse
 from django.shortcuts import render, redirect
-
+from .util import profile_manager
 from .forms import UserProfileUpdateForm, UserCreationForm
 from .models import UserProfile, CustomUser
 from guide.models import Character, Guide
@@ -51,6 +51,7 @@ def register(request):
 
 
 def account_manager(request):
+
     if request.user.is_authenticated:
         user = request.user
         guide_list = Guide.objects.filter(author=user)
@@ -95,20 +96,30 @@ def profile(request):
     user = request.user;
 
     if user.is_authenticated:
-        # UserProfileObjectがなかった場合は、空のUserProfileObjectを新規作成
-        try:
-            print(user.userprofile)
-        except:
-            UserProfile(user_id=user.id).save()
+        if request.method == "POST":
+            profile_manager.save_profile(user=user, request=request)
 
-        initail_dict = {
-            'nick_name': user.userprofile.nick_name,
-            'main_character': user.userprofile.main_character,
-            'introduction': user.userprofile.introduction,
-        }
+            return redirect(reverse("top:account_manager"))
 
-        form = UserProfileUpdateForm(initial=initail_dict)
-        return render(request, "top/profile.html", {'form': form})
+        else:
+            # UserProfileObjectがなかった場合は、空のUserProfileObjectを新規作成
+            try:
+                print(user.userprofile)
+            except:
+                UserProfile(user_id=user.id).save()
+
+            initail_dict = {
+                'nick_name': user.userprofile.nick_name,
+                'main_character': user.userprofile.main_character,
+                'twitter_account': user.userprofile.twitter_account,
+                'youtube_channel_url': user.userprofile.youtube_channel_url,
+                'twitch_url': user.userprofile.twitch_url,
+                'introduction': user.userprofile.introduction,
+
+            }
+
+            form = UserProfileUpdateForm(initial=initail_dict)
+            return render(request, "top/profile.html", {'form': form})
 
     else:
         return redirect(reverse("top:index"))
@@ -116,7 +127,6 @@ def profile(request):
 
 # トップページに飛ぶ前のクッションページ
 def go_to_top_page(request):
-
     return render(request, "top/go_to_top_page.html")
 
 
@@ -145,13 +155,14 @@ def change_email(request):
     return render(request, "top/change_email.html")
 
 
+'''
 def update_profile(request):
     """
     プロフィール更新画面
     :param request:
     :return:
     """
-    next_page = request.POST.get('next')
+    # next_page = request.POST.get('next')
     user = request.user
     print(request.POST.get('main_character'))
     main_character = Character.objects.get(id=request.POST.get('main_character'))
@@ -165,12 +176,27 @@ def update_profile(request):
     return redirect(reverse(next_page))
 
 
+'''
+
+
 # アカウント登録時の初回のみのプロフィール設定画面
 
 def initialize_profile(request):
-    form = UserProfileUpdateForm()
-    return render(request, "top/initialize_profile.html", {'form': form})
+    user = request.user
+
+    if user.is_authenticated:
+        if request.method == "POST":
+            profile_manager.save_profile(user=user, request=request)
+
+            return redirect(reverse("top:registration_finish"))
+
+        else:
+            form = UserProfileUpdateForm()
+            return render(request, "top/initialize_profile.html", {'form': form})
+    else:
+        return redirect(reverse("top:index"))
 
 
+# アカウントの登録完了画面
 def registration_finish(request):
     return render(request, "top/registration_finish.html")

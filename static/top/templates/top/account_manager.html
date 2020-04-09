@@ -44,6 +44,18 @@
             <div class="email">
                 メールアドレス : {{ user.email }}<br>
             </div>
+            <div class="email">
+                メインキャラクター : {{ user.email }}<br>
+            </div>
+            <div class="twitter_account">
+                twitter ID : <a href="https://twitter.com/{{ twitter_account }}">@{{ user.userprofile.twitter_account }}</a>
+            </div>
+            <div class="youtube_channel_url">
+                Youtubeチャンネル URL : <a href="{{ user.userprofile.youtube_channel_url }}">{{ user.userprofile.youtube_channel_url }}</a>
+            </div>
+            <div class="twitch_url">
+                Twitch URL : <a href="{{ user.userprofile.twitch_url }}">{{ user.userprofile.twitch_url }}</a>
+            </div>
             <div class="user_introduction">
                 自己紹介 　:<br>
                 {{ user.userprofile.introduction|linebreaksbr }}<br>

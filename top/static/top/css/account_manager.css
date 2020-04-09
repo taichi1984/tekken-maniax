@@ -3,12 +3,12 @@
 @import url("/static/guide/css/guide_panel.css");
 
 
-
 body {
-    padding:0px;
+    padding: 0px;
     background-color: white;
     color: black;
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -19,38 +19,58 @@ body {
 }
 
 main {
-    width:970px;
+    width: 970px;
     display: block;
     margin: 30px auto 40px;
 
 }
-.user_information {
-    margin-bottom:30px;
-}
-.user_information_title{
-    width:100%;
-    color:white;
-    background-color:black;
-    font-size:30px;
-    font-weight:bold;
+
+.profile_table {
+    margin: 10px 0px 10px 0px;
 }
 
-.user_guide{
-    width:100%;
-    display:flex;
+.profile_table th{
+    padding-right:20px;
+    text-align: left;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+.user_information {
+    margin-bottom: 30px;
+}
+
+.user_information_title {
+    width: 100%;
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.user_guide {
+    width: 100%;
+    display: flex;
     flex-direction: column;
 
 }
 
-.user_guide_area{
-    display:flex;
+.user_guide_area {
+    display: flex;
     flex-direction: row;
-     flex-wrap:wrap;
+    flex-wrap: wrap;
 }
-.user_guide_title{
-    width:100%;
-    color:white;
-    background-color:black;
-    font-size:30px;
-    font-weight:bold;
+
+.user_guide_title {
+    width: 100%;
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    font-weight: bold;
 }
