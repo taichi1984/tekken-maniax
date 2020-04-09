@@ -182,7 +182,7 @@ def detail_guide(request, guide_id):
 
     character_list = Character.objects.order_by('id')
     category_list = Category.objects.order_by('id')
-    comment_list = GuideComment.objects.filter(guide=guide, is_deleted=False)
+    comment_list = GuideComment.objects.filter(guide=guide)
     guide_sections = json.loads(guide.article)
     for this_guide in guide_sections:
         this_guide["article"] = text_html_converter.convert_to_html(this_guide["article"])

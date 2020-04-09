@@ -188,29 +188,42 @@
                 <hr>
                 {% for comment in comment_list %}
                     <div class="comment">
-                        {{ guide.author }}
-                        {{ comment.contributor }}
-                        {% if comment.contributor == user or user == guide.author %}
-                            <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
-                                {% csrf_token %}
-                                <div class="comment_contributor">
-                                    {{ forloop.counter }} .　{{ comment.contributor }} <input type="submit" value="削除">
-                                </div>
-                                <input type="hidden" name="next" value="{{ request.path }}">
-                            </form>
-                            {% 　else %}
+                        {% if comment.is_deleted == True %}
                             <div class="comment_contributor">
+                                {{ forloop.counter }} .
+                            </div>
+                        {% else %}
+
+                            {% if comment.contributor == user or user == guide.author %}
+                                <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
+                                    {% csrf_token %}
+                                <div>
+                                    {{ forloop.counter }} .　{{ comment.contributor }} <input type="submit"
+                                                                                             value="削除">
+                                </div>
+
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                </form>
+                                {% else %}
+                                <div class="comment_contributor">
                                 {{ forloop.counter }} .　{{ comment.contributor }}
+                                </div>
+                            {% endif %}
+
+                        {% endif %}
+
+                        {% if comment.is_deleted == True %}
+                            <div class="comment_comment">
+                                このコメントは削除されました。
+                            </div>
+                        {% else %}
+                            <div class="comment_comment">
+                                {{ comment.comment |safe }}
                             </div>
                         {% endif %}
 
 
-                        <div class="comment_comment">
-                            {{ comment.comment |safe }}
                         </div>
-
-
-                    </div>
 
                 {% endfor %}
             </div>

@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'tekkenSite',
         'USER': 'tekkenmaniax0401',
         'PASSWORD': 'Kaiketsu84',
-        'HOST': '127.0.0.1',    
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
@@ -143,18 +143,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATICFILES_DIRS = [
-    #BASE_DIR,
-    os.path.join(BASE_DIR,"static")
+    BASE_DIR,
 ]
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Email送信テスト用
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 
 if os.name == 'nt':
     SECURE_SSL_REDIRECT = False
@@ -164,7 +162,6 @@ else:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-
 
 # CERTBOT用の変数追記
 CERT_ROOT = os.path.join(BASE_DIR, '.well-known')

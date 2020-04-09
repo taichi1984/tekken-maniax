@@ -3,20 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/about_tekkenguide.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/about_tekkenguide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/create_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/favorite_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/favorite_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/guide_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/guide_error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/how_to_write_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/how_to_write_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/preview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/templates/guide/your_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/templates/guide/your_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/site_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/site_header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +101,7 @@
       <updated>1586315980837</updated>
       <workItem from="1586315984491" duration="646000" />
       <workItem from="1586394606218" duration="1214000" />
-      <workItem from="1586396134160" duration="14627000" />
+      <workItem from="1586396134160" duration="16817000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -141,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586413314172</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="collectingstatic忘れのため再プッシュ">
+      <created>1586414209957</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586414209957</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +169,8 @@
     <MESSAGE value="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。" />
     <MESSAGE value="グーグルアナリティクスのコードを全てのページに追加。" />
     <MESSAGE value="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。" />
-    <option name="LAST_COMMIT_MESSAGE" value="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。" />
+    <MESSAGE value="collectingstatic忘れのため再プッシュ" />
+    <option name="LAST_COMMIT_MESSAGE" value="collectingstatic忘れのため再プッシュ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="688" y="147" key="#models" timestamp="1586402855387">
@@ -215,10 +213,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586413316469">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586414214780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413316469" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586414214780" />
     <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1586396136442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -227,9 +225,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1586413961132">
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1586417750065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413961132" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417750065" />
   </component>
 </project>
