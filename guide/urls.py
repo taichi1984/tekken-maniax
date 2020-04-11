@@ -14,7 +14,7 @@ urlpatterns = [
     # preview guide
     path('create/preview/', views.preview_guide, name='preview'),
     # preview guide
-    path('create/post/', views.post_guide, name='post'),
+    path('create/finish/', views.create_guide_finish, name='create_guide_finish'),
     # update_guide
     path('update/<int:guide_id>', views.update_guide, name='update'),
     # delete_guide

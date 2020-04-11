@@ -7,7 +7,6 @@ app_name = "top"
 urlpatterns = [
     # index page
     path('', views.index, name='index'),
-
     path('how_to_register/', views.how_to_register, name="how_to_register"),
     path('notation/', views.notation, name="notation"),
     path('register/registration_finish', views.registration_finish, name="registration_finish"),

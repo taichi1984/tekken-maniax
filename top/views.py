@@ -24,11 +24,11 @@ def index(request):
 #############################
 
 def how_to_register(request):
-    render(request, 'top/how_to_register.html',)
+    return render(request, "top/how_to_register.html")
 
 
 def notation(request):
-    render(request, 'notation.html')
+    return render(request, 'top/notation.html')
 
 
 ########################
@@ -136,16 +136,6 @@ def delete_account(request):
     else:
         None
     return render(request, "top/delete_account.html")
-
-
-# site_discription関連
-
-def how_to_register(request):
-    return render(request, 'how_to_register.html')
-
-
-def notation(request):
-    return render(request, 'notation.html')
 
 
 #

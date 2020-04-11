@@ -15,10 +15,11 @@
 
         gtag('config', 'UA-163168954-1');
     </script>
+    <meta http-equiv="Refresh" content="3;URL={% url 'guide:detail' next %}">
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/create_guide_finish.css' %}"/>
     <title>
-        サイト利用上の注意
+        ガイド投稿完了
     </title>
 </head>
 
@@ -29,11 +30,14 @@
 </header>
 <div class="wrapper">
     <main class="main">
+        投稿が完了しました。
+        <a href="{% url 'guide:detail' next %}">投稿したガイドのページ</a>へ遷移します。
     </main>
 
 </div>
 <footer>
     {% include 'top/footer.html' %}
 </footer>
+
 </body>
 </html>

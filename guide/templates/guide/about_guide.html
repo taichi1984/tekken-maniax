@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
     <title>
-        template test
+        Tekken Guideについて
     </title>
 </head>
 
@@ -27,5 +28,13 @@
     {% include 'guide/guide_header.html' %}
 </header>
 
+<div class="wrapper">
+    <main class="main">
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
 </body>
 </html>

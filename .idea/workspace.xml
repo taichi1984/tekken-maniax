@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guide/templates/guide/guides_for_beginners.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guide/static/guide/css/create_guide_finish.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_tekkenguide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/js/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/js/edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guides_for_beginners.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guides_for_beginners.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide_finish.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/go_to_top_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/error_account_manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/registration_finish.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/registration_finish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/how_to_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/how_to_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/notation.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/notation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
@@ -49,15 +53,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/guide/templates/guide" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/guide/static/guide/css" />
     <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
     </key>
   </component>
   <component name="RunManager">
@@ -111,7 +116,7 @@
       <workItem from="1586315984491" duration="646000" />
       <workItem from="1586394606218" duration="1214000" />
       <workItem from="1586396134160" duration="20731000" />
-      <workItem from="1586605830166" duration="1244000" />
+      <workItem from="1586605830166" duration="6629000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -162,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586417994049</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="guideの紹介系のページをリンク">
+      <created>1586607186172</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586607186173</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +210,8 @@
     <MESSAGE value="collectingstatic忘れのため再プッシュ" />
     <MESSAGE value="detailぺージ　コメント表示欄のユーザーのデバッグ用表示削除漏れの修正。&#10;削除したコメントは、このコメントは削除されましたと表示されるように変更。&#10;siteheaderのabout this site の項目を削除" />
     <MESSAGE value="detailぺージ　コメント表示欄のユーザーのデバッグ用表示削除漏れの修正。&#10;削除したコメントは、このコメントは削除されましたと表示されるように変更。&#10;siteheaderのabout this site の項目を削除&#10;settings.pyを微修正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="detailぺージ　コメント表示欄のユーザーのデバッグ用表示削除漏れの修正。&#10;削除したコメントは、このコメントは削除されましたと表示されるように変更。&#10;siteheaderのabout this site の項目を削除&#10;settings.pyを微修正。" />
+    <MESSAGE value="guideの紹介系のページをリンク" />
+    <option name="LAST_COMMIT_MESSAGE" value="guideの紹介系のページをリンク" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -246,10 +259,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586418028710">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586607191117">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586607191117" />
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612018515" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1586605852961">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -260,10 +278,10 @@
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586607150812" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586606820773">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586612457702">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586606820773" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612457702" />
   </component>
 </project>

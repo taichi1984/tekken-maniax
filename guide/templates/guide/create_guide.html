@@ -49,11 +49,11 @@
 
             <div class="guide_help_menu">
                 <div class="guide_help_menu_item">
-                    <a href="">ガイドの書き方</a>はこちら
+                    <a href="{% url 'guide:how_to_write_guides' %}" target="_blank">ガイドの書き方</a>はこちら
                 </div>
             </div>
         </div>
-        <form action="{% url 'guide:create' %}" method="post" id="guide_form" name="guide_form">
+        <form action="" method="post" id="guide_form" name="guide_form">
             <div class="guide_editor" name="guide_editor">
 
                 {% csrf_token %}

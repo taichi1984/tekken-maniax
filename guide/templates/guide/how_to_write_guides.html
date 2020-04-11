@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +15,25 @@
 
         gtag('config', 'UA-163168954-1');
     </script>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
+    <title>
+        ガイドの書き方について
+    </title>
 </head>
+
+<body>
 <header class="header">
     {% include 'top/site_header.html' %}
     {% include 'guide/guide_header.html' %}
 </header>
-<body>
+<div class="wrapper">
+    <main class="main">
+    </main>
 
-投稿が完了しました。
-<a href="{% url 'guide:index' %}">トップページ</a>へ遷移します。
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
 </body>
 </html>

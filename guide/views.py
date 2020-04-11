@@ -62,20 +62,21 @@ def about_guide(request):
     :param request:
     :return :
     """
-    return render(request, 'about_guide.html')
+    return render(request, 'guide/about_guide.html')
 
 
 def how_to_write_guides(request):
     """
     ガイドの書き方についての表示用view
     """
-    return render(request, 'how_to_write_guides.html')
+    return render(request, 'guide/how_to_write_guides.html')
+
 
 def guides_for_beginners(request):
     """
     初心者向けのガイド紹介ページ
     """
-    return render(request, 'guides_for_beginners.html')
+    return render(request, 'guide/guides_for_beginners.html')
 
 
 ############################
@@ -88,53 +89,56 @@ def create_guide(request):
     :param request:
     :return:
     """
+
     if request.user.is_authenticated:
-        character_list = Character.objects.order_by('id')
-        category_list = Category.objects.order_by('id')
-        template = loader.get_template('guide/create_guide.html')
-        context = {
-            'character_list': character_list,
-            'category_list': category_list,
-        }
-        return HttpResponse(template.render(context, request))
+        if request.method == 'POST':
+            character_list = Character.objects.order_by('id')
+            guide_character_id = request.POST.get("guide_character")
+            guide_category_id = request.POST.get("guide_category")
+            guide_title = request.POST.get("guide_title")
+            guide_section_title = request.POST.getlist("guide_section_title")
+            guide_section_article = request.POST.getlist("guide_section_article")
+            guide_content = []
+            user = CustomUser.objects.get(username=request.user)
+
+            for title, article in zip(guide_section_title, guide_section_article):
+                guide_content.append({"title": title, "article": article})
+
+            guide_article = json.dumps(guide_content, ensure_ascii=False)
+            print(guide_content)
+
+            new_guide = Guide(author=user, title=guide_title,
+                              category_id=guide_category_id,
+                              character_id=guide_character_id,
+                              article=guide_article, pub_date=datetime.now(),
+                              update_date=datetime.now())
+            new_guide.save()
+
+            return redirect(reverse('guide:create_guide_finish') + "?next=" + str(new_guide.id))
+
+        else:
+            character_list = Character.objects.order_by('id')
+            category_list = Category.objects.order_by('id')
+            template = loader.get_template('guide/create_guide.html')
+            context = {
+                'character_list': character_list,
+                'category_list': category_list,
+            }
+            return render(request, 'guide/create_guide.html', context)
 
     else:
         return redirect(reverse('top:login') + "?next=" + reverse('guide:create'))
 
 
-def post_guide(request):
+def create_guide_finish(request):
     """
-    投稿処理のview
+    投稿完了画面の表示用View
     :param request:
     :return:
     """
-    character_list = Character.objects.order_by('id')
-    guide_id = request.POST.get("guide_id")
-    guide_character_id = request.POST.get("guide_character")
-    guide_category_id = request.POST.get("guide_category")
-    guide_title = request.POST.get("guide_title")
-    guide_section_title = request.POST.getlist("guide_section_title")
-    guide_section_article = request.POST.getlist("guide_section_article")
-    guide_content = []
-    user = CustomUser.objects.get(username=request.user)
-
-    for title, article in zip(guide_section_title, guide_section_article):
-        guide_content.append({"title": title, "article": article})
-
-    guide_article = json.dumps(guide_content, ensure_ascii=False)
-    print(guide_content)
-
-    Guide(id=guide_id, author=user, title=guide_title,
-          category_id=guide_category_id,
-          character_id=guide_character_id,
-          article=guide_article, pub_date=datetime.now(),
-          update_date=datetime.now()).save()
-
-    template = loader.get_template('guide/post.html')
-
-    context = {}
-
-    return HttpResponse(template.render(context, request))
+    next = request.GET.get('next')
+    context = {'next': next}
+    return render(request, 'guide/create_guide_finish.html', context)
 
 
 def preview_guide(request):
@@ -439,7 +443,7 @@ class Search(ListView):
         else:
             return None
 
-        if search_word is not "":
+        if search_word != "":
             character = Character.objects.filter(Q(first_name_jp=search_word) |
                                                  Q(first_name_en=search_word) |
                                                  Q(family_name_jp=search_word) |
