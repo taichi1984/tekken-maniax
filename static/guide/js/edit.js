@@ -184,7 +184,7 @@ function post_guide() {
 
         document.guide_form.target = "_self";
         document.guide_form.method = "post";
-        document.guide_form.action = "/guide/create/post/";
+        document.guide_form.action = "/guide/create/";
         document.guide_form.submit();
 
     })
