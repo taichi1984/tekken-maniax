@@ -19,6 +19,26 @@ def index(request):
     return render(request, "top/index.html")
 
 
+#############################
+# サイトに関しての説明関連画面 #
+#############################
+
+def how_to_register(request):
+    render(request, 'top/how_to_register.html',)
+
+
+def notation(request):
+    render(request, 'notation.html')
+
+
+########################
+# アカウント登録関連画面 #
+########################
+
+#
+# アカウント登録画面
+#
+
 def register(request):
     """
     ユーザー登録用ページ
@@ -50,7 +70,38 @@ def register(request):
     return render(request, "top/register.html", {'form': form})
 
 
+# アカウント登録時の初回のみのプロフィール設定画面
+
+def initialize_profile(request):
+    user = request.user
+
+    if user.is_authenticated:
+        if request.method == "POST":
+            profile_manager.save_profile(user=user, request=request)
+
+            return redirect(reverse("top:registration_finish"))
+
+        else:
+            form = UserProfileUpdateForm()
+            return render(request, "top/initialize_profile.html", {'form': form})
+    else:
+        return redirect(reverse("top:index"))
+
+
+# アカウントの登録完了画面
+def registration_finish(request):
+    return render(request, "top/registration_finish.html")
+
+
+##############################
+# アカウントマネージャー関連画面 #
+##############################
+
+# アカウントマネージャートップ
 def account_manager(request):
+    """
+    アカウントマネージャートップ画面
+    """
 
     if request.user.is_authenticated:
         user = request.user
@@ -87,9 +138,23 @@ def delete_account(request):
     return render(request, "top/delete_account.html")
 
 
-def profile(request):
+# site_discription関連
+
+def how_to_register(request):
+    return render(request, 'how_to_register.html')
+
+
+def notation(request):
+    return render(request, 'notation.html')
+
+
+#
+# profile編集画面
+#
+
+def edit_profile(request):
     """
-    プロフィール表示変更画面
+    プロフィール編集画面
     :param request:
     :return:
     """
@@ -125,11 +190,6 @@ def profile(request):
         return redirect(reverse("top:index"))
 
 
-# トップページに飛ぶ前のクッションページ
-def go_to_top_page(request):
-    return render(request, "top/go_to_top_page.html")
-
-
 def change_email(request):
     """
     e-mail変更画面
@@ -155,48 +215,10 @@ def change_email(request):
     return render(request, "top/change_email.html")
 
 
-'''
-def update_profile(request):
-    """
-    プロフィール更新画面
-    :param request:
-    :return:
-    """
-    # next_page = request.POST.get('next')
-    user = request.user
-    print(request.POST.get('main_character'))
-    main_character = Character.objects.get(id=request.POST.get('main_character'))
-
-    UserProfile(id=user.userprofile.id,
-                nick_name=request.POST.get('nick_name'),
-                main_character=main_character,
-                introduction=request.POST.get('introduction'),
-                user_id=user.id).save()
-
-    return redirect(reverse(next_page))
-
-
-'''
-
-
-# アカウント登録時の初回のみのプロフィール設定画面
-
-def initialize_profile(request):
-    user = request.user
-
-    if user.is_authenticated:
-        if request.method == "POST":
-            profile_manager.save_profile(user=user, request=request)
-
-            return redirect(reverse("top:registration_finish"))
-
-        else:
-            form = UserProfileUpdateForm()
-            return render(request, "top/initialize_profile.html", {'form': form})
-    else:
-        return redirect(reverse("top:index"))
-
-
-# アカウントの登録完了画面
-def registration_finish(request):
-    return render(request, "top/registration_finish.html")
+# トップページに飛ぶ前のクッションページ
+def error_account_manager(request):
+    error_message = request.GET.get('error_message')
+    context = {
+        'error_message': error_message
+    }
+    return render(request, "top/error_account_manager.html", context)

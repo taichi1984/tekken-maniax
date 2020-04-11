@@ -176,7 +176,8 @@
                     </table>
 
                 {% else %}
-                    コメントをするにはログインする必要があります。
+                    コメントをするにはログインする必要があります。<br>
+                    ログイン画面は<a href="{% url 'login' %}">こちら</a>
                 {% endif %}
 
 
@@ -197,16 +198,16 @@
                             {% if comment.contributor == user or user == guide.author %}
                                 <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
                                     {% csrf_token %}
-                                <div>
-                                    {{ forloop.counter }} .　{{ comment.contributor }} <input type="submit"
-                                                                                             value="削除">
-                                </div>
+                                    <div>
+                                        {{ forloop.counter }} .　{{ comment.contributor }} <input type="submit"
+                                                                                                 value="削除">
+                                    </div>
 
-                                <input type="hidden" name="next" value="{{ request.path }}">
+                                    <input type="hidden" name="next" value="{{ request.path }}">
                                 </form>
-                                {% else %}
+                            {% else %}
                                 <div class="comment_contributor">
-                                {{ forloop.counter }} .　{{ comment.contributor }}
+                                    {{ forloop.counter }} .　{{ comment.contributor }}
                                 </div>
                             {% endif %}
 
@@ -223,7 +224,7 @@
                         {% endif %}
 
 
-                        </div>
+                    </div>
 
                 {% endfor %}
             </div>

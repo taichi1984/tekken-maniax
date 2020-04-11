@@ -18,7 +18,7 @@
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
     <title>
-        template test
+        Tekken Guide Top Page
     </title>
 </head>
 <header class="header">
@@ -40,7 +40,7 @@
             <div class="introduction_description">
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="">TEKKEN GUIDEについて</a>
+                        <a href="{% url 'guide:about_guide' %}">TEKKEN GUIDEについて</a>
                     </div>
                     <div class="description_article">
                         このサイトについての簡単な説明があります。
@@ -48,7 +48,7 @@
                 </div>
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="">アカウントの登録方法</a>
+                        <a href="{% url 'top:how_to_register' %}">アカウントの登録方法</a>
                     </div>
                     <div class="description_article">
                         アカウントの登録方法の説明です。
@@ -56,7 +56,7 @@
                 </div>
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="">ガイドの書き方</a>
+                        <a href="{% url 'guide:how_to_write_guides' %}">ガイドの書き方</a>
                     </div>
                     <div class="description_article">
                         ガイドの書き方についてのガイドです。
@@ -65,7 +65,7 @@
 
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="">鉄拳初心者向けガイド</a>
+                        <a href="{% url 'guide:guides_for_beginners' %}">鉄拳初心者向けガイド</a>
                     </div>
                     <div class="description_article">
                         鉄拳を初めてプレイする人に向けてのガイドです。
@@ -73,7 +73,7 @@
                 </div>
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="">サイト利用上の注意</a>
+                        <a href="{% url 'top:notation' %}">サイト利用上の注意</a>
                     </div>
                     <div class="description_article">
                         サイト利用上の注意についてです。

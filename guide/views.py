@@ -39,20 +39,43 @@ def index(request):
 
     for character in character_list:
         character_guide_info = {
-                        "character":character,
-                        "num" : Guide.objects.filter(character=character).count()
+            "character": character,
+            "num": Guide.objects.filter(character=character).count()
         }
         character_guide_list[character.first_name_en] = character_guide_info
-
-
 
     context = {
         'latest_guide_list': latest_guide_list,
         'character_guide_list': character_guide_list,
 
-
     }
     return HttpResponse(template.render(context, request))
+
+
+############################
+# ガイドの説明関連画面の処理 #
+############################
+
+def about_guide(request):
+    """
+    ガイドについて画面の表示用view
+    :param request:
+    :return :
+    """
+    return render(request, 'about_guide.html')
+
+
+def how_to_write_guides(request):
+    """
+    ガイドの書き方についての表示用view
+    """
+    return render(request, 'how_to_write_guides.html')
+
+def guides_for_beginners(request):
+    """
+    初心者向けのガイド紹介ページ
+    """
+    return render(request, 'guides_for_beginners.html')
 
 
 ############################
@@ -116,7 +139,7 @@ def post_guide(request):
 
 def preview_guide(request):
     """
-
+    ガイドのプレビュー表示用のview
     :param request:
     :return:
     """
