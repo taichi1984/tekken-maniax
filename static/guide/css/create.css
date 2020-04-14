@@ -25,7 +25,7 @@ header {
 }
 
 main {
-    width:800px;
+    width:970px;
     display: block;
     margin: 30px auto 40px;
 }
@@ -93,7 +93,7 @@ main {
 }
 
 guide_menu_header {
-    width: 100px;
+    width: 100%;
 }
 
 .guide_section {
@@ -101,42 +101,72 @@ guide_menu_header {
     display:flex;
     flex-direction: column;
     background-color:rgb(68, 68, 68);
-    padding-top:10px;
+    padding-top:0px;
     margin-top: 30px;
     color:white;
 }
 
 .guide_section_title {
-    width:90%;
-    padding:10px 10px 10px 20px;
+    width:97%;
+    margin:0px 0px 0px 20px;
+    padding:10px 0px 10px 0px;
     background-color:rgb(68, 68, 68);
     color:white;
 }
 
 .guide_section_article {
-    width:90%;
-    padding:10px 10px 10px 20px;
+    width:97%;
+    margin:0px 0px 0px 20px;
+    padding:10px 0px 10px 0px;
     background-color:rgb(68, 68, 68);
 
 }
 .guide_section_title_preview {
-    width:90%;
-    padding: 10px;
-    margin-left:10px;
-    border-bottom:solid 1px black;
-    background-color:rgb(68, 68, 68);
+    width:948px;
+    font-size:20px;
+    font-weight:bold;
+    padding: 30px 0px 10px 20px;
+    margin-left:0px;
+    background-color:black;
     color:white;
+    border:1px solid black;
 
 }
 
 .guide_section_article_preview {
-    width:90%;
-    background-color:rgb(68, 68, 68);
-    color:white;
-    margin-left:10px;
-    padding: 10px;
-
+    width:948px;
+    background-color:white;
+    color:black;
+    margin-left:0px;
+    padding: 20px 0px 20px 20px;
+    border:1px solid black;
 }
+
+.guide_section_article_preview h1, h2, h3 {
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.guide_section_article_preview hr {
+    margin: 10px 0px 20px 0px;
+}
+
+.guide_section_article_preview th {
+    background-color: aqua;
+}
+
+.guide_section_article_preview tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+.guide_section_article_preview table, th, td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
 
 .guide_section_button_area {
     padding:20px;

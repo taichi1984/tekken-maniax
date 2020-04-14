@@ -38,15 +38,15 @@ main {
     background-size: 100%;
 }
 
-.page_type{
-    padding:10px;
+.page_type {
+    padding: 10px;
 }
+
 .page_summary {
     display: flex;
     position: absolute;
     left: 10px;
     bottom: 10px;
-    height: 100px;
     background-color: rgba(150, 150, 150, 0.8);
     width: 98%;
 
@@ -59,7 +59,11 @@ main {
 
 .page_summary_title {
     width: 60%;
+}
 
+.page_summary_title_title{
+    font-size:25px;
+    font-weight:bold;
 }
 
 .page_summary_vote {
@@ -73,7 +77,6 @@ main {
 .vote_area {
     display: flex;
     width: 220px;
-
 
 }
 
@@ -112,8 +115,8 @@ main {
     height: 30px;
 }
 
-.bad_evaluation_area{
-    margin:5px;
+.bad_evaluation_area {
+    margin: 5px;
 }
 
 .bad_evaluation_pushed_button {
@@ -177,20 +180,27 @@ main {
 
 .table_of_contents {
     margin-top: 10px;
-    background-color: rgb(68, 68, 68);
-    height: 200px;
+    background-color: white;
     width: 100%;
+    color: black;
+    border: 1px solid black;
+    padding: 0px 0px 30px 0px;
 }
 
 .table_of_contents a {
-    color:white;
+    color: black;
 }
 
 .table_of_contents a:hover {
-    color:aqua;
+    color: aqua;
 }
+
 .table_of_contents_title {
-    padding: 10px 0 0 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 10px 0 10px 30px;
 
 }
 
@@ -210,77 +220,107 @@ main {
 
 .section {
     width: 100%;
-    margin:50px 0px 30px 0px;
-
+    margin: 50px 0px 30px 0px;
+    border: solid 1px black;
     background-color: rgb(68, 68, 68);
-    height:auto;
+    height: auto;
 
 }
 
 .section_title {
-    padding:10px 10px 10px 20px;
+    padding: 10px 10px 10px 20px;
     height: 10%;
-    background-color: rgb(68, 68, 68);
-    border-bottom:solid 3px #272828;
+    background-color: black;
+    color: white;
+    border-bottom: solid 3px #272828;
+    font-size: 20px;
+    font-weight: bold;
 
 }
 
 .section_article {
     height: 90%;
-    padding:10px 10px 10px 30px;
-    background-color: rgb(68, 68, 68)
+    padding: 10px 10px 10px 30px;
+    background-color: white;
+    color: black;
+}
 
+.section_article h1, h2, h3 {
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.section_article hr {
+    margin: 10px 0px 20px 0px;
+}
+
+.section_article th {
+    background-color: aqua;
+}
+
+.section_article tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+.section_article table, th, td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
 
 
+
 .author_field {
-    margin-top:50px;
+    margin-top: 50px;
     width: 100%;
     height: 300px;
 }
 
 
 .author_title {
-    padding:10px 10px 10px 20px;
+    padding: 10px 10px 10px 20px;
     height: 10%;
     background-color: rgb(68, 68, 68);
-    border-bottom:solid 3px #272828;
+    border-bottom: solid 3px #272828;
 
 }
 
 .author_content {
-    padding:10px 10px 10px 30px;
+    padding: 10px 10px 10px 30px;
     height: 90%;
-    padding:10px;
+    padding: 10px;
     background-color: rgb(68, 68, 68)
 
 }
 
 .comment_area {
-    margin-top:100px;
+    margin-top: 100px;
     width: 100%;
 }
 
 .comment_form {
-    padding:10px 10px 10px 30px;
+    padding: 10px 10px 10px 30px;
     background-color: rgb(68, 68, 68);
 }
-.comment_form_label{
+
+.comment_form_label {
 
 }
 
-.comment_form_comment{
+.comment_form_comment {
 
 }
 
 .comments {
-    margin-top:20px;
+    margin-top: 20px;
     background-color: rgb(68, 68, 68);
 
 }
 
 .comments_title {
-    padding:10px 10px 10px 20px;
+    padding: 10px 10px 10px 20px;
 }
 
 .comment {
@@ -289,14 +329,16 @@ main {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    border-bottom:4px double white;
+    border-bottom: 4px double white;
 }
-.comment_contributor{
-    font-weight:bold;
+
+.comment_contributor {
+    font-weight: bold;
 
 }
-.comment_comment{
-    padding:10px 10px 10px 10px;
+
+.comment_comment {
+    padding: 10px 10px 10px 10px;
 
 }
 
