@@ -1,16 +1,17 @@
 .guide_panel {
     padding: 10px;
     display: flex;
-    height: 200px;
-    width: 250px;
+    width: 400px;
     margin:10px 10px 10px 10px;
     border:solid 1px black;
     color:black;
     box-shadow:10px 10px 10px rgba(0,0,0,0.6);
     background-color:white;
-
+    word-wrap:break-word;
 }
-
+a{
+    text-decoration: none
+}
 .guide_panel a {
     color: black;
 }
@@ -19,21 +20,43 @@
     background-color:yellow;
 }
 
-
-
 .guide_character_icon {
     padding: 5px;
-
+}
+.guide_panel_info_title{
+    font-weight:bold;
+}
+.guide_panel_info_main{
+    display: flex;
+    flex-direction: column;
 }
 
+.guide_panel_info_main_category{
+    margin:0px 0px 0px 0px;
+}
+.guide_panel_info_evaluation{
+    display:flex;
+    flex-direction: row;
+}
+
+.guide_panel_info_evaluation_views{
+    margin:0px 0px 0px 0px;
+}
+.guide_panel_info_evaluation_good{
+    margin:0px 0px 0px 30px;
+}
+
+.guide_panel_info_evaluation_bad{
+    margin:0px 0px 0px 30px;
+}
 .guide_character_icon_img {
     height: 80px;
     width: 80px;
 
 }
 
-.guide_maininfo {
-    float: left;
+.guide_panel_info {
+    margin:0px 0px 0px 20px;
 }
 
 .guide_subinfo {

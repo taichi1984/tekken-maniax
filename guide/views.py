@@ -32,7 +32,7 @@ def index(request):
     :return:HttpResponse
     """
 
-    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('pub_date').reverse()[:9]
+    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('pub_date').reverse()[:10]
     character_list = Character.objects.all()
     template = loader.get_template('guide/index.html')
     character_guide_list = {}
@@ -161,6 +161,7 @@ def preview_guide(request):
 
     for title, article in zip(guide_section_title, guide_section_article):
         converted_article = text_html_converter.convert_to_html(article)
+        print(converted_article)
         guide_sections.append({"title": title, "article": converted_article})
 
     template = loader.get_template('guide/preview.html')
@@ -356,12 +357,11 @@ class YourGuide(ListView):
     context_object_name = 'guide_list'
 
     def get_queryset(self):
-        return Guide.objects.filter(author=self.request.user)
+        return Guide.objects.filter(author=self.request.user, is_deleted=False).order_by('-update_date')
 
 
 def change_state_guide(request, guide_id):
     """
-
     :param request:
     :param guide_id:
     :return:
@@ -411,6 +411,32 @@ class FavoriteGuide(ListView):
         return Favorite.objects.filter(user=self.request.user)
 
 
+###################################
+#  キャラクター別ガイド一覧画面のView #
+###################################
+class CharacterGuide(ListView):
+    """
+    キャラクター一覧画面用のView
+    """
+    model = Guide
+    paginate_by = 10
+    template_name = 'guide/character_guide.html'
+    context_object_name = 'guide_list'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['number_of_guide'] = len(self.object_list)
+        character = Character.objects.filter(id=int(self.request.GET.get('character'))).first()
+        context['character'] = character
+
+        return context
+
+    def get_queryset(self):
+        return Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date')
+
+
 ######################
 # 　検索画面用のview   #
 ######################
@@ -456,7 +482,7 @@ class Search(ListView):
                                          Q(category=category.first()) |
                                          Q(title__contains=search_word) |
                                          Q(article__contains=search_word))
-                                        )
+                                        ).order_by('-update_date')
         else:
             return None
 
@@ -473,22 +499,50 @@ def update_guide(request, guide_id):
     :return:
     """
     guide = get_object_or_404(Guide, pk=guide_id)
+
     if request.user != guide.author:
         return redirect("top:top_page")
 
     if request.user.is_authenticated:
-        character_list = Character.objects.order_by('id')
-        category_list = Category.objects.order_by('id')
-        template = loader.get_template('guide/update.html')
-        article_list = json.loads(guide.article)
+        if request.method == 'POST':
+            character_list = Character.objects.order_by('id')
+            guide_character_id = request.POST.get("guide_character")
+            guide_category_id = request.POST.get("guide_category")
+            guide_title = request.POST.get("guide_title")
+            guide_section_title = request.POST.getlist("guide_section_title")
+            guide_section_article = request.POST.getlist("guide_section_article")
+            guide_content = []
+            user = CustomUser.objects.get(username=request.user)
 
-        context = {
-            'guide': guide,
-            'article_list': article_list,
-            'character_list': character_list,
-            'category_list': category_list,
-        }
-        return HttpResponse(template.render(context, request))
+            for title, article in zip(guide_section_title, guide_section_article):
+                guide_content.append({"title": title, "article": article})
+
+            guide_article = json.dumps(guide_content, ensure_ascii=False)
+            print("更新時id : " + str(guide.id))
+            guide.author = user;
+            guide.title = guide_title;
+            guide.category_id = guide_category_id;
+            guide.character_id = guide_character_id;
+            guide.article = guide_article;
+            guide.update_date = datetime.now();
+            guide.save();
+
+            return redirect(reverse('guide:create_guide_finish') + "?next=" + str(guide.id))
+        else:
+            character_list = Character.objects.order_by('id')
+            category_list = Category.objects.order_by('id')
+            template = loader.get_template('guide/update.html')
+            article_list = json.loads(guide.article)
+
+            print("表示時id : " + str(guide.id))
+            context = {
+                'guide': guide,
+                'article_list': article_list,
+                'character_list': character_list,
+                'category_list': category_list,
+            }
+
+            return HttpResponse(template.render(context, request))
 
     else:
         return redirect(reverse('top:login'))

@@ -56,7 +56,7 @@
                 </div>
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="{% url 'guide:how_to_write_guides' %}">ガイドの書き方</a>
+                        <a href="{% url 'guide:detail' 1 %}">ガイドの書き方</a>
                     </div>
                     <div class="description_article">
                         ガイドの書き方についてのガイドです。
@@ -65,7 +65,7 @@
 
                 <div class="introduction_description_item">
                     <div class="description_title">
-                        <a href="{% url 'guide:guides_for_beginners' %}">鉄拳初心者向けガイド</a>
+                        <a href="{% url 'guide:detail' 2 %}">鉄拳初心者向けガイド</a>
                     </div>
                     <div class="description_article">
                         鉄拳を初めてプレイする人に向けてのガイドです。
@@ -92,13 +92,13 @@
                 <div class="character_guide_area">
                     {% for key, value in character_guide_list.items %}
                         <div class="character_guide_item">
-                            <a href="{% url 'guide:search' %}?search_word={{ value.character.first_name_en }} ">
+                            <a href="{% url 'guide:character_guide' %}?character={{ value.character.id }} ">
                                 <img class="character_guide_icon_img"
                                      src="/static/guide/image/character_icon_{{ value.character.id }}.jpg" width="100"
                                      height="100">
                             </a>
                             <div class="character_guide_character_name">
-                                {{ value.character }}
+                                {{ value.character.full_name_jp }}
                             </div>
                             <div class=" character_guide_num_of_guides">
                                 <span class="num_of_guides">{{ value.num }}</span> 件
@@ -114,32 +114,12 @@
                 </div>
                 <div class="latest_guide_area">
                     {% for guide in latest_guide_list %}
-                        <div class="guide_panel">
-                            <a href="{% url 'guide:detail' guide.id %}">
-                                <div class="guide_character_icon">
-                                    <img src="/static/guide/image/character_icon_{{ guide.character.id }}.jpg"
-                                         class="guide_character_icon_img">
-                                </div>
-                                <div class="guide_maininfo">
-                                    {{ guide.title }}<br>
-                                    by {{ guide.author.userprofile.nick_name }}<br>
-                                    {{ guide.category.name }}ガイド<br>
-
-                                    {{ guide.pub_date }}<br>
-
-                                </div>
-                                <div class="guide_subinfo">
-                                    view : {{ guide.number_of_preview }}<br>
-                                    高評価:<br>
-                                    低評価:<br>
-                                </div>
-                            </a>
-                        </div>
+                        {% include 'guide/guide_panel.html' %}
                     {% endfor %}
                 </div>
 
             </div>
-            <!--
+            <!-- 未実装　可能であれば実装予定
             <div class="high_rating_guide_container">
                 <div class="high_rating_guide_title">
                     高評価ガイド

@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/search.css' %}"/>
     <title>
-        {{ search_word }}に関する検索結果
+        {{ character }}のガイド一覧
     </title>
 </head>
 <header class="header">
@@ -34,10 +34,7 @@
     <main class="main">
         <div class="search_container">
             <div class="search_title">
-                {{ search_word }}に関する検索結果
-            </div>
-            <div class="search_form">
-
+                {{ character.first_name_jp }}のガイド一覧
             </div>
         </div>
         <div class="guide_container">
@@ -49,8 +46,8 @@
             <div class="pagination">
                 <div class="pagination_previous">
                     {% if page_obj.has_previous %}
-                        <a href="?search_word={{ search_word }}&page=1">&laquo;</a>　　
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                        <a href="?character={{ character.id }}&page=1">&laquo;</a>　　
+                        <a href="?character={{ character.id }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
                     {% endif %}
                 </div>
                 <div class="pagination_current">
@@ -58,8 +55,8 @@
                 </div>
                 <div class="pagination_next">
                     {% if page_obj.has_next %}
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                        <a href="?character={{ character.id }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
+                        <a href="?character={{ character.id }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
                     {% endif %}
                 </div>
             </div>
@@ -74,8 +71,8 @@
             <div class="pagination">
                 <div class="pagination_previous">
                     {% if page_obj.has_previous %}
-                        <a href="?search_word={{ search_word }}&page=1">&laquo;</a>　　
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                        <a href="?character={{ character.id }}&page=1">&laquo;</a>　　
+                        <a href="?character={{ character.id }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
                     {% endif %}
                 </div>
                 <div class="pagination_current">
@@ -83,8 +80,8 @@
                 </div>
                 <div class="pagination_next">
                     {% if page_obj.has_next %}
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
-                        <a href="?search_word={{ search_word }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                        <a href="?character={{ character.id }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
+                        <a href="?character={{ character.id }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
                     {% endif %}
                 </div>
             </div>

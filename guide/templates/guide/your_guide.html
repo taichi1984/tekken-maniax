@@ -51,15 +51,15 @@
                     <td><a href="{% url 'guide:detail' guide.id %}">{{ guide.title }}</a></td>
                     <td>{{ guide.category.name }}</td>
                     <td>{{ guide.character.first_name_en }} {{ guide.character.family_name_en }}</td>
-                    <td><a href="{% url 'guide:update' guide.id %}">更新</a></td>
-                    <td><a href="{% url 'guide:change_state_guide' guide.id %}">
+                    <td><a href="{% url 'guide:update' guide.id %}" target="_blank">更新</a></td>
+                    <td>
                         {% ifequal guide.publishing_setting 0 %}
-                            表示する
+                            公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">非公開にする</a>
                         {% else %}
-                            非表示にする
+                            非公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">公開する</a>
                         {% endifequal %}
                         </form>
-                    </a></td>
+                    </td>
                     <td>
                         <form name="delete_guide_form" method="POST" action="{% url 'guide:delete' %}">
                             {% csrf_token %}

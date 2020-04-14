@@ -1,0 +1,39 @@
+                        <a href="{% url 'guide:detail' guide.id %}">
+                            <div class="guide_panel">
+
+                                <div class="guide_panel_character_icon">
+                                    <img src="/static/guide/image/character_icon_{{ guide.character.id }}.jpg"
+                                         class="guide_character_icon_img">
+                                </div>
+                                <div class="guide_panel_info">
+                                    <div class="guide_panel_info_title">
+                                        {{ guide.title }}
+                                    </div>
+                                    <div class="guide_panel_info_main">
+                                        <div class="guide_panel_info_main_author">
+                                            投稿者 : {{ guide.author.userprofile.nick_name }}
+                                        </div>
+                                        <div class="guide_panel_info_main_category">
+                                            カテゴリ :　 {{ guide.category.name }}<br>
+                                        </div>
+                                    </div>
+                                    <div class="guide_panel_info_evaluation">
+                                        <div class="guide_panel_info_evaluation_views">
+                                            閲覧数:{{ guide.number_of_preview }}
+                                        </div>
+                                        <div class="guide_panel_info_evaluation_good">
+                                            高評価:<br>
+                                        </div>
+                                        <div class="guide_panel_info_evaluation_bad">
+                                            低評価:<br>
+                                        </div>
+                                    </div>
+
+
+                                    最終更新日 : {{ guide.update_date }}<br>
+
+                                </div>
+
+
+                            </div>
+                        </a>

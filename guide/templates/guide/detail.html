@@ -46,9 +46,14 @@
 
                 </div>
                 <div class="page_summary_title">
-                    <h1>{{ guide.title }}</h1>
-                    投稿者:{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})<br>
-                    閲覧数:{{ guide.number_of_preview }} view
+                    <div class="page_summary_title_title">
+                        {{ guide.title }}
+                    </div>
+                    <div class="page_summary_title_page_data">
+                        投稿者:{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})<br>
+                        閲覧数:{{ guide.number_of_preview }} view<br>
+                        最終更新日:{{ guide.update_date }}
+                    </div>
 
                 </div>
 

@@ -17,6 +17,8 @@ urlpatterns = [
     path('create/finish/', views.create_guide_finish, name='create_guide_finish'),
     # update_guide
     path('update/<int:guide_id>', views.update_guide, name='update'),
+    # character_guide_list
+    path('character_guide/', views.CharacterGuide.as_view(), name='character_guide'),
     # delete_guide
     path('delete/', views.delete_guide, name='delete'),
     # detail

@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'guide:create' %}" method="post" id="guide_form" name="guide_form">
+        <form action="" method="post" id="guide_form" name="guide_form">
             <div class="guide_editor" name="guide_editor">
 
                 {% csrf_token %}
@@ -67,7 +67,7 @@
                         </div>
                         <div class="guide_header_item_input">
 
-                            <input type="text" name="guide_title" value="{{ guide.title }}">
+                            <input type="text" name="guide_title" size="70" maxlength="35" value="{{ guide.title }}">
                         </div>
                     </div>
                     <div class="guide_header_item">

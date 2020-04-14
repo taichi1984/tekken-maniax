@@ -14,6 +14,7 @@ class Character(models.Model):
     id = models.AutoField(primary_key=True, auto_created=True)
     first_name_jp = models.CharField(max_length=50, default="")
     family_name_jp = models.CharField(max_length=50, default="")
+    full_name_jp = models.CharField(max_length=50,default="")
     first_name_en = models.CharField(max_length=50, default="")
     family_name_en = models.CharField(max_length=50, default="")
     fighting_style = models.CharField(max_length=30)
