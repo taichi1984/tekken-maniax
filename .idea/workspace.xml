@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guide/migrations/0003_character_full_name_jp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guide/util/make_guide_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top/static/top/css/initialize_profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/guide_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/guide_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/preview.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/static/top/css/site_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/top/static/top/css/site_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/util/profile_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/util/profile_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +115,7 @@
       <workItem from="1586605830166" duration="8561000" />
       <workItem from="1586762067681" duration="9646000" />
       <workItem from="1586832495187" duration="20545000" />
-      <workItem from="1586918434583" duration="19173000" />
+      <workItem from="1586918434583" duration="19418000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -236,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586871893086</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="detailページの評価ボタン、お気に入り関連修正。&#10;detailページのCSS修正&#10;画面狭くしたときにヘッダーの表示が崩れる問題修正。&#10;コメント欄にMarkdown投稿できちゃう問題修正。&#10;detailページ投稿者情報欄にプロフィール情報が反映されるように。&#10;各ページのガイドパネルに評価数が表示されるように。">
+      <created>1586947507848</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1586947507848</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +272,8 @@
     <MESSAGE value="Create Guide update guide detail のCSS修正&#10;更新時に投稿記事が新たに作られてしまう不具合の修正&#10;プレビュー開いた後に、投稿、もしくは更新ボタンを押すとプレビューが開かれてしまい投稿ができない不具合の修正。&#10;キャラクターガイド一覧ページの新規作成&#10;Characterモデルにfull_name_jpのカラムを追加。&#10;indexのガイドの書き方のリンク先をdetail/1に&#10;鉄拳初心者向けガイドのリンク先をdetail/2に設定" />
     <MESSAGE value="staticファイル内のabout.cssがaddされていなかったため追加。" />
     <MESSAGE value="staticファイル内のnotation.cssがaddされていなかったため追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="staticファイル内のnotation.cssがaddされていなかったため追加。" />
+    <MESSAGE value="detailページの評価ボタン、お気に入り関連修正。&#10;detailページのCSS修正&#10;画面狭くしたときにヘッダーの表示が崩れる問題修正。&#10;コメント欄にMarkdown投稿できちゃう問題修正。&#10;detailページ投稿者情報欄にプロフィール情報が反映されるように。&#10;各ページのガイドパネルに評価数が表示されるように。" />
+    <option name="LAST_COMMIT_MESSAGE" value="detailページの評価ボタン、お気に入り関連修正。&#10;detailページのCSS修正&#10;画面狭くしたときにヘッダーの表示が崩れる問題修正。&#10;コメント欄にMarkdown投稿できちゃう問題修正。&#10;detailページ投稿者情報欄にプロフィール情報が反映されるように。&#10;各ページのガイドパネルに評価数が表示されるように。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -332,11 +326,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586871894573">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586947543110">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586871894573" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586947543110" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -353,11 +347,11 @@
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586607150812" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586946317357">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586947550451">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586946317357" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586947550451" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854272570" />
   </component>
 </project>

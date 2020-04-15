@@ -461,7 +461,7 @@ class Search(ListView):
         context['form'] = SearchGuideForm()
         context['number_of_guide'] = len(self.object_list)
         context['search_word'] = self.request.GET.get('search_word')
-        context['guide'] = make_guide_list_with_evaluation(context['guide'])
+
         return context
 
     def get_queryset(self):
