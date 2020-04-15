@@ -167,14 +167,14 @@ def preview_guide(request):
 
     template = loader.get_template('guide/preview.html')
     context = {
-        'user' : request.user,
+        'user': request.user,
         'guide_title': guide_title,
         'guide_category': guide_category,
-        'guide_character_id' : guide_character_id,
+        'guide_character_id': guide_character_id,
         'guide_character': guide_character,
         'guide_sections': guide_sections,
 
-        'pub_date' : datetime.now()
+        'pub_date': datetime.now()
     }
     return HttpResponse(template.render(context, request))
 
@@ -242,7 +242,10 @@ def vote_evaluation(request):
     :param request:
     :return:
     """
+    # 　TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、必ず直すこと。
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
+    guide_id = guide_id.replace("https://tekken7.extreme-gamers.info/guide/detail/", "")
+
     guide = Guide.objects.filter(id=guide_id).first()
 
     evaluation_query = Evaluation.objects.filter(evaluator=request.user, guide=guide).first()
@@ -438,7 +441,8 @@ class CharacterGuide(ListView):
         return context
 
     def get_queryset(self):
-        return make_guide_list_with_evaluation(Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date'))
+        return make_guide_list_with_evaluation(
+            Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date'))
 
 
 ######################
@@ -482,12 +486,12 @@ class Search(ListView):
             category = Category.objects.filter(name=search_word)
 
             return make_guide_list_with_evaluation(Guide.objects.filter(Q(publishing_setting=1) &
-                                        Q(is_deleted=False) &
-                                        (Q(character=character.first()) |
-                                         Q(category=category.first()) |
-                                         Q(title__contains=search_word) |
-                                         Q(article__contains=search_word))
-                                        ).order_by('-update_date'))
+                                                                        Q(is_deleted=False) &
+                                                                        (Q(character=character.first()) |
+                                                                         Q(category=category.first()) |
+                                                                         Q(title__contains=search_word) |
+                                                                         Q(article__contains=search_word))
+                                                                        ).order_by('-update_date'))
         else:
             return None
 
