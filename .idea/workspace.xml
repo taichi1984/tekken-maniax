@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/top/css/notation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guide/migrations/0003_character_full_name_jp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guide/util/make_guide_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top/static/top/css/initialize_profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/guide_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/guide_header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/preview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/static/top/css/site_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/top/static/top/css/site_header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/util/profile_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/util/profile_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -48,17 +62,17 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/guide/templates/guide" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/top/static/top/css" />
     <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\css" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\css" />
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +128,8 @@
       <workItem from="1586396134160" duration="20731000" />
       <workItem from="1586605830166" duration="8561000" />
       <workItem from="1586762067681" duration="9646000" />
-      <workItem from="1586832495187" duration="20107000" />
+      <workItem from="1586832495187" duration="20545000" />
+      <workItem from="1586918434583" duration="19173000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -214,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586871366125</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="staticファイル内のnotation.cssがaddされていなかったため追加。">
+      <created>1586871893086</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1586871893086</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +278,8 @@
     <MESSAGE value="create_guide_finish.cssがaddされていなかったので反映" />
     <MESSAGE value="Create Guide update guide detail のCSS修正&#10;更新時に投稿記事が新たに作られてしまう不具合の修正&#10;プレビュー開いた後に、投稿、もしくは更新ボタンを押すとプレビューが開かれてしまい投稿ができない不具合の修正。&#10;キャラクターガイド一覧ページの新規作成&#10;Characterモデルにfull_name_jpのカラムを追加。&#10;indexのガイドの書き方のリンク先をdetail/1に&#10;鉄拳初心者向けガイドのリンク先をdetail/2に設定" />
     <MESSAGE value="staticファイル内のabout.cssがaddされていなかったため追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="staticファイル内のabout.cssがaddされていなかったため追加。" />
+    <MESSAGE value="staticファイル内のnotation.cssがaddされていなかったため追加。" />
+    <option name="LAST_COMMIT_MESSAGE" value="staticファイル内のnotation.cssがaddされていなかったため追加。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -271,11 +294,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="638" y="101" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1586871364624">
+    <state x="638" y="101" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1586947501778">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="638" y="101" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586871364624" />
+    <state x="638" y="101" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586947501778" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854630045" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -309,32 +332,32 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586871368037">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586871894573">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586871368037" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586871894573" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612018515" />
-    <state x="674" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1586832610395">
+    <state x="674" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1586920517879">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396136442" />
-    <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586762217889" />
+    <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586920517879" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586832610395" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586607150812">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586607150812" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586854272570">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1586946317357">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586791964563" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586946317357" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854272570" />
   </component>
 </project>

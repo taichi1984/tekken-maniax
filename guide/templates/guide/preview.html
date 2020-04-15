@@ -23,32 +23,93 @@
 <body>
 <div class="wrapper">
     <main>
-        <div class="page_title_field">
+        <div class="page_title_field"
+             style="background-image:url('/static/guide/image/character_wp_{{ guide.character.id }}.jpg')">
             <div class="page_type">
-                鉄拳:{{ guide_tekken_title.0.name }}<br>
                 カテゴリ:{{ guide_category }}<br>
-                キャラクター:{{ guide_character }}<br>
-
+                キャラクター:{{ guide_character }} {{ guide.character.family_name_en }}<br>
             </div>
             <div class="page_summary">
                 <div class="page_summary_icon">
-                    <img src="{% static 'guide/image/alisa_icon.jpg' %}" width="100" height="100">
+                    <img src="/static/guide/image/character_icon_{{ guide_character_id }}.jpg" width="100" height="100">
+
                 </div>
                 <div class="page_summary_title">
-                    <h1>{{ guide_title }}</h1>
-                    投稿者:{{ user.userprofile.nick_name }}(id:{{ user.username }})<br>
-                    閲覧数:000001 view
+                    <div class="page_summary_title_title">
+                        {{ guide_title }}
+                    </div>
+                    <div class="page_summary_title_page_data">
+                        投稿者:{{ user.userprofile.nick_name }}(id:{{ user }})<br>
+                        閲覧数: 0 view<br>
+                        最終更新日:{{ pub_date }}
+                    </div>
 
                 </div>
+
                 <div class="page_summary_vote">
-                    いいねボタン　　　微妙ボタン
+                    <div class="vote_area">
+                        <div id="good_evaluation_area" class="good_evaluation_area">
+                            {% if user.is_authenticated %}
+                                {% ifequal evaluation.evaluation 1 %}
+                                    <button type="button" class="good_evaluation_pushed_button"
+                                            name="good_evaluation_pushed"
+                                            value="good_evaluation_pushed">
+                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="good_evaluation_button" name="good_evaluation"
+                                            value="good_evaluation">
+                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% endifequal %}
+                            {% else %}
+                                <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="40px">
+                            {% endif %}
+                            : {{ numof_good_evaluations }}
+                        </div>
+                        <div id="bad_evaluation_area" class="bad_evaluation_area">
+                            {% if user.is_authenticated %}
+                                {% ifequal evaluation.evaluation 2 %}
+                                    <button type="button" class="bad_evaluation_pushed_button"
+                                            name="bad_evaluation_pushed"
+                                            value="bad_evaliation_pushed">
+                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="bad_evaluation_button" name="bad_evaluation"
+                                            value="bad_evaliation">
+                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                {% endifequal %}
+                            {% else %}
+                                <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="40px">
+                            {% endif %}
+                            : {{ numof_bad_evaluations }}
+                        </div>
+                    </div>
+                    <div class="favorite_area">
+                        <div id="page_summary_favorite" class="page_summary_favorite">
+                            {% if user.is_authenticated %}
+                                {% ifequal favorite.user user %}
+                                    <button type="button" class="favorite_pushed_button" name="release_favorite">
+                                        お気に入り追加済み
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>
+                                {% endifequal %}
+                            {% else %}
+                                <a href="{% url 'login' %}">ログイン</a>するとお気に入りに追加できます。
+                            {% endif %}
+
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </div>
+
         <div class="advertisement">
-            <img src="" width="920" height="300">
+            広告エリア
+
         </div>
 
         <div class="table_of_contents">
@@ -73,7 +134,7 @@
                         {{ section.title }}
                     </div>
                     <div class="section_article">
-                        {{ section.article |safe }}
+                        {{ section.article|safe }}
                     </div>
                 </div>
 
@@ -82,15 +143,60 @@
 
         </div>
         <div class="advertisement">
-            <img src="" width="920" height="300">
+            広告エリア
+
         </div>
+
         <div class="author_field">
-            <div class="author_title">投稿者 : {{ user.userprofile.nick_name }} さん(id : {{ user.username }})</div>
-            <div class="author_content">{{ user.userprofile.introduction }}</div>
+            <div class="author_title">投稿者情報</div>
+            <div class="author_content">
+                <div class="author_name">
+                    <div class="author_item_label">
+                        投稿者
+                    </div>
+                    <div class="author_item_contents">
+                        : {{ user.userprofile.nick_name }} (id : {{ user }})
+                    </div>
+                </div>
+                <div class="author_twitter">
+                    <div class="author_item_label">
+                        twitter
+                    </div>
+                    <div class="author_item_contents">
+                        : <a href="https://twitter.com/">@{{ user.userprofile.twitter_account }}</a>
+                    </div>
+                </div>
+                <div class="author_twitch">
+                    <div class="author_item_label">
+                        twitch URL
+                    </div>
+                    <div class="author_item_contents">
+                        : <a
+                            href="{{ user.userprofile.twitch_url }}">{{ user.userprofile.twitch_url }}</a>
+                    </div>
+                </div>
+                <div class="author_youtube">
+                    <div class="author_item_label">
+                        youtube URL
+                    </div>
+                    <div class="author_item_contents">
+                        : <a
+                            href="{{ user.userprofile.youtube_channel_url }}">{{ user.userprofile.youtube_channel_url }}</a>
+                    </div>
+                </div>
+                <div class="author_introduction">
+                    {{ user.userprofile.introduction| linebreaksbr }}
+                </div>
+
+
+            </div>
+
         </div>
         <div class="advertisement">
-            <img src="" width="920" height="300">
+            広告エリア
+
         </div>
+
     </main>
 </div>
 </body>

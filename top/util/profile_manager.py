@@ -1,9 +1,11 @@
 from top.models import UserProfile
 from guide.models import Character
+from guide.util import text_html_converter
 
 
 def save_profile(user, request):
     main_character = Character.objects.get(id=request.POST.get('main_character'))
+    #introduction = text_html_converter.convert_to_html()
 
     UserProfile(id=user.userprofile.id,
                 nick_name=request.POST.get('nick_name'),

@@ -24,6 +24,8 @@ from urllib.parse import urlencode
 import json
 import markdown
 
+from .util.make_guide_list import make_guide_list_with_evaluation
+
 
 def index(request):
     """
@@ -33,10 +35,10 @@ def index(request):
     """
 
     latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('pub_date').reverse()[:10]
+    guide_list = make_guide_list_with_evaluation(latest_guide_list)
     character_list = Character.objects.all()
     template = loader.get_template('guide/index.html')
     character_guide_list = {}
-
     for character in character_list:
         character_guide_info = {
             "character": character,
@@ -45,7 +47,7 @@ def index(request):
         character_guide_list[character.first_name_en] = character_guide_info
 
     context = {
-        'latest_guide_list': latest_guide_list,
+        'latest_guide_list': guide_list,
         'character_guide_list': character_guide_list,
 
     }
@@ -147,12 +149,11 @@ def preview_guide(request):
     :param request:
     :return:
     """
-    character_list = Character.objects.order_by('id')
+
     guide_character_id = request.POST.get("guide_character")
-    guide_character = [character for character in character_list if character.id == guide_character_id]
-    category_list = Category.objects.order_by('id')
+    guide_character = Character.objects.filter(id=guide_character_id).first()
     guide_category_id = request.POST.get("guide_category")
-    guide_category = [category for category in category_list if category.id == guide_category_id]
+    guide_category = Category.objects.filter(id=guide_category_id).first()
     guide_title = request.POST.get("guide_title")
 
     guide_section_title = request.POST.getlist("guide_section_title")
@@ -166,12 +167,14 @@ def preview_guide(request):
 
     template = loader.get_template('guide/preview.html')
     context = {
+        'user' : request.user,
         'guide_title': guide_title,
         'guide_category': guide_category,
+        'guide_character_id' : guide_character_id,
         'guide_character': guide_character,
         'guide_sections': guide_sections,
-        'character_list': character_list,
-        'category_list': category_list,
+
+        'pub_date' : datetime.now()
     }
     return HttpResponse(template.render(context, request))
 
@@ -248,7 +251,8 @@ def vote_evaluation(request):
     # TODO 関数化すべき　ここから
 
     if evaluation_query is None:
-        evaluation_query = Evaluation(evaluator=request.user, evaluation=0, guide=guide).save()
+        evaluation_query = Evaluation(evaluator=request.user, evaluation=0, guide=guide)
+        evaluation_query.save()
 
     # goodが押されたとき
     if request.POST.get('vote') == "1":
@@ -283,9 +287,9 @@ def vote_evaluation(request):
     numof_good_evaluations = Evaluation.objects.filter(evaluation=1, guide=guide).count()
     numof_bad_evaluations = Evaluation.objects.filter(evaluation=2, guide=guide).count()
     data = []
-    data[0] = evaluation_html
-    data[1] = numof_good_evaluations
-    data[2] = numof_bad_evaluations
+    data.append(evaluation_html)
+    data.append(numof_good_evaluations)
+    data.append(numof_bad_evaluations)
     data = json.dumps(data)
     # TODO 関数化すべき　ここまで
 
@@ -323,7 +327,7 @@ def post_comment(request, guide_id):
 
     guide = get_object_or_404(Guide, pk=guide_id)
     contributor = request.user
-    comment = text_html_converter.convert_to_html(request.POST.get("comment"))
+    comment = request.POST.get("comment")
 
     GuideComment(contributor=contributor, comment=comment, guide=guide, pub_date=datetime.now()).save()
     return redirect("guide:detail", guide_id=guide_id)
@@ -434,7 +438,7 @@ class CharacterGuide(ListView):
         return context
 
     def get_queryset(self):
-        return Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date')
+        return make_guide_list_with_evaluation(Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date'))
 
 
 ######################
@@ -457,6 +461,7 @@ class Search(ListView):
         context['form'] = SearchGuideForm()
         context['number_of_guide'] = len(self.object_list)
         context['search_word'] = self.request.GET.get('search_word')
+        context['guide'] = make_guide_list_with_evaluation(context['guide'])
         return context
 
     def get_queryset(self):
@@ -476,13 +481,13 @@ class Search(ListView):
                                                  Q(family_name_en=search_word))
             category = Category.objects.filter(name=search_word)
 
-            return Guide.objects.filter(Q(publishing_setting=1) &
+            return make_guide_list_with_evaluation(Guide.objects.filter(Q(publishing_setting=1) &
                                         Q(is_deleted=False) &
                                         (Q(character=character.first()) |
                                          Q(category=category.first()) |
                                          Q(title__contains=search_word) |
                                          Q(article__contains=search_word))
-                                        ).order_by('-update_date')
+                                        ).order_by('-update_date'))
         else:
             return None
 

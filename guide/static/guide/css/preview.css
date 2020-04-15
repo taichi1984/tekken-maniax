@@ -7,7 +7,7 @@
 body {
     padding: 0px;
     background-color: white;
-    color: white;
+    color: black;
 }
 
 .wrapper {
@@ -25,49 +25,178 @@ main {
 }
 
 .page_title_field {
+    color:white;
     position: relative;
     align-items: center;
     background-color: black;
     height: 300px;
     width: 100%;
-    background-image: url("../image/alisa_wp.jpg");
     background-size: 100%;
 }
 
+.page_type {
+    padding: 10px;
+}
+
 .page_summary {
+    display: flex;
     position: absolute;
     left: 10px;
     bottom: 10px;
-    height: 100px;
     background-color: rgba(150, 150, 150, 0.8);
-    width: 90%;
+    width: 98%;
 
 }
 
 .page_summary_icon {
     width: 15%;
-    float: left;
+
 }
 
 .page_summary_title {
     width: 60%;
-    float: left;
+}
+
+.page_summary_title_title{
+    font-size:25px;
+    font-weight:bold;
 }
 
 .page_summary_vote {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
     width: 25%;
-    float: left;
+
+}
+
+.vote_area {
+    display: flex;
+    width: 220px;
+
+}
+
+.good_evaluation_area {
+    margin: 6px;
+}
+
+
+.good_evaluation_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+.good_evaluation_pushed_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+
+.good_evaluation_img {
+    width: 30px;
+    height: 30px;
+}
+
+.bad_evaluation_area {
+    margin: 5px;
+}
+
+.bad_evaluation_pushed_button {
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+}
+
+
+.bad_evaluation_button {
+    height: 40px;
+    width: 60px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+
+.favorite_area {
+    margin: 3px;
+}
+
+.evaluation_favorite_area {
+    background-color: blue;
+    width: 300px;
+}
+
+.favorite_button {
+    height: 40px;
+    width: 200px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white; /*ボタン色*/
+    color: black;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.favorite_pushed_button {
+    height: 40px;
+    width: 200px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: yellow; /*ボタン色*/
+    color: black;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
 }
 
 .table_of_contents {
     margin-top: 10px;
     background-color: white;
-    height: 200px;
     width: 100%;
+    color: black;
+    border: 1px solid black;
+    padding: 0px 0px 30px 0px;
+}
+
+.table_of_contents a {
+    color: black;
+}
+
+.table_of_contents a:hover {
+    color: aqua;
 }
 
 .table_of_contents_title {
-    padding: 10px 0 0 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 10px 0 10px 30px;
 
 }
 
@@ -87,72 +216,99 @@ main {
 
 .section {
     width: 100%;
-    margin:50px 0px 30px 0px;
-    background-color: white;
-    height:auto;
-    border:1px solid black;
+    margin: 50px 0px 30px 0px;
+    border: solid 1px black;
+    background-color: rgb(68, 68, 68);
+    height: auto;
 
 }
 
 .section_title {
-    padding:10px 10px 10px 20px;
+    padding: 10px 10px 10px 20px;
     height: 10%;
-    color:white;
     background-color: black;
-    border-bottom:solid 3px #272828;
+    color: white;
+    border-bottom: solid 3px #272828;
+    font-size: 20px;
+    font-weight: bold;
 
 }
 
 .section_article {
     height: 90%;
-    padding:10px 10px 10px 30px;
+    padding: 10px 10px 10px 30px;
     background-color: white;
-    color:black;
+    color: black;
+}
 
+.section_article h1, h2, h3 {
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.section_article hr {
+    margin: 10px 0px 20px 0px;
+}
+
+.section_article th {
+    background-color: aqua;
+}
+
+.section_article tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+.section_article table, th, td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
 
 .author_field {
-    margin:30px 0px 30px 0px;
+    margin-top: 50px;
     width: 100%;
-
+    border:solid 1px black;
 }
 
-
 .author_title {
-    padding:10px 10px 10px 20px;
+    padding: 10px 10px 10px 20px;
     height: 10%;
-    background-color: rgb(68, 68, 68);
-    border-bottom:solid 3px #272828;
-
+    background-color: black;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
 }
 
 .author_content {
-    padding:10px 10px 10px 30px;
+    padding: 10px 10px 10px 30px;
     height: 90%;
-    background-color: rgb(68, 68, 68)
+    padding: 10px;
+    background-color: white;
+    color:black;
+}
+.author_name{
+    display:flex;
+}
+.author_twitter{
+    display:flex;
+}
+.author_twitch{
+    display:flex;
+}
+.author_youtube{
+    display:flex;
+}
+.author_item_label{
+    width:120px;
+}
 
+.author_introduction{
+    margin:20px 0px 0px 10px;
 }
-.section_title{
-    font-size :20px;
-    font-weight:bold;
-}
-.section_article h1,h2,h3{
-    padding:5px;
-    background-color :#eee;
-    margin-top:30px;
-    margin-bottom:10px;
-}
-.section_article hr{
-    margin:10px 0px 20px 0px;
-}
-.section_article th{
-    background-color:aqua;
-}
-.section_article tr:nth-child(odd){
-    background-color:#eee;
-}
-.section_article table,th,td{
-    padding:5px;
-    border-collapse:collapse;
-    border:1px solid black;
+
+.advertisement{
+       margin:20px;
+    height:300px;
 }

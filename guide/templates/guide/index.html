@@ -127,7 +127,7 @@
                 <div class="high_rating_guide_area">
                     {% for guide in latest_guide_list %}
                     <div class="guide_panel">
-                        <a href="{% url 'guide:detail' guide.id %}">
+                        <a href="{% url 'guide:detail' guide.guide.id %}">
                             <div class="guide_character_icon">
                                 <img src="/static/guide/image/character_icon_{{guide.character.id}}.jpg"
                                      class="guide_character_icon_img">

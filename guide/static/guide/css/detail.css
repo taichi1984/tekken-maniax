@@ -10,7 +10,7 @@
 body {
     padding: 0px;
     background-color: white;
-    color: white;
+    color: black;
 }
 
 .wrapper {
@@ -29,7 +29,7 @@ main {
 }
 
 .page_title_field {
-
+    color:white;
     position: relative;
     align-items: center;
     background-color: black;
@@ -270,56 +270,82 @@ main {
     border: 1px solid black;
 }
 
-
-
 .author_field {
     margin-top: 50px;
     width: 100%;
-    height: 300px;
+    border:solid 1px black;
 }
-
 
 .author_title {
     padding: 10px 10px 10px 20px;
     height: 10%;
-    background-color: rgb(68, 68, 68);
-    border-bottom: solid 3px #272828;
-
+    background-color: black;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
 }
 
 .author_content {
     padding: 10px 10px 10px 30px;
     height: 90%;
     padding: 10px;
-    background-color: rgb(68, 68, 68)
-
+    background-color: white;
+    color:black;
+}
+.author_name{
+    display:flex;
+}
+.author_twitter{
+    display:flex;
+}
+.author_twitch{
+    display:flex;
+}
+.author_youtube{
+    display:flex;
+}
+.author_item_label{
+    width:120px;
 }
 
+.author_introduction{
+    margin:20px 0px 0px 10px;
+}
 .comment_area {
     margin-top: 100px;
     width: 100%;
 }
 
 .comment_form {
-    padding: 10px 10px 10px 30px;
-    background-color: rgb(68, 68, 68);
+    color:black;
+    border:1px solid black;
 }
 
-.comment_form_label {
+.comment_form td,th{
+    border:0px;
 
+
+}
+.comment_form_label {
+    color:white;
+    background-color: black;
+    padding:10px;
 }
 
 .comment_form_comment {
+    background-color:white;
 
 }
 
 .comments {
     margin-top: 20px;
-    background-color: rgb(68, 68, 68);
-
+    color:black;
+    border:solid black 1px;
 }
 
 .comments_title {
+    color:white;
+    background-color:black;
     padding: 10px 10px 10px 20px;
 }
 
@@ -333,12 +359,21 @@ main {
 }
 
 .comment_contributor {
+    margin:10px 0px 0px 0px;
+    padding:0px 0px 0px 10px;
+    font-size:20px;
     font-weight: bold;
 
 }
 
 .comment_comment {
-    padding: 10px 10px 10px 10px;
+    margin-bottom:10px;
+    padding: 10px 10px 10px 30px;
 
+}
+
+.advertisement{
+       margin:20px;
+    height:300px;
 }
 

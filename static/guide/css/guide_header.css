@@ -1,9 +1,11 @@
 
 
 .guide_nav_header {
+    line-height:30px;
+    display:flex;
     margin-top:0px;
     padding-top:10px;
-    height: 40px;
+    padding-bottom:10px;
     background-color: white;
     color: black;
     border-top:solid;
@@ -11,7 +13,6 @@
 }
 
 .guide_menu_item {
-
     margin-left: 10px;
     margin-right: 10px;
     display: inline-block;

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/initialize_profile.css' %}"/>
     <title>
         プロフィール編集ページ
     </title>
@@ -23,64 +23,67 @@
             プロフィールの初期設定ページです。<br>
             以下の情報を入力してください。<br>
             ガイドを書いた際の一番下にあなたのプロフィールが表示されます。<br>
-            <div class="form_item">
-                <div class="form_item_label">
-                    ニックネーム
-                </div>
-                <div class="form_item_form">
-                    {{ form.nick_name }}
-                    {{ form.nick_name.errors }}
-                </div>
-            </div>
+            <div class="form_field">
 
-            <div class="form_item">
-                <div class="form_item_label">
-                    メインキャラクター
-                </div>
-                <div class="form_item_form">
-                    {{ form.main_character }}
-                    {{ form.main_character.errors }}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    Twitter ID
-                </div>
-                <div class="form_item_form">
-                    @{{ form.twitter_account }}
-                    {{ form.twitter_account.errors }}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    YouTube チャンネル URL
-                </div>
-                <div class="form_item_form">
-                    {{ form.youtube_channel_url }}
-                    {{ form.youtube_channel_url.errors }}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    Twitch URL
-                </div>
-                <div class="form_item_form">
-                    {{ form.twitch_url }}
-                    {{ form.twitch_url.errors }}
-                </div>
-            </div>
-            <div class="form_item">
-                <div class="form_item_label">
-                    自己紹介
-                </div>
-                <div class="form_item_form">
-                    {{ form.introduction }}
-                    {{ form.introduction.errors }}
-                </div>
-            </div>
-            <input type="hidden" name="next" value="top:registration_finish">
-            <input type="submit" value="更新">
 
+                <div class="form_item">
+                    <div class="form_item_label">
+                        ニックネーム
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.nick_name }}
+                        {{ form.nick_name.errors }}
+                    </div>
+                </div>
+
+                <div class="form_item">
+                    <div class="form_item_label">
+                        メインキャラクター
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.main_character }}
+                        {{ form.main_character.errors }}
+                    </div>
+                </div>
+                <div class="form_item">
+                    <div class="form_item_label">
+                        Twitter ID
+                    </div>
+                    <div class="form_item_form">
+                        @{{ form.twitter_account }}
+                        {{ form.twitter_account.errors }}
+                    </div>
+                </div>
+                <div class="form_item">
+                    <div class="form_item_label">
+                        YouTube チャンネル URL
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.youtube_channel_url }}
+                        {{ form.youtube_channel_url.errors }}
+                    </div>
+                </div>
+                <div class="form_item">
+                    <div class="form_item_label">
+                        Twitch URL
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.twitch_url }}
+                        {{ form.twitch_url.errors }}
+                    </div>
+                </div>
+                <div class="form_item">
+                    <div class="form_item_label">
+                        自己紹介
+                    </div>
+                    <div class="form_item_form">
+                        {{ form.introduction }}
+                        {{ form.introduction.errors }}
+                    </div>
+                </div>
+                <input type="hidden" name="next" value="top:registration_finish">
+                <input type="submit" value="更新">
+            </div>
 
         </form>
         </main>
