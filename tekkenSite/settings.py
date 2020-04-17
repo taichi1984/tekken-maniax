@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ]
 
 # cookie
-SESSION_COOKIE_SAMESITE = 'None';
+#SESSION_COOKIE_SAMESITE = 'None';
 
 
 # ルートディレクトリ
