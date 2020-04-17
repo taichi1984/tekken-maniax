@@ -7,10 +7,7 @@ def convert_to_html(article):
     md = markdown.Markdown(extensions=['tables'])
     print(article)
 
-    if os.name == 'nt':
-        article = re.sub('\r\n', '  \r\n', article)
-    else:
-        article = re.sub('\n', '  \n', article)
+    article = re.sub('\r\n', '  \r\n', article)
 
     html = md.convert(article)
     print(html)
