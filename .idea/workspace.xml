@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/create.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/preview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/js/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/js/edit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/util/text_html_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/util/text_html_converter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +122,7 @@
       <workItem from="1586832495187" duration="20545000" />
       <workItem from="1586918434583" duration="21378000" />
       <workItem from="1587004746249" duration="3067000" />
-      <workItem from="1587095938225" duration="8230000" />
+      <workItem from="1587095938225" duration="12700000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -260,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587109847084</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="エディタの改行問題の修正２。">
+      <created>1587110077625</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587110077625</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +319,8 @@
     <MESSAGE value="本番環境で評価ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="本番環境でお気に入り追加ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="エディタの開業問題の修正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="エディタの開業問題の修正。" />
+    <MESSAGE value="エディタの改行問題の修正２。" />
+    <option name="LAST_COMMIT_MESSAGE" value="エディタの改行問題の修正２。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -323,11 +335,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587109840919">
+    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587118474958">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587109840919" />
+    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587118474958" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854630045" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -361,11 +373,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587109851611">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587110079983">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587109851611" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587110079983" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -382,11 +394,11 @@
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586607150812" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587109729489">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587118421862">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587109729489" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587118421862" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854272570" />
   </component>
 </project>

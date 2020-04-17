@@ -6,8 +6,8 @@ import os
 def convert_to_html(article):
     md = markdown.Markdown(extensions=['tables'])
     print(article)
-
-    article = re.sub('\r\n', '  \r\n', article)
+    article = re.sub('\r', '', article)
+    article = re.sub('\n', '  \n', article)
 
     html = md.convert(article)
     print(html)

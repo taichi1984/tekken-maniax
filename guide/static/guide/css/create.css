@@ -168,9 +168,19 @@ guide_menu_header {
 }
 
 
+.guide_section_article_preview pre,code{
+    margin:10px 0px 10px 0px;
+    padding:5px 0px 5px 0px;
+    line-height:30px;
+    background-color:beige;
+}
+
+.guide_section_article_preview img{
+    width:300px;
+}
+
 .guide_section_button_area {
     padding:20px;
-
 }
 
 

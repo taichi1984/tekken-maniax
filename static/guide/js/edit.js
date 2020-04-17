@@ -184,12 +184,11 @@ function post_guide() {
 
         document.guide_form.target = "_self";
         document.guide_form.method = "post";
-        document.guide_form.action= "";
+        document.guide_form.action = "";
         document.guide_form.submit();
 
     })
 }
-
 
 
 //フォームの中に入っているsectionをＨＴＭＬにコンバートするためのメソッド

@@ -272,6 +272,9 @@ main {
     line-height:30px;
     background-color:beige;
 }
+.section_article img{
+    width:300px;
+}
 
 .author_field {
     margin-top: 50px;

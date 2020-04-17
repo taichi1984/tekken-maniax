@@ -184,12 +184,11 @@ function post_guide() {
 
         document.guide_form.target = "_self";
         document.guide_form.method = "post";
-        document.guide_form.action= "";
+        document.guide_form.action = "";
         document.guide_form.submit();
 
     })
 }
-
 
 
 //フォームの中に入っているsectionをＨＴＭＬにコンバートするためのメソッド
@@ -204,7 +203,7 @@ function section_convert_to_html($section) {
 
 
     //マークダウンの改行設定
-    /*marked.setOptions({breaks: false});*/
+    marked.setOptions({breaks: true});
     section_title_val = marked(section_title_val);
     section_article_val = marked(section_article_val);
 
