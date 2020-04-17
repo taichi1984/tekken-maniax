@@ -232,7 +232,6 @@ def detail_guide(request, guide_id):
         "favorite": favorite,
     }
     response = render(request, 'guide/detail.html', context)
-    response.
     return response
 
 
