@@ -301,6 +301,7 @@ def vote_evaluation(request):
 
 # detailのお気に入り追加のajax処理用view
 def add_favorite(request):
+    # TODO 場当たり的な対応で本番環境と開発環境の差異を吸収しているため訂正すること
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
     guide_id = guide_id.replace("https://tekken7.extreme-gamers.info/guide/detail/", "")
     guide = Guide.objects.filter(id=guide_id).first()

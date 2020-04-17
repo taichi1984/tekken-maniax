@@ -238,6 +238,12 @@ main {
 
 }
 
+.section_article pre,code{
+    margin:10px 0px 10px 0px;
+    padding:10px;
+    line-height:20px;
+    background-color:beige;
+}
 .section_article {
     height: 90%;
     padding: 10px 10px 10px 30px;

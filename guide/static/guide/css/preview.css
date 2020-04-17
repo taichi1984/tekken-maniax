@@ -266,6 +266,13 @@ main {
     border: 1px solid black;
 }
 
+.section_article pre,code{
+    margin:10px 0px 10px 0px;
+    padding:5px 0px 5px 0px;
+    line-height:30px;
+    background-color:beige;
+}
+
 .author_field {
     margin-top: 50px;
     width: 100%;

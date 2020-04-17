@@ -54,9 +54,9 @@
                     <td><a href="{% url 'guide:update' guide.id %}" target="_blank">更新</a></td>
                     <td>
                         {% ifequal guide.publishing_setting 0 %}
-                            公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">非公開にする</a>
-                        {% else %}
                             非公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">公開する</a>
+                        {% else %}
+                            公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">非公開にする</a>
                         {% endifequal %}
                         </form>
                     </td>

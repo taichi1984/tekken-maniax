@@ -204,7 +204,7 @@ function section_convert_to_html($section) {
 
 
     //マークダウンの改行設定
-    marked.setOptions({breaks: true});
+    /*marked.setOptions({breaks: false});*/
     section_title_val = marked(section_title_val);
     section_article_val = marked(section_article_val);
 
