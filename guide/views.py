@@ -231,8 +231,9 @@ def detail_guide(request, guide_id):
         "evaluation": evaluation,
         "favorite": favorite,
     }
-
-    return render(request, 'guide/detail.html', context)
+    response = render(request, 'guide/detail.html', context)
+    response.
+    return response
 
 
 # detail guide ページの評価部分のajax用のview
