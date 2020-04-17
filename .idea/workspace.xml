@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/guide/static/guide/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/create.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/static/guide/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/js/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/js/edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/util/text_html_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/util/text_html_converter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +120,7 @@
       <workItem from="1586832495187" duration="20545000" />
       <workItem from="1586918434583" duration="21378000" />
       <workItem from="1587004746249" duration="3067000" />
-      <workItem from="1587095938225" duration="12700000" />
+      <workItem from="1587095938225" duration="13525000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -271,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587110077625</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="エディタの改行問題の修正&#10;update,detail,create_guideのcss調整。">
+      <created>1587118584182</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587118584182</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +325,8 @@
     <MESSAGE value="本番環境でお気に入り追加ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="エディタの開業問題の修正。" />
     <MESSAGE value="エディタの改行問題の修正２。" />
-    <option name="LAST_COMMIT_MESSAGE" value="エディタの改行問題の修正２。" />
+    <MESSAGE value="エディタの改行問題の修正&#10;update,detail,create_guideのcss調整。" />
+    <option name="LAST_COMMIT_MESSAGE" value="エディタの改行問題の修正&#10;update,detail,create_guideのcss調整。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -335,11 +341,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587118474958">
+    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587118582201">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587118474958" />
+    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587118582201" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854630045" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -373,11 +379,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587110079983">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587118585435">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587110079983" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587118585435" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />

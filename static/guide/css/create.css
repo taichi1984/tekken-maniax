@@ -161,6 +161,9 @@ guide_menu_header {
     background-color: #eee;
 }
 
+.guide_section_article_preview table{
+    margin:20px 0px 20px 0px;
+}
 .guide_section_article_preview table, th, td {
     padding: 5px;
     border-collapse: collapse;

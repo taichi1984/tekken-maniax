@@ -284,6 +284,10 @@ main {
 .section_article img{
     width:300px;
 }
+
+.section_article table{
+    margin:20px 0px 20px 0px;
+}
 .author_field {
     margin-top: 50px;
     width: 100%;
