@@ -48,11 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_cookies_samesite.middleware.CookiesSameSite',
 ]
 
-# cookieの設定
-SESSION_COOKIE_SAMESITE = 'None'
 
 # ルートディレクトリ
 ROOT_URLCONF = 'tekkenSite.urls'
