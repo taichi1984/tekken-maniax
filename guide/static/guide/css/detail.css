@@ -252,9 +252,43 @@ main {
     color: black;
 }
 
-.section_article h1, h2, h3 {
+.section_article ul {
+    margin-left: 30px;
+
+}
+
+.section_article h1 {
+    color: #364e96; /*文字色*/
+    padding: 0.3em 0; /*上下の余白*/
+    border-top: solid 3px #364e96; /*上線*/
+    border-bottom: solid 3px #364e96; /*下線*/
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.section_article h2 {
+    font-size: 20px;
+    padding: 0.25em 0.5em; /*上下 左右の余白*/
+    color: #494949; /*文字色*/
+    background: transparent; /*背景透明に*/
+    border-left: solid 5px black; /*左線*/
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.section_article h3 {
     padding: 5px;
     background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.section_article h4, h5, h6 {
+    text-decoration: dotted;
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
