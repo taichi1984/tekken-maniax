@@ -257,6 +257,13 @@ main {
 
 }
 
+.section_article a{
+    color:black;
+}
+
+.section_article a:hover{
+    color:blue;
+}
 .section_article h1 {
     color: #364e96; /*文字色*/
     padding: 0.3em 0; /*上下の余白*/
