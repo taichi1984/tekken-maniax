@@ -2,6 +2,7 @@
 {% load static %}
 <html>
 <head>
+    <base target="_blank">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
     <script>
@@ -72,8 +73,8 @@
         <div class="pagination">
             <div class="pagination_previous">
                 {% if page_obj.has_previous %}
-                    <a href="?search_word={{ search_word }}&page=1">&laquo;</a>　　
-                    <a href="?search_word={{ search_word }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                    <a href="?page=1" target="_self">>&laquo;</a>　　
+                    <a href="?page={{ page_obj.previous_page_number }}" target="_self">> 前へ </a>
                 {% endif %}
             </div>
             <div class="pagination_current">
@@ -81,8 +82,8 @@
             </div>
             <div class="pagination_next">
                 {% if page_obj.has_next %}
-                    <a href="?search_word={{ search_word }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
-                    <a href="?search_word={{ search_word }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}" target="_self"> 次へ </a>　　
+                    <a href="?page={{ page_obj.paginator.num_pages }}" target="_self">>&raquo;</a>
                 {% endif %}
             </div>
         </div>
