@@ -126,7 +126,7 @@
             <div class="table_of_contents_listdiv">
                 <ul class="table_of_contents_list">
                     {% for section in guide_sections %}
-                        <li><a href="#section{{ forloop.counter }}">{{ section.title }}</a></li>
+                        <li><a href="#section{{ forloop.counter }}" target="_self">{{ section.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
