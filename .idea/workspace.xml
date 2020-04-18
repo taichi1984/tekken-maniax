@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/top/static/top/css/how_to_register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top/static/top/image/guide_top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top/static/top/image/initialize_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top/static/top/image/registration.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/about_guide.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/about_guide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/guide/css/about_guide.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/css/about_guide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/how_to_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/how_to_register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +60,14 @@
     <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\image" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\css" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,7 +126,7 @@
       <workItem from="1586832495187" duration="20545000" />
       <workItem from="1586918434583" duration="21378000" />
       <workItem from="1587004746249" duration="3067000" />
-      <workItem from="1587095938225" duration="27963000" />
+      <workItem from="1587095938225" duration="33131000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -414,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587210606570</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="detailの目次のtargetを_selfに変更。">
+      <created>1587211755833</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1587211755833</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ガイド投稿完了ページをきれいに。&#10;ガイド投稿完了後、自動で投稿したガイドのページに遷移するように変更。" />
     <MESSAGE value="settings の STATICFILES_FINDERSの項目を正しく設定。" />
     <MESSAGE value="create_guide_finish.cssがaddされていなかったので反映" />
     <MESSAGE value="Create Guide update guide detail のCSS修正&#10;更新時に投稿記事が新たに作られてしまう不具合の修正&#10;プレビュー開いた後に、投稿、もしくは更新ボタンを押すとプレビューが開かれてしまい投稿ができない不具合の修正。&#10;キャラクターガイド一覧ページの新規作成&#10;Characterモデルにfull_name_jpのカラムを追加。&#10;indexのガイドの書き方のリンク先をdetail/1に&#10;鉄拳初心者向けガイドのリンク先をdetail/2に設定" />
@@ -469,7 +483,8 @@
     <MESSAGE value="css調整" />
     <MESSAGE value="your guide ページのリンクのtargetを基本_blankに" />
     <MESSAGE value="preview create.css の訂正&#10;detail.htmlのガイドの書き方の遷移先訂正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="preview create.css の訂正&#10;detail.htmlのガイドの書き方の遷移先訂正。" />
+    <MESSAGE value="detailの目次のtargetを_selfに変更。" />
+    <option name="LAST_COMMIT_MESSAGE" value="detailの目次のtargetを_selfに変更。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -484,11 +499,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587210604692">
+    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587223380433">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587210604692" />
+    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587223380433" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854630045" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -522,11 +537,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587210612780">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587211757148">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587210612780" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587211757148" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -551,11 +566,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587211693221">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587223385722">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587211693221" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587223385722" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854272570" />
   </component>
 </project>

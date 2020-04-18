@@ -142,9 +142,44 @@ guide_menu_header {
     border:1px solid black;
 }
 
-.guide_section_article_preview h1, h2, h3 {
+.guide_section_article_preview ul {
+    margin-left: 30px;
+
+}
+
+
+.guide_section_article_preview h1 {
+    color: #364e96; /*文字色*/
+    padding: 0.3em 0; /*上下の余白*/
+    border-top: solid 3px #364e96; /*上線*/
+    border-bottom: solid 3px #364e96; /*下線*/
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.guide_section_article_preview h2 {
+    font-size: 20px;
+    padding: 0.25em 0.5em; /*上下 左右の余白*/
+    color: #494949; /*文字色*/
+    background: transparent; /*背景透明に*/
+    border-left: solid 5px black; /*左線*/
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.guide_section_article_preview h3 {
     padding: 5px;
     background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.guide_section_article_preview h4, h5, h6 {
+    text-decoration: dotted;
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
@@ -154,32 +189,35 @@ guide_menu_header {
 }
 
 .guide_section_article_preview th {
+    padding: 5px;
     background-color: aqua;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 .guide_section_article_preview tr:nth-child(odd) {
     background-color: #eee;
 }
 
-.guide_section_article_preview table{
-    margin:20px 0px 20px 0px;
-}
-.guide_section_article_preview table, th, td {
+.guide_section_article_preview table, td {
     padding: 5px;
     border-collapse: collapse;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
-
-.guide_section_article_preview pre,code{
-    margin:10px 0px 10px 0px;
-    padding:5px 0px 5px 0px;
-    line-height:30px;
-    background-color:beige;
+.guide_section_article_preview pre, code {
+    margin: 10px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
+    line-height: 30px;
+    background-color: beige;
 }
 
-.guide_section_article_preview img{
-    width:300px;
+.guide_section_article_preview img {
+    width: 300px;
+}
+
+.guide_section_article_preview table {
+    margin: 20px 0px 20px 0px;
 }
 
 .guide_section_button_area {
