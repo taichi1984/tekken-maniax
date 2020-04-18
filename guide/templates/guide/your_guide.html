@@ -59,13 +59,14 @@
                         {% else %}
                             公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">非公開にする</a>
                         {% endifequal %}
-                        </form>
+
                     </td>
                     <td>
                         <form name="delete_guide_form" method="POST" action="{% url 'guide:delete' %}">
                             {% csrf_token %}
                             <input type="hidden" name="guide_id" value="{{ guide.id }}">
                             <button name="delete_guide">削除</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
