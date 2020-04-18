@@ -1,17 +1,17 @@
 <nav class="site_header">
 
     <ul class="site_menu">
-        <li class="site_menu_item site_logo"><a href="{% url 'top:index'%}">TEKKEN MANIAX</a></li>
-        <li class="site_menu_item"><a href="{% url 'guide:index'%}">TEKKEN GUIDE </a></li>
+        <li class="site_menu_item site_logo"><a href="{% url 'top:index'%}" target="_self">TEKKEN MANIAX</a></li>
+        <li class="site_menu_item"><a href="{% url 'guide:index'%}" target="_self">TEKKEN GUIDE </a></li>
     </ul>
 
     <ul class="login_menu">
         {% if user.is_authenticated %}
-        <li class="login_menu_item"><a href="{% url 'top:account_manager' %}">{{user.username}}さん</a></li>
-        <li class="login_menu_item"><a href="{% url 'logout'%}?next={{request.path}}">ログアウト</a></li>
+        <li class="login_menu_item"><a href="{% url 'top:account_manager' %}" target="_self">{{user.username}}さん</a></li>
+        <li class="login_menu_item"><a href="{% url 'logout'%}?next={{request.path}}" target="_self">ログアウト</a></li>
         {% else %}
-        <li class="login_menu_item"><a href="{% url 'login'%}?next={{request.path}}">ログイン</a></li>
-        <li class="login_menu_item"><a href="{% url 'top:register'%}">新規登録</a></li>
+        <li class="login_menu_item"><a href="{% url 'login'%}?next={{request.path}}" target="_self">ログイン</a></li>
+        <li class="login_menu_item"><a href="{% url 'top:register'%}" target="_self">新規登録</a></li>
         {% endif %}
     </ul>
 
