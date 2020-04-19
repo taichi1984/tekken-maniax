@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/util/text_html_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/util/text_html_converter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tekkenSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tekkenSite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,7 @@
       <workItem from="1587004746249" duration="3067000" />
       <workItem from="1587095938225" duration="34933000" />
       <workItem from="1587264115190" duration="603000" />
-      <workItem from="1587279272571" duration="6885000" />
+      <workItem from="1587279272571" duration="7675000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -442,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587223812719</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="how_to_registerページの画像がaddされていなかった問題を修正。">
+      <created>1587287722402</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1587287722402</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,12 +515,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587223811360">
+    <state x="578" y="142" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587287720296">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587223811360" />
-    <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854630045" />
+    <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587287720296" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -550,12 +553,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587223814819">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587287724262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587223814819" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586854642262" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587287724262" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -579,11 +582,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587282546146">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587290113902">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587224232733" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587282546146" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587290113902" />
   </component>
 </project>
