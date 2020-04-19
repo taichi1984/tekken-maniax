@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 # cookie
+# settings.py
 
 
 # ルートディレクトリ

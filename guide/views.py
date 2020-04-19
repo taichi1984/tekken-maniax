@@ -231,7 +231,9 @@ def detail_guide(request, guide_id):
         "evaluation": evaluation,
         "favorite": favorite,
     }
+    print(request.COOKIES)
     response = render(request, 'guide/detail.html', context)
+
     return response
 
 
