@@ -264,7 +264,7 @@ def vote_evaluation(request):
         evaluation_query.evaluation = 1
         evaluation_query.save()
 
-        evaluation_html = '<button type="button" class="good_evaluation_pushed_button" name="good_evaluation" value="good_evaluation">\
+        evaluation_html = '<button type="button" class="good_evaluation_pushed_button" name="good_evaluation_pushed" value="good_evaluation">\
         <img src="/static/guide/image/good_evaluation.jpg" width="20px"></button>'
 
     # badが押されたとき
@@ -272,7 +272,7 @@ def vote_evaluation(request):
         evaluation_query.evaluation = 2
         evaluation_query.save()
 
-        evaluation_html = '<button type="button" class="good_evaluation_pushed_button" name="good_evaluation" value="good_evaluation">\
+        evaluation_html = '<button type="button" class=" bad_evaluation_pushed_button" name="bad_evaluation_pushed" value="bad_evaluation">\
         <img src="/static/guide/image/bad_evaluation.jpg" width="20px"></button>'
 
     # goodがキャンセルされたとき
@@ -286,7 +286,7 @@ def vote_evaluation(request):
     elif request.POST.get('vote') == "4":
         evaluation_query.evaluation = 0
         evaluation_query.save()
-        evaluation_html = '<button type="button" class="good_evaluation_button" name="good_evaluation" value="good_evaluation">\
+        evaluation_html = '<button type="button" class="bad_evaluation_button" name="bad_evaluation" value="bad_evaluation">\
         <img src="/static/guide/image/bad_evaluation.jpg" width="20px"></button>'
 
     numof_good_evaluations = Evaluation.objects.filter(evaluation=1, guide=guide).count()
