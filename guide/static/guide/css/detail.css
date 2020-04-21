@@ -326,7 +326,8 @@ main {
 }
 
 .section_article img {
-    width: 600px;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .section_article table {

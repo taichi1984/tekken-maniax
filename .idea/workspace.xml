@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="detailページの広告エリアを非表示に変更。">
-      <change afterPath="$PROJECT_DIR$/top/migrations/0006_auto_20200409_1230.py" afterDir="false" />
+    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
     </list>
@@ -124,7 +123,7 @@
       <workItem from="1587264115190" duration="603000" />
       <workItem from="1587279272571" duration="7987000" />
       <workItem from="1587359292945" duration="5204000" />
-      <workItem from="1587456037624" duration="226000" />
+      <workItem from="1587456037624" duration="584000" />
     </task>
     <task id="LOCAL-00001" summary="notation.html と how_to_register.htmlの位置移動。&#10;グーグルアナリティクスのコードをいろいろな場所に追加。">
       <created>1586396741524</created>
@@ -462,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587374822818</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="detailページの表示、リンク職変更。&#10;画像の幅変更。">
+      <created>1587456400727</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1587456400727</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="staticファイル内のnotation.cssがaddされていなかったため追加。" />
     <MESSAGE value="detailページの評価ボタン、お気に入り関連修正。&#10;detailページのCSS修正&#10;画面狭くしたときにヘッダーの表示が崩れる問題修正。&#10;コメント欄にMarkdown投稿できちゃう問題修正。&#10;detailページ投稿者情報欄にプロフィール情報が反映されるように。&#10;各ページのガイドパネルに評価数が表示されるように。" />
     <MESSAGE value="Searchのget_context_dataに余計な1文が入っていたのを削除" />
     <MESSAGE value="本番環境で評価ができない問題を場当たり的な対応で修正。" />
@@ -517,7 +522,8 @@
     <MESSAGE value="how_to_registerページの画像がaddされていなかった問題を修正。" />
     <MESSAGE value="detailページのevaluationとfavoriteのguide_idを求める処理を修正。" />
     <MESSAGE value="detailページの広告エリアを非表示に変更。" />
-    <option name="LAST_COMMIT_MESSAGE" value="detailページの広告エリアを非表示に変更。" />
+    <MESSAGE value="detailページの表示、リンク職変更。&#10;画像の幅変更。" />
+    <option name="LAST_COMMIT_MESSAGE" value="detailページの表示、リンク職変更。&#10;画像の幅変更。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -532,11 +538,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587456086969">
+    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587456395578">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456086969" />
+    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456395578" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -570,11 +576,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587374825473">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587456410549">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587223814819" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456410549" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -590,11 +596,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587201062323" />
-    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587199064165">
+    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587456677251">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
-    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587199064165" />
+    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456677251" />
     <state x="657" y="272" width="605" height="536" key="find.popup" timestamp="1587124555942">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
