@@ -247,6 +247,14 @@ main {
     color: black;
 }
 
+.section_article a{
+    color:blue;
+}
+
+.section_article a:hover{
+    color:red;
+}
+
 .section_article ul {
     margin-left: 30px;
 
@@ -318,7 +326,7 @@ main {
 }
 
 .section_article img {
-    width: 300px;
+    width: 600px;
 }
 
 .section_article table {
