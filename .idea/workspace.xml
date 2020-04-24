@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,13 +125,8 @@
       <workItem from="1587279272571" duration="7987000" />
       <workItem from="1587359292945" duration="5204000" />
       <workItem from="1587456037624" duration="2372000" />
-    </task>
-    <task id="LOCAL-00002" summary="グーグルアナリティクスのコードを全てのページに追加。">
-      <created>1586397303006</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1586397303006</updated>
+      <workItem from="1587462249251" duration="4590000" />
+      <workItem from="1587704242823" duration="600000" />
     </task>
     <task id="LOCAL-00003" summary="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。">
       <created>1586413289543</created>
@@ -468,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587456702393</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="evaluationがバグっていたのを修正。">
+      <created>1587462301972</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1587462301973</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Searchのget_context_dataに余計な1文が入っていたのを削除" />
     <MESSAGE value="本番環境で評価ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="本番環境でお気に入り追加ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="エディタの開業問題の修正。" />
@@ -523,7 +525,8 @@
     <MESSAGE value="detailページの広告エリアを非表示に変更。" />
     <MESSAGE value="detailページの表示、リンク職変更。&#10;画像の幅変更。" />
     <MESSAGE value="&#10;画像の最大幅と最大の高さを変更。" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;画像の最大幅と最大の高さを変更。" />
+    <MESSAGE value="evaluationがバグっていたのを修正。" />
+    <option name="LAST_COMMIT_MESSAGE" value="evaluationがバグっていたのを修正。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -538,11 +541,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="928" y="94" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587456700780">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587708387398">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586417993058" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456700780" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587708387398" />
+    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -576,20 +579,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587456703787">
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587462317291">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456703787" />
+    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612018515" />
-    <state x="674" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1587462249741">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1587704252876">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396136442" />
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587704252876" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462249741" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587359294734" />
     <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587201062323">
@@ -605,11 +608,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587460417584">
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587467945701">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587460417584" />
+    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587467945701" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587372879672" />
   </component>
 </project>
