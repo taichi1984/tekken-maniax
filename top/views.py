@@ -126,21 +126,25 @@ def delete_account(request):
     :param request:
     :return:
     """
-    if request.method == 'POST':
-        user = request.user
-        guide_list = Guide.objects.filter(author=request.user)
-        for guide in guide_list:
-            print(guide)
-            guide.is_deleted = True
-            guide.save()
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            user = request.user
+            guide_list = Guide.objects.filter(author=request.user)
+            for guide in guide_list:
+                print(guide)
+                guide.is_deleted = True
+                guide.save()
 
-        user.is_active = False
-        user.save()
-        logout(request)
-        return render(request, "top/delete_account_complete.html")
+            user.is_active = False
+            user.save()
+            logout(request)
+            return render(request, "top/delete_account_complete.html")
+        else:
+            return render(request, "top/delete_account.html")
     else:
         None
-    return render(request, "top/delete_account.html")
+
+    return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
 
 
 #
