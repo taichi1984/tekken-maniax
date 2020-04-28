@@ -8,3 +8,5 @@ class CommentSubmitForm(forms.Form):
 
 class SearchGuideForm(forms.Form):
     search_word = forms.CharField(max_length=50)
+
+

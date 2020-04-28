@@ -7,6 +7,8 @@
     <title>
         プロフィール編集ページ
     </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{% static 'top/js/delete_user.js' %}"></script>
 </head>
 <header class="header">
     {% include 'top/site_header.html' %}
@@ -19,11 +21,9 @@
     <h1>アカウント削除</h1>
     本当にアカウントを削除しますか？<br>
     この操作は取り消すことができません。<br>
-    <form action="" method="POST">
+    <form action="" name="delete_account_form"method="POST">
         {% csrf_token %}
-
-
-        <input type="submit" value="削除します">
+        <button name="delete_account_button" type="button">削除します</button>
     </form>
 
 </div>

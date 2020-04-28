@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+     <meta http-equiv="Refresh" content="3;{% url 'top:index' %}">
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/notation.css' %}"/>
+    <title>
+        サイト利用上の注意
+    </title>
+</head>
+
+<body>
+<header class="header">
+    {% include 'top/site_header.html' %}
+</header>
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title_field">
+            ログアウトしました。
+        </div>
+        <div class="page_introduction_field">
+            ログアウトしました。<br/>
+            またのご利用をお待ちしております。<br/>
+        </div>
+
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>

@@ -19,8 +19,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         <main class="main">
-            {{ error_message }}<br/>
-            新しいe-mail アドレス <input type="text" name="e-mail">
+            {{ form }}
         </main>
 
         <input type="submit" value="変更する">

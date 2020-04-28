@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/top/static/top/js/delete_user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top/templates/top/logout_complete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/top/css/password_change_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/css/password_change_form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/static/top/css/password_change_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/top/static/top/css/password_change_form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/password_change_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/password_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/delete_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/delete_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/error_account_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/site_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/site_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +45,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -50,18 +64,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/top/static/top/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/top/static/top/js" />
     <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\image" />
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\js" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\css" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\image" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
     </key>
   </component>
   <component name="RunManager">
@@ -126,14 +141,9 @@
       <workItem from="1587359292945" duration="5204000" />
       <workItem from="1587456037624" duration="2372000" />
       <workItem from="1587462249251" duration="4590000" />
-      <workItem from="1587704242823" duration="600000" />
-    </task>
-    <task id="LOCAL-00003" summary="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。">
-      <created>1586413289543</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1586413289543</updated>
+      <workItem from="1587704242823" duration="9795000" />
+      <workItem from="1587799057419" duration="5319000" />
+      <workItem from="1588053859153" duration="3782000" />
     </task>
     <task id="LOCAL-00004" summary="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。">
       <created>1586413314172</created>
@@ -471,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587462301973</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="テスト前のコミット">
+      <created>1587708394687</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1587708394688</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="本番環境で評価ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="本番環境でお気に入り追加ができない問題を場当たり的な対応で修正。" />
     <MESSAGE value="エディタの開業問題の修正。" />
     <MESSAGE value="エディタの改行問題の修正２。" />
@@ -526,7 +542,8 @@
     <MESSAGE value="detailページの表示、リンク職変更。&#10;画像の幅変更。" />
     <MESSAGE value="&#10;画像の最大幅と最大の高さを変更。" />
     <MESSAGE value="evaluationがバグっていたのを修正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="evaluationがバグっていたのを修正。" />
+    <MESSAGE value="テスト前のコミット" />
+    <option name="LAST_COMMIT_MESSAGE" value="テスト前のコミット" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -541,10 +558,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1587708387398">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588058640446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587708387398" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588058640446" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -579,39 +596,39 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2" timestamp="1587462317291">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1587708462097">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586418028710" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587708462097" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612018515" />
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1587704252876">
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1588054545115">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587704252876" />
+    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588054545115" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462249741" />
     <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587359294734" />
     <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587201062323">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587201062323" />
-    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587456677251">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588058585190">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586413265087" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588058585190" />
     <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456677251" />
     <state x="657" y="272" width="605" height="536" key="find.popup" timestamp="1587124555942">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup" timestamp="1587467945701">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1588055772294">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586420985124" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588055772294" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587467945701" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587372879672" />
   </component>

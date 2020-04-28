@@ -1,6 +1,8 @@
 from django.contrib.auth import login, logout
 from django.urls import reverse
 from django.shortcuts import render, redirect
+
+from top.forms import ChangeEmailForm
 from .util import profile_manager
 from .forms import UserProfileUpdateForm, UserCreationForm
 from .models import UserProfile, CustomUser
@@ -115,7 +117,7 @@ def account_manager(request):
 
         return render(request, "top/account_manager.html", context)
     else:
-        return redirect(reverse("top:index"))
+        return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
 
 
 def delete_account(request):
@@ -128,7 +130,10 @@ def delete_account(request):
         user = request.user
         guide_list = Guide.objects.filter(author=request.user)
         for guide in guide_list:
+            print(guide)
             guide.is_deleted = True
+            guide.save()
+
         user.is_active = False
         user.save()
         logout(request)
@@ -177,7 +182,7 @@ def edit_profile(request):
             return render(request, "top/profile.html", {'form': form})
 
     else:
-        return redirect(reverse("top:index"))
+        return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
 
 
 def change_email(request):
@@ -186,29 +191,39 @@ def change_email(request):
     :param request:
     :return:
     """
-    context = {}
-    if request.method == "POST":
-        try:
-            user = request.user
-            user.email = request.POST.get("e-mail")
-            user.save()
-        except:
-            context = {
-                "error_message": "入力されたe-mailアドレスは既にほかのユーザーが登録しています。",
-            }
-            return render(request, "top/change_email.html", context)
+    user = request.user
+    form = ChangeEmailForm()
+    context = {
+        'form': form
+    }
+    if user.is_authenticated:
+        if request.method == "POST":
+            try:
+                user.email = request.POST.get("new_email")
+                user.save()
+            except:
+                context = {
+                    "error_message": "入力されたe-mailアドレスは既にほかのユーザーが登録しています。",
+                }
+                return render(request, "top/change_email.html", context)
 
-        return render(request, "top/change_email_done.html")
+            return render(request, "top/change_email_done.html")
+
     else:
-        None
+        return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
 
-    return render(request, "top/change_email.html")
+    return render(request, "top/change_email.html", context)
 
 
-# トップページに飛ぶ前のクッションページ
-def error_account_manager(request):
+# ログアウト完了後のページ
+def logout_complete(request):
+    return render(request, "top/logout_complete.html")
+
+
+# エラーページ
+def error(request):
     error_message = request.GET.get('error_message')
     context = {
         'error_message': error_message
     }
-    return render(request, "top/error_account_manager.html", context)
+    return render(request, "top/error.html", context)

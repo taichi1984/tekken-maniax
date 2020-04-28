@@ -8,7 +8,7 @@
     <ul class="login_menu">
         {% if user.is_authenticated %}
         <li class="login_menu_item"><a href="{% url 'top:account_manager' %}" target="_self">{{user.username}}さん</a></li>
-        <li class="login_menu_item"><a href="{% url 'logout'%}?next={{request.path}}" target="_self">ログアウト</a></li>
+        <li class="login_menu_item"><a href="{% url 'logout'%}?next={% url 'top:logout_complete' %}" target="_self">ログアウト</a></li>
         {% else %}
         <li class="login_menu_item"><a href="{% url 'login'%}?next={{request.path}}" target="_self">ログイン</a></li>
         <li class="login_menu_item"><a href="{% url 'top:register'%}" target="_self">新規登録</a></li>

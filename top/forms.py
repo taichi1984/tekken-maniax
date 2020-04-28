@@ -32,3 +32,7 @@ class UserProfileUpdateForm(forms.Form):
     youtube_channel_url = forms.CharField(label="Youtubeチャンネル URL", required=False)
     twitch_url = forms.CharField(label="Twitch URL", required=False)
     introduction = forms.CharField(label="自己紹介", widget=forms.Textarea)
+
+
+class ChangeEmailForm(forms.Form):
+    new_email = forms.EmailField(max_length=255,label="新しいEメールアドレス")
