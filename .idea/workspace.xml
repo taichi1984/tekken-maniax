@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/top/static/top/js/delete_user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top/templates/top/logout_complete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/top/css/password_change_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/css/password_change_form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/static/top/css/password_change_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/top/static/top/css/password_change_form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/password_change_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/registration/password_reset_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/delete_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/delete_account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/error_account_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/site_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/site_header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +127,7 @@
       <workItem from="1587462249251" duration="4590000" />
       <workItem from="1587704242823" duration="9795000" />
       <workItem from="1587799057419" duration="5319000" />
-      <workItem from="1588053859153" duration="3782000" />
-    </task>
-    <task id="LOCAL-00004" summary="アカウントマネージャーのページの表示を修正。&#10;profile関連のコードのリファクタリング。profile_managaer.pyの新規作成。">
-      <created>1586413314172</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1586413314172</updated>
+      <workItem from="1588053859153" duration="5785000" />
     </task>
     <task id="LOCAL-00005" summary="collectingstatic忘れのため再プッシュ">
       <created>1586414209957</created>
@@ -488,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587708394688</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="テストで発見された不具合修正&#10;チケット、8,10,11,12,13,14,15,17,18,19">
+      <created>1588058649358</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1588058649360</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,8 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="本番環境でお気に入り追加ができない問題を場当たり的な対応で修正。" />
-    <MESSAGE value="エディタの開業問題の修正。" />
     <MESSAGE value="エディタの改行問題の修正２。" />
     <MESSAGE value="エディタの改行問題の修正&#10;update,detail,create_guideのcss調整。" />
     <MESSAGE value="&#10;update,detail,create_guideのcss調整。" />
@@ -543,7 +525,9 @@
     <MESSAGE value="&#10;画像の最大幅と最大の高さを変更。" />
     <MESSAGE value="evaluationがバグっていたのを修正。" />
     <MESSAGE value="テスト前のコミット" />
-    <option name="LAST_COMMIT_MESSAGE" value="テスト前のコミット" />
+    <MESSAGE value="テストで発見された不具合修正" />
+    <MESSAGE value="テストで発見された不具合修正&#10;チケット、8,10,11,12,13,14,15,17,18,19" />
+    <option name="LAST_COMMIT_MESSAGE" value="テストで発見された不具合修正&#10;チケット、8,10,11,12,13,14,15,17,18,19" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -596,10 +580,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1587708462097">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588058786338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1587708462097" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588058786338" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
