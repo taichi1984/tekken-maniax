@@ -446,7 +446,8 @@ class CharacterGuide(ListView):
 
     def get_queryset(self):
         return make_guide_list_with_evaluation(
-            Guide.objects.filter(character=self.request.GET.get('character')).order_by('-update_date'))
+            Guide.objects.filter(character=self.request.GET.get('character'), is_deleted=False,
+                                 publissing_setting=1).order_by('-update_date'))
 
 
 ######################
