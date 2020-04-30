@@ -42,7 +42,7 @@ def index(request):
     for character in character_list:
         character_guide_info = {
             "character": character,
-            "num": Guide.objects.filter(character=character).count()
+            "num": Guide.objects.filter(character=character, publishing_setting=1, is_deleted=False).count()
         }
         character_guide_list[character.first_name_en] = character_guide_info
 
