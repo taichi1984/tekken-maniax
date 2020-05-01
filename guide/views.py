@@ -514,10 +514,12 @@ def update_guide(request, guide_id):
     """
     guide = get_object_or_404(Guide, pk=guide_id)
 
-    if request.user != guide.author:
-        return redirect("top:top_page")
-
     if request.user.is_authenticated:
+        if request.user != guide.author:
+            return redirect(reverse("guide:error") + "?error_message=あなたのガイドではありません。")
+        if guide.is_deleted:
+            return redirect(reverse("guide:error") + "?error_message=このガイドは既に削除されています。")
+
         if request.method == 'POST':
             character_list = Character.objects.order_by('id')
             guide_character_id = request.POST.get("guide_character")
@@ -559,7 +561,7 @@ def update_guide(request, guide_id):
             return HttpResponse(template.render(context, request))
 
     else:
-        return redirect(reverse('top:login'))
+        return redirect(reverse('login') + "?next=" + reverse('guide:index'))
 
     return render(request, update_html)
 
@@ -574,7 +576,7 @@ def guide_error(request):
     :return:
     """
 
-    error_text = request.GET.get('error')
+    error_text = request.GET.get('error_message')
     context = {
         'error_text': error_text
     }
