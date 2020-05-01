@@ -129,7 +129,7 @@ def create_guide(request):
             return render(request, 'guide/create_guide.html', context)
 
     else:
-        return redirect(reverse('top:login') + "?next=" + reverse('guide:create'))
+        return redirect(reverse('login') + "?next=" + reverse('guide:index'))
 
 
 def create_guide_finish(request):

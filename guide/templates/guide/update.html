@@ -103,8 +103,8 @@
                                             {{ character.family_name_en }}
                                         </option>
                                     {% else %}
-                                        <option value="{{ character.id }}">{{ character.first_name_en }}
-                                            {{ character.family_name_en }}
+                                        <option value="{{ character.id }}">{{ character.full_name_jp }}
+
                                         </option>
                                     {% endifequal %}
                                 {% endfor %}

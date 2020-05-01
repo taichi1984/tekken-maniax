@@ -92,8 +92,7 @@
                             <select name="guide_character">
                                 {{ character_list.0 }}
                                 {% for character in character_list %}
-                                    <option value="{{ character.id }}">{{ character.first_name_en }}
-                                        {{ character.family_name_en }}
+                                    <option value="{{ character.id }}">{{ character.full_name_jp }}
                                     </option>
                                 {% endfor %}
                             </select>
