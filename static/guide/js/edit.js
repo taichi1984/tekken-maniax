@@ -45,7 +45,7 @@ function add_section() {
             '</textarea>' +
             '</div>' +
             '<div class="guide_section_button_area" name="guide_section_button_area">' +
-            '<input type="button" name="delete_section_button" value="段落削除">' +
+            '<input type="button" name="delete_section_button" value="セクション削除">' +
             ' <input type="button" name="preview_section_button" value="簡易プレビュー">' +
             '</div>' +
             '</div>';
@@ -116,7 +116,13 @@ function add_youtube_tag() {
 function add_link_tag() {
     $('input[name="add_link_button"]').on("click", function () {
         let link_address = prompt("貼り付けたいリンクのアドレスを入力してください。", "");
+        if (link_address == null || link_address == "") {
+            return;
+        }
         let link_word = prompt("貼り付けたいリンクの言葉を入力してください。", "");
+        if (link_word == null) {
+            return;
+        }
         console.log(clicked_element_position['textarea[name="guide_section_article"]']);
         $('textarea[name="guide_section_article"]').eq(clicked_element_position['textarea[name="guide_section_article"]']).selection('replace', {text: '[' + link_word + '](' + link_address + ')'});
     })
@@ -152,10 +158,12 @@ function preview_guide() {
             return;
         }
         let edit_buttons = document.getElementsByName("edit_section_button");
-        console.log("edit_buttons length : " + edit_buttons.length);
-        if (edit_buttons[0] != undefined) {
 
-            for (let i = 0; i <= edit_buttons.length; i++) {
+        if (edit_buttons[0] != undefined) {
+            let num_of_edit_buttons = edit_buttons.length;
+
+            for (let i = 0; i < num_of_edit_buttons; i++) {
+                console.log("edit_buttons length : " + edit_buttons.length);
                 edit_buttons[0].click();
             }
         }
@@ -173,11 +181,16 @@ function post_guide() {
             alert("ガイドタイトルには必ずタイトルを入力してください")
             return;
         }
+        let is_postable = window.confirm("本当にこの内容で投稿してよろしいですか？");
+        if (is_postable == false) {
+            return;
+        }
+
         let edit_buttons = document.getElementsByName("edit_section_button");
         console.log("edit_buttons length : " + edit_buttons.length);
         if (edit_buttons[0] != undefined) {
-
-            for (let i = 0; i <= edit_buttons.length; i++) {
+              let num_of_edit_buttons = edit_buttons.length;
+            for (let i = 0; i < num_of_edit_buttons ;i++) {
                 edit_buttons[0].click();
             }
         }

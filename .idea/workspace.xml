@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/taich.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/js/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/js/edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/guide/js/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/guide/js/edit.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,14 +132,7 @@
       <workItem from="1587462249251" duration="4590000" />
       <workItem from="1587704242823" duration="9795000" />
       <workItem from="1587799057419" duration="5319000" />
-      <workItem from="1588053859153" duration="18084000" />
-    </task>
-    <task id="LOCAL-00012" summary="Create Guide update guide detail のCSS修正&#10;更新時に投稿記事が新たに作られてしまう不具合の修正&#10;プレビュー開いた後に、投稿、もしくは更新ボタンを押すとプレビューが開かれてしまい投稿ができない不具合の修正。&#10;キャラクターガイド一覧ページの新規作成&#10;Characterモデルにfull_name_jpのカラムを追加。&#10;indexのガイドの書き方のリンク先をdetail/1に&#10;鉄拳初心者向けガイドのリンク先をdetail/2に設定">
-      <created>1586854636665</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1586854636665</updated>
+      <workItem from="1588053859153" duration="18491000" />
     </task>
     <task id="LOCAL-00013" summary="Create Guide update guide detail のCSS修正&#10;更新時に投稿記事が新たに作られてしまう不具合の修正&#10;プレビュー開いた後に、投稿、もしくは更新ボタンを押すとプレビューが開かれてしまい投稿ができない不具合の修正。&#10;キャラクターガイド一覧ページの新規作成&#10;Characterモデルにfull_name_jpのカラムを追加。&#10;indexのガイドの書き方のリンク先をdetail/1に&#10;鉄拳初心者向けガイドのリンク先をdetail/2に設定">
       <created>1586870515601</created>
@@ -483,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588241555120</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="テストで発見された不具合修正&#10;チケット25-29関連">
+      <created>1588308877895</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1588308877895</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="本番環境のDebugフラグ解除" />
     <MESSAGE value="samesite対応" />
     <MESSAGE value="samesite対応をいったんやめ" />
     <MESSAGE value="エラーあったのを修正" />
@@ -538,7 +531,8 @@
     <MESSAGE value="テストで発見された不具合修正&#10;チケット23,24関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット21関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット22関連" />
-    <option name="LAST_COMMIT_MESSAGE" value="テストで発見された不具合修正&#10;チケット22関連" />
+    <MESSAGE value="テストで発見された不具合修正&#10;チケット25-29関連" />
+    <option name="LAST_COMMIT_MESSAGE" value="テストで発見された不具合修正&#10;チケット25-29関連" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -553,10 +547,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588241553486">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588308871736">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588241553486" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588308871736" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -591,10 +585,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588241556647">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588308879624">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588241556647" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588308879624" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
