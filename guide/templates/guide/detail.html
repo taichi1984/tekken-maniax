@@ -19,7 +19,7 @@
     <base target="_blank">
     <link rel="stylesheet" type="text/css" href="{% static 'guide/css/detail.css' %}"/>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-    <script src="{% static 'guide/js/evaluation.js' %}"></script>
+    <script src="{% static 'guide/js/evaluation_delete_comment.js' %}"></script>
     <meta charset="UTF-8">
     <title>ガイド:{{ guide.title }}</title>
 </head>
@@ -34,7 +34,7 @@
              style="background-image:url('/static/guide/image/character_wp_{{ guide.character.id }}.jpg')">
             <div class="page_type">
                 カテゴリ:{{ guide.category.name }}<br>
-                キャラクター:{{ guide.character.first_name_en }} {{ guide.character.family_name_en }}<br>
+                キャラクター:{{ guide.character.full_name_jp }}<br>
             </div>
             <div class="page_summary">
                 <div class="page_summary_icon">
@@ -105,7 +105,8 @@
                                     <button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>
                                 {% endifequal %}
                             {% else %}
-                                <a href="{% url 'login' %}">ログイン</a>するとお気に入りに追加できます。
+                                <a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">ログイン</a>
+                                するとお気に入りに追加できます。
                             {% endif %}
 
                         </div>
@@ -165,32 +166,43 @@
                         : {{ guide.author.userprofile.nick_name }} (id : {{ guide.author }})
                     </div>
                 </div>
-                <div class="author_twitter">
-                    <div class="author_item_label">
-                        twitter
+                {% if guide.author.userprofile.twitter_account != "" %}
+                    <div class="author_twitter">
+                        <div class="author_item_label">
+                            twitter
+                        </div>
+                        <div class="author_item_contents">
+                            : <a href="https://twitter.com/">@{{ guide.author.userprofile.twitter_account }}</a>
+                        </div>
                     </div>
-                    <div class="author_item_contents">
-                        : <a href="https://twitter.com/">@{{ guide.author.userprofile.twitter_account }}</a>
+                {% endif %}
+                {% if guide.author.userprofile.twitch_url != "" %}
+                    <div class="author_twitch">
+                        <div class="author_item_label">
+                            twitch URL
+                        </div>
+                        <div class="author_item_contents">
+                            : <a
+                                href="{{ guide.author.userprofile.twitch_url }}">{{ guide.author.userprofile.twitch_url }}</a>
+                        </div>
                     </div>
-                </div>
-                <div class="author_twitch">
-                    <div class="author_item_label">
-                        twitch URL
+                {% endif %}
+                {% if guide.author.userprofile.youtube_channel_url != "" %}
+
+                    <div class="author_youtube">
+                        <div class="author_item_label">
+                            youtube URL
+                        </div>
+                        <div class="author_item_contents">
+
+
+                            : <a
+                                href="{{ guide.author.userprofile.youtube_channel_url }}">{{ guide.author.userprofile.youtube_channel_url }}</a>
+
+
+                        </div>
                     </div>
-                    <div class="author_item_contents">
-                        : <a
-                            href="{{ guide.author.userprofile.twitch_url }}">{{ guide.author.userprofile.twitch_url }}</a>
-                    </div>
-                </div>
-                <div class="author_youtube">
-                    <div class="author_item_label">
-                        youtube URL
-                    </div>
-                    <div class="author_item_contents">
-                        : <a
-                            href="{{ guide.author.userprofile.youtube_channel_url }}">{{ guide.author.userprofile.youtube_channel_url }}</a>
-                    </div>
-                </div>
+                {% endif %}
                 <div class="author_introduction">
                     {{ guide.author.userprofile.introduction| linebreaksbr }}
                 </div>
@@ -222,7 +234,7 @@
 
                 {% else %}
                     コメントをするにはログインする必要があります。<br>
-                    ログイン画面は<a href="{% url 'login' %}">こちら</a>
+                    ログイン画面は<a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">こちら</a>
                 {% endif %}
             </div>
             <div class="comments">
@@ -241,44 +253,42 @@
                     </div>
                 {% else %}
                     {% for comment in comment_list %}
+                        <div class="comment" id="comment_{{ comment.id }}">
 
-                        {% if comment.is_deleted == True %}
-                            <div class="comment_contributor">
-                                {{ forloop.counter }} . 削除されたコメント
-                            </div>
-                        {% else %}
-
-                            {% if comment.contributor == user or user == guide.author %}
-                                <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
-                                    {% csrf_token %}
-                                    <div class="comment_contributor">
-                                        {{ forloop.counter }} . 投稿者 : {{ comment.contributor }} <input type="submit"
-                                                                                                       value="削除">
-                                    </div>
-
-                                    <input type="hidden" name="next" value="{{ request.path }}">
-                                </form>
-                            {% else %}
+                            {% if comment.is_deleted == True %}
                                 <div class="comment_contributor">
-                                    {{ forloop.counter }} .　 投稿者 : {{ comment.contributor }}
+                                    {{ forloop.counter }} . 削除されたコメント
                                 </div>
+                            {% else %}
+
+                                {% if comment.contributor == user or user == guide.author %}
+                                    <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
+                                        {% csrf_token %}
+                                        <div class="comment_contributor">
+                                            {{ forloop.counter }} . 投稿者 : {{ comment.contributor }} <input type="submit"
+                                                                                                           value="削除">
+                                        </div>
+
+                                        <input type="hidden" name="next" value="{{ request.path }}">
+                                    </form>
+                                {% else %}
+                                    <div class="comment_contributor">
+                                        {{ forloop.counter }} .　 投稿者 : {{ comment.contributor }}
+                                    </div>
+                                {% endif %}
+
                             {% endif %}
 
-                        {% endif %}
-
-                        {% if comment.is_deleted == True %}
-                            <div class="comment_comment">
-                                このコメントは削除されました。
-                            </div>
-                        {% else %}
-                            <div class="comment_comment">
-                                {{ comment.comment |linebreaksbr }}
-                            </div>
-                        {% endif %}
-
-
-
-
+                            {% if comment.is_deleted == True %}
+                                <div class="comment_comment">
+                                    このコメントは削除されました。
+                                </div>
+                            {% else %}
+                                <div class="comment_comment">
+                                    {{ comment.comment |linebreaksbr }}
+                                </div>
+                            {% endif %}
+                        </div>
                     {% endfor %}
                 {% endif %}
             </div>

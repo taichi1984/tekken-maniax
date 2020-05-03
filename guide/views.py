@@ -19,7 +19,7 @@ from .util import text_html_converter
 from .models import Guide, Character, Category, GuideComment, Favorite, Evaluation
 from _datetime import datetime
 from django.views.generic import ListView
-
+import re
 from urllib.parse import urlencode
 import json
 import markdown
@@ -192,9 +192,9 @@ def detail_guide(request, guide_id):
     """
     guide = get_object_or_404(Guide, pk=guide_id)
     if guide.is_deleted:
-        return redirect(reverse("guide:error") + "?error=この記事は削除済みです")
+        return redirect(reverse("guide:error") + "?error_message=この記事は削除済みです")
     if guide.publishing_setting == 0 and (guide.author != request.user):
-        return redirect(reverse("guide:error") + "?error=この記事は非公開です")
+        return redirect(reverse("guide:error") + "?error_message=この記事は非公開です")
 
     # ページビュー数の追加
     guide.number_of_preview += 1;
@@ -244,9 +244,11 @@ def vote_evaluation(request):
     :param request:
     :return:
     """
-    # 　TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、必ず直すこと。
+    # 　TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、できれば直したい。
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
     guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
+    guide_id = re.sub('([0-9])*#section[0-9]*', '\\1', guide_id)
+    print(guide_id)
 
     guide = Guide.objects.filter(id=guide_id).first()
 

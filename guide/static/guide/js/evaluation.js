@@ -10,6 +10,7 @@ function initialize_event_handler() {
     delete_bad_evaluation()
     add_favorite();
     release_favorite();
+
 }
 
 /*ここから、ajaxをdjangoで使うためのおまじない（csrf_token) */
@@ -179,3 +180,4 @@ function release_favorite() {
             })
     });
 }
+
