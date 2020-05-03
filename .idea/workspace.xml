@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/js/evaluation.js" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/js/evaluation_delete_comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +133,7 @@
       <workItem from="1587704242823" duration="9795000" />
       <workItem from="1587799057419" duration="5319000" />
       <workItem from="1588053859153" duration="26309000" />
-      <workItem from="1588460771172" duration="5839000" />
-    </task>
-    <task id="LOCAL-00016" summary="detailページの評価ボタン、お気に入り関連修正。&#10;detailページのCSS修正&#10;画面狭くしたときにヘッダーの表示が崩れる問題修正。&#10;コメント欄にMarkdown投稿できちゃう問題修正。&#10;detailページ投稿者情報欄にプロフィール情報が反映されるように。&#10;各ページのガイドパネルに評価数が表示されるように。">
-      <created>1586947507848</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1586947507848</updated>
+      <workItem from="1588460771172" duration="6406000" />
     </task>
     <task id="LOCAL-00017" summary="Searchのget_context_dataに余計な1文が入っていたのを削除">
       <created>1586947633529</created>
@@ -478,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588468485073</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ファイル名修正">
+      <created>1588468704374</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1588468704374</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="エラーあったのを修正" />
     <MESSAGE value="detailページのリンクを基本的に新しいウィンドウで開くように修正" />
     <MESSAGE value="headerのリンクをどのページでも自分の画面に飛ぶように。" />
     <MESSAGE value="css調整" />
@@ -533,7 +532,8 @@
     <MESSAGE value="テストで発見された不具合修正&#10;チケット25-29関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット30-33関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット34-42関連" />
-    <option name="LAST_COMMIT_MESSAGE" value="テストで発見された不具合修正&#10;チケット34-42関連" />
+    <MESSAGE value="ファイル名修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="ファイル名修正" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -548,11 +548,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588468678829">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588468702876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316799809" />
-    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588468678829" />
+    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588468702876" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -587,11 +587,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588468486986">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588468707024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316812752" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588468486986" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588468707024" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
@@ -618,11 +618,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1588468521701">
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1588469162820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588337570269" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588468521701" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588469162820" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587467945701" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587372879672" />
   </component>
