@@ -1,0 +1,529 @@
+-- MySQL dump 10.13  Distrib 8.0.19, for Linux (x86_64)
+--
+-- Host: localhost    Database: tekkenSite
+-- ------------------------------------------------------
+-- Server version	8.0.19-0ubuntu0.19.10.3
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `group_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add user profile',1,'add_userprofile'),(2,'Can change user profile',1,'change_userprofile'),(3,'Can delete user profile',1,'delete_userprofile'),(4,'Can view user profile',1,'view_userprofile'),(5,'Can add user',2,'add_customuser'),(6,'Can change user',2,'change_customuser'),(7,'Can delete user',2,'delete_customuser'),(8,'Can view user',2,'view_customuser'),(9,'Can add category',3,'add_category'),(10,'Can change category',3,'change_category'),(11,'Can delete category',3,'delete_category'),(12,'Can view category',3,'view_category'),(13,'Can add character',4,'add_character'),(14,'Can change character',4,'change_character'),(15,'Can delete character',4,'delete_character'),(16,'Can view character',4,'view_character'),(17,'Can add evaluation',5,'add_evaluation'),(18,'Can change evaluation',5,'change_evaluation'),(19,'Can delete evaluation',5,'delete_evaluation'),(20,'Can view evaluation',5,'view_evaluation'),(21,'Can add favorite',6,'add_favorite'),(22,'Can change favorite',6,'change_favorite'),(23,'Can delete favorite',6,'delete_favorite'),(24,'Can view favorite',6,'view_favorite'),(25,'Can add guide',7,'add_guide'),(26,'Can change guide',7,'change_guide'),(27,'Can delete guide',7,'delete_guide'),(28,'Can view guide',7,'view_guide'),(29,'Can add guide comment',8,'add_guidecomment'),(30,'Can change guide comment',8,'change_guidecomment'),(31,'Can delete guide comment',8,'delete_guidecomment'),(32,'Can view guide comment',8,'view_guidecomment'),(33,'Can add log entry',9,'add_logentry'),(34,'Can change log entry',9,'change_logentry'),(35,'Can delete log entry',9,'delete_logentry'),(36,'Can view log entry',9,'view_logentry'),(37,'Can add permission',10,'add_permission'),(38,'Can change permission',10,'change_permission'),(39,'Can delete permission',10,'delete_permission'),(40,'Can view permission',10,'view_permission'),(41,'Can add group',11,'add_group'),(42,'Can change group',11,'change_group'),(43,'Can delete group',11,'delete_group'),(44,'Can view group',11,'view_group'),(45,'Can add content type',12,'add_contenttype'),(46,'Can change content type',12,'change_contenttype'),(47,'Can delete content type',12,'delete_contenttype'),(48,'Can view content type',12,'view_contenttype'),(49,'Can add session',13,'add_session'),(50,'Can change session',13,'change_session'),(51,'Can delete session',13,'delete_session'),(52,'Can view session',13,'view_session');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_admin_log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_top_customuser_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_top_customuser_id` FOREIGN KEY (`user_id`) REFERENCES `top_customuser` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2020-04-24 09:45:33.631292','1','kickmeNmori',2,'[{\"changed\": {\"fields\": [\"Active\"]}}]',2,3),(2,'2020-04-24 09:53:09.064989','1','kickmeNmori',2,'[]',2,3),(3,'2020-04-28 10:46:38.855456','1','kickmeNmori',2,'[{\"changed\": {\"fields\": [\"Active\"]}}]',2,3),(4,'2020-04-28 10:47:17.944974','1','ガイドの書き方',2,'[{\"changed\": {\"fields\": [\"Is deleted\"]}}]',7,3),(5,'2020-04-28 10:47:23.118914','2','初心者向けガイド',2,'[{\"changed\": {\"fields\": [\"Is deleted\"]}}]',7,3),(6,'2020-04-28 12:09:52.789785','3','評価の動作確認用ガイド',2,'[{\"changed\": {\"fields\": [\"Is deleted\"]}}]',7,3),(7,'2020-05-02 23:35:05.382059','1','ガイドの書き方',2,'[{\"changed\": {\"fields\": [\"Comment\", \"Is deleted\"]}}]',8,3),(8,'2020-05-03 04:10:48.254773','11','aaaa',3,'',7,3),(9,'2020-05-03 04:10:48.257041','10','taichi84のガイド',3,'',7,3),(10,'2020-05-03 04:10:48.258999','9','あああ',3,'',7,3),(11,'2020-05-03 04:10:48.260396','8','tesuto',3,'',7,3),(12,'2020-05-03 04:10:48.261612','7','いえあお',3,'',7,3),(13,'2020-05-03 04:10:48.262822','6','aa',3,'',7,3),(14,'2020-05-03 04:10:48.264423','5','ああ',3,'',7,3),(15,'2020-05-03 04:10:48.265633','4','攻略',3,'',7,3),(16,'2020-05-03 04:10:48.266891','3','評価の動作確認用ガイド',3,'',7,3);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_content_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (9,'admin','logentry'),(11,'auth','group'),(10,'auth','permission'),(12,'contenttypes','contenttype'),(3,'guide','category'),(4,'guide','character'),(5,'guide','evaluation'),(6,'guide','favorite'),(7,'guide','guide'),(8,'guide','guidecomment'),(13,'sessions','session'),(2,'top','customuser'),(1,'top','userprofile');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_migrations` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'guide','0001_initial','2020-04-14 13:16:45.811157'),(2,'contenttypes','0001_initial','2020-04-14 13:16:45.873216'),(3,'contenttypes','0002_remove_content_type_name','2020-04-14 13:16:46.046623'),(4,'auth','0001_initial','2020-04-14 13:16:46.173300'),(5,'auth','0002_alter_permission_name_max_length','2020-04-14 13:16:46.541213'),(6,'auth','0003_alter_user_email_max_length','2020-04-14 13:16:46.552502'),(7,'auth','0004_alter_user_username_opts','2020-04-14 13:16:46.562734'),(8,'auth','0005_alter_user_last_login_null','2020-04-14 13:16:46.573073'),(9,'auth','0006_require_contenttypes_0002','2020-04-14 13:16:46.577741'),(10,'auth','0007_alter_validators_add_error_messages','2020-04-14 13:16:46.587469'),(11,'auth','0008_alter_user_username_max_length','2020-04-14 13:16:46.597748'),(12,'auth','0009_alter_user_last_name_max_length','2020-04-14 13:16:46.615254'),(13,'auth','0010_alter_group_name_max_length','2020-04-14 13:16:46.637518'),(14,'auth','0011_update_proxy_permissions','2020-04-14 13:16:46.652721'),(15,'top','0001_initial','2020-04-14 13:16:46.763820'),(16,'admin','0001_initial','2020-04-14 13:16:47.326798'),(17,'admin','0002_logentry_remove_auto_add','2020-04-14 13:16:47.470288'),(18,'admin','0003_logentry_add_action_flag_choices','2020-04-14 13:16:47.484233'),(19,'guide','0002_auto_20200304_0017','2020-04-14 13:16:47.783581'),(20,'guide','0003_character_full_name_jp','2020-04-14 13:16:48.485509'),(21,'sessions','0001_initial','2020-04-14 13:16:48.517684'),(22,'top','0002_auto_20200304_0023','2020-04-14 13:16:48.789097'),(23,'top','0003_auto_20200304_0032','2020-04-14 13:16:48.945596'),(24,'top','0004_auto_20200304_0041','2020-04-14 13:16:49.052264'),(25,'top','0005_auto_20200304_0050','2020-04-14 13:16:49.159546'),(26,'top','0006_auto_20200409_1526','2020-04-14 13:16:49.308354');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('3h305jt905cfbw9q2xmuknqe1fx72ipf','OTRiNzhkNmM5NzJhYzk2MmVhMTQ0NjIxOGRkNDhjZGZlZGY1MjkyZDp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkZTU3MWFkNmFjY2RhZDMyNmJiMjdmZTNiNzQzYWM5MGQzMGIwYTQ1In0=','2020-05-08 09:52:33.026284'),('ce4cbdyv9tq5zfsrqhgci8rfay7w4dcf','OTBmMGQzMDQ5MjdkZWZhZGRlNGUzN2MxMWE2OWRkMDEyYjVlYWZmMTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3NWIwZWVjZDk0NWMzMDVlOTk5NjZiYzE5OGYyOTJmODAwNzA4MGRkIn0=','2020-05-03 02:38:50.074072'),('k6d37c0gka0zp7kp1r1fjp23glf8cke9','OTg5MTY4ZGViNGZjOGRiYzUyZjA4ZjJmZGZmNjcxN2M2YTcxYWI5MTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0MThkYzViODBiMjg3YzUzNjllYTBmNjhmMDQ2ZDU5OTBjNTc3YjdmIn0=','2020-04-30 13:20:32.682350'),('nux1kj20o9d2b8j9l2xx6ibe5hbsvpw7','YzA3YmI2NmQ5YWQxNzhhYmUzNjA0NTQ1YTg2ZDhkMmI3N2ViYWU2MTp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MjkyYzk1MjhlZGNkZWE0ZTE5ZjY0NjEwNmNhMDk0MTYxNWFiMDYyIn0=','2020-05-07 16:56:09.362699'),('p8l3ie8kuaawh6jkvnvpiurd1gp0b4ow','OTBmMGQzMDQ5MjdkZWZhZGRlNGUzN2MxMWE2OWRkMDEyYjVlYWZmMTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3NWIwZWVjZDk0NWMzMDVlOTk5NjZiYzE5OGYyOTJmODAwNzA4MGRkIn0=','2020-05-02 11:52:50.096225'),('yffxufkf49rmh99oss37lkk0p9wwl961','OTBmMGQzMDQ5MjdkZWZhZGRlNGUzN2MxMWE2OWRkMDEyYjVlYWZmMTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3NWIwZWVjZDk0NWMzMDVlOTk5NjZiYzE5OGYyOTJmODAwNzA4MGRkIn0=','2020-05-02 11:54:14.001280');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_category`
+--
+
+DROP TABLE IF EXISTS `guide_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_category` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_category`
+--
+
+LOCK TABLES `guide_category` WRITE;
+/*!40000 ALTER TABLE `guide_category` DISABLE KEYS */;
+INSERT INTO `guide_category` VALUES (1,'総合'),(2,'技解説'),(3,'キャラ解説'),(4,'コンボ'),(5,'起き攻め・セットプレイ'),(6,'キャラ対策'),(7,'カスタマイズ'),(8,'システム'),(9,'小ネタ'),(10,'その他');
+/*!40000 ALTER TABLE `guide_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_character`
+--
+
+DROP TABLE IF EXISTS `guide_character`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_character` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name_jp` varchar(50) NOT NULL,
+  `family_name_jp` varchar(50) NOT NULL,
+  `first_name_en` varchar(50) NOT NULL,
+  `family_name_en` varchar(50) NOT NULL,
+  `fighting_style` varchar(30) NOT NULL,
+  `nationality` varchar(20) NOT NULL,
+  `full_name_jp` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_character`
+--
+
+LOCK TABLES `guide_character` WRITE;
+/*!40000 ALTER TABLE `guide_character` DISABLE KEYS */;
+INSERT INTO `guide_character` VALUES (1,'アリサ','ボスコノビッチ','Alisa','Bosconovitch','スラスターを使用した高機動戦闘','ロシア','アリサ ボスコノビッチ'),(2,'飛鳥','風間','Asuka','Kazama','風間流古武術','日本','風間 飛鳥'),(3,'ボブ','','Bob','','フリースタイル空手','アメリカ','ボブ'),(4,'ブライアン','フューリー','Bryan','Fury','キックボクシング','アメリカ','ブライアン フューリー'),(5,'クラウディオ','セラフィーノ','Claudio','Serafino','シリウス流祓魔術','イタリア','クラウディオ セラフィーノ'),(6,'デビル仁','','Devil','Jin','不明','無し','デビル仁'),(7,'セルゲイ','ドラグノフ','Sergei','Dragunov','コマンドサンボ','ロシア','セルゲイ ドラグノフ'),(8,'エディ','ゴルド','Eddy','Gordo','カポエイラ','ブラジル','エディ ゴルド'),(9,'フェン','ウェイ','Feng','Wei','中国拳法','中国','フェン ウェイ'),(10,'ギガース','','Gigas','','破壊衝動','データ抹消','ギガース'),(11,'平八','三島','Heihachi','Mishima','三島流喧嘩空手','おそらく日本(日本政府は否定)','三島 平八'),(12,'ファラン','','Hwoarang','','テコンドー','韓国','ファラン'),(13,'ジャック7','','Jack-7','','力任せ','不明','ジャック7'),(14,'仁','風間','Jin','Kazama','空手','日本','風間 仁'),(15,'ジョシー','リサール','Josie','Rizal','エスクリマをベースとしたキックボクシング','フィリピン','ジョシー リサール'),(16,'カタリーナ','アウヴェス','Katarina','Alves','サバット','ブラジル','カタリーナ アウヴェス'),(17,'一美','三島','Kazumi','Mishima','八条流空手','日本','三島 一美'),(18,'一八','三島','Kazuya','Mishima','三島流喧嘩空手','無し(日本国籍は捨てた)','三島 一八'),(19,'キング','','King','','プロレスリング','メキシコ','キング'),(20,'クマ','','Kuma','','平八流熊真拳・改','無し','クマ'),(21,'ラース','アレクサンダーソン','Lars','Alexandersson','鉄拳衆特殊部隊格闘術','スウェーデン','ラース アレクサンダーソン'),(22,'マーシャル','ロウ','Marshall','Law','マーシャル・アーツ','アメリカ','マーシャル ロウ'),(23,'李','超狼','Lee','Chaolan','マーシャル・アーツ','日本','リー チャオラン'),(24,'レオ','','Leo','','八極拳','ドイツ','レオ'),(25,'リリ','','Lili','','我流','モナコ','リリ'),(26,'ラッキー','クロエ','Lucky','Chloe','フリースタイルダンス','秘密','ラッキークロエ'),(27,'マスター','レイヴン','Master','Raven','忍術','不明','マスターレイヴン'),(28,'ミゲル','カバジェロ・ロホ','Miguel','Caballero Rojo','無し','スペイン','ミゲル カバジェロ・ロホ'),(29,'ニーナ','ウィリアムズ','Nina','Williams','暗殺格闘術','アイルランド','ニーナ ウィリアムズ'),(30,'パンダ','','Panda','','平八流熊真拳・改','無し','パンダ'),(31,'ポール','フェニックス','Paul','Phoenix','柔道をベースとした総合格闘技','アメリカ','ポール フェニックス'),(32,'シャヒーン','','Shaheen','','軍隊式格闘術','サウジアラビア','シャヒーン'),(33,'スティーブ','フォックス','Steve','Fox','ボクシング','イギリス','スティーブ フォックス'),(34,'リン','シャオユウ','Ling','Xiaoyu','八掛拳・劈掛拳をベースとした各種中国拳法','中国','リン シャオユウ'),(35,'吉光','','Yoshimitsu','','卍忍術進化系','無し(元日本)','吉光'),(36,'豪鬼','','Akuma','','-','不明','豪鬼'),(37,'エリザ','','Eliza','','不明','無し','エリザ'),(38,'ギース','ハワード','Geese','Howard','古武術','アメリカ','ギース ハワード'),(39,'ノクティス','ルシス・チェラム','Noctis','Lucis Caelum','武器召喚','ルシス王国','ノクティス ルシス・チェラム'),(40,'アンナ','ウィリアムズ','Anna','Williams','暗殺格闘術','アイルランド','アンナ ウィリアムズ'),(41,'レイ','ウーロン','Lei','Wulong','五形拳を主軸とした各種拳法','中国','レイ ウーロン'),(42,'クレイグ','マードック','Craig','Marduk','バーリトゥード','オーストラリア','クレイグ マードック'),(43,'アーマーキング','','Armor King','','プロレスリング','不明','アーマー キング'),(44,'ジュリア','チャン','Julia','Chang','心意六合拳','八極拳を基本とした各種拳法','ジュリア チャン'),(45,'ニーガン','','Negan','','無し','アメリカ','ニーガン'),(46,'ザフィーナ','','Zafina','','古代暗殺術','不明','ザフィーナ'),(47,'巌竜','','Ganryu','','相撲','日本','巌竜'),(48,'リロイ','スミス','Leroy','Smith','詠春拳','アメリカ','リロイ スミス'),(49,'ファーカムラム','','Fahkumram','','ムエタイ','タイ','ファーカムラム'),(50,'その他','','Others','','','','その他');
+/*!40000 ALTER TABLE `guide_character` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_evaluation`
+--
+
+DROP TABLE IF EXISTS `guide_evaluation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_evaluation` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `evaluation` smallint NOT NULL,
+  `evaluator_id` int NOT NULL,
+  `guide_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `guide_evaluation_evaluator_id_da88d7f9_fk_top_customuser_id` (`evaluator_id`),
+  KEY `guide_evaluation_guide_id_5b2b2da1_fk_guide_guide_id` (`guide_id`),
+  CONSTRAINT `guide_evaluation_evaluator_id_da88d7f9_fk_top_customuser_id` FOREIGN KEY (`evaluator_id`) REFERENCES `top_customuser` (`id`),
+  CONSTRAINT `guide_evaluation_guide_id_5b2b2da1_fk_guide_guide_id` FOREIGN KEY (`guide_id`) REFERENCES `guide_guide` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_evaluation`
+--
+
+LOCK TABLES `guide_evaluation` WRITE;
+/*!40000 ALTER TABLE `guide_evaluation` DISABLE KEYS */;
+INSERT INTO `guide_evaluation` VALUES (2,2,1,1);
+/*!40000 ALTER TABLE `guide_evaluation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_favorite`
+--
+
+DROP TABLE IF EXISTS `guide_favorite`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_favorite` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `guide_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `guide_favorite_guide_id_2439c486_fk_guide_guide_id` (`guide_id`),
+  KEY `guide_favorite_user_id_63dc7d2e_fk_top_customuser_id` (`user_id`),
+  CONSTRAINT `guide_favorite_guide_id_2439c486_fk_guide_guide_id` FOREIGN KEY (`guide_id`) REFERENCES `guide_guide` (`id`),
+  CONSTRAINT `guide_favorite_user_id_63dc7d2e_fk_top_customuser_id` FOREIGN KEY (`user_id`) REFERENCES `top_customuser` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_favorite`
+--
+
+LOCK TABLES `guide_favorite` WRITE;
+/*!40000 ALTER TABLE `guide_favorite` DISABLE KEYS */;
+INSERT INTO `guide_favorite` VALUES (6,1,1);
+/*!40000 ALTER TABLE `guide_favorite` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_guide`
+--
+
+DROP TABLE IF EXISTS `guide_guide`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_guide` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `article` longtext NOT NULL,
+  `pub_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  `number_of_preview` bigint NOT NULL,
+  `publishing_setting` int NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL,
+  `author_id` int NOT NULL,
+  `category_id` int NOT NULL,
+  `character_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `guide_guide_author_id_b5c692a0_fk_top_customuser_id` (`author_id`),
+  KEY `guide_guide_category_id_2bdcd9a6_fk_guide_category_id` (`category_id`),
+  KEY `guide_guide_character_id_5da2f81d_fk_guide_character_id` (`character_id`),
+  CONSTRAINT `guide_guide_author_id_b5c692a0_fk_top_customuser_id` FOREIGN KEY (`author_id`) REFERENCES `top_customuser` (`id`),
+  CONSTRAINT `guide_guide_category_id_2bdcd9a6_fk_guide_category_id` FOREIGN KEY (`category_id`) REFERENCES `guide_category` (`id`),
+  CONSTRAINT `guide_guide_character_id_5da2f81d_fk_guide_character_id` FOREIGN KEY (`character_id`) REFERENCES `guide_character` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_guide`
+--
+
+LOCK TABLES `guide_guide` WRITE;
+/*!40000 ALTER TABLE `guide_guide` DISABLE KEYS */;
+INSERT INTO `guide_guide` VALUES (1,'ガイドの書き方','[{\"title\": \"セクションごとの概要\", \"article\": \"このガイドについての簡単な説明をします。\\r\\n\\r\\n\\r\\n## [セクションごとの概要](#section1)\\r\\nこのセクションのこと。ガイドのセクションごとに書かれている内容を簡単に説明します。 \\r\\n\\r\\n## [どんなガイドを書けばいいの?](#section2)\\r\\nどんなガイドを書けばいいのかや、どんな内容は書いてはいけないのかについて説明します。\\r\\n\\r\\n## [コマンド表記について](#section3) \\r\\n当サイトでの推奨するコマンド表記について説明します。\\r\\n\\t\\r\\n## [ガイドで使える特殊な文法について](#section4)\\r\\n当サイトでは、ガイドの文法にMarkdown記法を採用しています。  \\r\\n\\r\\nこのセクションではMarkdown記法について説明していきます。\\r\\n\\r\\n## [画像、動画のアップロードについて](#section5)\\r\\n画像、動画のアップロードについてです。\\r\\n\\r\\n## [ガイドを書くのに便利なツール群](#section6)\\r\\nガイドを書くのに便利なツール群の紹介です。\\r\\n\"}, {\"title\": \"どんなガイドを書けばいいの？\", \"article\": \"# ガイドには鉄拳に関することなら何を書いてもOK\\r\\n鉄拳に関することならどんなガイドでもOKです。  \\r\\n<br>\\r\\n\\r\\n- キャラの使い方\\r\\n- コンボについて\\r\\n- キャラ対策\\r\\n- 特定の一つの技について掘り下げた記事\\r\\n- ネタなどについて\\r\\n- システム解析\\r\\n- カスタマイズについて\\r\\n- 初心者に向けた攻略記事\\r\\n- メインキャラへのキャラ愛を語る\\r\\n- アーケードコントローラーの調整方法\\r\\n- その他いろいろ\\r\\n\\r\\n<br>\\r\\nなど、自分の書きたい内容、好きな内容で記事を作成してください。<br>\\r\\n\\r\\n\\r\\n# 記事に書いてはいけないもの\\r\\nこのサイトは全年齢の方が利用できるため、以下のような記事は掲載しないでください。  \\r\\n下記に該当した記事に関しては予告なく削除させていただく可能性があります。  \\r\\n<br>\\r\\n\\r\\n- わいせつ、暴力的、グロテスクな表現を含む記事\\r\\n- 違法な内容を含む記事。違法行為を助長するような記事。\\r\\n- 差別などの不適切な表現を含む記事。\\r\\n- 特定の人間を攻撃するような内容を含む記事。\\r\\n- その他、問題があると運営が判断した記事。\\r\\n\\r\\n<br>\\r\\n\\r\\n年齢関係なく見て問題ない記事なら、基本的には削除したりすることはありません。\\r\\n記事を書いたセクションの最後にご自身のYoutubeチャンネルなどに関する宣伝などを自由に入れて頂いても大丈夫です。\\r\\n\\r\\n\\r\\n\"}, {\"title\": \"コマンド表記について\", \"article\": \"# コマンド表記の図\\r\\n\\r\\n![コマンド画像](https://i.gyazo.com/65e0a29b37c9e90e6cc51757a68817ac.png)\\r\\n\\r\\n↑\\r\\n\\r\\n左の丸がレバー。右の4つの丸がボタンです。\\r\\n数字はテンキ―（電卓の配列）に対応していると覚えると覚えやすいです。\\r\\n<br>\\r\\n\\r\\n##　同時押し入力について\\r\\n同時押しは+を使って表現するのを基本としてください。\\r\\nLP+RP、LP+LK、RP+RKなど。\\r\\nまた、略称として\\r\\n\\r\\nLP+RP　なら　WP\\r\\nLK+RK　なら　WK\\r\\nLP+LK　なら　WL\\r\\nLP+RP　なら　WR\\r\\n\\r\\nと表現する方法もあります。\\r\\n\\r\\n順番にボタンを押していく場合は、コマンドをコンマ(,)で区切るか何も入れないようにするとわかりやすいと思います。\\r\\n例えばカズヤの閃光烈拳なら、LP,LP,RPという風に書くと同時押しと区別がつきやすいと思います。\\r\\n\\r\\n\\r\\n# コマンド表記例\\r\\n\\r\\n## 単発技\\r\\n\\r\\nカズヤの風神拳　　→　　6n23RP\\r\\n平八の崩拳　→　236RP\\r\\n\\r\\n## 連携技\\r\\n\\r\\nブライアンのガトリングコンビネーション　→　LK,RP,LP,RK\\r\\nデビル仁の鬼八門　→　3LP,RP\\r\\n\\r\\n## 同時押し系\\r\\n平八の超ぱちき　→　66LP+RP もしくは66WP\\r\\n風間飛鳥の白鷺中段脚　→　LP+RK,RP,RK\\r\\n\\r\\n## コンボの表記\\r\\n\\r\\n平八の風神拳→風神拳→天枢破断→天魔蹂躙→三島流･封殺陣の構え→封殺陣･爆砕拳のコンボ\\r\\n\\r\\n6n23RP → 6n23RP → 6RP,LK → 46RP,LK →　6WK,RP,LP\\r\\n\\r\\n\\r\\n<br>\\r\\n\\r\\n上記のような感じで極力わかりやすくして頂ければと思います。\\r\\n　　\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\"}, {\"title\": \"ガイドで使える特殊な文法について\", \"article\": \"当サイトでは、ガイドの文法にMarkdown記法を採用しています。\\r\\n当サイトでの独自の文法も少しだけあります。\\r\\nこのセクションではこのガイドで使える各種記法について説明していきたいと思います。\\r\\n\\r\\n# 空行を差し込む\\r\\n`<br>`と書くことによって空行を挟むことができます。\\r\\n<br>\\r\\n例\\r\\n\\r\\n    1行目\\r\\n    2行目\\r\\n    <br>\\r\\n    3行目\\r\\n\\r\\n<br>    \\r\\n↓\\r\\n<br>\\r\\n\\r\\n1行目\\r\\n2行目\\r\\n<br>\\r\\n3行目\\r\\nというように表示されます。  \\r\\n\\r\\n\\r\\n# 見出し\\r\\n\\r\\n見出しを作ることができます。  \\r\\n行頭に#を１～6個入れた後に、半角スペースを1つあけて見出しを入力すると作れます。\\r\\n  \\r\\n<br>\\r\\n例.\\r\\n<br>\\r\\n\\r\\n    # 見出し\\r\\n    ## 見出し\\r\\n    ### 見出し\\r\\n    #### 見出し\\r\\n    ##### 見出し\\r\\n    ###### 見出し\\r\\n\\r\\n<br>\\r\\n↓\\r\\n<br>\\r\\n\\r\\n# 見出し\\r\\n## 見出し\\r\\n### 見出し\\r\\n#### 見出し\\r\\n##### 見出し\\r\\n###### 見出し\\r\\n  \\r\\nという風になります。    \\r\\n必ず #と見出しの内容の間に半角スペース１を1文字入れてください。  \\r\\n  \\r\\n\\r\\n# 太字\\r\\n以下のようにアスタリスク２つで囲うことで太字を書けます。 \\r\\n例  \\r\\n <br>\\r\\n `**太くしたい文字**`\\r\\n<br>\\r\\n↓\\r\\n<br>\\r\\n**太くしたい文字**\\r\\n\\r\\n\\r\\n\\r\\n# 箇条書きリストの作成\\r\\n行頭にハイフン(-)を入れて1文字半角スペースを入れて項目を書いていくだけで、箇条書きのリストを作れます。\\r\\n<br>\\r\\n例\\r\\n<br>\\r\\n    - 箇条書きその１\\r\\n    - 箇条書きその２\\r\\n    - 箇条書きその３\\r\\n<br>\\r\\n↓\\r\\n<br>\\r\\n\\r\\n- 箇条書きその１\\r\\n- 箇条書きその２\\r\\n- 箇条書きその３\\r\\n\\r\\n<br>\\r\\n# 表を書く\\r\\n以下のように書くことで、表を書くことができます。\\r\\n\\r\\n\\r\\n    |技名|コマンド|コメント|\\r\\n    |:--|:-:|--:|\\r\\n    |風神拳|6n23RP|コンボ始動技です|\\r\\n    |奈落払い|6n23RK|下段です|\\r\\n    |左踵落とし|66LK|中段コンボ始動技です|\\r\\n\\r\\n<br>\\r\\n↓ \\r\\n\\r\\n<br>\\r\\n\\r\\n|技名|コマンド|コメント|\\r\\n|:--|:-:|--:|\\r\\n|風神拳|6n23RP|コンボ始動技です|\\r\\n|奈落払い|6n23RK|下段です|\\r\\n|左踵落とし|66LK|中段コンボ始動技です|\\r\\n\\r\\n\\r\\n2行目の内容は表の要素をどっちに寄せるかを表す記号です。\\r\\n`|:--|`は左寄せ、`|:-:|`は中央寄せ 、`|--:|`は右寄せになります。\\r\\n\\r\\n列の数はすべての行であわせる必要があります。\\r\\n列は任意の数に増やしていくことができます。\\r\\n \\r\\n    |技名|コマンド|ダメージ|コメント|\\r\\n    |:--|:--|:--|:--|\\r\\n    |風神拳|6n23RP|23|コンボ始動技です|\\r\\n    |奈落払い|6n23RK|36|下段です|\\r\\n    |左踵落とし|66LK|20|中段コンボ始動技です| \\r\\n\\r\\n<br>\\r\\n↓\\r\\n\\r\\n<br>\\r\\n\\r\\n  |技名|コマンド|ダメージ|コメント|\\r\\n  |:--|:--|:--|:--|\\r\\n  |風神拳|6n23RP|23|コンボ始動技です|\\r\\n  |奈落払い|6n23RK|36|下段です|\\r\\n  |左踵落とし|66LK|20|中段コンボ始動技です|\\r\\n\\r\\n# code記法\\r\\n文字をバッククオート(Shift+@)で囲うと、色付きの背景で文字を書けます。\\r\\nバッククオートで囲った中の文字列は、マークダウンによる自動変換を無視します。\\r\\n<br>\\r\\n例\\r\\n\\r\\n    `code記法です。~~Markdownによる変換を無視します~~`\\r\\n  \\r\\n  ↓\\r\\n\\r\\n`code記法です。**Markdownによる変換を無視します**`\\r\\n\\r\\n<br>\\r\\n上の例では本来太字になる部分が太字になりません。\\r\\n\\r\\n\\r\\n    \\r\\n# pre記法\\r\\n行頭に４つ半角スペースを入れて書くことで、\\r\\n複数行にわたるcode記法のようなイメージで文章を書くことができます。\\r\\n<br>\\r\\n例\\r\\n<br>\\r\\n\\r\\n    　　こんな感じで行頭に半角スペースを4つ入れます。\\r\\n    　　複数行にわたって上記のCode記法を書くことができます。\\r\\n<br>\\r\\n↓\\r\\n<br>\\r\\n\\r\\n    こんな感じのイメージです。\\r\\n    実際の記法とイメージは異なります。\\r\\n    \\r\\n\\r\\n# リンク\\r\\nリンクを貼るには以下のようにします。  \\r\\n\\r\\n例\\r\\n    \\r\\n`[TEKKEN GUIDE TOP](https://extreme-gamers.info/guide/)`\\r\\n\\r\\n<br>\\r\\n↓\\r\\n<br>\\r\\n\\r\\n\\r\\n[TEKKEN GUIDE TOP](https://extreme-gamers.info/guide/)\\r\\n\\r\\n# 画像貼り付け\\r\\nガイド自体には画像をアップロードする機能はありません。\\r\\n画像を張り付ける場合は画像をインターネット上にアップロードした後に、画像のアドレスを張り付ける必要があります。\\r\\n\\r\\n画像を張り付ける場合は、以下のように、リンクを貼るときの構文の先頭に!マークをつけることによって画像を張り付けます。\\r\\n<br>\\r\\n例\\r\\n\\r\\n`![画像貼り付け見本](https://f.easyuploader.app/eu-prd/upload/20200417174701_77486b737a797041796e.png)`\\r\\n\\r\\n<br>\\r\\n↓\\r\\n\\r\\n<br>\\r\\n\\r\\n![画像貼り付け見本](https://f.easyuploader.app/eu-prd/upload/20200417174701_77486b737a797041796e.png)`\\r\\n# Youtube動画貼り付け\\r\\n文法としては以下のようになります。\\r\\n<br>\\r\\n文法例\\r\\n\\r\\n![youtube文法](https://i.gyazo.com/02fc3512c539e1de8e701797ef67aeeb.png)\\r\\n\\r\\n\\r\\n\\r\\nYoutube動画の貼り付けはMarkdownでも行えますが\\r\\n投稿画面下部のYoutubeボタンを押して、Youtube動画のIDを入力することで、今カーソルの当たっている場所に自動でコードを張り付けるようになります。\\r\\n\\r\\nYoutube動画のIDは動画のURLの\\r\\n\\r\\n\\r\\n`https://www.youtube.com/watch?v=gpcbQCA4h6I`\\r\\nの`?v=` 以降の部分になります。\\r\\n\\r\\n[youtube=(B_EUR7sgZQo)]\\r\\n\\r\\n\\r\\n\"}, {\"title\": \"画像、動画のアップロードについて\", \"article\": \"# 画像、動画のアップロードはできません。\\r\\nサイト内での画像、動画のアップロードはできませんが（2020年4月18日現在）、Youtube上の動画やインターネットの画像を張り付けることはできます。\\r\\nYoutube動画の貼り付け方や、画像の貼り付け方は[ガイドで使える特殊な文法について](https://tekken7.extreme-gamers.info/guide/detail/1#section4)の\\r\\n`画像貼り付け`\\r\\n`Youtube動画貼り付け`\\r\\nの項目を参照してください。\\r\\n\\r\\n# 画像のインターネットへのアップロード方法例\\r\\n\\r\\n## [Gyazo](https://gyazo.com/)を使う\\r\\nデスクトップ上の画面を切り取ってインターネット上にすぐアップロードできるツールです。\\r\\nソフトをダウンロードする必要はありますが、本当に一瞬でアップロードできるので非常に便利です。\\r\\n[使い方](https://gyazo.com/tour)も非常に簡単なため、おすすめです。\\r\\n\\r\\n## インターネット上にアップロードできるアップローダを使う。\\r\\n[【2020年最新】無料で使えるアップローダ一覧](https://otomizu.work/2019/02/28/uploaders/)\\r\\n\\r\\n上記の記事などを参考に、どこかに画像をアップロードした上で、画像のURLを取得して、貼り付けるという方法です。\\r\\n\"}, {\"title\": \"ガイドを書くのに便利なツール集\", \"article\": \"ガイドを書くのに便利なツール群の紹介です。\\r\\n\\r\\n## [StackEdit](https://stackedit.io/)\\r\\nMarkdownを見た目を確認しながらかけるオンラインエディタです。  \\r\\n当サイトでの実際の見た目とは異なるものになりますが、大体のイメージを掴みながら編集することができます。  \\r\\nインストール、会員登録なども不要なため非常に便利です。  \\r\\nここで書いて大体の雰囲気を把握したら、あとはコピペして張るだけ！\"}]','2020-04-14 13:26:43.000000','2020-04-21 08:14:04.000000',225,1,0,1,10,50),(2,'初心者向けガイド','[{\"title\": \"ガイド概容\", \"article\": \"# ガイドのテーマ\\r\\nこのガイドは鉄拳を初めてプレイする方、または初心者で何から始めていいかわからないという方へ向けての初心者向けのガイドをまとめたリンク集になります。\\r\\n\\r\\n# 想定している読者\\r\\n鉄拳を始めたばかりの人　～　メインキャラを決めて空中コンボを一つ完走できるぐらいまで。\"}]','2020-04-14 13:30:16.000000','2020-04-14 13:37:51.000000',58,1,0,1,10,50);
+/*!40000 ALTER TABLE `guide_guide` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guide_guidecomment`
+--
+
+DROP TABLE IF EXISTS `guide_guidecomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `guide_guidecomment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `pub_date` datetime(6) NOT NULL,
+  `comment` longtext NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL,
+  `contributor_id` int NOT NULL,
+  `guide_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `guide_guidecomment_contributor_id_11676baa_fk_top_customuser_id` (`contributor_id`),
+  KEY `guide_guidecomment_guide_id_3c3f14c8_fk_guide_guide_id` (`guide_id`),
+  CONSTRAINT `guide_guidecomment_contributor_id_11676baa_fk_top_customuser_id` FOREIGN KEY (`contributor_id`) REFERENCES `top_customuser` (`id`),
+  CONSTRAINT `guide_guidecomment_guide_id_3c3f14c8_fk_guide_guide_id` FOREIGN KEY (`guide_id`) REFERENCES `guide_guide` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guide_guidecomment`
+--
+
+LOCK TABLES `guide_guidecomment` WRITE;
+/*!40000 ALTER TABLE `guide_guidecomment` DISABLE KEYS */;
+INSERT INTO `guide_guidecomment` VALUES (1,'2020-05-02 23:32:45.000000','コメントテスト',1,1,1),(2,'2020-05-02 23:35:35.930023','コメントテスト',1,3,1);
+/*!40000 ALTER TABLE `guide_guidecomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `top_customuser`
+--
+
+DROP TABLE IF EXISTS `top_customuser`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `top_customuser` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `top_customuser`
+--
+
+LOCK TABLES `top_customuser` WRITE;
+/*!40000 ALTER TABLE `top_customuser` DISABLE KEYS */;
+INSERT INTO `top_customuser` VALUES (1,'pbkdf2_sha256$180000$AA39JkMdDfzL$HKseE7fU8CsTbjeBoUqkPlRs1c6t2hNV2TD/588WuiY=','2020-05-03 03:52:14.257194',0,'kickmeNmori','','',0,1,'2020-04-14 13:25:13.000000','taichi84@gmail.com'),(2,'pbkdf2_sha256$180000$s2svA95CYjkF$rsKtMnOyXTpz95Lp9WoxyMtfC9zbs4diGTxjL69QPmo=','2020-05-02 23:35:52.089541',0,'taichi84','','',0,1,'2020-04-15 03:45:43.794366','itemabuse@gmail.com'),(3,'pbkdf2_sha256$180000$81NNp4sGP5zO$ilMA9jCYTVR1005d/hs7exgax9yyJM9vkfhALa1B0dk=','2020-05-03 04:10:08.738587',1,'master','','',1,1,'2020-04-15 13:04:11.714631','tekkenmaniax0401@gmail.com'),(4,'pbkdf2_sha256$180000$FNyhyII9xX3L$wRJhK0dg4w8GzYcwURBWh8bbeiV8Px9VmblkHmQuFkY=','2020-04-16 13:20:32.676317',0,'yajima','','',0,1,'2020-04-16 13:20:32.527407','yajima@chuo-besthome.co.jp'),(5,'pbkdf2_sha256$180000$p6QP3k1WLC5B$gb9/SGIn15NBGu7DL6ot15tfeJ6/OBGQBY9gBj8OOmQ=','2020-04-23 16:56:09.357646',0,'gruppi','','',0,1,'2020-04-23 16:56:09.238095','sashgorl@mail.ru');
+/*!40000 ALTER TABLE `top_customuser` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `top_customuser_groups`
+--
+
+DROP TABLE IF EXISTS `top_customuser_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `top_customuser_groups` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customuser_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `top_customuser_groups_customuser_id_group_id_b525c55a_uniq` (`customuser_id`,`group_id`),
+  KEY `top_customuser_groups_group_id_c52a5455_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `top_customuser_group_customuser_id_5ae2bcf2_fk_top_custo` FOREIGN KEY (`customuser_id`) REFERENCES `top_customuser` (`id`),
+  CONSTRAINT `top_customuser_groups_group_id_c52a5455_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `top_customuser_groups`
+--
+
+LOCK TABLES `top_customuser_groups` WRITE;
+/*!40000 ALTER TABLE `top_customuser_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `top_customuser_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `top_customuser_user_permissions`
+--
+
+DROP TABLE IF EXISTS `top_customuser_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `top_customuser_user_permissions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customuser_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `top_customuser_user_perm_customuser_id_permission_83faae9d_uniq` (`customuser_id`,`permission_id`),
+  KEY `top_customuser_user__permission_id_e316aa67_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `top_customuser_user__customuser_id_84a3a4e5_fk_top_custo` FOREIGN KEY (`customuser_id`) REFERENCES `top_customuser` (`id`),
+  CONSTRAINT `top_customuser_user__permission_id_e316aa67_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `top_customuser_user_permissions`
+--
+
+LOCK TABLES `top_customuser_user_permissions` WRITE;
+/*!40000 ALTER TABLE `top_customuser_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `top_customuser_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `top_userprofile`
+--
+
+DROP TABLE IF EXISTS `top_userprofile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `top_userprofile` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nick_name` varchar(50) NOT NULL,
+  `introduction` longtext NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL,
+  `main_character_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `twitch_url` varchar(255) NOT NULL,
+  `twitter_account` varchar(60) NOT NULL,
+  `youtube_channel_url` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `top_userprofile_main_character_id_7618bafc_fk_guide_character_id` (`main_character_id`),
+  CONSTRAINT `top_userprofile_main_character_id_7618bafc_fk_guide_character_id` FOREIGN KEY (`main_character_id`) REFERENCES `guide_character` (`id`),
+  CONSTRAINT `top_userprofile_user_id_8cfc9bf4_fk_top_customuser_id` FOREIGN KEY (`user_id`) REFERENCES `top_customuser` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `top_userprofile`
+--
+
+LOCK TABLES `top_userprofile` WRITE;
+/*!40000 ALTER TABLE `top_userprofile` DISABLE KEYS */;
+INSERT INTO `top_userprofile` VALUES (1,'キックミーN森','サイトの管理をしてます。\r\nよろしくお願いします。',0,50,1,'https://www.twitch.tv/kickme_twitch','kickmeNmori','https://www.youtube.com/channel/UCLO43uurxAlYLwPyrx1s1Hw'),(2,'たいち','間違えて作っちゃった',0,2,2,'','',''),(3,'yajima','test',0,4,4,'','',''),(4,'','',0,1,5,'','','');
+/*!40000 ALTER TABLE `top_userprofile` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-05-03 13:15:47
