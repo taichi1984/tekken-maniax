@@ -164,8 +164,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Email送信テスト用
 DEFAULT_FROM_EMAIL = 'tekkenmaniax0401@gmail.com'
-if os.name == 'nt':
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 if os.name == 'nt':
     SECURE_SSL_REDIRECT = False
