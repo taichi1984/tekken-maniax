@@ -253,7 +253,7 @@ def vote_evaluation(request):
     # 　TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、できれば直したい。
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
     guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
-    guide_id = re.sub('([0-9])*#section[0-9]*', '\\1', guide_id)
+    guide_id = re.sub('([0-9])+#section[0-9]+', '\\1', guide_id)
 
     guide = Guide.objects.filter(id=guide_id).first()
 
@@ -313,7 +313,7 @@ def add_favorite(request):
     # TODO 場当たり的な対応で本番環境と開発環境の差異を吸収しているため訂正すること
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
     guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
-    guide_id = re.sub('([0-9])*#section[0-9]*', '\\1', guide_id)
+    guide_id = re.sub('([0-9])+#section[0-9]+', '\\1', guide_id)
     guide = Guide.objects.filter(id=guide_id).first()
 
     # お気に入りに追加ボタンが押されたとき
