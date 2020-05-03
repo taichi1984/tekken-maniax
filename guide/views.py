@@ -8,6 +8,8 @@ __version__ = "0.0.1"
 __date__ = "2020/03/27"
 
 from json import JSONDecodeError
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseNotFound
 from django.template import loader
@@ -180,7 +182,7 @@ def preview_guide(request):
 
     else:
         None
-    return redirect(reverse('guide:error')+'?error_message=プレビュー画面には直接アクセスできません。')
+    return redirect(reverse('guide:error') + '?error_message=プレビュー画面には直接アクセスできません。')
 
 
 ##########################
@@ -364,7 +366,8 @@ def delete_comment(request, comment_id):
 #####################################
 # 投稿したガイドのリスト一覧画面の処理  #
 #####################################
-class YourGuide(ListView):
+
+class YourGuide(LoginRequiredMixin, ListView):
     """
     投稿したガイド一覧の表示用View
     """
@@ -415,7 +418,7 @@ def delete_guide(request):
 # お気に入りガイドの画面  #
 ########################
 
-class FavoriteGuide(ListView):
+class FavoriteGuide(LoginRequiredMixin,ListView):
     """
     お気に入り画面表示用のView
     """
