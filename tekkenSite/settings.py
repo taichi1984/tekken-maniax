@@ -168,7 +168,7 @@ DEFAULT_FROM_EMAIL = 'tekkenmaniax0401@gmail.com'
 if os.name == 'nt':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    EMAIL_HOST = 'mail.extreme-gamers.info'
+    EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 587
     EMAIL_HOST_USER = 'tekkenmaniax0401@gmail.com'
     EMAIL_HOST_PASSWORD = 'kaiketsu84'
