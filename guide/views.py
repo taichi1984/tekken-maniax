@@ -36,7 +36,7 @@ def index(request):
     :return:HttpResponse
     """
 
-    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('pub_date').reverse()[:10]
+    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('update_date').reverse()[:10]
     guide_list = make_guide_list_with_evaluation(latest_guide_list)
     character_list = Character.objects.all()
     template = loader.get_template('guide/index.html')
