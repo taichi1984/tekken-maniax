@@ -162,12 +162,17 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Email送信テスト用
+# Email設定用
 DEFAULT_FROM_EMAIL = 'tekkenmaniax0401@gmail.com'
 
 if os.name == 'nt':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = 'tekkenmaniax0401@gmail.com'
+    EMAIL_HOST_PASSWORD = 'kaiketsu84'
+    EMAIL_USE_TLS = True
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #cookie関連
