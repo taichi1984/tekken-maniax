@@ -43,7 +43,7 @@
 
             {% for favorite in favorite_list %}
                 <tr>
-                    <td><a href="{% url 'guide:detail' favorite.guide.id %}">{{ favorite.guide }}</a></td>
+                    <td><a href="{% url 'guide:detail' favorite.guide.id %}" target="_blank">{{ favorite.guide }}</a></td>
                     <td>{{ favorite.guide.character }}</td>
                     <td>{{ favorite.guide.category }}</td>
                     <td>{{ favorite.guide.author.userprofile.nick_name }}</td>

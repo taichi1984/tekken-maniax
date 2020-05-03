@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +133,7 @@
       <workItem from="1587704242823" duration="9795000" />
       <workItem from="1587799057419" duration="5319000" />
       <workItem from="1588053859153" duration="26309000" />
-      <workItem from="1588460771172" duration="11541000" />
-    </task>
-    <task id="LOCAL-00022" summary="エディタの改行問題の修正&#10;update,detail,create_guideのcss調整。">
-      <created>1587118584182</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1587118584182</updated>
+      <workItem from="1588460771172" duration="11860000" />
     </task>
     <task id="LOCAL-00023" summary="&#10;update,detail,create_guideのcss調整。">
       <created>1587119543957</created>
@@ -478,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588473906174</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="login required mixin 導入。">
+      <created>1588476607065</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1588476607065</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="detailの目次のtargetを_selfに変更。" />
     <MESSAGE value="アカウントの新規作成ページ&#10;TEKKEN　GUIDEについてのページを作成。" />
     <MESSAGE value="how_to_registerページの画像がaddされていなかった問題を修正。" />
     <MESSAGE value="detailページのevaluationとfavoriteのguide_idを求める処理を修正。" />
@@ -533,7 +532,8 @@
     <MESSAGE value="preview.css 微修正" />
     <MESSAGE value="preview.html 微修正" />
     <MESSAGE value="preview.html修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="preview.html修正" />
+    <MESSAGE value="login required mixin 導入。" />
+    <option name="LAST_COMMIT_MESSAGE" value="login required mixin 導入。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -548,11 +548,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588473904654">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588476605671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316799809" />
-    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588473904654" />
+    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588476605671" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -587,11 +587,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588473909453">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588476611002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316812752" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588473909453" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588476611002" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
