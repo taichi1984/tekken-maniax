@@ -149,34 +149,38 @@ def preview_guide(request):
     :param request:
     :return:
     """
+    if request.method == 'POST':
+        guide_character_id = request.POST.get("guide_character")
+        guide_character = Character.objects.filter(id=guide_character_id).first()
+        guide_category_id = request.POST.get("guide_category")
+        guide_category = Category.objects.filter(id=guide_category_id).first()
+        guide_title = request.POST.get("guide_title")
 
-    guide_character_id = request.POST.get("guide_character")
-    guide_character = Character.objects.filter(id=guide_character_id).first()
-    guide_category_id = request.POST.get("guide_category")
-    guide_category = Category.objects.filter(id=guide_category_id).first()
-    guide_title = request.POST.get("guide_title")
+        guide_section_title = request.POST.getlist("guide_section_title")
+        guide_section_article = request.POST.getlist("guide_section_article")
+        guide_sections = []
 
-    guide_section_title = request.POST.getlist("guide_section_title")
-    guide_section_article = request.POST.getlist("guide_section_article")
-    guide_sections = []
-
-    for title, article in zip(guide_section_title, guide_section_article):
-        converted_article = text_html_converter.convert_to_html(article)
+        for title, article in zip(guide_section_title, guide_section_article):
+            converted_article = text_html_converter.convert_to_html(article)
         print(converted_article)
         guide_sections.append({"title": title, "article": converted_article})
 
-    template = loader.get_template('guide/preview.html')
-    context = {
-        'user': request.user,
-        'guide_title': guide_title,
-        'guide_category': guide_category,
-        'guide_character_id': guide_character_id,
-        'guide_character': guide_character,
-        'guide_sections': guide_sections,
+        template = loader.get_template('guide/preview.html')
+        context = {
+            'user': request.user,
+            'guide_title': guide_title,
+            'guide_category': guide_category,
+            'guide_character_id': guide_character_id,
+            'guide_character': guide_character,
+            'guide_sections': guide_sections,
 
-        'pub_date': datetime.now()
-    }
-    return HttpResponse(template.render(context, request))
+            'pub_date': datetime.now()
+        }
+        return HttpResponse(template.render(context, request))
+
+    else:
+        None
+    return redirect(reverse('guide:error')+'?error_message=プレビュー画面には直接アクセスできません。')
 
 
 ##########################
@@ -248,7 +252,6 @@ def vote_evaluation(request):
     guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
     guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
     guide_id = re.sub('([0-9])*#section[0-9]*', '\\1', guide_id)
-
 
     guide = Guide.objects.filter(id=guide_id).first()
 
