@@ -171,7 +171,7 @@ if os.name == 'nt':
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tekkenmaniax0401@gmail.com'
-EMAIL_HOST_PASSWORD = 'kaiketsu84'
+EMAIL_HOST_PASSWORD = 'lhgwvznitfsktrii'
 EMAIL_USE_TLS = True
 
 # cookie関連
