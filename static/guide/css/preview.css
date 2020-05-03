@@ -25,7 +25,7 @@ main {
 }
 
 .page_title_field {
-    color:white;
+    color: white;
     position: relative;
     align-items: center;
     background-color: black;
@@ -57,9 +57,9 @@ main {
     width: 60%;
 }
 
-.page_summary_title_title{
-    font-size:25px;
-    font-weight:bold;
+.page_summary_title_title {
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .page_summary_vote {
@@ -322,16 +322,16 @@ main {
 .author_field {
     margin-top: 50px;
     width: 100%;
-    border:solid 1px black;
+    border: solid 1px black;
 }
 
 .author_title {
     padding: 10px 10px 10px 20px;
     height: 10%;
     background-color: black;
-    color:white;
-    font-size:20px;
-    font-weight:bold;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .author_content {
@@ -339,29 +339,35 @@ main {
     height: 90%;
     padding: 10px;
     background-color: white;
-    color:black;
-}
-.author_name{
-    display:flex;
-}
-.author_twitter{
-    display:flex;
-}
-.author_twitch{
-    display:flex;
-}
-.author_youtube{
-    display:flex;
-}
-.author_item_label{
-    width:120px;
+    color: black;
 }
 
-.author_introduction{
-    margin:20px 0px 0px 10px;
+.author_name {
+    display: flex;
 }
 
-.advertisement{
-       margin:20px;
-    height:300px;
+.author_twitter {
+    display: flex;
+}
+
+.author_twitch {
+    display: flex;
+}
+
+.author_youtube {
+    display: flex;
+}
+
+.author_item_label {
+    width: 120px;
+}
+
+.author_introduction {
+    margin: 20px 0px 0px 10px;
+}
+
+.advertisement {
+    display: none;
+    margin: 20px;
+    height: 300px;
 }
