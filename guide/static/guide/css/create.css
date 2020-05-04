@@ -42,10 +42,11 @@ main {
     margin-top:20px;
     display:flex;
     flex-direction: column;
+
 }
 
 .guide_help_menu_item{
-    width:300px;
+
 }
 
 

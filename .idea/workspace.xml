@@ -4,7 +4,6 @@
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guide/static/guide/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/create.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/update_guide.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/update_guide.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,14 +135,7 @@
       <workItem from="1588053859153" duration="26309000" />
       <workItem from="1588460771172" duration="22544000" />
       <workItem from="1588495685436" duration="1589000" />
-      <workItem from="1588606378764" duration="971000" />
-    </task>
-    <task id="LOCAL-00044" summary="アカウントの新規作成ページ&#10;TEKKEN　GUIDEについてのページを作成。">
-      <created>1587223467055</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1587223467055</updated>
+      <workItem from="1588606378764" duration="1051000" />
     </task>
     <task id="LOCAL-00045" summary="how_to_registerページの画像がaddされていなかった問題を修正。">
       <created>1587223812719</created>
@@ -481,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588607141809</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="create_guideとupdateにstackeditのリンク追加。">
+      <created>1588607377755</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1588607377755</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,11 +550,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588607140597">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588607376358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316799809" />
-    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607140597" />
+    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607376358" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -590,11 +589,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588607143193">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588607381011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316812752" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607143193" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607381011" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
@@ -622,11 +621,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1588607327480">
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1588607410917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588337570269" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607327480" />
+    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607410917" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587467945701" />
     <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587372879672" />
   </component>
