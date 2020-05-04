@@ -164,8 +164,8 @@ def preview_guide(request):
 
         for title, article in zip(guide_section_title, guide_section_article):
             converted_article = text_html_converter.convert_to_html(article)
-        print(converted_article)
-        guide_sections.append({"title": title, "article": converted_article})
+            print(converted_article)
+            guide_sections.append({"title": title, "article": converted_article})
 
         template = loader.get_template('guide/preview.html')
         context = {
