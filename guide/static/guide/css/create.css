@@ -41,7 +41,7 @@ main {
 .guide_help_menu{
     margin-top:20px;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .guide_help_menu_item{

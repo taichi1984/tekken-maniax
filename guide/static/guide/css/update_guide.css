@@ -30,6 +30,15 @@ main {
 .page_title_field {
 
 }
+.guide_help_menu{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+}
+
+.guide_help_menu_item{
+    width:300px;
+}
 
 .guide_editor {
     width:100%;

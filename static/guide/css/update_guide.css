@@ -30,6 +30,15 @@ main {
 .page_title_field {
 
 }
+.guide_help_menu{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+}
+
+.guide_help_menu_item{
+    width:300px;
+}
 
 .guide_editor {
     width:100%;
@@ -51,9 +60,7 @@ guide_menu_header{
     padding: 10px;
     border-bottom: groove 5px #ffffff;
 }
-.guide_section_article blockquote{
-    background-color:gray;
-}
+
 .guide_section_article {
     margin-top: 20px;
     padding: 10px;
