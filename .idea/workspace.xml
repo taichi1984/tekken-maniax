@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/create.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,21 +135,7 @@
       <workItem from="1588053859153" duration="26309000" />
       <workItem from="1588460771172" duration="22544000" />
       <workItem from="1588495685436" duration="1589000" />
-      <workItem from="1588606378764" duration="1051000" />
-    </task>
-    <task id="LOCAL-00045" summary="how_to_registerページの画像がaddされていなかった問題を修正。">
-      <created>1587223812719</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1587223812719</updated>
-    </task>
-    <task id="LOCAL-00046" summary="how_to_registerページの画像がaddされていなかった問題を修正。">
-      <created>1587287722402</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1587287722402</updated>
+      <workItem from="1588606378764" duration="1280000" />
     </task>
     <task id="LOCAL-00047" summary="detailページのevaluationとfavoriteのguide_idを求める処理を修正。">
       <created>1587290209742</created>
@@ -480,7 +466,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588607377755</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="create.css修正。">
+      <created>1588607517559</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1588607517559</updated>
+    </task>
+    <task id="LOCAL-00095" summary="create.css修正。">
+      <created>1588607579845</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1588607579845</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +510,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="テストで発見された不具合修正&#10;delete_user.jsがaddされていなかったのを修正。" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット23,24関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット21関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット22関連" />
@@ -535,7 +534,8 @@
     <MESSAGE value="chracter_wpを準備。detail.cssとpreview.css調整。" />
     <MESSAGE value="preview画面で、一番下のセクションしかプレビューが反映していなかった不具合を修正。" />
     <MESSAGE value="create_guideとupdateにstackeditのリンク追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="create_guideとupdateにstackeditのリンク追加。" />
+    <MESSAGE value="create.css修正。" />
+    <option name="LAST_COMMIT_MESSAGE" value="create.css修正。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -550,11 +550,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588607516104">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1588607578405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316799809" />
-    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607516104" />
+    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607578405" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1586407104783">
@@ -589,11 +589,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588607520271">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588607581160">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1588316812752" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607520271" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607581160" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
