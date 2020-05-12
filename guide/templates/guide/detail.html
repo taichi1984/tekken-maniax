@@ -53,6 +53,7 @@
 
                 </div>
 
+
                 <div class="page_summary_vote">
                     <div class="vote_area">
                         <div id="good_evaluation_area" class="good_evaluation_area">
@@ -114,6 +115,16 @@
                 </div>
             </div>
         </div>
+
+        {% if request.user == guide.author %}
+            <div class="edit_link">
+                ページ管理者メニュー :
+                <a href="{% url "guide:update" guide.id %}" target="_blank">
+                    このページを編集する
+                </a>
+            </div>
+        {% endif %}
+
 
         <div class="advertisement">
             広告エリア
