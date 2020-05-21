@@ -46,7 +46,7 @@
                         {{ guide.title }}
                     </div>
                     <div class="page_summary_title_page_data">
-                        投稿者:<a href="{% url 'top:user_information' user.id %}">{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})</a><br>
+                        投稿者:<a href="{% url 'top:user_information' guide.author.id %}">{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})</a><br>
                         閲覧数:{{ guide.number_of_preview }} view<br>
                         最終更新日:{{ guide.update_date }}
                     </div>
@@ -174,7 +174,8 @@
                         投稿者
                     </div>
                     <div class="author_item_contents">
-                        : <a href="{% url 'top:user_information' user.id %}">{{ guide.author.userprofile.nick_name }} (id : {{ guide.author }})</a>
+                        : <a href="{% url 'top:user_information' guide.author.id %}">{{ guide.author.userprofile.nick_name }}
+                        (id : {{ guide.author }})</a>
                     </div>
                 </div>
                 {% if guide.author.userprofile.twitter_account != "" %}

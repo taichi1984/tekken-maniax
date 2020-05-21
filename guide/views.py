@@ -214,6 +214,7 @@ def detail_guide(request, guide_id):
         evaluation = Evaluation.objects.filter(evaluator=request.user, guide=guide).first()
 
     favorite = ""
+
     if request.user.is_authenticated:
         favorite = Favorite.objects.filter(user=request.user, guide=guide).first()
 
