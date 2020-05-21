@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/user_information.css' %}"/>
+    <title>
+        {{ user.userprofile.nick_name }}さんのプロフィール
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="user_information_title">
+            {{ user.userprofile.nick_name }}さんのプロフィール
+        </div>
+        <table class="profile_table">
+            <tr>
+                <th>ニックネーム</th>
+                <td>{{ user.userprofile.nick_name }}</td>
+            </tr>
+            <tr>
+                <th>メインキャラクター</th>
+                <td>{{ user.userprofile.main_character.full_name_jp }}</td>
+            </tr>
+            <tr>
+                <th>twitter ID</th>
+                <td>
+                    <a href="https://twitter.com/{{ user.userprofile.twitter_account }}"
+                       target="_blank">@{{ user.userprofile.twitter_account }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Youtube チャンネル URL</th>
+                <td><a href="{{ user.userprofile.youtube_channel_url }}"
+                       target="_blank">{{ user.userprofile.youtube_channel_url }}</a></td>
+            </tr>
+            <tr>
+                <th>Twitch URL</th>
+                <td><a href="{{ user.userprofile.twitch_url }}" target="_blank">{{ user.userprofile.twitch_url }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>自己紹介文</th>
+                <td> {{ user.userprofile.introduction|linebreaksbr }}</td>
+            </tr>
+        </table>
+
+
+        <div class="user_guide">
+            <div class="user_guide_title">
+                 {{ user.userprofile.nick_name }}さんの書いたガイド一覧
+            </div>
+            <div class="user_guide_list">
+                {% for guide in guide_list %}
+                    {% include 'guide/guide_panel.html' %}
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+        <div class="user_comment">
+
+        </div>
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>
+</html>

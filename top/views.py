@@ -1,7 +1,8 @@
 from django.contrib.auth import login, logout
 from django.urls import reverse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
+from guide.util.make_guide_list import make_guide_list_with_evaluation
 from top.forms import ChangeEmailForm
 from .util import profile_manager
 from .forms import UserProfileUpdateForm, UserCreationForm
@@ -183,7 +184,7 @@ def edit_profile(request):
             }
 
             form = UserProfileUpdateForm(initial=initail_dict)
-            return render(request, "top/profile.html", {'form': form})
+            return render(request, "top/edit_profile.html", {'form': form})
 
     else:
         return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
@@ -222,6 +223,23 @@ def change_email(request):
 # ログアウト完了後のページ
 def logout_complete(request):
     return render(request, "top/logout_complete.html")
+
+
+# ユーザー情報閲覧ページ
+def user_information(request, user_id):
+    user = get_object_or_404(CustomUser, pk=user_id)
+    user_guides = Guide.objects.filter(author=user, is_deleted=False, publishing_setting=1).order_by(
+        'update_date').reverse()
+    user_guides = make_guide_list_with_evaluation(user_guides)
+
+    if not user.is_active:
+        return redirect(reverse("guide:error") + "?error_message=ユーザーIDが正しくありません。")
+
+    context = {
+        'user': user,
+        'guide_list': user_guides
+    }
+    return render(request, 'top/user_information.html', context)
 
 
 # エラーページ
