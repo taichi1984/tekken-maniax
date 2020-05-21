@@ -227,16 +227,16 @@ def logout_complete(request):
 
 # ユーザー情報閲覧ページ
 def user_information(request, user_id):
-    user = get_object_or_404(CustomUser, pk=user_id)
-    user_guides = Guide.objects.filter(author=user, is_deleted=False, publishing_setting=1).order_by(
+    user_information = get_object_or_404(CustomUser, pk=user_id)
+    user_guides = Guide.objects.filter(author=user_information, is_deleted=False, publishing_setting=1).order_by(
         'update_date').reverse()
     user_guides = make_guide_list_with_evaluation(user_guides)
 
-    if not user.is_active:
+    if not user_information.is_active:
         return redirect(reverse("guide:error") + "?error_message=ユーザーIDが正しくありません。")
 
     context = {
-        'user': user,
+        'user_information': user_information,
         'guide_list': user_guides
     }
     return render(request, 'top/user_information.html', context)
