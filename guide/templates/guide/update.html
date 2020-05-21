@@ -49,10 +49,10 @@
 
             <div class="guide_help_menu">
                 <div class="guide_help_menu_item">
-                    <a href="{% url 'guide:detail' 1 %}"target="_blank">ガイドの書き方</a>はこちら
+                    <a href="{% url 'guide:detail' 1 %}" target="_blank">ガイドの書き方</a>はこちら
                 </div>
                 <div class="guide_help_menu_item">
-                  MarkDown編集ツールの<a href="https://stackedit.io/"target="_blank">Stackdit</a>を使うとセクションごとの編集がしやすいです。
+                    MarkDown編集ツールの<a href="https://stackedit.io/" target="_blank">Stackdit</a>を使うとセクションごとの編集がしやすいです。
                 </div>
             </div>
         </div>
@@ -115,6 +115,28 @@
                             </select>
                         </div>
                     </div>
+                    <div class="guide_header_item">
+                        <div class="guide_header_item_label">
+                            公開設定
+                        </div>
+                        <div class="guide_header_item_input">
+
+                            <select name="publishing_setting">
+                                {% ifequal guide.publishing_setting 1 %}
+                                    <option selected value="1">公開
+                                    </option>
+                                    <option value="0">非公開
+                                    </option>
+                                {% else %}
+                                    <option value="1">公開
+                                    </option>
+                                    <option selected value="0">非公開
+                                    </option>
+                                {% endifequal %}
+
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 {% for article in article_list %}
                     <div class="guide_section" name="guide_section">
@@ -143,7 +165,7 @@
         <input type="button" name="add_section_button" value="セクション追加">
         <input type="button" class="edit_button" name="add_link_button" value="リンク">
         <input type="button" class="edit_button" name="add_youtube_button" value="Youtube">
-        <input type="button" class="edit_button" name="add_bold_button" value="太字">+
+        <input type="button" class="edit_button" name="add_bold_button" value="太字">
         <input type="button" class="edit_button" name="preview_button" value="プレビューを確認">
         <input type="submit" class="edit_button submit_button" name="post_guide_button" value="投稿する">
     </div>

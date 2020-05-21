@@ -110,11 +110,12 @@ def create_guide(request):
 
             guide_article = json.dumps(guide_content, ensure_ascii=False)
             print(guide_content)
-
+            guide_publishing_setting = request.POST.get('publishing_setting')
             new_guide = Guide(author=user, title=guide_title,
                               category_id=guide_category_id,
                               character_id=guide_character_id,
                               article=guide_article, pub_date=datetime.now(),
+                              publishing_setting=guide_publishing_setting,
                               update_date=datetime.now())
             new_guide.save()
 
@@ -537,6 +538,7 @@ def update_guide(request, guide_id):
             guide_title = request.POST.get("guide_title")
             guide_section_title = request.POST.getlist("guide_section_title")
             guide_section_article = request.POST.getlist("guide_section_article")
+            guide_publishing_setting = request.POST.get("publishing_setting")
             guide_content = []
             user = CustomUser.objects.get(username=request.user)
 
@@ -551,6 +553,7 @@ def update_guide(request, guide_id):
             guide.character_id = guide_character_id;
             guide.article = guide_article;
             guide.update_date = datetime.now();
+            guide.publishing_setting = guide_publishing_setting;
             guide.save();
 
             return redirect(reverse('guide:create_guide_finish') + "?next=" + str(guide.id))
