@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/top/static/top/css/user_information.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top/templates/top/user_information.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/css/detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/static/top/css/account_manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/top/static/top/css/account_manager.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/top/templates/top/account_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/account_manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/edit_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/templates/top/user_infomation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,21 +138,7 @@
       <workItem from="1588495685436" duration="1589000" />
       <workItem from="1588606378764" duration="1445000" />
       <workItem from="1589289244328" duration="3351000" />
-      <workItem from="1590041438315" duration="4741000" />
-    </task>
-    <task id="LOCAL-00049" summary="detailページの表示、リンク職変更。&#10;画像の幅変更。">
-      <created>1587456400727</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1587456400727</updated>
-    </task>
-    <task id="LOCAL-00050" summary="&#10;画像の最大幅と最大の高さを変更。">
-      <created>1587456702392</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1587456702393</updated>
+      <workItem from="1590041438315" duration="5043000" />
     </task>
     <task id="LOCAL-00051" summary="evaluationがバグっていたのを修正。">
       <created>1587462301972</created>
@@ -492,7 +469,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589291340426</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="user_informationページの追加、detail.htmlにuser_informationページへのリンクの追加、cssの微調整。">
+      <created>1590046611069</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1590046611070</updated>
+    </task>
+    <task id="LOCAL-00099" summary="css add出来てなかったのを修正">
+      <created>1590046766707</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1590046766707</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,8 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="テストで発見された不具合修正&#10;チケット22関連" />
-    <MESSAGE value="テストで発見された不具合修正&#10;チケット25-29関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット30-33関連" />
     <MESSAGE value="テストで発見された不具合修正&#10;チケット34-42関連" />
     <MESSAGE value="ファイル名修正" />
@@ -547,7 +536,9 @@
     <MESSAGE value="create.css修正。" />
     <MESSAGE value="update.html修正" />
     <MESSAGE value="detail.html に　自分のガイドを見ていた場合、そこから更新画面に飛べるリンクを追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="detail.html に　自分のガイドを見ていた場合、そこから更新画面に飛べるリンクを追加。" />
+    <MESSAGE value="user_informationページの追加、detail.htmlにuser_informationページへのリンクの追加、cssの微調整。" />
+    <MESSAGE value="css add出来てなかったのを修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="css add出来てなかったのを修正" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -562,10 +553,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1590046605489">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1590046765463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1590046605489" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1590046765463" />
     <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607676152" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
@@ -601,10 +592,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1590046618744">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1590046793216">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1590046618744" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1590046793216" />
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607679240" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
