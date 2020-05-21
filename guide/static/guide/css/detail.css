@@ -212,11 +212,11 @@ main {
 }
 
 .table_of_contents a {
-    color: black;
+    color: blue;
 }
 
 .table_of_contents a:hover {
-    color: aqua;
+    color: red;
 }
 
 .table_of_contents_title {
