@@ -234,8 +234,11 @@ main {
     font-weight: bold;
 
 }
-.sectio_article nul {
+.sectio_article ul {
     margin:30px 0px 30px 0px;
+}
+.section_article p {
+    text-indent: 1em
 }
 .section_article {
     height: 90%;
