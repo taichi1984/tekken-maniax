@@ -38,9 +38,7 @@ main {
     margin: 30px auto 40px;
 }
 
-ul {
-    margin: 30px 0px 30px 0px;
-}
+
 .page_title_field {
     color: white;
     position: relative;
@@ -265,7 +263,9 @@ ul {
 
 }
 
-
+.section_article ul {
+    margin: 30px 0px 30px 0px;
+}
 .section_article {
     height: 90%;
     padding: 10px 10px 10px 30px;
