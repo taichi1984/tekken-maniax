@@ -18,5 +18,8 @@ urlpatterns = [
     path('account_manager/', views.account_manager, name='account_manager'),
     path('account_manager/profile/', views.edit_profile, name='profile'),
     path('logout_complete/', views.logout_complete, name="logout_complete"),
-    path('user_information/<int:user_id>', views.user_information, name="user_information")
+    path('user_information/<int:user_id>', views.user_information, name="user_information"),
+    path('notification/', views.NotificationPage.as_view(), name="notification"),
+    path('notification_check/', views.notification_check, name="notification_check"),
+    path('notification_check_all/', views.notification_check_all, name="notification_check_all"),
 ]

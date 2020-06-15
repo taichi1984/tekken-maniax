@@ -1,17 +1,22 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 
 from guide.util.make_guide_list import make_guide_list_with_evaluation
 from top.forms import ChangeEmailForm
 from .util import profile_manager
 from .forms import UserProfileUpdateForm, UserCreationForm
-from .models import UserProfile, CustomUser
+from .models import UserProfile, CustomUser, Notification
+
 from guide.models import Character, Guide
 from django.db.utils import IntegrityError
 
-
 # Create your views here.
+from .util.page_initializer import context_initializer
+
 
 def index(request):
     """
@@ -19,7 +24,9 @@ def index(request):
     :param request:
     :return:
     """
-    return render(request, "top/index.html")
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, "top/index.html", context)
 
 
 #############################
@@ -27,11 +34,15 @@ def index(request):
 #############################
 
 def how_to_register(request):
-    return render(request, "top/how_to_register.html")
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, "top/how_to_register.html", context)
 
 
 def notation(request):
-    return render(request, 'top/notation.html')
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, 'top/notation.html', context)
 
 
 ########################
@@ -69,8 +80,11 @@ def register(request):
 
     else:  # はじめてきたとき
         form = UserCreationForm()
+        context = {}
+        context = context_initializer(request, context)
+        context['form'] = form
 
-    return render(request, "top/register.html", {'form': form})
+    return render(request, "top/register.html", context)
 
 
 # アカウント登録時の初回のみのプロフィール設定画面
@@ -86,14 +100,20 @@ def initialize_profile(request):
 
         else:
             form = UserProfileUpdateForm()
-            return render(request, "top/initialize_profile.html", {'form': form})
+            context = {}
+            context = context_initializer(request, context)
+            context['form'] = form
+            return render(request, "top/initialize_profile.html", context)
+
     else:
         return redirect(reverse("top:index"))
 
 
 # アカウントの登録完了画面
 def registration_finish(request):
-    return render(request, "top/registration_finish.html")
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, "top/registration_finish.html", context)
 
 
 ##############################
@@ -115,7 +135,7 @@ def account_manager(request):
             'guide_list': guide_list,
             'current_user': user,
         }
-
+        context = context_initializer(request, context)
         return render(request, "top/account_manager.html", context)
     else:
         return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
@@ -139,9 +159,14 @@ def delete_account(request):
             user.is_active = False
             user.save()
             logout(request)
-            return render(request, "top/delete_account_complete.html")
+
+            context = {}
+            context = context_initializer(request, context)
+            return render(request, "top/delete_account_complete.html", context)
         else:
-            return render(request, "top/delete_account.html")
+            context = {}
+            context = context_initializer(request, context)
+            return render(request, "top/delete_account.html", context)
     else:
         None
 
@@ -184,7 +209,10 @@ def edit_profile(request):
             }
 
             form = UserProfileUpdateForm(initial=initail_dict)
-            return render(request, "top/edit_profile.html", {'form': form})
+
+            context = {'form': form}
+            context = context_initializer(request, context)
+            return render(request, "top/edit_profile.html", context)
 
     else:
         return redirect(reverse("login") + "?next=" + (reverse("top:account_manager")))
@@ -201,6 +229,7 @@ def change_email(request):
     context = {
         'form': form
     }
+    context = context_initializer(request, context)
     if user.is_authenticated:
         if request.method == "POST":
             try:
@@ -222,7 +251,9 @@ def change_email(request):
 
 # ログアウト完了後のページ
 def logout_complete(request):
-    return render(request, "top/logout_complete.html")
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, "top/logout_complete.html", context)
 
 
 # ユーザー情報閲覧ページ
@@ -239,7 +270,60 @@ def user_information(request, user_id):
         'user_information': user_information,
         'guide_list': user_guides
     }
+    context = context_initializer(request, context)
     return render(request, 'top/user_information.html', context)
+
+
+# 通知ページ
+
+class NotificationPage(LoginRequiredMixin, ListView):
+    """
+    検索画面用のView
+    """
+    model = Notification
+    paginate_by = 20
+    template_name = 'top/notification.html'
+    context_object_name = 'notification_list'
+
+    def get_queryset(self):
+        return Notification.objects.filter(user=self.request.user).order_by('-pub_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
+
+
+def notification_check(request):
+    """
+    ガイド評価のajax用のview
+    :param request:
+    :return:
+    """
+    if request.method == "POST":
+        notification_id = request.POST.get('notification_id')
+        notification = Notification.objects.filter(id=notification_id).first()
+
+        if notification.alreadyRead:
+            notification.alreadyRead = False
+        else:
+            notification.alreadyRead = True
+        notification.save()
+
+    return HttpResponse("aaa")
+
+
+def notification_check_all(request):
+    if request.method == "POST":
+        notification_id = request.POST.get('notification_id')
+        notification_list = Notification.objects.filter(user=request.user)
+
+        for notification in notification_list:
+            print(notification.alreadyRead)
+            notification.alreadyRead = True
+            notification.save()
+
+    return HttpResponse("aaa")
 
 
 # エラーページ
@@ -248,4 +332,5 @@ def error(request):
     context = {
         'error_message': error_message
     }
+    context = context_initializer(request, context)
     return render(request, "top/error.html", context)

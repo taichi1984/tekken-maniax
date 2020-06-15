@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/notification.css' %}"/>
+    <title>
+        通知一覧
+    </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{% static 'top/js/notification.js' %}"></script>
+</head>
+
+<body>
+<header class="header">
+    {% include 'top/site_header.html' %}
+</header>
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title">
+            {{ user.username }}さんへの通知
+        </div>
+        <input type="button" name="alreadyReadAll" value="通知を全て既読にする">
+
+        <table class="notification_table" border="3">
+            <tr>
+                <th>日付</th>
+
+                <th>通知内容</th>
+                <th>既読</th>
+
+            </tr>
+            {% for notification in notification_list %}
+                <tr>
+                    <td>{{ notification.pub_date }}</td>
+                    <td>{{ notification.notification_text | safe }}</td>
+                    <td>
+                        {% if notification.alreadyRead == True %}
+                            <input type="checkbox" id="{{ notification.id }}" name="alreadyRead" checked="checked">
+                        {% else %}
+                            <input type="checkbox" id="{{ notification.id }}" name="alreadyRead">
+                        {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="pagination">
+            <div class="pagination_previous">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" target="_self">>&laquo;</a>　　
+                    <a href="?page={{ page_obj.previous_page_number }}" target="_self">> 前へ </a>
+                {% endif %}
+            </div>
+            <div class="pagination_current">
+                {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+            </div>
+            <div class="pagination_next">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" target="_self"> 次へ </a>　　
+                    <a href="?page={{ page_obj.paginator.num_pages }}" target="_self">>&raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>
+</html>

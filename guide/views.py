@@ -7,6 +7,7 @@ __status__ = ""
 __version__ = "0.0.1"
 __date__ = "2020/03/27"
 
+import os
 from json import JSONDecodeError
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,7 +17,8 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 from guide.forms import CommentSubmitForm, SearchGuideForm
-from top.models import CustomUser
+from top.models import CustomUser, Notification
+from top.util.page_initializer import context_initializer
 from .util import text_html_converter
 from .models import Guide, Character, Category, GuideComment, Favorite, Evaluation
 from _datetime import datetime
@@ -36,7 +38,8 @@ def index(request):
     :return:HttpResponse
     """
 
-    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('update_date').reverse()[:10]
+    latest_guide_list = Guide.objects.filter(is_deleted=False, publishing_setting=1).order_by('update_date').reverse()[
+                        :10]
     guide_list = make_guide_list_with_evaluation(latest_guide_list)
     character_list = Character.objects.all()
     template = loader.get_template('guide/index.html')
@@ -53,6 +56,7 @@ def index(request):
         'character_guide_list': character_guide_list,
 
     }
+    context = context_initializer(request, context)
     return HttpResponse(template.render(context, request))
 
 
@@ -66,21 +70,28 @@ def about_guide(request):
     :param request:
     :return :
     """
-    return render(request, 'guide/about_guide.html')
+
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, 'guide/about_guide.html', context)
 
 
 def how_to_write_guides(request):
     """
     ガイドの書き方についての表示用view
     """
-    return render(request, 'guide/how_to_write_guides.html')
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, 'guide/how_to_write_guides.html', context)
 
 
 def guides_for_beginners(request):
     """
     初心者向けのガイド紹介ページ
     """
-    return render(request, 'guide/guides_for_beginners.html')
+    context = {}
+    context = context_initializer(request, context)
+    return render(request, 'guide/guides_for_beginners.html', context)
 
 
 ############################
@@ -129,6 +140,7 @@ def create_guide(request):
                 'character_list': character_list,
                 'category_list': category_list,
             }
+            context = context_initializer(request, context)
             return render(request, 'guide/create_guide.html', context)
 
     else:
@@ -143,6 +155,7 @@ def create_guide_finish(request):
     """
     next = request.GET.get('next')
     context = {'next': next}
+    context = context_initializer(request, context)
     return render(request, 'guide/create_guide_finish.html', context)
 
 
@@ -179,6 +192,7 @@ def preview_guide(request):
 
             'pub_date': datetime.now()
         }
+        context = context_initializer(request, context)
         return HttpResponse(template.render(context, request))
 
     else:
@@ -239,6 +253,7 @@ def detail_guide(request, guide_id):
         "evaluation": evaluation,
         "favorite": favorite,
     }
+    context = context_initializer(request, context)
     print(request.COOKIES)
     response = render(request, 'guide/detail.html', context)
 
@@ -347,6 +362,16 @@ def post_comment(request, guide_id):
     comment = request.POST.get("comment")
 
     GuideComment(contributor=contributor, comment=comment, guide=guide, pub_date=datetime.now()).save()
+
+    if os.name == 'nt':  # 開発環境用コード
+        notification_text = "あなたのガイド「<a href='http://localhost:8000/guide/detail/" + str(guide.id) + "'>" + str(
+            guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
+    else:  # 本番環境用コード
+        notification_text = "あなたのガイド「<a href='https://extreme-gamers.info/guide/detail/" + str(guide.id) + "'>" + str(
+            guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
+
+    Notification(user=guide.author, notification_text=notification_text, alreadyRead=False,
+                 pub_date=datetime.now()).save()
     return redirect("guide:detail", guide_id=guide_id)
 
 
@@ -380,6 +405,11 @@ class YourGuide(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Guide.objects.filter(author=self.request.user, is_deleted=False).order_by('-update_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
 
 
 def change_state_guide(request, guide_id):
@@ -420,7 +450,7 @@ def delete_guide(request):
 # お気に入りガイドの画面  #
 ########################
 
-class FavoriteGuide(LoginRequiredMixin,ListView):
+class FavoriteGuide(LoginRequiredMixin, ListView):
     """
     お気に入り画面表示用のView
     """
@@ -431,6 +461,11 @@ class FavoriteGuide(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         return Favorite.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
 
 
 ###################################
@@ -452,7 +487,7 @@ class CharacterGuide(ListView):
         context['number_of_guide'] = len(self.object_list)
         character = Character.objects.filter(id=int(self.request.GET.get('character'))).first()
         context['character'] = character
-
+        context = context_initializer(self.request, context)
         return context
 
     def get_queryset(self):
@@ -481,7 +516,7 @@ class Search(ListView):
         context['form'] = SearchGuideForm()
         context['number_of_guide'] = len(self.object_list)
         context['search_word'] = self.request.GET.get('search_word')
-
+        context = context_initializer(self.request, context)
         return context
 
     def get_queryset(self):
@@ -570,7 +605,7 @@ def update_guide(request, guide_id):
                 'character_list': character_list,
                 'category_list': category_list,
             }
-
+            context = context_initializer(request, context)
             return HttpResponse(template.render(context, request))
 
     else:
@@ -593,4 +628,5 @@ def guide_error(request):
     context = {
         'error_text': error_text
     }
+    context = context_initializer(request, context)
     return render(request, 'guide/guide_error.html', context)

@@ -19,3 +19,11 @@ class UserProfile(models.Model):
     twitch_url = models.CharField(max_length=255, default="")
     introduction = models.TextField(default="")
     is_deleted = models.BooleanField(default=False)
+
+
+# notification
+class Notification(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
+    notification_text = models.CharField(max_length=255, default="")
+    alreadyRead = models.BooleanField(default=False)
+    pub_date = models.DateTimeField('通知日')
