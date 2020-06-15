@@ -6,7 +6,11 @@
     background-color:black;
     color: #FFFFFF;
 }
-
+.unread{
+    font-weight:bolder;
+    background-color:red;
+    padding: 3px 10px 3px 10px;
+}
 .site_header a{
     color:white;
     text-decoration:none;
