@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="migration fileの削除">
+    <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/top/css/notification.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/top/css/site_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/top/css/site_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/migrations/0006_auto_20200409_1230.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/migrations/0007_notification.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,14 +148,7 @@
       <workItem from="1590466181627" duration="734000" />
       <workItem from="1591431267293" duration="1101000" />
       <workItem from="1591775699364" duration="7536000" />
-      <workItem from="1592251591517" duration="9856000" />
-    </task>
-    <task id="LOCAL-00063" summary="テストで発見された不具合修正&#10;チケット30-33関連">
-      <created>1588316804416</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1588316804416</updated>
+      <workItem from="1592251591517" duration="11026000" />
     </task>
     <task id="LOCAL-00064" summary="テストで発見された不具合修正&#10;チケット34-42関連">
       <created>1588468485072</created>
@@ -496,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592258525825</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="migration fileの削除">
+      <created>1592261725750</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1592261725750</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="evaluation favoriteのバグ修正" />
     <MESSAGE value="evaluation favoriteの再修正" />
     <MESSAGE value="メール設定のためのsetting.pyの編集" />
     <MESSAGE value="メール設定のためのsetting.pyの再編集" />
@@ -551,7 +547,8 @@
     <MESSAGE value="detail.css の ulにmarginが入るように修正" />
     <MESSAGE value="detail.css と preview.css の最初の1文字に字下げが入るように修正" />
     <MESSAGE value="通知機能追加" />
-    <option name="LAST_COMMIT_MESSAGE" value="通知機能追加" />
+    <MESSAGE value="migration fileの削除" />
+    <option name="LAST_COMMIT_MESSAGE" value="migration fileの削除" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -566,10 +563,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1592261604771">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1592261724215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592261604771" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592261724215" />
     <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607676152" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
@@ -605,10 +602,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2" timestamp="1592258528757">
+    <state x="693" y="266" key="Vcs.Push.Dialog.v2" timestamp="1592261728535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592258528757" />
+    <state x="693" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592261728535" />
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607679240" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
