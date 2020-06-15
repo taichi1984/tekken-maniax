@@ -290,8 +290,9 @@ class NotificationPage(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context = context_initializer(self.request, context)
-        return context
+        context = context_initializer(self.request,context)
+        return context;
+
 
 
 def notification_check(request):
