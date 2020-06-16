@@ -1,39 +1,45 @@
-                        <a href="{% url 'guide:detail' guide.guide.id %}">
-                            <div class="guide_panel">
+<a href="{% url 'guide:detail' guide.guide.id %}">
+    <div class="guide_panel">
 
-                                <div class="guide_panel_character_icon">
-                                    <img src="/static/guide/image/character_icon_{{ guide.guide.character.id }}.jpg"
-                                         class="guide_character_icon_img">
-                                </div>
-                                <div class="guide_panel_info">
-                                    <div class="guide_panel_info_title">
-                                        {{ guide.guide.title }}
-                                    </div>
-                                    <div class="guide_panel_info_main">
-                                        <div class="guide_panel_info_main_author">
-                                            投稿者 : {{ guide.guide.author.userprofile.nick_name }}
-                                        </div>
-                                        <div class="guide_panel_info_main_category">
-                                            カテゴリ :　 {{ guide.guide.category.name }}<br>
-                                        </div>
-                                    </div>
-                                    <div class="guide_panel_info_evaluation">
-                                        <div class="guide_panel_info_evaluation_views">
-                                            閲覧数:{{ guide.guide.number_of_preview }}
-                                        </div>
-                                        <div class="guide_panel_info_evaluation_good">
-                                            高評価:{{ guide.num_of_good_evaluations }}<br>
-                                        </div>
-                                        <div class="guide_panel_info_evaluation_bad">
-                                            低評価:{{ guide.num_of_bad_evaluations }}<br>
-                                        </div>
-                                    </div>
+        <div class="guide_panel_character_icon">
+            <img src="/static/guide/image/character_icon_{{ guide.guide.character.id }}.jpg"
+                 class="guide_character_icon_img">
+        </div>
+        <div class="guide_panel_info">
+            <div class="guide_panel_info_title">
+                {{ guide.guide.title }}
+            </div>
+            <div class="guide_panel_info_main">
+                <div class="guide_panel_info_main_author">
+                    投稿者 :
+                    {% if guide.guide.author.userprofile.nick_name == "" %}
+                        {{ guide.guide.author.username }}
+                    {% else %}
+                        {{ guide.guide.author.userprofile.nick_name }}
+                    {% endif %}
+
+                </div>
+                <div class="guide_panel_info_main_category">
+                    カテゴリ :　 {{ guide.guide.category.name }}<br>
+                </div>
+            </div>
+            <div class="guide_panel_info_evaluation">
+                <div class="guide_panel_info_evaluation_views">
+                    閲覧数:{{ guide.guide.number_of_preview }}
+                </div>
+                <div class="guide_panel_info_evaluation_good">
+                    高評価:{{ guide.num_of_good_evaluations }}<br>
+                </div>
+                <div class="guide_panel_info_evaluation_bad">
+                    低評価:{{ guide.num_of_bad_evaluations }}<br>
+                </div>
+            </div>
 
 
-                                    最終更新日 : {{ guide.guide.update_date }}<br>
+            最終更新日 : {{ guide.guide.update_date }}<br>
 
-                                </div>
+        </div>
 
 
-                            </div>
-                        </a>
+    </div>
+</a>

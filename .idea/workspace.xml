@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,14 +148,7 @@
       <workItem from="1590466181627" duration="734000" />
       <workItem from="1591431267293" duration="1101000" />
       <workItem from="1591775699364" duration="7536000" />
-      <workItem from="1592251591517" duration="12144000" />
-    </task>
-    <task id="LOCAL-00065" summary="ファイル名修正">
-      <created>1588468704374</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1588468704374</updated>
+      <workItem from="1592251591517" duration="12980000" />
     </task>
     <task id="LOCAL-00066" summary="おきにいりぼたん微修正">
       <created>1588469209106</created>
@@ -492,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592263714785</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="notification.js　コミット漏れのため追加。">
+      <created>1592264892740</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1592264892740</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="メール設定のためのsetting.pyの編集" />
     <MESSAGE value="メール設定のためのsetting.pyの再編集" />
     <MESSAGE value="不具合チケット45修正。" />
     <MESSAGE value="account_manager.topの外部リンクを新しいウィンドウで開くように変更。" />
@@ -547,7 +547,8 @@
     <MESSAGE value="通知機能追加" />
     <MESSAGE value="migration fileの削除" />
     <MESSAGE value="notification.css　コミット漏れのため追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification.css　コミット漏れのため追加。" />
+    <MESSAGE value="notification.js　コミット漏れのため追加。" />
+    <option name="LAST_COMMIT_MESSAGE" value="notification.js　コミット漏れのため追加。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
@@ -562,10 +563,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1592263713047">
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1592264891005">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592263713047" />
+    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592264891005" />
     <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607676152" />
     <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
     <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
@@ -601,10 +602,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2" timestamp="1592263716462">
+    <state x="693" y="266" key="Vcs.Push.Dialog.v2" timestamp="1592264894508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592263716462" />
+    <state x="693" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592264894508" />
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607679240" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
     <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
