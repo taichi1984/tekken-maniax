@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/guide/static/guide/image/character_icon_100.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/image/character_icon_50.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/image/character_icon_50.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/static/guide/image/character_wp_50.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/image/character_wp_100.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,16 +62,17 @@
     <property name="settings.editor.selected.configurable" value="settings.bitbucket" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
-      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\css" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\js" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\templates\guide" />
       <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\guide\static\guide\image" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\templates\top" />
+      <recent name="C:\Users\taich\OneDrive\ドキュメント\dev\tekkenSite\tekkensite\top\static\top\image" />
     </key>
   </component>
   <component name="RunManager">
@@ -148,14 +151,8 @@
       <workItem from="1590466181627" duration="734000" />
       <workItem from="1591431267293" duration="1101000" />
       <workItem from="1591775699364" duration="7536000" />
-      <workItem from="1592251591517" duration="12980000" />
-    </task>
-    <task id="LOCAL-00066" summary="おきにいりぼたん微修正">
-      <created>1588469209106</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1588469209106</updated>
+      <workItem from="1592251591517" duration="13945000" />
+      <workItem from="1604974096024" duration="1492000" />
     </task>
     <task id="LOCAL-00067" summary="preview 微修正">
       <created>1588469829501</created>
@@ -493,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592264892740</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="guide_panel.htmlを微修正">
+      <created>1592266452735</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1592266452735</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="メール設定のためのsetting.pyの再編集" />
     <MESSAGE value="不具合チケット45修正。" />
     <MESSAGE value="account_manager.topの外部リンクを新しいウィンドウで開くように変更。" />
     <MESSAGE value="chracter_wpを準備。detail.cssとpreview.css調整。" />
@@ -548,106 +551,20 @@
     <MESSAGE value="migration fileの削除" />
     <MESSAGE value="notification.css　コミット漏れのため追加。" />
     <MESSAGE value="notification.js　コミット漏れのため追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification.js　コミット漏れのため追加。" />
+    <MESSAGE value="guide_panel.htmlを微修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="guide_panel.htmlを微修正" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="199" key="#Deployment" timestamp="1586606488680">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="552" y="199" key="#Deployment/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586606488680" />
-    <state x="714" y="344" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586838493677">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="714" y="344" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1586838493677" />
-    <state x="688" y="147" key="#models" timestamp="1586402855387">
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1604974097023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="688" y="147" key="#models/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586402855387" />
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2" timestamp="1592264891005">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="578" y="137" width="1227" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592264891005" />
-    <state x="578" y="137" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607676152" />
-    <state x="928" y="94" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462300339" />
-    <state x="578" y="142" key="CommitChangelistDialog2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374821125" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1592259598105">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592259598105" />
-    <state x="758" y="285" key="FileChooserDialogImpl" timestamp="1591777598204">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="758" y="285" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1591777598204" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586423803264">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586423803264" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586423803264">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586423803264" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586423803264">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586423803264" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586423803264">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586423803264" />
-    <state x="486" y="185" key="SettingsEditor" timestamp="1586396521643">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="486" y="185" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586396521643" />
-    <state x="820" y="225" key="VCS.ChangeListViewerDialog" timestamp="1586407094223">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="820" y="225" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1586407094223" />
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2" timestamp="1592264894508">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="693" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592264894508" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607679240" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462317291" />
-    <state x="552" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587374825473" />
-    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586612018515">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1586612018515" />
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1592251612550">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592251612550" />
-    <state x="674" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588606377262" />
-    <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587462249741" />
-    <state x="674" y="381" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587359294734" />
-    <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587201062323">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="542" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587201062323" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592264529932">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592264529932" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588479918913" />
-    <state x="769" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587456677251" />
-    <state x="657" y="272" width="605" height="536" key="find.popup" timestamp="1587124555942">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="657" y="272" width="605" height="536" key="find.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587124555942" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup" timestamp="1592257826224">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1160/3840.0.1200.1880@0.0.1920.1040" timestamp="1592257826224" />
-    <state x="641" y="278" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1200.1880/1920.0.1920.1160@0.0.1920.1040" timestamp="1588607410917" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1200/3840.0.1200.1920@0.0.1920.1080" timestamp="1587467945701" />
-    <state x="641" y="289" width="672" height="705" key="search.everywhere.popup/0.0.1920.1080/3840.0.1200.1920/1920.0.1920.1200@0.0.1920.1080" timestamp="1587372879672" />
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604974097023" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/top/static/top/js/notification.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
