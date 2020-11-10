@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guide/static/guide/image/character_icon_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/guide/image/character_icon_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/guide/image/character_wp_100.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/image/character_icon_50.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/image/character_icon_50.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/static/guide/image/character_wp_50.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guide/static/guide/image/character_wp_100.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,14 +151,7 @@
       <workItem from="1591431267293" duration="1101000" />
       <workItem from="1591775699364" duration="7536000" />
       <workItem from="1592251591517" duration="13945000" />
-      <workItem from="1604974096024" duration="1492000" />
-    </task>
-    <task id="LOCAL-00067" summary="preview 微修正">
-      <created>1588469829501</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1588469829501</updated>
+      <workItem from="1604974096024" duration="1734000" />
     </task>
     <task id="LOCAL-00068" summary="preview.css 微修正">
       <created>1588469957834</created>
@@ -497,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592266452735</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="州光追加のための画像追加。&#10;その他の画像名の修正。">
+      <created>1604976566150</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1604976566151</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="不具合チケット45修正。" />
     <MESSAGE value="account_manager.topの外部リンクを新しいウィンドウで開くように変更。" />
     <MESSAGE value="chracter_wpを準備。detail.cssとpreview.css調整。" />
     <MESSAGE value="preview画面で、一番下のセクションしかプレビューが反映していなかった不具合を修正。" />
@@ -552,9 +550,18 @@
     <MESSAGE value="notification.css　コミット漏れのため追加。" />
     <MESSAGE value="notification.js　コミット漏れのため追加。" />
     <MESSAGE value="guide_panel.htmlを微修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="guide_panel.htmlを微修正" />
+    <MESSAGE value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
+    <option name="LAST_COMMIT_MESSAGE" value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1604976556585">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976556585" />
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1604976585877">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976585877" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1604974097023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
