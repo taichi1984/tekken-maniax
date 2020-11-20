@@ -217,11 +217,12 @@ def detail_guide(request, guide_id):
     if guide.publishing_setting == 0 and (guide.author != request.user):
         return redirect(reverse("guide:error") + "?error_message=この記事は非公開です")
 
-    # ページビュー数の追加
-    guide.number_of_preview += 1;
+    # ページビュー数の追加 非公開になっている時は追加しない
+    if guide.publishing_setting:
+        guide.number_of_preview += 1
+
     guide.save()
 
-    #
     numof_good_evaluations = Evaluation.objects.filter(evaluation=1, guide=guide).count()
     numof_bad_evaluations = Evaluation.objects.filter(evaluation=2, guide=guide).count()
     evaluation = ""

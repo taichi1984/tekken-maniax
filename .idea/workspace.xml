@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guide/static/guide/image/character_wp_50.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +152,7 @@
       <workItem from="1592251591517" duration="13945000" />
       <workItem from="1604974096024" duration="2380000" />
       <workItem from="1605179163702" duration="182000" />
+      <workItem from="1605868330028" duration="507000" />
     </task>
     <task id="LOCAL-00069" summary="preview.html 微修正">
       <created>1588471698407</created>
@@ -554,17 +555,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1604976721999">
+    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1605179387375">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976721999" />
-    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1604976726595">
+    <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179387375" />
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605179399218">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976726595" />
-    <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1605179165779">
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179399218" />
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1605868331751">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868331751" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604974097023" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179165779" />
   </component>
