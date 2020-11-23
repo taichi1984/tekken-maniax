@@ -2,10 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/top/templates/top/ads.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/about_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/character_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/character_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/create_guide_finish.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/create_guide_finish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/favorite_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guide_error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/guides_for_beginners.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/guides_for_beginners.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guides.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/how_to_write_guides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/guide/templates/guide/your_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/account_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/account_manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/change_email_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/change_email_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/delete_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/delete_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/delete_account_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/delete_account_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/edit_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/how_to_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/how_to_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/initialize_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/logout_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/logout_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/notation.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/notation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/notification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/registration_finish.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/registration_finish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/templates/top/user_information.html" beforeDir="false" afterPath="$PROJECT_DIR$/top/templates/top/user_information.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +182,7 @@
       <workItem from="1605179163702" duration="182000" />
       <workItem from="1605868330028" duration="1265000" />
       <workItem from="1605910627150" duration="75000" />
-      <workItem from="1606104569863" duration="587000" />
-    </task>
-    <task id="LOCAL-00070" summary="preview.html修正">
-      <created>1588473906174</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1588473906174</updated>
+      <workItem from="1606104569863" duration="1577000" />
     </task>
     <task id="LOCAL-00071" summary="login required mixin 導入。">
       <created>1588476607065</created>
@@ -501,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605868915219</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="google AdSense の ads.txt設置">
+      <created>1606105243963</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1606105243965</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chracter_wpを準備。detail.cssとpreview.css調整。" />
     <MESSAGE value="preview画面で、一番下のセクションしかプレビューが反映していなかった不具合を修正。" />
     <MESSAGE value="create_guideとupdateにstackeditのリンク追加。" />
     <MESSAGE value="create.css修正。" />
@@ -556,19 +581,20 @@
     <MESSAGE value="guide_panel.htmlを微修正" />
     <MESSAGE value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
     <MESSAGE value="detailページにて、非公開の状態でガイドを閲覧した場合、view数が増えないように変更。" />
-    <option name="LAST_COMMIT_MESSAGE" value="detailページにて、非公開の状態でガイドを閲覧した場合、view数が増えないように変更。" />
+    <MESSAGE value="google AdSense の ads.txt設置" />
+    <option name="LAST_COMMIT_MESSAGE" value="google AdSense の ads.txt設置" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1605868907353">
+    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1606105233849">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="595" y="119" key="CommitChangelistDialog2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868907353" />
+    <state x="595" y="119" key="CommitChangelistDialog2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606105233849" />
     <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976721999" />
     <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179387375" />
-    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605868921925">
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1606105257051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="568" y="257" key="Vcs.Push.Dialog.v2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868921925" />
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606105257051" />
     <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976726595" />
     <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179399218" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1606104653387">
