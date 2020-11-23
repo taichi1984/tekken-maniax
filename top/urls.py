@@ -22,4 +22,5 @@ urlpatterns = [
     path('notification/', views.NotificationPage.as_view(), name="notification"),
     path('notification_check/', views.notification_check, name="notification_check"),
     path('notification_check_all/', views.notification_check_all, name="notification_check_all"),
+    path('ads.txt/', views.ads, name='ads'),
 ]

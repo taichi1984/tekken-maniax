@@ -335,3 +335,11 @@ def error(request):
     }
     context = context_initializer(request, context)
     return render(request, "top/error.html", context)
+
+# Google AdSense ads.txt用
+
+
+def ads(request):
+    return render(request, 'top/ads.txt')
+
+

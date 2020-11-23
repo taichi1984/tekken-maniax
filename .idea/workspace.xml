@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927e858-903e-4024-ac6e-2587b05d2cea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/top/templates/top/ads.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/top/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,14 +154,9 @@
       <workItem from="1592251591517" duration="13945000" />
       <workItem from="1604974096024" duration="2380000" />
       <workItem from="1605179163702" duration="182000" />
-      <workItem from="1605868330028" duration="507000" />
-    </task>
-    <task id="LOCAL-00069" summary="preview.html 微修正">
-      <created>1588471698407</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1588471698407</updated>
+      <workItem from="1605868330028" duration="1265000" />
+      <workItem from="1605910627150" duration="75000" />
+      <workItem from="1606104569863" duration="587000" />
     </task>
     <task id="LOCAL-00070" summary="preview.html修正">
       <created>1588473906174</created>
@@ -497,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604976723595</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="detailページにて、非公開の状態でガイドを閲覧した場合、view数が増えないように変更。">
+      <created>1605868915218</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1605868915219</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="account_manager.topの外部リンクを新しいウィンドウで開くように変更。" />
     <MESSAGE value="chracter_wpを準備。detail.cssとpreview.css調整。" />
     <MESSAGE value="preview画面で、一番下のセクションしかプレビューが反映していなかった不具合を修正。" />
     <MESSAGE value="create_guideとupdateにstackeditのリンク追加。" />
@@ -552,23 +555,27 @@
     <MESSAGE value="notification.js　コミット漏れのため追加。" />
     <MESSAGE value="guide_panel.htmlを微修正" />
     <MESSAGE value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="州光追加のための画像追加。&#10;その他の画像名の修正。" />
+    <MESSAGE value="detailページにて、非公開の状態でガイドを閲覧した場合、view数が増えないように変更。" />
+    <option name="LAST_COMMIT_MESSAGE" value="detailページにて、非公開の状態でガイドを閲覧した場合、view数が増えないように変更。" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1605179387375">
+    <state x="595" y="119" key="CommitChangelistDialog2" timestamp="1605868907353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="595" y="119" key="CommitChangelistDialog2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868907353" />
     <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976721999" />
     <state x="595" y="119" key="CommitChangelistDialog2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179387375" />
-    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605179399218">
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605868921925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="568" y="257" key="Vcs.Push.Dialog.v2/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868921925" />
     <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604976726595" />
     <state x="568" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179399218" />
-    <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1605868331751">
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1606104653387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="658" y="359" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605868331751" />
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1160/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606104653387" />
+    <state x="658" y="359" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1160/1920.0.1200.1880/0.0.1920.1040@0.0.1920.1040" timestamp="1605910644085" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.-109.1920.1160/1920.-834.1200.1880@0.0.1920.1040" timestamp="1604974097023" />
     <state x="658" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-834.1200.1880/-1920.-109.1920.1160@0.0.1920.1040" timestamp="1605179165779" />
   </component>
