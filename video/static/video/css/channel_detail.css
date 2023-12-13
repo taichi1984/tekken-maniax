@@ -1,0 +1,141 @@
+@import url("/static/top/css/site_header.css");
+@import url("video_header.css");
+@import url("video_panel.css");
+@import url("/static/top/css/footer.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0px;
+    background-color: white;
+    color: black;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.wrapper {
+
+    min-height: 100vh;
+    width: 970px;
+    margin: 30px auto 40px;
+    min-height: 100vh;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    margin: 30px auto 40px;
+}
+
+.channel_detail_title_field {
+    height: 400px;
+    width: 100%;
+    color: black;
+    position: relative;
+    align-items: center;
+    background-color: white;
+    background-size: 100%;
+}
+
+.channel_detail_summary {
+    display: flex;
+    position: relative;
+    left: 10px;
+    top:0px;
+    background-color: white;
+    width: 98%;
+
+}
+
+.channel_detail_summary_title_description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.channel_detail_summary_icon {
+    position: relative;
+    width: 30%;
+
+}
+
+.channel_detail_summary_title {
+    position: relative;
+    height:300px;
+    width: 70%;
+}
+
+.channel_detail_summary_title_title {
+    position: relative;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.channel_detail_summary_title_link{
+  
+    position:relative;
+    margin-top:2px;
+    
+}
+
+.channel_detail_recent_video_title{
+    position:relative;
+
+}
+.channel_detail_recent_video_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.channel_detail_tags{
+    margin-bottom:10px;
+}
+.channel_detail_tag_edit{
+height:100px;
+}
+
+.channel_detail_tag_edit_editing{
+    margin:10px;
+    padding:10px;
+    border:1px solid black;
+    border-radius:10px;
+    background-color: aqua;
+}
+
+.channel_detail_tag_edit_tag{
+    margin:2px;
+    padding:3px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color: white;
+    border:1px solid black;
+    border-radius:5px;
+}
+.tag_input{
+    padding:5px;
+}
+
+.tag_button{
+    padding:5px;
+}
+.channel_detail_tag_edit_not_editing{
+    margin:10px;
+    padding:10px;
+    background-color: aqua;
+    border:1px solid black;
+    border-radius:10px;
+
+}
+

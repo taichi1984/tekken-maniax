@@ -24,6 +24,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('guide/', include('guide.urls')),
+    path('database/',include('database.urls')),
+    path('stream/',include('stream.urls')),
+    path('video/',include('video.urls')),
 ]
 
 urlpatterns += static(settings.CERT_URL, document_root=settings.CERT_ROOT)

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'video/css/channels.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'video/css/channel_panel.css' %}" />
+    <title>
+        Tekken Videos チャンネル一覧
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'video/video_header.html' %}
+</header>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+
+            <div class="video_channels_title">
+                Youtubeチャンネル検索
+            </div>
+
+            <div class="video_channels_search_form">
+                <form method="get" action="">
+                    {{search_form}}
+                    <input class="search_submit_botton" type="submit" name="search_submit" value="検索">
+                </form>
+            </div>
+
+
+            <div class="video_channels_sort_form">
+                <form method="get" action="">
+                    {% if request.GET.query %}
+                    <input type="hidden" name="query" value="{{ request.GET.query }}">
+                    {% endif %}
+                    {{ search_order_form }}
+
+                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
+                </form>
+            </div>
+
+            <div class="pagination">
+                <span class="page-info">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                <div class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                    {% else %}
+                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="video_channels_channels">
+
+                {% for channel in channels %}
+                {%include 'video/channel_panel.html' %}
+                {% endfor %}
+            </div>
+
+            <div class="pagination">
+                <span class="page-info">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                <div class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                    {% else %}
+                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+
+
+
+</body>
+
+</html>

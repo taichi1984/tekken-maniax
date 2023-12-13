@@ -32,7 +32,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'top.apps.TopConfig',
+    'video.apps.VideoConfig',#動画用
+    'stream.apps.StreamConfig',#配信用
+    'database.apps.DatabaseConfig',#データベース用
+    'top.apps.TopConfig',#トップ用
     'guide.apps.GuideConfig',  # ガイド用
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,8 +87,7 @@ WSGI_APPLICATION = 'tekkenSite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-'''
-³«È¯´Ä¶­ÍÑÀßÄê
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -99,6 +101,7 @@ DATABASES = {
         },
     }
 }
+
 '''
 
 DATABASES = {
@@ -114,6 +117,7 @@ DATABASES = {
         },
     }
 }
+'''
 
 AUTH_USER_MODEL = "top.CustomUser"
 

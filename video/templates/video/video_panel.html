@@ -1,0 +1,24 @@
+<a href="https://www.youtube.com/watch?v={{video.video_id}}" target="_blank">
+    <div class="video_panel">
+        <div class="video_panel_thumbnail">
+            <img class="video_panel_thumbnail" src = "{{video.thumbnails_high}}">
+        </div>
+        <div class="video_panel_info">
+            <div class="video_panel_info_title">
+                {{video.title}}
+            </div>
+            <div class="video_panel_info_main">
+                <div class="video_panel_info_statistics">
+                    <div class="video_panel_info_statistics_viewscount">
+                        視聴数 : {{video.view_count}}<br>
+                        コメント数 : {{video.comment_count}}<br>
+                        動画投稿日 : {{video.published_at}}<br>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+    </div>
+</a>

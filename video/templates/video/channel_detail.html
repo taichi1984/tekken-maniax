@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://channel_detailad2.googlesyndication.com/channel_detailad/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <script>
+        function openTagPopup() {
+            var url = "add_tag/"; // タグ追加ビューのURL
+            window.open(url, "Add Tag", "height=500,width=400");
+        }
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'video/css/channel_detail.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'video/css/channel_panel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'video/css/video_panel.css' %}" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>
+        Tekken Videos - {{ channel.channel_title }}
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'video/video_header.html' %}
+</header>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="channel_detail_title_field" style="background-image:url('{{channel.thumbnails}}')">
+                <div class="channel_detail_summary">
+                    <div class="channel_detail_summary_icon">
+                        <img src="{{channel.thumbnails_medium}}">
+
+                    </div>
+                    <div class="channel_detail_summary_title">
+                        <div class="channel_detail_summary_title_title">
+                            <a href="https://www.youtube.com/channel/{{channel.channel_id}}"
+                            target="_blank">  {{channel.channel_title}}</a>
+                        </div>
+                        <div class="channel_detail_summary_title_description">
+                            {{channel.description}}
+
+                        </div>
+                        <div class="channel_detail_summary_title_channel_detail_data">
+                            閲覧数:{{channel.viewcount}}<br>
+                            投稿動画数:{{channel.videocount}}<br>
+                            チャンネル登録者数：{{channel.subscribercount}}<br>
+                            チャンネル設立日:{{channel.publish_time}}<br>
+
+                        </div>
+
+                        <div class="channel_detail_tag_edit" id="tag-edit">
+                            <div v-if="!isEditing" class="channel_detail_tag_edit_not_editing">
+                                <div id="tags">
+
+                                    関連タグ：
+                                    <label class="channel_detail_tag_edit_tag" v-for="(tag, index) in tags" :key="index">
+                                      <a :href="tagLink + tag.name"> [[tag.name]]</a> 
+                                    </label>
+
+
+                                </div>
+                                <button class="tag_button" v-if="!isEditing" @click="startEditing">タグを編集</button>
+                            </div>
+
+
+
+                            <div v-if="!isEditing">
+
+                            </div>
+
+                            <div class="channel_detail_tag_edit_editing" v-if="isEditing">
+                                <div class="channel_detail_tag_add_area">
+                                    ▽タグの追加<br>
+                                    <input class = "tag_input" type="text" v-model = "tagText"></input>
+                                    <button class="tag_button" @click="tagEditSubmit">保存</button>
+                                </div>
+                                <br>
+                                <div class="channel_detail_tag_delete_area">
+                                    ▽タグの削除<br>
+                                    <label v-for="(tag, index) in tags" :key="index">
+                                        <input type="checkbox" v-model="selectedItems[index]" value=tag.id />
+                                        [[tag.name]]
+                                    </label>
+                                    <br>
+                                    <button class="tag_button" @click="tagDeleteSubmit">選択したタグの削除</button>
+                                    <button class="tag_button"@click="tagDoNothing">元に戻す</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="channel_detail_recent_video_title">
+                最近の動画 20件
+            </div>
+            <div class="channel_detail_recent_video_list">
+                {% for video in video_list%}
+                {% include 'video/video_panel.html' %}
+                {% endfor %}
+            </div>
+
+        </main>
+
+
+        <footer>
+            {% include 'top/footer.html' %}
+        </footer>
+        <script>
+            const { createApp, ref } = Vue
+            //Vue.use(VueRouter);
+    
+            
+            const app = createApp({
+                data() {
+                    return {
+                        receivedData: null,
+                        isEditing: false,
+                        tagText: '',
+                        tagLink: "http://localhost:8000/video/channels/?query=",
+                        tags: JSON.parse('{{ tags|escapejs }}'),
+                        selectedItems: [],
+                    };
+                },
+                created() {
+                    this.selectedItems = Array(this.tags.length).fill(false);
+                    
+                },
+                methods: {
+                    startEditing() {
+                        this.isEditing = true;
+                    },
+                    checkInput() {
+                        this.isEmpry = this.tagText.trim() === '';
+             
+                        if (this.isEmpty) {
+                            alert('Input is empty!');
+                            console.log("空だよ")
+                            return;
+                        }
+                    },
+                    tagEditSubmit() {
+
+                        this.checkInput()
+                        axios.post('http://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                            method: 'add',
+                            channelId: '{{channel.channel_id}}',
+                            tagText: this.tagText
+                        })
+                            .then(response => {
+                                this.tags = JSON.parse(response.data["tags"]);
+                                // console.log("thenの中" + this.tags);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                        console.log("thenの外 : " + this.tags);
+                        this.selectedItems = Array(this.tags.length).fill(false);
+                        this.isEditing = false;
+                    },
+                    tagDeleteSubmit() {
+                        axios.post('http://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                            method: 'delete',
+                            channelId: '{{channel.channel_id}}',
+                            tagText: this.tagText,
+                            deleteTags: this.selectedItems,
+                        })
+                            .then(response => {
+                                this.tags = JSON.parse(response.data["tags"]);
+                                //  console.log(this.tags);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+
+                        this.selectedItems = Array(this.tags.length).fill(false);
+                        this.isEditing = false;
+
+                    },
+                    tagDoNothing() {
+                        this.selectedItems = Array(this.tags.length).fill(false);
+                        this.isEditing = false;
+                    }
+
+                },
+
+            })
+
+            app.config.compilerOptions.delimiters = ['[[', ']]'];
+            app.mount('#tag-edit')
+        </script>
+
+
+
+</body>
+
+</html>

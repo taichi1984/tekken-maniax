@@ -1,0 +1,64 @@
+.channel_panel {
+    padding: 10px;
+    display: flex;
+    width: 400px;
+    margin:10px 10px 10px 10px;
+    border:solid 1px black;
+    color:black;
+    box-shadow:10px 10px 10px rgba(0,0,0,0.6);
+    background-color:white;
+    word-wrap:break-word;
+}
+a{
+    text-decoration: none
+}
+.channel_panel a {
+    color: black;
+}
+
+.channel_panel:hover{
+    background-color:yellow;
+}
+
+.channel_character_icon {
+    padding: 5px;
+}
+.channel_panel_info_title{
+    font-weight:bold;
+}
+.channel_panel_info_main{
+    display: flex;
+    flex-direction: column;
+}
+
+.channel_panel_info_main_category{
+    margin:0px 0px 0px 0px;
+}
+.channel_panel_info_evaluation{
+    display:flex;
+    flex-direction: row;
+}
+
+.channel_panel_info_evaluation_views{
+    margin:0px 0px 0px 0px;
+}
+.channel_panel_info_evaluation_good{
+    margin:0px 0px 0px 30px;
+}
+
+.channel_panel_info_evaluation_bad{
+    margin:0px 0px 0px 30px;
+}
+.channel_character_icon_img {
+    height: 80px;
+    width: 80px;
+
+}
+
+.channel_panel_info {
+    margin:0px 0px 0px 20px;
+}
+
+.channel_subinfo {
+    float: left;
+}

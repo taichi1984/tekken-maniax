@@ -1,0 +1,33 @@
+<a href="{% url 'video:channel_detail' channel.id %}">
+    <div class="channel_panel">
+
+        <div class="channel_panel_thumbnail">
+            <img src = "{{channel.thumbnails_default}}">
+        </div>
+        <div class="channel_panel_info">
+            <div class="channel_panel_info_title">
+                {{channel.channel_title}}
+            </div>
+            <div class="channel_panel_info_main">
+                <div class="video_panel_info_main_author">
+                   
+
+                </div>
+   
+            </div>
+            <div class="channel_panel_info_statistics">
+                <div class="video_panel_info_statistics_subscribercount">
+                    チャンネル登録者数 : {{channel.subscribercount}}
+                </div>
+                <div class="video_panel_info_statistics_viewscount">
+                    閲覧者数 : {{channel.viewcount}}
+                </div>
+                <div class="video_panel_info_evaluation_videocount">
+                   動画数: {{channel.videocount}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</a>

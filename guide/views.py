@@ -21,7 +21,7 @@ from top.models import CustomUser, Notification
 from top.util.page_initializer import context_initializer
 from .util import text_html_converter
 from .models import Guide, Character, Category, GuideComment, Favorite, Evaluation
-from _datetime import datetime
+from datetime import datetime
 from django.views.generic import ListView
 import re
 from urllib.parse import urlencode
