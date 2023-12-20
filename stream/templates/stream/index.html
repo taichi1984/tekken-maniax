@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+
 <head>
-    <script data-ad-client="ca-pub-7596622095136507" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
     <script>
@@ -16,15 +18,150 @@
 
         gtag('config', 'UA-163168954-1');
     </script>
+
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'stream/css/index.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'stream/css/stream_panel.css' %}" />
     <title>
-        Tekken Guide Top Page
+        Tekken streams チャンネル一覧
     </title>
 </head>
 <header class="header">
     {% include 'top/site_header.html' %}
+    {% include 'stream/stream_header.html' %}
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </header>
+
 <body>
+    <div class="wrapper">
+        <main class="main">
+
+            <div class="stream_channels_title">
+                Live配信検索
+            </div>
+
+            <div class="stream_channels_search_form">
+                <form method="get" action="">
+                    {{search_form}}
+                    <input class="search_submit_botton" type="submit" name="search_submit" value="検索">
+                </form>
+            </div>
+
+
+            <div class="stream_channels_sort_form">
+                <form method="get" action="">
+                    {% if request.GET.query %}
+                    <input type="hidden" name="query" value="{{ request.GET.query }}">
+                    {% endif %}
+                    {{ search_order_form }}
+
+                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
+                </form>
+            </div>
+
+            <div class="pagination">
+                <span class="page-info">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                <div class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                    {% else %}
+                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="list_stream" class="stream_channels_channels">
+
+
+                {% include 'stream/stream_panel.html' %}
+
+            </div>
+
+            <div class="pagination">
+                <span class="page-info">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                <div class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                    {% else %}
+                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+
+    <script>
+        const { createApp, ref } = Vue
+
+
+        const app = createApp({
+            data() {
+                return {
+                    receivedData: null,
+
+                };
+            },
+            mounted() {
+                this.getStreamData()
+            },
+            methods: {
+                getStreamData() {
+                    axios.get('https://localhost:8000/stream/list_stream_endpoint/', {
+                        params: {
+                            
+                        }
+                    })
+                        .then(response => {
+                            // レスポンスを処理するコードをここに追加
+                            console.log(response.data);
+                        })
+                        .catch(error => {
+                            // エラーハンドリングをここに追加
+                            console.error(error);
+                        });
+                },
+            },
+
+
+        })
+
+        app.config.compilerOptions.delimiters = ['[[', ']]']
+        app.mount('#list_stream')
+    </script>
+
 </body>
+
 </html>

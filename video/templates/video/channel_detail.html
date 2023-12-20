@@ -137,7 +137,7 @@
                         receivedData: null,
                         isEditing: false,
                         tagText: '',
-                        tagLink: "http://localhost:8000/video/channels/?query=",
+                        tagLink: "https://localhost:8000/video/channels/?query=",
                         tags: JSON.parse('{{ tags|escapejs }}'),
                         selectedItems: [],
                     };
@@ -162,7 +162,7 @@
                     tagEditSubmit() {
 
                         this.checkInput()
-                        axios.post('http://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                        axios.post('https://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
                             method: 'add',
                             channelId: '{{channel.channel_id}}',
                             tagText: this.tagText
@@ -179,7 +179,7 @@
                         this.isEditing = false;
                     },
                     tagDeleteSubmit() {
-                        axios.post('http://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                        axios.post('https://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
                             method: 'delete',
                             channelId: '{{channel.channel_id}}',
                             tagText: this.tagText,

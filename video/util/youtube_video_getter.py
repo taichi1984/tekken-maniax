@@ -131,7 +131,7 @@ def get_broadcasting_status_by_video_ids(video_ids):
 
         print(video_id_list_string)
         request = youtube.videos().list(
-        part = 'snippet',
+        part = 'snippet,liveStreamingDetails',
         id = video_id_list_string
         )
 
@@ -148,7 +148,13 @@ def get_broadcasting_status_by_video_ids(video_ids):
                 {
                     "video_id" : res["id"],
                     "channel_id" : res["snippet"]["channelId"],
-                    "liveBroadcastContent" : res["snippet"]["liveBroadcastContent"]
+                    "liveBroadcastContent" : res["snippet"]["liveBroadcastContent"],
+                    "thumbnail_default":res["snippet"]["thumbnails"]["default"],
+                    "thumbnail_medium":res["snippet"]["thumbnails"]["medium"],
+                    "thumbnail_high":res["snippet"]["thumbnails"]["high"],
+                    "actualStartTime":res.get("liveStreamingDetails",{}).get("actualStartTime",""),
+                    "actualEndTime":res.get("liveStreamingDetails",{}).get("actualEndTime",""),
+                    "concurrentViewers":res.get("liveStreamingDetails",{}).get("concurrentViewers","")
                 }
             )
         

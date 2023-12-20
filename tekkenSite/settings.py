@@ -25,7 +25,7 @@ SECRET_KEY = '%(kw=*vae_kso9)y#0s66=#ly*&ebb+-#)1c6%!pj_db10-c(b'
 if os.name == 'nt':
     DEBUG = True
 else:
-    DEBUG = False
+    DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -92,9 +93,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tekkensite',
-        'USER': 'root',
+        'USER': 'taichi84',
         'PASSWORD': 'kaiketsu84',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.0.6',
         'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
@@ -184,10 +185,30 @@ if os.name == 'nt':
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
 else:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    SECURE_SSL_HOST = 'taichi'  # 自己署名証明書で使用するドメインを指定
+    SECURE_SSL_CERT = '/home/taichi84/dev/tekkensite/server.crt'  # 証明書ファイルへのパスを指定
+    SECURE_SSL_KEY = '/home/taichi84/dev/tekkensite/server.key' # 秘密鍵ファイルへのパスを指定
 
 # CERTBOT用の変数追記
 CERT_ROOT = os.path.join(BASE_DIR, '.well-known')
 CERT_URL = '/.well-known/'
+
+
+# Redisキャッシュの設定
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://localhost:6379/1',  # Redisサーバーのアドレス
+        'OPTIONS': {
+           # 'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+# Redisセッションストアの設定
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
