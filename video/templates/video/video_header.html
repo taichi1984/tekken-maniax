@@ -4,5 +4,11 @@
         <li class="video_menu_item">
             <li class="video_menu_item"><a href="{% url 'video:channels' %}" target="_self">Channels</a></li>
         </li>
+        {% if user.is_authenticated %}
+        <li class="video_menu_item">
+           <a href="{% url 'video:channel_favorite' %}">お気に入りチャンネル</a>
+           
+        </li>
+        {% endif %}
     </ul>
 </nav>

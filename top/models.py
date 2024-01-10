@@ -1,7 +1,6 @@
 from django.db import models
 from guide.models import Character
 from django.contrib.auth.models import AbstractUser
-
 from tekkenSite import settings
 
 
@@ -27,3 +26,5 @@ class Notification(models.Model):
     notification_text = models.CharField(max_length=255, default="")
     alreadyRead = models.BooleanField(default=False)
     pub_date = models.DateTimeField('通知日')
+
+

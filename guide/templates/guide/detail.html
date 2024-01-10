@@ -2,8 +2,10 @@
 {% load static %}
 
 <html lang="en">
+
 <head>
-    <script data-ad-client="ca-pub-7596622095136507" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
     <script>
@@ -18,192 +20,189 @@
         gtag('config', 'UA-163168954-1');
     </script>
     <base target="_blank">
-    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/detail.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/detail.css' %}" />
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-    <script src="{% static 'guide/js/evaluation_delete_comment.js' %}"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <meta charset="UTF-8">
-    <title>ガイド:{{ guide.title }}</title>
+    <title>ガイド:{{ guide.title}}</title>
 </head>
+
 <body>
-<header class="header">
-    {% include 'top/site_header.html' %}
-    {% include 'guide/guide_header.html' %}
-</header>
-<div class="wrapper">
-    <main>
-        <div class="page_title_field"
-             style="background-image:url('/static/guide/image/character_wp_{{ guide.character.id }}.jpg')">
-            <div class="page_type">
-                カテゴリ:{{ guide.category.name }}<br>
-                キャラクター:{{ guide.character.full_name_jp }}<br>
-            </div>
-            <div class="page_summary">
-                <div class="page_summary_icon">
-                    <img src="/static/guide/image/character_icon_{{ guide.character.id }}.png" width="100" height="100">
-
+    <header class="header">
+        {% include 'top/site_header.html' %}
+        {% include 'guide/guide_header.html' %}
+    </header>
+    <div class="wrapper">
+        <main>
+            {% if guide.publishing_setting %}
+            <div class="page_title_field"
+                style="background-image:url('/static/guide/image/character_wp_{{ guide.character.id }}.jpg')">
+                <div class="page_type">
+                    カテゴリ:{{ guide.category.name }}<br>
+                    キャラクター:{{ guide.character.full_name_jp }}<br>
                 </div>
-                <div class="page_summary_title">
-                    <div class="page_summary_title_title">
-                        {{ guide.title }}
+                <div class="page_summary">
+                    <div class="page_summary_icon">
+                        <img src="/static/guide/image/character_icon_{{ guide.character.id }}.png" width="100"
+                            height="100">
+
                     </div>
-                    <div class="page_summary_title_page_data">
-                        投稿者:<a href="{% url 'top:user_information' guide.author.id %}">{{ guide.author.userprofile.nick_name }}(id:{{ guide.author }})</a><br>
-                        閲覧数:{{ guide.number_of_preview }} view<br>
-                        最終更新日:{{ guide.update_date }}
+                    <div class="page_summary_title">
+                        <div class="page_summary_title_title">
+                            {{ guide.title }}
+                        </div>
+                        <div class="page_summary_title_page_data">
+                            投稿者:<a href="{% url 'top:user_information' guide.author.id %}">
+                                {{guide.author.userprofile.nick_name }}(id:{{ guide.author }})
+                            </a><br>
+                            閲覧数:{{ guide.number_of_preview }} view<br>
+                            最終更新日:{{ guide.update_date }}
+                        </div>
+
                     </div>
 
-                </div>
 
-
-                <div class="page_summary_vote">
-                    <div class="vote_area">
-                        <div id="good_evaluation_area" class="good_evaluation_area">
-                            {% if user.is_authenticated %}
-                                {% if evaluation.evaluation == 1 %}
-                                    <button type="button" class="good_evaluation_pushed_button"
-                                            name="good_evaluation_pushed"
-                                            value="good_evaluation_pushed">
+                    <div class="page_summary_vote">
+                        <div id ="evaluation" class="vote_area">
+                            <div  class="good_evaluation_area">
+                                {% if user.is_authenticated %}
+                                高評価  
+                                <span v-if = "evaluation == 1">
+                                    <button @click = "deleteEvaluation()" class="good_evaluation_pushed_button">
                                         <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
                                     </button>
+                                </span>
+                                <span v-else>
+                                    <button @click = "addEvaluation()" class="good_evaluation_button" >
+                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
+                                    </button>
+                                </span>
+                      
                                 {% else %}
-                                    <button type="button" class="good_evaluation_button" name="good_evaluation"
-                                            value="good_evaluation">
-                                        <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
-                                    </button>
-                                {% endif %}
-                            {% else %}
                                 <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="40px">
-                            {% endif %}
-                            : {{ numof_good_evaluations }}
-                        </div>
-                        <div id="bad_evaluation_area" class="bad_evaluation_area">
-                            {% if user.is_authenticated %}
-                                {% if evaluation.evaluation == 2 %}
-                                    <button type="button" class="bad_evaluation_pushed_button"
-                                            name="bad_evaluation_pushed"
-                                            value="bad_evaliation_pushed">
-                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
-                                    </button>
-                                {% else %}
-                                    <button type="button" class="bad_evaluation_button" name="bad_evaluation"
-                                            value="bad_evaliation">
-                                        <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="20px">
-                                    </button>
                                 {% endif %}
-                            {% else %}
-                                <img src="{% static 'guide/image/bad_evaluation.jpg' %}" width="40px">
-                            {% endif %}
-                            : {{ numof_bad_evaluations }}
+                                : [[ evaluationsCount ]]
+                            </div>
+            
                         </div>
-                    </div>
-                    <div class="favorite_area">
-                        <div id="page_summary_favorite" class="page_summary_favorite">
-                            {% if user.is_authenticated %}
-                                {% if favorite.user == user %}
-                                    <button type="button" class="favorite_pushed_button" name="release_favorite">
-                                        お気に入り追加済み
-                                    </button>
+                        <div id = "favorite" class="favorite_area">
+                            
+                            <div id="page_summary_favorite" class="page_summary_favorite">
+
+                               
+                                {% if user.is_authenticated %}
+
+                                <div class ="favorite_block" v-if="favorite">
+                                
+                                <button @click="deleteFavorite()" class="favorite_pushed_button">
+                                    お気に入り追加済み
+                                </button>
+                                </div>
+                                <div v-else>
+                                <button @click="addFavorite()" class="favorite_button">お気に入りに追加</button>
+                                </div>
                                 {% else %}
-                                    <button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>
-                                {% endif %}
-                            {% else %}
                                 <a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">ログイン</a>
                                 するとお気に入りに追加できます。
-                            {% endif %}
+                                {% endif %}
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="share_area">
-                       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <div class="share_area">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                                data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        {% if request.user == guide.author %}
+            {% if request.user == guide.author %}
             <div class="edit_link">
                 ページ管理者メニュー :
-                <a href="{% url "guide:update" guide.id %}" target="_blank">
+                <a href="{% url 'guide:update' guide.id %}" target="_blank">
                     このページを編集する
                 </a>
             </div>
-        {% endif %}
+            {% endif %}
 
 
-        <div class="advertisement">
-            広告エリア
+            <div class="advertisement">
+                広告エリア
 
-        </div>
-
-        <div class="table_of_contents">
-            <div class="table_of_contents_title">
-                目次
             </div>
-            <div class="table_of_contents_listdiv">
-                <ul class="table_of_contents_list">
-                    {% for section in guide_sections %}
-                        <li><a href="#section{{ forloop.counter }}" target="_self">{{ section.title }}</a></li>
-                    {% endfor %}
-                </ul>
+
+            <div class="table_of_contents">
+                <div class="table_of_contents_title">
+                    目次
+                </div>
+                <div class="table_of_contents_listdiv">
+                    <ul class="table_of_contents_list">
+                        {% for content in table_of_contents %}
+                        <li><a href="#{{content.id}}" target="_self">{{content.text}}</a><br></li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div class="sections_field">
-            {% for section in guide_sections %}
+            <div class="sections_field">
 
 
-                <div id="section{{ forloop.counter }}" class="section">
-                    <div class="section_title">
-                        {{ section.title }}
-                    </div>
-                    <div class="section_article">
-                        {{ section.article|safe }}
-                    </div>
+
+
+                <div class="section_article">
+                    {{guide.article | safe}}
                 </div>
 
-            {% endfor %}
 
 
-        </div>
-        <div class="advertisement">
-            広告エリア
 
-        </div>
 
-        <div class="author_field">
-            <div class="author_title">投稿者情報</div>
-            <div class="author_content">
-                <div class="author_name">
-                    <div class="author_item_label">
-                        投稿者
+            </div>
+            <div class="advertisement">
+                広告エリア
+
+            </div>
+
+            <div class="author_field">
+                <div class="author_title">投稿者情報</div>
+                <div class="author_content">
+                    <div class="author_name">
+                        <div class="author_item_label">
+                            投稿者
+                        </div>
+                        <div class="author_item_contents">
+                            : <a href="{% url 'top:user_information' guide.author.id %}">
+                                {{ guide.author.userProfile.nick_name }}
+                                (id : {{ guide.author }})</a>
+                        </div>
                     </div>
-                    <div class="author_item_contents">
-                        : <a href="{% url 'top:user_information' guide.author.id %}">{{ guide.author.userprofile.nick_name }}
-                        (id : {{ guide.author }})</a>
-                    </div>
-                </div>
-                {% if guide.author.userprofile.twitter_account != "" %}
+                    {% if guide.author.userprofile.twitter_account != "" %}
                     <div class="author_twitter">
                         <div class="author_item_label">
                             twitter
                         </div>
                         <div class="author_item_contents">
-                            : <a href="https://twitter.com/{{ guide.author.userprofile.twitter_account }}">@{{ guide.author.userprofile.twitter_account }}</a>
+                            : <a href="https://twitter.com/{{ guide.author.userprofile.twitter_account }}">
+                                @{{guide.author.userprofile.twitter_account }}
+                            </a>
                         </div>
                     </div>
-                {% endif %}
-                {% if guide.author.userprofile.twitch_url != "" %}
+                    {% endif %}
+                    {% if guide.author.userprofile.twitch_url != "" %}
                     <div class="author_twitch">
                         <div class="author_item_label">
                             twitch URL
                         </div>
                         <div class="author_item_contents">
-                            : <a
-                                href="{{ guide.author.userprofile.twitch_url }}">{{ guide.author.userprofile.twitch_url }}</a>
+                            : <a href="{{ guide.author.userprofile.twitch_url }}">
+                                {{ guide.author.userprofile.twitch_url}}</a>
                         </div>
                     </div>
-                {% endif %}
-                {% if guide.author.userprofile.youtube_channel_url != "" %}
+                    {% endif %}
+                    {% if guide.author.userprofile.youtube_channel_url != "" %}
 
                     <div class="author_youtube">
                         <div class="author_item_label">
@@ -212,114 +211,281 @@
                         <div class="author_item_contents">
 
 
-                            : <a
-                                href="{{ guide.author.userprofile.youtube_channel_url }}">{{ guide.author.userprofile.youtube_channel_url }}</a>
+                            : <a href="{{ guide.author.userprofile.youtube_channel_url }}">
+                                {{guide.author.userprofile.youtube_channel_url }}
+                            </a>
 
 
                         </div>
                     </div>
-                {% endif %}
-                <div class="author_introduction">
-                    {{ guide.author.userprofile.introduction| linebreaksbr }}
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <div class="comment_area">
-
-            <div class="comment_form">
-                <div class="comment_form_label">
-                    コメント投稿フォーム<br>
-                </div>
-                <hr>
-                {% if user.is_authenticated %}
-                    <table>
-
-                        <form action="{% url 'guide:post_comment' guide.id %}" method="POST">
-                            {% csrf_token %}
-                            {{ form.as_table }}
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" value="投稿"></td>
-                            </tr>
-                        </form>
-                    </table>
-
-                {% else %}
-                    コメントをするにはログインする必要があります。<br>
-                    ログイン画面は<a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">こちら</a>
-                {% endif %}
-            </div>
-            <div class="comments">
-                <div class="comments_title">
-                    コメント
-                </div>
-                <hr>
-                {% if comment_list|length == 0 %}
-                    <div class="comment">
-                        <div class="comment_contributor">
-
-                        </div>
-                        <div class="comment_comment">
-                            まだコメントはありません
-                        </div>
+                    {% endif %}
+                    <div class="author_introduction">
+                        {{ guide.author.userprofile.introduction| linebreaksbr }}
                     </div>
-                {% else %}
-                    {% for comment in comment_list %}
-                        <div class="comment" id="comment_{{ comment.id }}">
 
-                            {% if comment.is_deleted == True %}
+
+                </div>
+            </div>
+
+
+            <div class="comment_area">
+
+                <div class="comments">
+                    <div class="comments_title">
+                        コメント
+                    </div>
+                    <hr>
+                    <div id="comment" class="comment">
+                        <div class="comment_form">
+                            {% if user.is_authenticated %}
+                            <textarea class="comment_textarea" v-model="newCommentText"
+                                placeholder="ここでコメントできます"></textarea>
+                            <button class="comment_submit" @click="addComment">コメントを投稿する</button>
+                            {% endif %}
+                        </div>
+
+                        <div class="comment_comment" v-for="(comment,index) in comments" :key="index">
+                            <div class ="comment_block" v-if="comment.is_deleted == false">
+                                <hr>
                                 <div class="comment_contributor">
-                                    {{ forloop.counter }} . 削除されたコメント
+                                    [[comment.contributor.nick_name]] : [[formatDate(comment.pub_date) ]]
+                                    <span v-if="[[comment.contributor.id]] == {{user.id}}">
+                                        <!--<button class="comment_edit_button" @click="editComment(comment)">編集する</button>-->
+                                        <button class="comment_delete_button" @click="deleteComment(comment)">削除する</button>
+                                    </span>
                                 </div>
-                            {% else %}
 
-                                {% if comment.contributor == user or user == guide.author %}
-                                    <form action='{% url "guide:delete_comment" comment.id %}' method="POST">
-                                        {% csrf_token %}
-                                        <div class="comment_contributor">
-                                            {{ forloop.counter }} . 投稿者 : {{ comment.contributor }} <input type="submit"
-                                                                                                           value="削除">
-                                        </div>
+                                <div class="comment_content">
+                                    　　[[ comment.comment ]]
 
-                                        <input type="hidden" name="next" value="{{ request.path }}">
-                                    </form>
-                                {% else %}
-                                    <div class="comment_contributor">
-                                        {{ forloop.counter }} .　 投稿者 : {{ comment.contributor }}
-                                    </div>
-                                {% endif %}
-
-                            {% endif %}
-
-                            {% if comment.is_deleted == True %}
-                                <div class="comment_comment">
-                                    このコメントは削除されました。
                                 </div>
-                            {% else %}
-                                <div class="comment_comment">
-                                    {{ comment.comment |linebreaksbr }}
-                                </div>
-                            {% endif %}
+
+
+
+               
+                            </div>
+
                         </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
 
-        </div>
-        <div class="advertisement">
-            広告エリア
-
-        </div>
+                    </div>
 
 
-    </main>
-</div>
-<footer>
-    {% include 'top/footer.html' %}
-</footer>
+
+                </div>
+                <div class="advertisement">
+                    広告エリア
+
+                </div>
+            {% else %}
+            
+            この記事は非公開です。
+
+            {% endif %}
+
+        </main>
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+
+    <script>
+        const { createApp, ref } = Vue
+        //Vue.use(VueRouter);
+
+        const csrfToken = "{{csrf_token}}";
+        axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
+
+        const commentControl = createApp({
+            data() {
+                return {
+                    guide_id: '{{ guide.id }}',
+                    comments: [],
+                    newCommentText: ''
+                };
+            },
+            methods: {
+                async fetchComments() {
+                    try {
+                        const response = await axios.get('/guide/list_comment/?guide_id=' + this.guide_id)
+                        this.comments = response.data.reverse();
+                    } catch (error) {
+                        console.error(error);
+                    }
+                },
+                async addComment() {
+                        await axios.post('/guide/post_comment/' + this.guide_id, {
+                        method: 'add',
+                        guide_id: this.guide_id,
+                        comment: this.newCommentText
+                    })
+                        .then(response => {
+                            this.comments = response.data.reverse();
+                            this.newCommentText = "";
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    
+                },
+                editComment(comment) {
+                    // コメントの編集ダイアログを表示するロジックを実装
+                },
+                updateComment(comment) {
+                    // 編集したコメントをAPIに送信するロジックを実装
+                },
+                async deleteComment(comment) {
+                    var result = window.confirm("本当に削除してよろしいですか？")
+                    if(result){
+                    await axios.post('/guide/delete_comment/', {
+                        method: 'delete',
+                        guide_id: this.guide_id,
+                        d_comment_id: comment.id,
+                    }).then(response => {
+                        this.comments = response.data.reverse();
+                        this.newCommentText = "";
+                    })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    }
+                },
+                formatDate(dateString) {
+                    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                    return new Date(dateString).toLocaleString(options);
+                }
+            },
+            created() {
+                this.fetchComments();
+            },
+        })
+
+        commentControl.config.compilerOptions.delimiters = ['[[', ']]'];
+        commentControl.mount('#comment')
+
+        const evaluationControl = createApp({
+            data() {
+                return {
+                    guide_id: '{{ guide.id }}',
+                    evaluationsCount: parseInt('{{evaluationsCount}}'),
+                    evaluation:0, //押されている場合true
+
+                };
+         
+            },
+            methods :{
+                async checkEvaluation(){
+                    if("{{favorite.id}}" !=""){
+           
+                     this.favorite = true
+
+                     }
+                    else{
+                    this.favorite = false
+                    }
+
+                },
+                async addEvaluation() {
+                        this.evaluation = 1;
+                        await axios.post('/guide/vote_evaluation/', {
+                        guide_id: this.guide_id,
+                        vote : this.evaluation,
+                    })
+                        .then(response => {
+                            this.evaluationsCount = response.data["evaluationsCount"];
+             
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });  
+                },
+                async deleteEvaluation() {
+                        this.evaluation = 0;
+                        await axios.post('/guide/vote_evaluation/', {
+                        guide_id: this.guide_id,
+                        vote : this.evaluation,
+                    })
+                        .then(response => {
+                            this.evaluationsCount = response.data["evaluationsCount"];
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });  
+                },
+
+
+            },
+            
+            created(){
+                this.checkEvaluation()
+            },
+        })
+        evaluationControl.config.compilerOptions.delimiters = ['[[', ']]'];
+        evaluationControl.mount('#evaluation')
+
+        const favoriteControl = createApp({
+            data() {
+                return {
+                    guide_id: '{{ guide.id }}',
+                    favorite: false,
+
+                    
+                };
+         
+            },
+            methods :{
+                favoriteCheck(){
+                    if("{{favorite.id}}" !=""){
+           
+                        this.favorite = true
+
+                    }
+                    else{
+                        this.favorite = false
+                    }
+                },
+                async addFavorite() {
+                    this.favorite = 1
+                    await axios.post('/guide/add_favorite/', {
+                    guide_id: this.guide_id,
+                    favorite: this.favorite,
+                })
+                    .then(response => {
+
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                
+                },
+                async deleteFavorite() {
+                    this.favorite = 0
+                    await axios.post('/guide/add_favorite/' ,{
+                    guide_id: this.guide_id,
+                    favorite: this.favorite,
+
+                    })
+                    .then(response => {
+                        console.log("")
+ 
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+
+            },
+            created(){
+                this.favoriteCheck()
+            },
+        })
+
+        favoriteControl.config.compilerOptions.delimiters = ['[[', ']]'];
+        favoriteControl.mount('#favorite')
+
+
+    </script>
+
+
 </body>
+
 </html>

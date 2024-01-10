@@ -1,5 +1,6 @@
 from django.db import models
 from tekkenSite import settings
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -21,7 +22,7 @@ class Character(models.Model):
     nationality = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.first_name_en + " " + self.family_name_en
+        return self.full_name_jp
 
 
 # Create your models here.
@@ -32,11 +33,11 @@ class Guide(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default="")
     character = models.ForeignKey(Character, on_delete=models.CASCADE, default="")
     title = models.CharField(max_length=255)
-    article = models.TextField()
-    pub_date = models.DateTimeField('初回発行日')
-    update_date = models.DateTimeField('最終更新日')
+    article = RichTextField()
+    pub_date = models.DateTimeField('初回発行日',auto_now_add=True)
+    update_date = models.DateTimeField('最終更新日',auto_now=True)
     number_of_preview = models.BigIntegerField(default=0)
-    publishing_setting = models.IntegerField(default=1)  # 公開設定　 1 = 全体公開 0 = 非公開
+    publishing_setting = models.BooleanField(default=True)  # 公開設定　 1 = 全体公開 0 = 非公開
     is_deleted = models.BooleanField(default=False)  # 削除フラグ　True = 削除済み falee = 未削除
 
     def __str__(self):

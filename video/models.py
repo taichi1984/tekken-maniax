@@ -1,4 +1,5 @@
 from django.db import models
+from tekkenSite import settings
 
 # Create your models here.
 
@@ -42,3 +43,12 @@ class Video(models.Model):
     comment_count = models.IntegerField(default=0)
     published_at = models.DateTimeField('動画投稿日',default='1990-01-01')
     tags = models.ManyToManyField(Tag, related_name ='videos',blank=True)
+
+    def __str__(self):
+        return self.title + " : " + self.channel_title
+
+class FavoriteChannel(models.Model):
+    id = models.AutoField(primary_key=True, auto_created=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
+    channel = models.ForeignKey(Channel,on_delete=models.CASCADE,default=None)
+

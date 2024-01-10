@@ -38,6 +38,9 @@ main {
     margin: 30px auto 40px;
 }
 
+/*
+ヘッダー部分　ここから
+*/
 
 .page_title_field {
     color: white;
@@ -203,6 +206,11 @@ main {
     margin: 10px 10px 10px 10px;
 }
 
+
+/*
+* ヘッダー部分ここまで
+*/
+
 .table_of_contents {
     margin-top: 10px;
     background-color: white;
@@ -246,7 +254,6 @@ main {
 .section {
     width: 100%;
     margin: 50px 0px 30px 0px;
-    border: solid 1px black;
     background-color: rgb(68, 68, 68);
     height: auto;
 
@@ -269,7 +276,7 @@ main {
 
 .section_article {
     height: 90%;
-    padding: 10px 10px 10px 30px;
+    
     background-color: white;
     color: black;
 }
@@ -293,29 +300,33 @@ main {
 
 
 .section_article h1 {
-    color: #364e96; /*文字色*/
+    width:100%;
+    color: white; /*文字色*/
+    background-color:black;
     padding: 0.3em 0; /*上下の余白*/
+    padding-left:20px;
     border-top: solid 3px #364e96; /*上線*/
     border-bottom: solid 3px #364e96; /*下線*/
     margin-top: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .section_article h2 {
     font-size: 20px;
     padding: 0.25em 0.5em; /*上下 左右の余白*/
+    background-color:#eee;
     color: #494949; /*文字色*/
     background: transparent; /*背景透明に*/
     border-left: solid 5px black; /*左線*/
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .section_article h3 {
-    padding: 5px;
+    padding: 10px;
     background-color: #eee;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .section_article h4, h5, h6 {
@@ -417,16 +428,7 @@ main {
     width: 100%;
 }
 
-.comment_form {
-    color: black;
-    border: 1px solid black;
-}
 
-.comment_form td, th {
-    border: 0px;
-
-
-}
 
 .comment_form_label {
     color: white;
@@ -459,21 +461,43 @@ main {
     padding-bottom: 20px;
     border-bottom: 4px double white;
 }
+.comment_form{
+    margin-bottom:30px;
+}
 
+.comment_submit{
+    padding:5px;
+}
+.comment_edit_button{
+    padding:5px;
+    margin:10px;
+}
+
+.comment_delete_button{
+    padding:2px;
+    margin:10px;
+}
 .comment_contributor {
-    margin: 10px 0px 0px 0px;
+    margin: 20px 0px 20px 0px;
     padding: 0px 0px 0px 10px;
     font-size: 20px;
     font-weight: bold;
 
 }
-
-.comment_comment {
-    margin-bottom: 10px;
+.comment_content{
+    margin-bottom:50px;
     padding: 10px 10px 10px 30px;
-
 }
 
+.comment_textarea{
+
+    margin:10px;
+    width:800px;
+    height:50px;
+    padding:8px;
+    line-height: 10px;
+    font-size:16px;
+}
 .advertisement {
     display: none;
     margin: 20px;

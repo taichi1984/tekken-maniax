@@ -1,0 +1,24 @@
+h1{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    background-color:black;
+    color:white;
+}
+
+blockquote{
+    background-color:beige;
+}
+tr:nth-child(odd){
+    background-color:white;
+
+}
+
+tr:nth-child(even){
+    background-color:#eee;
+}
+
+th{
+    padding:5px;
+}
+

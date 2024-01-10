@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 app_name = "guide"
@@ -10,29 +9,29 @@ urlpatterns = [
     # search_result
     path('search/', views.Search.as_view(), name='search'),
     # create guide
-    path('create/', views.create_guide, name='create'),
-    # preview guide
-    path('create/preview/', views.preview_guide, name='preview'),
-    # preview guide
+    path('create/', views.CreateGuide.as_view(), name='create'),
+    # create or update finish
     path('create/finish/', views.create_guide_finish, name='create_guide_finish'),
+    # detail
+    path('detail/<int:pk>', views.DetailGuide.as_view(), name='detail'),
     # update_guide
-    path('update/<int:guide_id>', views.update_guide, name='update'),
+    path('update/<int:pk>', views.UpdateGuide.as_view(), name='update'),
     # character_guide_list
     path('character_guide/', views.CharacterGuide.as_view(), name='character_guide'),
     # delete_guide
     path('delete/', views.delete_guide, name='delete'),
-    # detail
-    path('detail/<int:guide_id>', views.detail_guide, name='detail'),
     # your_guide
     path('your_guide/', views.YourGuide.as_view(), name='your_guide'),
     # favorite_guide
     path('favorite_guide/', views.FavoriteGuide.as_view(), name='favorite_guide'),
     # change_state
     path('change_state/<int:guide_id>', views.change_state_guide, name='change_state_guide'),
+    #list_comment
+    path('list_comment/',views.list_comment,name="list_comment"),
     # post_comment
     path('post_comment/<int:guide_id>', views.post_comment, name='post_comment'),
     # delete_comment
-    path('delete_comment/<int:comment_id>', views.delete_comment, name='delete_comment'),
+    path('delete_comment/', views.delete_comment, name='delete_comment'),
     # vote_evaluation
     path('vote_evaluation/', views.vote_evaluation, name="vote_evaluation"),
     # add_favorite

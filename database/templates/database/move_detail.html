@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'database/css/move_detail.css' %}" />
+    <title>
+        Tekken MANIAX - DATABASE -
+    </title>
+</head>
+
+<body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+        {% include 'database/database_header.html'%}
+    </header>
+    <div class="wrapper">
+        <div class="contents_container">
+            <div class="page_title_field"
+                style="background-image:url('/static/guide/image/character_wp_{{ move.character.id }}.jpg')">
+            </div>
+            {% if user.is_staff %}
+            <div class="staff_menu">
+                <div class="staff_menu_title">
+                スタッフ用メニュー<br>
+                </div>
+                <div class="staff_menu_link"> 
+                    <ul>
+                    <li><a href="{% url 'database:move_update'  move.id %}">この技を編集する</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="move_detail_title">
+                固有技データ　-- {{move.name_jp}}
+            </div>
+            <div class ="move_detail_data">
+      
+                <table class="move_detail_table">
+
+                    <tr>
+                        <th>技名</th>
+                        <td>{{move.name_jp}}</td>
+                    </tr>
+                    <tr>
+                        <th>コマンド</th>
+                        <td>{{move.command_jp}}</td>
+                    </tr>
+                    <tr>
+                        <th>ダメージ</th>
+                        <td>{{move.damage}}</td>
+                    </tr>
+                    <tr>
+                        <th>判定</th>
+                        <td>{{move.hit_level}}</td>
+                    </tr>
+                    <tr>
+                        <th>技の発生</th>
+                        <td>{{move.frame_startup}}</td>
+                    </tr>
+                    <tr>
+                        <th>攻撃持続</th>
+                        <td>
+                            {{move.frame_active}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>技後の硬直</th>
+                        <td>{{move.frame_recovery}}</td>
+                    </tr>
+                    <tr>
+                        <th>全体硬直</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>ガード硬直差</th>
+                        <td>{{move.frame_block}}</td>
+                    </tr>
+                    <tr>
+                        <th>ヒット硬直差</th>
+                        <td>{{move.frame_hit}}</td>
+                    </tr>
+                    <tr>
+                        <th>しゃがみヒット時の硬直差</th>
+                        <td>{{move.frame_crouch_hit}}</td>
+                    </tr>
+                    <tr>
+                        <th>カウンターヒット時の硬直差</th>
+                        <td>{{move.frame_counter}}</td>
+                    </tr>
+                    <tr>
+                        <th>技後のプレイヤーの状態</th>
+                        <td>{{move.state_player}}</td>
+                    </tr>
+                    <tr>
+                        <th>技後の相手の状態(ガード時)</th>
+                        <td>{{move.state_enemy_guard}}</td>
+                    </tr>
+                    <tr>
+                        <th>技後の相手の状態(ヒット時)</th>
+                        <td>{{move.state_enemy_hit}}</td>
+                    </tr>
+                    <tr>
+                        <th>技後の相手の状態(カウンターヒット時)</th>
+                        <td>{{move.state_enemy_counter}}</td>
+                    </tr>
+                    <tr>
+                        <th>技後の相手の状態(しゃがみヒット時)</th>
+                        <td>{{move.state_enemy_crouch_hit}}</td>
+                    </tr>
+                    <tr>
+                        <th>空中ヒット時の相手の状態</th>
+                        <td>{{move.state_enemy}}</td>
+                    </tr>
+                    <tr>
+                        <th>各種特性</th>
+                        <td>
+                            {% if move.jump_status %}
+                            <div>JS : {{ move.jump_status_startup }}F</div>
+                            {% endif %}
+                            {% if move.crouch_status %}
+                            <div>CS : {{ move.jump_status_startup }}F</div>
+                            {% endif %}
+                            {% if move.homing %}
+                            <div><img src="{% static 'database/image/homing.png' %}"></div>
+                            {% endif %}
+                            {% if move.power_crash %}
+                            <div><img src="{% static 'database/image/powercrash.png' %}"> : {{ move.power_crash_startup }}F</div>
+                            {% endif %}
+                            {% if move.tornado %}
+                            <div><img src="{% static 'database/image/tornado.png' %}"></div>
+                            {% endif %}
+                            {% if move.heat_engager %}
+                            <div><img src="{% static 'database/image/heatengage.png' %}"></div>
+                            {% endif %}
+                            {% if move.diminish %}
+                            <div><img src="{% static 'database/image/diminish.png' %}"></div>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>特記事項</th>
+                        <td>{{move.note | linebreaks }}</td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+            <div>
+                <a href="{% url 'database:move_list' %}?character={{ move.character.id }} ">技表に戻る</a>
+            </div>
+
+        </div>
+
+
+</body>
+
+</html>

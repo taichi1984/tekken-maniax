@@ -25,12 +25,13 @@
     <title>
         Tekken streams チャンネル一覧
     </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <header class="header">
     {% include 'top/site_header.html' %}
     {% include 'stream/stream_header.html' %}
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </header>
 
 <body>
@@ -38,85 +39,32 @@
         <main class="main">
 
             <div class="stream_channels_title">
-                Live配信検索
+                現在のLive配信
             </div>
 
-            <div class="stream_channels_search_form">
-                <form method="get" action="">
-                    {{search_form}}
-                    <input class="search_submit_botton" type="submit" name="search_submit" value="検索">
-                </form>
-            </div>
+            <div id="list_stream">
+
+                <div class="stream_channels_sort_form">
+                    <select class ="sort_select" v-model="sortType">
+                        <option value="viewer_desc">視聴者数が多い順</option>
+                        <option value="viewer_asc">視聴者数が少ない順</option>                        
+                        <option value="started_at">配信開始時間が直近順</option>
+                    </select>
+
+                    <button @click="sortStream" class="sort_submit_botton">並び替え</button>
+
+                </div>
 
 
-            <div class="stream_channels_sort_form">
-                <form method="get" action="">
-                    {% if request.GET.query %}
-                    <input type="hidden" name="query" value="{{ request.GET.query }}">
-                    {% endif %}
-                    {{ search_order_form }}
+                <div class="stream_channels_channels">
+                    <div v-for="stream in streams" :key="stream.id">
+                        {% include 'stream/stream_panel.html' %}
+                    </div>
 
-                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
-                </form>
-            </div>
-
-            <div class="pagination">
-                <span class="page-info">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                <div class="page-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
-                    {% endif %}
-
-                    {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                    <strong>{{ num }}</strong>
-                    {% else %}
-                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
-                    {% endif %}
-                    {% endfor %}
-
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
-                    {% endif %}
                 </div>
             </div>
-            <div id="list_stream" class="stream_channels_channels">
 
 
-                {% include 'stream/stream_panel.html' %}
-
-            </div>
-
-            <div class="pagination">
-                <span class="page-info">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                <div class="page-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
-                    {% endif %}
-
-                    {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                    <strong>{{ num }}</strong>
-                    {% else %}
-                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
-                    {% endif %}
-                    {% endfor %}
-
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
-                    {% endif %}
-                </div>
-            </div>
         </main>
     </div>
     <footer>
@@ -125,14 +73,14 @@
 
     <script>
         const { createApp, ref } = Vue
-
-
         const app = createApp({
             data() {
                 return {
                     receivedData: null,
-
+                    streams: "",
+                    sortType: 'viewer_desc',
                 };
+
             },
             mounted() {
                 this.getStreamData()
@@ -141,18 +89,39 @@
                 getStreamData() {
                     axios.get('https://localhost:8000/stream/list_stream_endpoint/', {
                         params: {
-                            
+
                         }
                     })
                         .then(response => {
                             // レスポンスを処理するコードをここに追加
-                            console.log(response.data);
+                            console.log(response.data["streams"])
+                            this.streams = response.data.streams;
+                            console.log(response.data.streams);
                         })
                         .catch(error => {
                             // エラーハンドリングをここに追加
                             console.error(error);
                         });
                 },
+                sortStream() {
+                    if (this.sortType == 'viewer_asc') {
+                        this.streams.sort((a, b) => a.viewer_count - b.viewer_count);
+                    }
+                    else if (this.sortType == 'viewer_desc') {
+                        this.streams.sort((a, b) => b.viewer_count - a.viewer_count);
+
+                    }
+                    else if (this.sortType == 'started_at') {
+                        this.streams.sort((a, b) => new Date(b.started_at) - new Date(a.started_at));
+                       
+                    }
+
+                },
+                formatDate(dateString) {
+                    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                    return new Date(dateString).toLocaleString(options);
+                }
+
             },
 
 
@@ -160,6 +129,9 @@
 
         app.config.compilerOptions.delimiters = ['[[', ']]']
         app.mount('#list_stream')
+
+
+
     </script>
 
 </body>

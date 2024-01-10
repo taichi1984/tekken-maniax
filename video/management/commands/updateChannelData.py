@@ -7,13 +7,13 @@ class Command(BaseCommand):
     help = 'Describe what the command does here'
 
     def handle(self, *args, **options):
-        #channels = search_channel_list("鉄拳8") #本番用 APIからデータ取得
-        #with open("data.json", "w") as file:
-        #   json.dump(channels,file)
-        
+        channels = search_channel_list("鉄拳8") #本番用 APIからデータ取得
+        with open("data.json", "w") as file:
+           json.dump(channels,file)
+        '''
         with open("data.json","r") as file:
             channels = json.load(file)
-
+        '''
         for channel in channels:
             Channel.objects.update_or_create(
             channel_id = channel["snippet"]["channelId"],

@@ -55,11 +55,11 @@
                     <td>{{ guide.character.first_name_en }} {{ guide.character.family_name_en }}</td>
                     <td><a href="{% url 'guide:update' guide.id %}" target="_blank">編集</a></td>
                     <td>
-                        {% ifequal guide.publishing_setting 0 %}
+                        {% if guide.publishing_setting == 0 %}
                             非公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">公開する</a>
                         {% else %}
                             公開<br><a href="{% url 'guide:change_state_guide' guide.id %}">非公開にする</a>
-                        {% endifequal %}
+                        {% endif %}
 
                     </td>
                     <td>

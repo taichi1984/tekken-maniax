@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static '/video/css/favorite_channel.css' %}"/>
+    <title>
+        {{ user.username }}さんのガイド一覧
+    </title>
+</head>
+<header class="header">
+    {% include 'top/site_header.html' %}
+    {% include 'video/video_header.html' %}
+</header>
+<body>
+
+<div class="wrapper">
+    <main class="main">
+        <div class="page_title">
+            {{ user.username }}さんのお気に入りガイド一覧
+        </div>
+        <table class="favorite_table">
+            <tr>
+                <th>チャンネル名</th>
+                <th>チャンネル登録者数</th>
+                <th>閲覧者数</th>
+                <th>動画数</th>
+            </tr>
+
+            {% for channel in favorite %}
+                <tr>
+                    <td><a href="{% url 'video:channel_detail' channel.channel.id %}" target="_blank">{{ channel.channel.channel_title }}</a></td>
+                    <td>{{ channel.channel.subscribercount }}</td>
+                    <td>{{ channel.channel.viewcount }}</td>
+                    <td>{{ channel.channel.videocount }}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <div class="pagination">
+            <div class="pagination_previous">
+                {% if page_obj.has_previous %}
+                    <a href="?search_word={{ search_word }}&page=1">&laquo;</a>　　
+                    <a href="?search_word={{ search_word }}&page={{ page_obj.previous_page_number }}"> 前へ </a>
+                {% endif %}
+            </div>
+            <div class="pagination_current">
+                {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+            </div>
+            <div class="pagination_next">
+                {% if page_obj.has_next %}
+                    <a href="?search_word={{ search_word }}&page={{ page_obj.next_page_number }}"> 次へ </a>　　
+                    <a href="?search_word={{ search_word }}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>

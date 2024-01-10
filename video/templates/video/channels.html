@@ -65,21 +65,21 @@
 
                 <div class="page-links">
                     {% if page_obj.has_previous %}
-                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    <a href="?page=1&channel_sort_field={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&channel_sort_field={{current_sort}}">previous</a>
                     {% endif %}
 
                     {% for num in page_obj.paginator.page_range %}
                     {% if page_obj.number == num %}
                     <strong>{{ num }}</strong>
                     {% else %}
-                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    <a href="?page={{ num }}&channel_sort_field={{current_sort}}">{{ num }}</a>
                     {% endif %}
                     {% endfor %}
 
                     {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}&channel_sort_field={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&channel_sort_field={{cureent_sort}}">last &raquo;</a>
                     {% endif %}
                 </div>
             </div>
@@ -97,21 +97,21 @@
 
                 <div class="page-links">
                     {% if page_obj.has_previous %}
-                    <a href="?page=1&sort={{current_sort}}">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}&sort={{current_sort}}">previous</a>
+                    <a href="?page=1&channel_sort_field={{current_sort}}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&channel_sort_field={{current_sort}}">previous</a>
                     {% endif %}
 
                     {% for num in page_obj.paginator.page_range %}
                     {% if page_obj.number == num %}
                     <strong>{{ num }}</strong>
                     {% else %}
-                    <a href="?page={{ num }}&sort={{current_sort}}">{{ num }}</a>
+                    <a href="?page={{ num }}&channel_sort_field={{current_sort}}">{{ num }}</a>
                     {% endif %}
                     {% endfor %}
 
                     {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}&sort={{current_sort}}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}&sort={{cureent_sort}}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}&channel_sort_field={{current_sort}}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&channel_sort_field={{cureent_sort}}">last &raquo;</a>
                     {% endif %}
                 </div>
             </div>

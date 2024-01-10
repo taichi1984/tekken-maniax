@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'database/css/index.css' %}" />
+    <title>
+        TEKKEN MANIAX - Frame Data
+    </title>
+</head>
+
+<body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+        {% include 'database/database_header.html'%}
+    </header>
+    <div class="contents_container">
+        <div class="character_guide_container">
+            <div class="character_guide_title">
+
+            </div>
+
+            <div class="character_guide_area">
+                技作成
+                <form method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <button type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+
+</body>
+
+</html>

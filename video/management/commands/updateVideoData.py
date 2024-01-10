@@ -16,7 +16,7 @@ class Command(BaseCommand):
         # チャンネルデータをもとに各チャンネルの最新20件の動画データを取得する処理
         #
 
-        '''
+        
         channels = Channel.objects.all()
         videos = []
         for channel in channels:
@@ -24,12 +24,12 @@ class Command(BaseCommand):
         
         with open("videodata.json","w") as file:
             json.dump(videos,file)
-        '''
+        
         
         with open("videodata.json","r") as file:
             videos = json.load(file)
         i = 0 
-        '''
+        
         for video in videos :
             if isinstance(video, dict):
                   for item in video["items"] :
@@ -50,7 +50,7 @@ class Command(BaseCommand):
                           }
                       )
         
-        '''
+        
 
         #
         # 以下取得したvideoの情報をもとにstatistics情報を収集する処理
@@ -59,7 +59,7 @@ class Command(BaseCommand):
         all_videos = Video.objects.all()   
         
         #ここから本当にyoutubeAPIをたたくための処理
-        '''
+        
         videoIds =[]
         
         for video in all_videos:
@@ -70,7 +70,7 @@ class Command(BaseCommand):
         with open("video_stat_data.json","w") as file:
             json.dump(stat_list,file)
         
-        '''
+        
         #ここまで本当にYOutubeAPIをたたくための処理
 
             

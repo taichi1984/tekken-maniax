@@ -1,31 +1,28 @@
-<a href="">
-    <div class="channel_panel">
+<a :href="[[stream.url]]">
+    <div class="stream_panel">
 
         <div class="stream_panel_thumbnail">
-            <img src = "{{channel.thumbnails_default}}">
+            <img class ="stream_thumbnail_img" :src = "[[stream.thumbnail_url]]">
         </div>
         <div class="stream_panel_info">
-            <div class="channel_panel_info_title">
-                {{channel.channel_title}}
-            </div>
-            <div class="channel_panel_info_main">
+
+            <div class="stream_panel_info_main">
                 <div class="stream_panel_info_main_author">
-                   
-                    配信者:
+                    配信者:[[stream.streamer_value]]
                 </div>  
             </div>
             <div class="channel_panel_info_statistics">
                 <div class="stream_panel_info_statistics_subscribercount">
-                    配信タイトル : 
+                    配信タイトル : [[stream.title]]
                 </div>
                 <div class="">
-                    プラットフォーム：
+                    プラットフォーム：[[stream.platform]]
                 </div>
                 <div class="stream_panel_info_statistics_viewscount">
-                    視聴者数 : 
+                    視聴者数 : [[stream.viewer_count]]
                 </div>
                 <div class="stream_panel_info_evaluation_streamcount">
-                   配信開始時間: 
+                   配信開始時間: [[formatDate(stream.started_at)]]
                 </div>
             </div>
         </div>

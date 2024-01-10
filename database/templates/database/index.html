@@ -17,15 +17,40 @@
         gtag('config', 'UA-163168954-1');
     </script>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'guide/css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'database/css/index.css' %}"/>
     <title>
-        Tekken Guide Top Page
+    TEKKEN MANIAX - Frame Data
     </title>
 </head>
-<header class="header">
-    {% include 'top/site_header.html' %}
-</header>
+
 <body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+        {% include 'database/database_header.html'%}
+    </header>
+    <div class="contents_container">
+        <div class="character_guide_container">
+            <div class="character_guide_title">
+                フレームデータ一覧
+            </div>
+
+            <div class="character_guide_area">
+                {% for character in character_list %}
+                    <div class="character_guide_item">
+                        <a href="{% url 'database:move_list' %}?character={{ character.id }} ">
+                            <img class="character_guide_icon_img"
+                                 src="/static/guide/image/character_icon_{{ character.id }}.png" width="100"
+                                 height="100">
+                        </a>
+                        <div class="character_guide_character_name">
+                            {{ character.full_name_jp }}
+                        </div>
+  
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
  
 </body>
 </html>

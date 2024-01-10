@@ -42,7 +42,7 @@
                 <th>最終更新日</th>
             </tr>
 
-            {% for favorite in favorite_list %}
+            {% for channel in channels %}
                 <tr>
                     <td><a href="{% url 'guide:detail' favorite.guide.id %}" target="_blank">{{ favorite.guide }}</a></td>
                     <td>{{ favorite.guide.character }}</td>

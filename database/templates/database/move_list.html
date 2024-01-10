@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'database/css/move_list.css' %}" />
+    <title>
+        Tekken MANIAX - DATABASE -
+    </title>
+</head>
+
+<body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+        {% include 'database/database_header.html'%}
+    </header>
+    <div class="wrapper">
+        <div class="contents_container">
+            <div class="page_title_field"
+                style="background-image:url('/static/guide/image/character_wp_{{ character }}.jpg')">
+
+
+
+
+            </div>
+            {% if user.is_staff %}
+            <div class="staff_menu">
+                <div class="staff_menu_title">
+                    スタッフ用メニュー<br>
+                </div>
+                <div class="staff_menu_link">
+                    <ul>
+                        <li><a href="{% url 'database:move_create'  %}?character={{character}}">新しい技の追加</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            <div class="move_list_index">
+                <a href="#strike">打撃技</a>  |  <a href="#throw">投げ技</a>
+
+            </div>
+
+            <div class="move_list_content">
+                
+
+                <div class="strike_menu" id="strike">
+                    打撃技
+                </div>
+
+                <table class="strike_move_list_table">
+                    <tr>
+                        <th>技名</th>
+                        <th>コマンド</th>
+                        <th>ダメージ</th>
+                        <th>判定</th>
+                        <th>発生</th>
+                        <th>ガード</th>
+                        <th>ヒット</th>
+                        <th>カウンター</th>
+                        <th>特性</th>
+                        {% if user.is_staff %}
+                        <td>
+                            削除
+                        </td>
+                        {% endif %}
+
+                    </tr>
+                    {% for move in move_list %}
+                    {% if move.is_throw == False %}
+                    <tr>
+                        <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
+                        <td>{{move.full_command_jp}}</td>
+                        <td>{{move.damage}}</td>
+                        <td>{{move.hit_level}}</td>
+                        <td>{{move.frame_startup}}</td>
+                        <td>{{move.frame_block}}</td>
+                        <td>{{move.frame_hit}}</td>
+                        <td>{{move.frame_counter}}</td>
+                        <td>
+                            {% if move.jump_status %}
+                            <span>JS</span>
+                            {% endif %}
+                            {% if move.crouch_status %}
+                            <span>CS</span>
+                            {% endif %}
+                            {% if move.homing %}
+                            <span><img src="{% static 'database/image/homing.png' %}"></span>
+                            {% endif %}
+                            {% if move.power_crash %}
+                            <span><img src="{% static 'database/image/powercrash.png' %}"></span>
+                            {% endif %}
+                            {% if move.tornado %}
+                            <span><img src="{% static 'database/image/tornado.png' %}"></span>
+                            {% endif %}
+                            {% if move.heat_engager %}
+                            <span><img src="{% static 'database/image/heatengage.png' %}"></span>
+                            {% endif %}
+                            {% if move.diminish %}
+                            <span><img src="{% static 'database/image/diminish.png' %}"></span>
+                            {% endif %}
+                        </td>
+                        {% if user.is_staff %}
+                        <td>
+
+                        </td>
+                        {% endif %}
+
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+
+
+                </table>
+
+                <div class="throw_menu" id ="throw">
+                    投げ技
+                </div>
+                <table class="throw_move_list_table">
+                    <tr>
+                        <th>技名</th>
+                        <th>コマンド</th>
+                        <th>ダメージ</th>
+                        <th>判定</th>
+                        <th>発生</th>
+                        <th>投げ抜けコマンド</th>
+                        <th>投げ抜け後のフレーム</th>
+                        <th>特性</th>
+                        {% if user.is_staff %}
+                        <td>
+                            削除
+                        </td>
+                        {% endif %}
+
+                    </tr>
+
+                    {% for move in move_list %}
+                    {% if move.is_throw %}
+                    <tr>
+                        <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
+                        <td>{{move.command_jp}}</td>
+                        <td>{{move.damage}}</td>
+                        <td>{{move.hit_level}}</td>
+                        <td>{{move.start_up}}</td>
+                        <td>{{move.throw_tech}}</td>
+                        <td>{{move.thorw_tech_frame}}</td>
+                        <td> {% if move.jump_status %}
+                            <span>JS</span>
+                            {% endif %}
+                            {% if move.crouch_status %}
+                            <span>CS</span>
+                            {% endif %}
+                            {% if move.homing %}
+                            <span><img src="{% static 'database/image/homing.png' %}"></span>
+                            {% endif %}
+                            {% if move.power_crash %}
+                            <span><img src="{% static 'database/image/powercrash.png' %}"></span>
+                            {% endif %}
+                            {% if move.tornado %}
+                            <span><img src="{% static 'database/image/tornado.png' %}"></span>
+                            {% endif %}
+                            {% if move.heat_engager %}
+                            <span><img src="{% static 'database/image/heatengage.png' %}"></span>
+                            {% endif %}
+                            {% if move.diminish %}
+                            <span><img src="{% static 'database/image/diminish.png' %}"></span>
+                            {% endif %}
+                        </td>
+                        {% if user.is_staff %}
+                        <td>
+
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endif %}
+                    {% endfor%}
+                </table>
+            </div>
+
+        </div>
+</body>
+
+</html>

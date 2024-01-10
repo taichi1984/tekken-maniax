@@ -51,8 +51,8 @@
                     </div>
                     <div class="channel_detail_summary_title">
                         <div class="channel_detail_summary_title_title">
-                            <a href="https://www.youtube.com/channel/{{channel.channel_id}}"
-                            target="_blank">  {{channel.channel_title}}</a>
+                            <a href="https://www.youtube.com/channel/{{channel.channel_id}}" target="_blank"></a>
+                            {{channel.channel_title}}</a>
                         </div>
                         <div class="channel_detail_summary_title_description">
                             {{channel.description}}
@@ -66,13 +66,41 @@
 
                         </div>
 
+
+                        <div id="favorite" class="favorite_area">
+
+                            <div id="page_summary_favorite" class="page_summary_favorite">
+
+
+                                {% if user.is_authenticated %}
+
+                                <div class="favorite_block" v-if="favorite">
+
+                                    <button @click="deleteFavorite()" class="favorite_pushed_button">
+                                        お気に入り追加済み
+                                    </button>
+                                </div>
+                                <div v-else>
+                                    <button @click="addFavorite()" class="favorite_button">お気に入りに追加</button>
+                                </div>
+                                {% else %}
+                                <a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">ログイン</a>
+                                するとお気に入りに追加できます。
+                                {% endif %}
+
+                            </div>
+
+
+                        </div>
+
                         <div class="channel_detail_tag_edit" id="tag-edit">
                             <div v-if="!isEditing" class="channel_detail_tag_edit_not_editing">
                                 <div id="tags">
 
                                     関連タグ：
-                                    <label class="channel_detail_tag_edit_tag" v-for="(tag, index) in tags" :key="index">
-                                      <a :href="tagLink + tag.name"> [[tag.name]]</a> 
+                                    <label class="channel_detail_tag_edit_tag" v-for="(tag, index) in tags"
+                                        :key="index">
+                                        <a :href="tagLink + tag.name"> [[tag.name]]</a>
                                     </label>
 
 
@@ -89,7 +117,7 @@
                             <div class="channel_detail_tag_edit_editing" v-if="isEditing">
                                 <div class="channel_detail_tag_add_area">
                                     ▽タグの追加<br>
-                                    <input class = "tag_input" type="text" v-model = "tagText"></input>
+                                    <input class="tag_input" type="text" v-model="tagText"></input>
                                     <button class="tag_button" @click="tagEditSubmit">保存</button>
                                 </div>
                                 <br>
@@ -101,11 +129,14 @@
                                     </label>
                                     <br>
                                     <button class="tag_button" @click="tagDeleteSubmit">選択したタグの削除</button>
-                                    <button class="tag_button"@click="tagDoNothing">元に戻す</button>
+                                    <button class="tag_button" @click="tagDoNothing">元に戻す</button>
                                 </div>
 
                             </div>
                         </div>
+
+
+
 
 
                     </div>
@@ -129,8 +160,10 @@
         <script>
             const { createApp, ref } = Vue
             //Vue.use(VueRouter);
-    
-            
+
+            const csrfToken = "{{csrf_token}}";
+            axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
+           
             const app = createApp({
                 data() {
                     return {
@@ -144,7 +177,7 @@
                 },
                 created() {
                     this.selectedItems = Array(this.tags.length).fill(false);
-                    
+
                 },
                 methods: {
                     startEditing() {
@@ -152,7 +185,7 @@
                     },
                     checkInput() {
                         this.isEmpry = this.tagText.trim() === '';
-             
+
                         if (this.isEmpty) {
                             alert('Input is empty!');
                             console.log("空だよ")
@@ -162,7 +195,7 @@
                     tagEditSubmit() {
 
                         this.checkInput()
-                        axios.post('https://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                        axios.post('/video/channels/{{channel.id}}/add_tag_endpoint/', {
                             method: 'add',
                             channelId: '{{channel.channel_id}}',
                             tagText: this.tagText
@@ -179,7 +212,7 @@
                         this.isEditing = false;
                     },
                     tagDeleteSubmit() {
-                        axios.post('https://localhost:8000/video/channels/{{channel.id}}/add_tag_endpoint/', {
+                        axios.post('/video/channels/{{channel.id}}/add_tag_endpoint/', {
                             method: 'delete',
                             channelId: '{{channel.channel_id}}',
                             tagText: this.tagText,
@@ -208,6 +241,63 @@
 
             app.config.compilerOptions.delimiters = ['[[', ']]'];
             app.mount('#tag-edit')
+
+            const favoriteApp = createApp({
+                data() {
+                    return {
+                        channel_id: '{{ channel.id }}',
+                        favorite: false,
+                    };
+
+                },
+                methods: {
+                    favoriteCheck() {
+                        if ("{{favorite.id}}" != "") {
+                            this.favorite = true
+                        }
+                        else {
+                            this.favorite = false
+                        }
+                    },
+                    async addFavorite() {
+                        this.favorite = true
+                        await axios.post('/video/add_favorite_ch/', {
+                            channel_id: this.channel_id,
+                            favorite: this.favorite,
+                        })
+                            .then(response => {
+
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+
+                    },
+                    async deleteFavorite() {
+                        this.favorite = 0
+                        await axios.post('/video/add_favorite_ch/', {
+                            channel_id: this.channel_id,
+                            favorite: this.favorite,
+
+                        })
+                            .then(response => {
+                                console.log("")
+
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    }
+
+                },
+                created() {
+                    this.favoriteCheck()
+                },
+            })
+
+
+            favoriteApp.config.compilerOptions.delimiters = ['[[', ']]'];
+            favoriteApp.mount('#favorite')
         </script>
 
 

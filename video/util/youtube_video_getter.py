@@ -1,5 +1,10 @@
 from googleapiclient.discovery import build
 import json,feedparser
+import asyncio
+import aiohttp
+
+
+
 API_KEY = 'AIzaSyAzdUg5IZX5xoMtkj0UZLNt7--Qsq5_20s' #tekkenmaniax0401のapi-key
 #API_KEY = 'AIzaSyBF_gw77-z9Criuzc47gS1GcsSS31UjAZ4' #キックミーN森のAPI-key
 
@@ -39,8 +44,11 @@ def get_video_info_by_channel(channelId):
     part="contentDetails",
     id=channelId
     ).execute()
-
-    uploads_playlist_id = channel_response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+    
+    try:
+        uploads_playlist_id = channel_response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+    except Exception as e:
+        return
 
     print("playlistid = " + uploads_playlist_id)
     try:
@@ -105,21 +113,61 @@ def get_channel_info_from_channelids(channel_ids):
 
     return youtube_response
 
-def get_latest_video_id_by_channel_ids(channel_ids):
-    youtube_feed_url = "https://www.youtube.com/feeds/videos.xml?channel_id="
-    video_id_list = []
-    
-    for channel_id in channel_ids:
-        print(youtube_feed_url+channel_id)
-        data = feedparser.parse(youtube_feed_url+channel_id)
 
+#
+#feedからvideoidを取得する
+#
+
+#
+#非同期処理用メソッド
+#
+
+async def fetch_url(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.text()
+
+async def parse_feed(url):
+    feed_data = await fetch_url(url)
+    parsed_feed = feedparser.parse(feed_data)
+    return parsed_feed
+
+
+async def get_latest_video_id_by_channel_ids(channel_ids):
+    youtube_feed_url = "https://www.youtube.com/feeds/videos.xml?channel_id="
+    feed_url_list = []
+    video_id_list = []
+
+    for channel_id in channel_ids:
+        feed_url_list.append(youtube_feed_url + channel_id)
+
+    print("#########################")
+    print("ここから非同期処理")
+    print("#########################")
+    tasks = [parse_feed(url) for url in feed_url_list]
+    parsed_feeds = await asyncio.gather(*tasks)
+
+    for parsed_feed in parsed_feeds:
+        print(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
+        video_id_list.append(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
+
+
+    '''
+     
+      i = 1
+    for channel_id in channel_ids:
+        print(youtube_feed_url+channel_id + " : " + str(i))
+        data = feedparser.parse(youtube_feed_url+channel_id)
+        i = i + 1
         video_id_list.append({
             'channel_id':channel_id,
             'feed_url':youtube_feed_url + channel_id,
             'video_id': data['entries'][0]['yt_videoid'] if len(data['entries']) != 0 else ""
         })
+    '''
         
     return video_id_list
+
     
 def get_broadcasting_status_by_video_ids(video_ids):
     youtube = build('youtube','v3',developerKey=API_KEY)
@@ -147,6 +195,7 @@ def get_broadcasting_status_by_video_ids(video_ids):
             broadcast_status_list.append(
                 {
                     "video_id" : res["id"],
+                    "video_title" : res["snippet"]["title"],
                     "channel_id" : res["snippet"]["channelId"],
                     "liveBroadcastContent" : res["snippet"]["liveBroadcastContent"],
                     "thumbnail_default":res["snippet"]["thumbnails"]["default"],

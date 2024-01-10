@@ -1,5 +1,6 @@
 @import url("/static/top/css/site_header.css");
 @import url("guide_header.css");
+@import url("/static/top/css/footer.css");
 
 * {
     margin: 0;
@@ -50,12 +51,46 @@ main {
 
 }
 
+.guide_form_category{
+    width:200px;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+.guide_form_character{
+    width:200px;
+    margin-top:5px;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+
+.guide_form_title{
+    width:300px;
+    margin-top:5px;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+.guide_form_publishing_setting{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+    
+
+
+.guide_form_submit{
+    padding:5px;
+}
 
 .edit_guide_introduction{
     display:flex;
     flex-direction: column;
     height:120px;
 }
+
+
+
 .guide_editor {
     width: 100%;
 }
@@ -116,12 +151,24 @@ guide_menu_header {
     color:white;
 }
 
+.guide_section_title_text{
+    padding:5px;
+    line-height:20px;
+    font-size:15px;
+}
+
 .guide_section_article {
     width:97%;
     margin:0px 0px 0px 20px;
     padding:10px 0px 10px 0px;
     background-color:rgb(68, 68, 68);
 
+}
+
+.guide_section_article_textarea{
+    padding:5px;
+    line-height:20px;
+    font-size:15px;
 }
 .guide_section_title_preview {
     width:948px;

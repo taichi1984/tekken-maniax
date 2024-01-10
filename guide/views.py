@@ -1,32 +1,39 @@
 """
     TEKKEN GUIDEのview
 """
-
 __author__ = "西森"
 __status__ = ""
 __version__ = "0.0.1"
 __date__ = "2020/03/27"
 
 import os
+from rest_framework.response import Response
+from rest_framework.status import HTTP_201_CREATED
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from json import JSONDecodeError
-
-from django.contrib.auth.mixins import LoginRequiredMixin
+from .constants import GUIDE_INITIAL_DATA
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect,HttpResponseForbidden
 from django.template import loader
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
-from guide.forms import CommentSubmitForm, SearchGuideForm
+from django.utils import timezone
+from guide.forms import CommentSubmitForm, SearchGuideForm,CreateGuideForm,UpdateGuideForm
 from top.models import CustomUser, Notification
 from top.util.page_initializer import context_initializer
 from .util import text_html_converter
 from .models import Guide, Character, Category, GuideComment, Favorite, Evaluation
 from datetime import datetime
-from django.views.generic import ListView
+from django.views.generic import ListView,CreateView,DetailView,UpdateView
+from .serializers import CommentSerializer
 import re
 from urllib.parse import urlencode
 import json
 import markdown
+from .util.generate_table_of_contents import generate_table_of_contents
+
 
 from .util.make_guide_list import make_guide_list_with_evaluation
 
@@ -98,55 +105,233 @@ def guides_for_beginners(request):
 # 　ガイド作成画面の表示処理  #
 ############################
 
-def create_guide(request):
+class CreateGuide(LoginRequiredMixin,CreateView):
+    model = Guide
+    form_class = CreateGuideForm
+    template_name = "guide/create_guide.html"
+    initial_data = GUIDE_INITIAL_DATA
+
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['article'] = self.initial_data
+
+        return initial
+    
+    def form_valid(self,form):
+        form.instance.author = self.request.user
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        if self.object:
+            next = self.object.id
+            success_url = reverse('guide:create_guide_finish')
+            success_url += "?next=" + str(next)
+            return success_url
+        else:
+            return super().get_success_url()
+        
+
+##########################
+# 　ガイドの閲覧画面の処理  #
+##########################
+class DetailGuide(DetailView):
+    model = Guide
+    template_name = 'guide/detail.html'
+    context_object_name = "guide"
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request,context)
+
+        html_content = self.object.article
+        table_of_contents,soup = generate_table_of_contents(html_content)
+        
+        self.object.article = soup.prettify()
+        self.object.number_of_preview += 1
+        self.object.save()
+        context['table_of_contents'] = table_of_contents
+        guide_id = self.object.id
+        guide = Guide.objects.filter(id=guide_id).get()
+        user = self.request.user
+        try:
+            context["favorite"] = Favorite.objects.filter(user=user,guide=guide).get()
+        except :
+            context["favorite"] = None
+
+        try:
+            context["evaluation"] = Evaluation.objects.filter(user=user,guide=guide).get()
+        except :
+            context["evaluation"] = None
+
+        context["evaluationsCount"] = Evaluation.objects.filter(guide=guide).count()
+      
+        return context
+
+
+@api_view(['POST'])
+def vote_evaluation(request):
     """
-    ガイド作成画面の表示用view
+    ガイド評価のajax用のview
     :param request:
     :return:
     """
+    # TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、できれば直したい。
+    guide_id = request.data.get("guide_id",None)
+    guide = Guide.objects.filter(id=guide_id).first()
 
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            character_list = Character.objects.order_by('id')
-            guide_character_id = request.POST.get("guide_character")
-            guide_category_id = request.POST.get("guide_category")
-            guide_title = request.POST.get("guide_title")
-            guide_section_title = request.POST.getlist("guide_section_title")
-            guide_section_article = request.POST.getlist("guide_section_article")
-            guide_content = []
-            user = CustomUser.objects.get(username=request.user)
+    evaluation_query = Evaluation.objects.filter(evaluator=request.user, guide=guide).first()
 
-            for title, article in zip(guide_section_title, guide_section_article):
-                guide_content.append({"title": title, "article": article})
+    # 評価が１回もされてなかった場合は空の評価を作成する。
+    # TODO 関数化すべき　ここから
 
-            guide_article = json.dumps(guide_content, ensure_ascii=False)
-            print(guide_content)
-            guide_publishing_setting = request.POST.get('publishing_setting')
-            new_guide = Guide(author=user, title=guide_title,
-                              category_id=guide_category_id,
-                              character_id=guide_character_id,
-                              article=guide_article, pub_date=datetime.now(),
-                              publishing_setting=guide_publishing_setting,
-                              update_date=datetime.now())
-            new_guide.save()
+    # goodが押されたとき
 
-            return redirect(reverse('guide:create_guide_finish') + "?next=" + str(new_guide.id))
+    if request.data.get('vote') == 1:
+        evaluation_query = Evaluation(evaluator=request.user, evaluation=0, guide=guide)
+        evaluation_query.evaluation = 1
+        evaluation_query.save()
 
-        else:
-            character_list = Character.objects.order_by('id')
-            category_list = Category.objects.order_by('id')
-            template = loader.get_template('guide/create_guide.html')
-            context = {
-                'character_list': character_list,
-                'category_list': category_list,
-            }
-            context = context_initializer(request, context)
-            return render(request, 'guide/create_guide.html', context)
+    # goodがキャンセルされたとき
+    else :
+        evaluation_query.delete()
+    
+    data = {}
+    evaluationsCount = Evaluation.objects.filter(evaluation=1, guide=guide).count()
 
+    data["evaluationsCount"] = evaluationsCount
+    # TODO 関数化すべき　ここまで
+    print(data)
+    return Response(data)
+
+
+# detailのお気に入り追加のajax処理用view
+@api_view(['POST'])
+def add_favorite(request):
+
+    guide_id = request.data.get("guide_id",None)
+    guide = Guide.objects.filter(id=guide_id).first()
+
+    # お気に入りに追加ボタンが押されたとき
+    if request.data.get('favorite') == 1:
+        favorite = Favorite(user=request.user, guide=guide).save()
+  
+
+    # 　お気に入り解除ボタンが押されたとき
     else:
-        return redirect(reverse('login') + "?next=" + reverse('guide:index'))
+        favorite_query = Favorite.objects.filter(user=request.user, guide=guide).first()
+        
+
+        if favorite_query is not None:
+            favorite_query.delete()
+
+        favorite_html = '<button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>'
+
+    return Response()
 
 
+###############################
+# detail画面でのコメント表示用API
+###############################
+
+@api_view(['GET'])
+def list_comment(request):
+    guide_id = request.GET["guide_id"]
+    guide = Guide.objects.filter(id=guide_id).get()
+    comments = GuideComment.objects.filter(guide=guide)
+    serializer = CommentSerializer(comments,many=True)
+
+    return Response(serializer.data)
+
+################################
+# detail画面でのコメント投稿用API
+################################
+
+@api_view(['POST'])
+def post_comment(request, guide_id):
+    """
+    コメント投稿時の処理
+    :param request:
+    :param guide_id:
+    :return:
+    """
+    if request.method == ('POST'):
+        guide = get_object_or_404(Guide, pk=guide_id)
+        contributor = request.user
+        comment = request.data.get("comment",None)
+        
+        GuideComment(contributor=contributor, comment=comment, guide=guide, pub_date=timezone.now()).save()
+
+        ###通知生成ここから
+        if os.name == 'nt':  # 開発環境用コード
+            notification_text = "あなたのガイド「<a href='http://localhost:8000/guide/detail/" + str(guide.id) + "'>" + str(
+                guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
+        else:  # 本番環境用コード
+            notification_text = "あなたのガイド「<a href='https://extreme-gamers.info/guide/detail/" + str(guide.id) + "'>" + str(
+            guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
+
+        Notification(user=guide.author, notification_text=notification_text, alreadyRead=False,
+                 pub_date=timezone.now()).save()
+
+    ###通知生成ここまで
+
+        guide = Guide.objects.filter(id=guide_id).get()
+        comments = GuideComment.objects.filter(guide=guide)
+        serializer = CommentSerializer(comments,many=True)
+        data = serializer.data
+        return Response(data=data,status=HTTP_201_CREATED)
+   
+###################################
+# コメント削除用API
+###################################
+
+@api_view(['POST'])
+def delete_comment(request):
+    """
+    コメント削除ボタン押下時の処理
+    :param request:
+    :param comment_id:
+    :return:
+    """
+    if request.method == ('POST'):
+        comment_id = request.data.get("d_comment_id",None)
+        guide_id = request.data.get("guide_id",None)
+        comment = GuideComment.objects.filter(id=comment_id).first()
+        comment.is_deleted = True
+        comment.save()
+        guide = Guide.objects.filter(id=guide_id).get()
+        comments = GuideComment.objects.filter(guide=guide)
+        serializer = CommentSerializer(comments,many=True)
+        data = serializer.data
+    return Response(data=data,status=HTTP_201_CREATED)
+
+
+##########################
+# ガイド更新画面用のview達 #
+#########################
+
+class UpdateGuide(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+    model = Guide
+    form_class = UpdateGuideForm
+    template_name = "guide/update.html"
+    
+    def test_func(self):
+        # ユーザーが記事の著者かどうかをチェック
+        return self.request.user == self.get_object().author
+
+    def handle_no_permission(self):
+        return HttpResponseForbidden("403 Forbidden: このページを編集する権限はありません。")
+        
+    def get_success_url(self):
+        next = self.object.id
+        success_url = reverse('guide:create_guide_finish')
+        success_url += "?next=" + str(next)
+        return success_url
+
+###########################################
+#  ガイド作成、ガイド更新処理後の遷移用ページ #
+###########################################
 def create_guide_finish(request):
     """
     投稿完了画面の表示用View
@@ -159,236 +344,6 @@ def create_guide_finish(request):
     return render(request, 'guide/create_guide_finish.html', context)
 
 
-def preview_guide(request):
-    """
-    ガイドのプレビュー表示用のview
-    :param request:
-    :return:
-    """
-    if request.method == 'POST':
-        guide_character_id = request.POST.get("guide_character")
-        guide_character = Character.objects.filter(id=guide_character_id).first()
-        guide_category_id = request.POST.get("guide_category")
-        guide_category = Category.objects.filter(id=guide_category_id).first()
-        guide_title = request.POST.get("guide_title")
-
-        guide_section_title = request.POST.getlist("guide_section_title")
-        guide_section_article = request.POST.getlist("guide_section_article")
-        guide_sections = []
-
-        for title, article in zip(guide_section_title, guide_section_article):
-            converted_article = text_html_converter.convert_to_html(article)
-            print(converted_article)
-            guide_sections.append({"title": title, "article": converted_article})
-
-        template = loader.get_template('guide/preview.html')
-        context = {
-            'user': request.user,
-            'guide_title': guide_title,
-            'guide_category': guide_category,
-            'guide_character_id': guide_character_id,
-            'guide_character': guide_character,
-            'guide_sections': guide_sections,
-
-            'pub_date': datetime.now()
-        }
-        context = context_initializer(request, context)
-        return HttpResponse(template.render(context, request))
-
-    else:
-        None
-    return redirect(reverse('guide:error') + '?error_message=プレビュー画面には直接アクセスできません。')
-
-
-##########################
-# 　ガイドの閲覧画面の処理  #
-##########################
-
-def detail_guide(request, guide_id):
-    """
-    ガイド閲覧画面の表示処理
-    :param request:
-    :param guide_id:
-    :return:
-    """
-    guide = get_object_or_404(Guide, pk=guide_id)
-    if guide.is_deleted:
-        return redirect(reverse("guide:error") + "?error_message=この記事は削除済みです")
-    if guide.publishing_setting == 0 and (guide.author != request.user):
-        return redirect(reverse("guide:error") + "?error_message=この記事は非公開です")
-
-    # ページビュー数の追加 非公開になっている時は追加しない
-    if guide.publishing_setting:
-        guide.number_of_preview += 1
-
-    guide.save()
-
-    numof_good_evaluations = Evaluation.objects.filter(evaluation=1, guide=guide).count()
-    numof_bad_evaluations = Evaluation.objects.filter(evaluation=2, guide=guide).count()
-    evaluation = ""
-    if request.user.is_authenticated:
-        evaluation = Evaluation.objects.filter(evaluator=request.user, guide=guide).first()
-
-    favorite = ""
-
-    if request.user.is_authenticated:
-        favorite = Favorite.objects.filter(user=request.user, guide=guide).first()
-
-    character_list = Character.objects.order_by('id')
-    category_list = Category.objects.order_by('id')
-    comment_list = GuideComment.objects.filter(guide=guide)
-    guide_sections = json.loads(guide.article)
-    for this_guide in guide_sections:
-        this_guide["article"] = text_html_converter.convert_to_html(this_guide["article"])
-
-    form = CommentSubmitForm()
-    context = {
-        'guide': guide,
-        'guide_sections': guide_sections,
-        'character_list': character_list,
-        'category_list': category_list,
-        "form": form,
-        "comment_list": comment_list,
-        "numof_good_evaluations": numof_good_evaluations,
-        "numof_bad_evaluations": numof_bad_evaluations,
-        "evaluation": evaluation,
-        "favorite": favorite,
-    }
-    context = context_initializer(request, context)
-    print(request.COOKIES)
-    response = render(request, 'guide/detail.html', context)
-
-    return response
-
-
-# detail guide ページの評価部分のajax用のview
-def vote_evaluation(request):
-    """
-    ガイド評価のajax用のview
-    :param request:
-    :return:
-    """
-    # 　TODO 本番環境と開発環境を問わないようにする場当たり的な対応のため、できれば直したい。
-    guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
-    guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
-    guide_id = re.sub('([0-9]*)#section[0-9]+', '\\1', guide_id)
-
-    guide = Guide.objects.filter(id=guide_id).first()
-
-    evaluation_query = Evaluation.objects.filter(evaluator=request.user, guide=guide).first()
-
-    # 評価が１回もされてなかった場合は空の評価を作成する。
-    # TODO 関数化すべき　ここから
-
-    if evaluation_query is None:
-        evaluation_query = Evaluation(evaluator=request.user, evaluation=0, guide=guide)
-        evaluation_query.save()
-
-    # goodが押されたとき
-    if request.POST.get('vote') == "1":
-        evaluation_query.evaluation = 1
-        evaluation_query.save()
-
-        evaluation_html = '<button type="button" class="good_evaluation_pushed_button" name="good_evaluation_pushed" value="good_evaluation">\
-        <img src="/static/guide/image/good_evaluation.jpg" width="20px"></button>'
-
-    # badが押されたとき
-    elif request.POST.get('vote') == "2":
-        evaluation_query.evaluation = 2
-        evaluation_query.save()
-
-        evaluation_html = '<button type="button" class=" bad_evaluation_pushed_button" name="bad_evaluation_pushed" value="bad_evaluation">\
-        <img src="/static/guide/image/bad_evaluation.jpg" width="20px"></button>'
-
-    # goodがキャンセルされたとき
-    elif request.POST.get('vote') == "3":
-        evaluation_query.evaluation = 0
-        evaluation_query.save()
-        evaluation_html = '<button type="button" class="good_evaluation_button" name="good_evaluation" value="good_evaluation">\
-        <img src="/static/guide/image/good_evaluation.jpg" width="20px"></button>'
-
-    # badがキャンセルされた時
-    elif request.POST.get('vote') == "4":
-        evaluation_query.evaluation = 0
-        evaluation_query.save()
-        evaluation_html = '<button type="button" class="bad_evaluation_button" name="bad_evaluation" value="bad_evaluation">\
-        <img src="/static/guide/image/bad_evaluation.jpg" width="20px"></button>'
-
-    numof_good_evaluations = Evaluation.objects.filter(evaluation=1, guide=guide).count()
-    numof_bad_evaluations = Evaluation.objects.filter(evaluation=2, guide=guide).count()
-    data = []
-    data.append(evaluation_html)
-    data.append(numof_good_evaluations)
-    data.append(numof_bad_evaluations)
-    data = json.dumps(data)
-    # TODO 関数化すべき　ここまで
-
-    return HttpResponse(data)
-
-
-# detailのお気に入り追加のajax処理用view
-def add_favorite(request):
-    # TODO 場当たり的な対応で本番環境と開発環境の差異を吸収しているため訂正すること
-    guide_id = request.POST.get('url').replace("http://localhost:8000/guide/detail/", "")
-    guide_id = guide_id.replace("https://extreme-gamers.info/guide/detail/", "")
-    guide_id = re.sub('([0-9]*)#section[0-9]+', '\\1', guide_id)
-    guide = Guide.objects.filter(id=guide_id).first()
-
-    # お気に入りに追加ボタンが押されたとき
-    if request.POST.get('favorite') == "1":
-        Favorite(user=request.user, guide=guide).save()
-        favorite_html = '<button type="button" class="favorite_pushed_button" name="release_favorite">お気に入り追加済み</button>'
-
-    # 　お気に入り解除ボタンが押されたとき
-    else:
-        favorite_query = Favorite.objects.filter(user=request.user, guide=guide).first()
-        if favorite_query is not None:
-            favorite_query.delete()
-
-        favorite_html = '<button type="button" class="favorite_button" name="add_favorite">お気に入りに追加</button>'
-
-    return HttpResponse(favorite_html)
-
-
-def post_comment(request, guide_id):
-    """
-    コメント投稿時の処理
-    :param request:
-    :param guide_id:
-    :return:
-    """
-
-    guide = get_object_or_404(Guide, pk=guide_id)
-    contributor = request.user
-    comment = request.POST.get("comment")
-
-    GuideComment(contributor=contributor, comment=comment, guide=guide, pub_date=datetime.now()).save()
-
-    if os.name == 'nt':  # 開発環境用コード
-        notification_text = "あなたのガイド「<a href='http://localhost:8000/guide/detail/" + str(guide.id) + "'>" + str(
-            guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
-    else:  # 本番環境用コード
-        notification_text = "あなたのガイド「<a href='https://extreme-gamers.info/guide/detail/" + str(guide.id) + "'>" + str(
-            guide.title) + "</a>」に" + contributor.userprofile.nick_name + "(id: " + contributor.username + ") さんがコメントを投稿しました"
-
-    Notification(user=guide.author, notification_text=notification_text, alreadyRead=False,
-                 pub_date=datetime.now()).save()
-    return redirect("guide:detail", guide_id=guide_id)
-
-
-def delete_comment(request, comment_id):
-    """
-    コメント削除ボタン押下時の処理
-    :param request:
-    :param comment_id:
-    :return:
-    """
-    print(request.POST.get('next'))
-    comment = GuideComment.objects.filter(id=comment_id).first()
-    guide_id = comment.guide.id
-    comment.is_deleted = True
-    comment.save()
-    return redirect(request.POST.get('next'), guide_id=guide_id)
 
 
 #####################################
@@ -413,6 +368,10 @@ class YourGuide(LoginRequiredMixin, ListView):
         return context
 
 
+###
+### guideの公開設定の変更用ビュー
+###
+
 def change_state_guide(request, guide_id):
     """
     :param request:
@@ -427,6 +386,9 @@ def change_state_guide(request, guide_id):
     guide.save()
     return redirect("guide:your_guide")
 
+#
+# ガイドを削除する処理
+#
 
 def delete_guide(request):
     """
@@ -548,71 +510,6 @@ class Search(ListView):
             return None
 
 
-##########################
-# ガイド更新画面用のview達 #
-##########################
-
-def update_guide(request, guide_id):
-    """
-    ガイドの更新画面用のview
-    :param request:
-    :param guide_id:
-    :return:
-    """
-    guide = get_object_or_404(Guide, pk=guide_id)
-
-    if request.user.is_authenticated:
-        if request.user != guide.author:
-            return redirect(reverse("guide:error") + "?error_message=あなたのガイドではありません。")
-        if guide.is_deleted:
-            return redirect(reverse("guide:error") + "?error_message=このガイドは既に削除されています。")
-
-        if request.method == 'POST':
-            character_list = Character.objects.order_by('id')
-            guide_character_id = request.POST.get("guide_character")
-            guide_category_id = request.POST.get("guide_category")
-            guide_title = request.POST.get("guide_title")
-            guide_section_title = request.POST.getlist("guide_section_title")
-            guide_section_article = request.POST.getlist("guide_section_article")
-            guide_publishing_setting = request.POST.get("publishing_setting")
-            guide_content = []
-            user = CustomUser.objects.get(username=request.user)
-
-            for title, article in zip(guide_section_title, guide_section_article):
-                guide_content.append({"title": title, "article": article})
-
-            guide_article = json.dumps(guide_content, ensure_ascii=False)
-            print("更新時id : " + str(guide.id))
-            guide.author = user;
-            guide.title = guide_title;
-            guide.category_id = guide_category_id;
-            guide.character_id = guide_character_id;
-            guide.article = guide_article;
-            guide.update_date = datetime.now();
-            guide.publishing_setting = guide_publishing_setting;
-            guide.save();
-
-            return redirect(reverse('guide:create_guide_finish') + "?next=" + str(guide.id))
-        else:
-            character_list = Character.objects.order_by('id')
-            category_list = Category.objects.order_by('id')
-            template = loader.get_template('guide/update.html')
-            article_list = json.loads(guide.article)
-
-            print("表示時id : " + str(guide.id))
-            context = {
-                'guide': guide,
-                'article_list': article_list,
-                'character_list': character_list,
-                'category_list': category_list,
-            }
-            context = context_initializer(request, context)
-            return HttpResponse(template.render(context, request))
-
-    else:
-        return redirect(reverse('login') + "?next=" + reverse('guide:index'))
-
-    return render(request, update_html)
 
 
 ####################

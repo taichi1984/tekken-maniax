@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'sslserver',
+    'ckeditor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +106,6 @@ DATABASES = {
 }
 
 '''
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -138,6 +139,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+# 認証バックエンドを指定する（カスタムバックエンドを使用する場合、追加する）
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # デフォルトのバックエンド
 ]
 
 # Internationalization
@@ -212,3 +217,30 @@ CACHES = {
 # Redisセッションストアの設定
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
+
+#CKeditorの設定
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Link', 'Unlink'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Source'],
+            ['RemoveFormat', 'Maximize'],
+            ['CreatePlaceholder', 'ImageCaption', 'ImageToolbar', 'ImageStyle', 'ImageDimensions', 'ImageAlign'],
+        ],
+        'width': 1200,
+        'height':1800,
+        'contentsCss':['/static/guide/css/ckeditor.css']
+    },
+}
+
+#LoginRequiredMixinの設定
+
+LOGIN_URL = 'login'

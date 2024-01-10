@@ -1,6 +1,6 @@
-.channel_panel {
+.stream_panel {
     padding: 10px;
-    display: flex;
+ 
     width: 400px;
     margin:10px 10px 10px 10px;
     border:solid 1px black;
@@ -12,53 +12,58 @@
 a{
     text-decoration: none
 }
-.channel_panel a {
+.stream_panel a {
     color: black;
 }
 
-.channel_panel:hover{
+.stream_panel:hover{
     background-color:yellow;
 }
 
-.channel_character_icon {
+.stream_character_icon {
     padding: 5px;
 }
-.channel_panel_info_title{
+.stream_panel_info_title{
     font-weight:bold;
 }
-.channel_panel_info_main{
+.stream_panel_info_main{
     display: flex;
     flex-direction: column;
 }
 
-.channel_panel_info_main_category{
+.stream_panel_info_main_category{
     margin:0px 0px 0px 0px;
 }
-.channel_panel_info_evaluation{
+.stream_panel_info_evaluation{
     display:flex;
     flex-direction: row;
 }
 
-.channel_panel_info_evaluation_views{
+.stream_panel_info_evaluation_views{
     margin:0px 0px 0px 0px;
 }
-.channel_panel_info_evaluation_good{
+.stream_panel_info_evaluation_good{
     margin:0px 0px 0px 30px;
 }
 
-.channel_panel_info_evaluation_bad{
+.stream_panel_info_evaluation_bad{
     margin:0px 0px 0px 30px;
 }
-.channel_character_icon_img {
+.stream_character_icon_img {
     height: 80px;
     width: 80px;
 
 }
 
-.channel_panel_info {
+.stream_panel_info {
     margin:0px 0px 0px 20px;
 }
 
-.channel_subinfo {
+.stream_subinfo {
     float: left;
+}
+
+.stream_thumbnail_img{
+    width:400px;
+    height:250px;
 }
