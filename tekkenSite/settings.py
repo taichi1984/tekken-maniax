@@ -97,7 +97,7 @@ DATABASES = {
         'NAME': 'tekkensite',
         'USER': 'taichi84',
         'PASSWORD': 'kaiketsu84',
-        'HOST': '192.168.0.6',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
