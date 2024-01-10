@@ -23,9 +23,9 @@ SECRET_KEY = '%(kw=*vae_kso9)y#0s66=#ly*&ebb+-#)1c6%!pj_db10-c(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.name == 'nt':
-    DEBUG = True
+    DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
