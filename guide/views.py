@@ -131,6 +131,11 @@ class CreateGuide(LoginRequiredMixin,CreateView):
             return success_url
         else:
             return super().get_success_url()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
         
 
 ##########################

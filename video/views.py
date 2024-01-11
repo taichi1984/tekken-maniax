@@ -43,7 +43,7 @@ class ChannelsList(ListView):
         #search = self.request.GET.get('search','')
 
 
-        sort = self.request.GET.get('channel_sort_field','')
+        sort = self.request.GET.get('channel_sort_field','viewcount_desc')
         query = self.request.GET.get('query','')    
 
         if query:
@@ -79,6 +79,7 @@ class ChannelsList(ListView):
     def get_context_data(self,**kwargs):
         
         context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request,context)
         context['current_sort'] = self.request.GET.get('channel_sort_field','videocount')
         context['search_form'] = ChannelSearchForm(self.request.GET)
         context['search_order_form'] = ChannelSortForm(self.request.GET)
@@ -99,7 +100,8 @@ class ChannelDetail(DetailView):
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context['video_list'] = Video.objects.filter(video_owner_channel_id = self.object.channel_id)
+        context = context_initializer(self.request,context)
+        context['video_list'] = Video.objects.filter(video_owner_channel_id = self.object.channel_id).order_by('-published_at')
         tags_data = context['channel'].tags.all()
         context['tags'] = json.dumps(list(tags_data.values()),ensure_ascii = False)
         context['favorite'] = FavoriteChannel.objects.filter(user=self.request.user,channel_id=self.object.id)
@@ -173,6 +175,12 @@ class ChannelFavorite(ListView):
         queryset = queryset.filter(user=self.request.user)
         print(queryset)
         return queryset
+    
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request,context)
+        return context
+        
 
 @api_view(['POST'])
 def add_favorite_ch(request):

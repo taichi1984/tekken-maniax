@@ -41,6 +41,7 @@
 </header>
 
 <body>
+ 
     <div class="wrapper">
         <main class="main">
             <div class="channel_detail_title_field" style="background-image:url('{{channel.thumbnails}}')">
@@ -252,7 +253,7 @@
                 },
                 methods: {
                     favoriteCheck() {
-                        if ("{{favorite.id}}" != "") {
+                        if ("{{favorite.0.id}}" != "") {
                             this.favorite = true
                         }
                         else {
