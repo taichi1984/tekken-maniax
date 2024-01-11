@@ -1,7 +1,7 @@
-.guide_panel {
+.video_panel {
     padding: 10px;
     display: flex;
-    width: 400px;
+    width: 430px;
     margin:10px 10px 10px 10px;
     border:solid 1px black;
     color:black;
@@ -12,53 +12,57 @@
 a{
     text-decoration: none
 }
-.guide_panel a {
+.video_panel a {
     color: black;
 }
 
-.guide_panel:hover{
+.video_panel:hover{
     background-color:yellow;
 }
 
-.guide_character_icon {
+.video_character_icon {
     padding: 5px;
 }
-.guide_panel_info_title{
+.video_panel_info_title{
     font-weight:bold;
 }
-.guide_panel_info_main{
+.video_panel_info_main{
     display: flex;
     flex-direction: column;
 }
 
-.guide_panel_info_main_category{
+.video_panel_thumbnail{
+    width:250px;
+    height:200px;
+}
+.video_panel_info_main_category{
     margin:0px 0px 0px 0px;
 }
-.guide_panel_info_evaluation{
+.video_panel_info_evaluation{
     display:flex;
     flex-direction: row;
 }
 
-.guide_panel_info_evaluation_views{
+.video_panel_info_evaluation_views{
     margin:0px 0px 0px 0px;
 }
-.guide_panel_info_evaluation_good{
+.video_panel_info_evaluation_good{
     margin:0px 0px 0px 30px;
 }
 
-.guide_panel_info_evaluation_bad{
+.video_panel_info_evaluation_bad{
     margin:0px 0px 0px 30px;
 }
-.guide_character_icon_img {
+.video_character_icon_img {
     height: 80px;
     width: 80px;
 
 }
 
-.guide_panel_info {
+.video_panel_info {
     margin:0px 0px 0px 20px;
 }
 
-.guide_subinfo {
+.video_subinfo {
     float: left;
 }
