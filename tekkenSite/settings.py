@@ -172,6 +172,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+
 # Email設定用
 # DEFAULT_FROM_EMAIL = 'tekkenmaniax0401@gmail.com'
 
