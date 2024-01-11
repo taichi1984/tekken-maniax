@@ -22,10 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%(kw=*vae_kso9)y#0s66=#ly*&ebb+-#)1c6%!pj_db10-c(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.name == 'nt':
-    DEBUG = False
-else:
-    DEBUG = False
+DEBUG = DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,36 +88,36 @@ WSGI_APPLICATION = 'tekkenSite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tekkensite',
-        'USER': 'taichi84',
-        'PASSWORD': 'kaiketsu84',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+if DEBUG == True :
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'tekkensite',
+            'USER': 'taichi84',
+            'PASSWORD': 'kaiketsu84',
+            'HOST': '192.168.0.6',
+            'PORT': '3306',
+            'OPTIONS': {
+                'charset': 'utf8mb4',
+            },
+        }
     }
-}
-
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tekkenSite',
-        'USER': 'tekkenmaniax0401',
-        'PASSWORD': 'Kaiketsu84',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+else :
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'tekkensite',
+            'USER': 'taichi84',
+            'PASSWORD': 'kaiketsu84',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'OPTIONS': {
+                'charset': 'utf8mb4',
+            },
+        }
     }
-}
-'''
+
+
 
 AUTH_USER_MODEL = "top.CustomUser"
 
