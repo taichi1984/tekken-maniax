@@ -23,14 +23,6 @@ a:hover {
     text-decoration: none;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 970px;
-    margin: 30px auto 40px;
-    min-height: 100vh;
-}
 
 main {
     width: 100%;
@@ -77,7 +69,7 @@ main {
 }
 
 .page_summary_icon {
-    width: 15%;
+    width:15%;
 
 }
 
@@ -504,3 +496,35 @@ main {
     height: 300px;
 }
 
+
+@media screen and (orientation: landscape){
+ 
+  
+    
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 1600px;
+        margin: 30px auto 40px;
+    }
+
+}
+@media screen and (orientation: portrait) {
+
+
+    .wrapper {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 970px;
+        margin: 0px auto 0px;
+        background-color: #FAFAFA;
+        color: black;
+    }
+
+
+    
+
+}
