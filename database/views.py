@@ -86,10 +86,8 @@ def custom_order_key(obj):
         print("unmatch : " + key_part)
         return (len(custom_order),obj.full_command_jp)
     '''
-    #print(custom_order.items())
+  
     for key, value in custom_order.items():
-        print(key)
-        print(obj.full_command_jp)
         if obj.full_command_jp.startswith(key):
             return value
             #return (value,obj.full_command_jp)
@@ -149,12 +147,15 @@ class MoveCreate(CreateView):
     model = Move
     form_class = CreateMoveForm
     template_name = 'database/move_create.html'
+    context_object_name = "move"
     #success_url = 'database/move_create/success'
+    
 
     def form_valid(self,form):
         instance = form.save()
         success_url=f'/database/move_list?character={self.request.GET["character"]}'
         return HttpResponseRedirect(success_url)
+
 
     def get_form(self,form_class=None):
         form = super().get_form(form_class)
@@ -162,9 +163,7 @@ class MoveCreate(CreateView):
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context = context_initializer(self.request, context)
+    
 
 
 class MoveUpdate(UpdateView):
