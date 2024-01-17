@@ -32,5 +32,8 @@ class Notification(models.Model):
 class ChangeLog(models.Model):
     pub_date = models.DateTimeField('更新日')
     log = models.TextField(default="")
+    
+    def __str__(self):
+        return self.pub_date
 
 
