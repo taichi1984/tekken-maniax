@@ -1,0 +1,56 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}" />
+    <title>
+        TEKKEN MANIAX TOP
+    </title>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+
+    </header>
+
+    <div class="wrapper">
+        <main class="main">
+            <div class="delete_log">
+                <h1>以下の更新履歴を削除します</h1>
+                <div class="delete_content">
+                    {{object.pub_date}}:{{ object.log }}
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="削除する">　　
+                    <a href="{% url 'top:list_change_log' %}">Cancel</a>
+                </form>
+            
+                
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'top:list_change_log' %}">更新履歴一覧ページへ</a>
+                    </li>
+            
+                </ul>
+
+
+            </div>
+
+        </main>
+
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+</body>
+
+</html>

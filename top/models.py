@@ -8,6 +8,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True, default="")
 
 
+
 # Create your models here.
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -26,5 +27,10 @@ class Notification(models.Model):
     notification_text = models.CharField(max_length=255, default="")
     alreadyRead = models.BooleanField(default=False)
     pub_date = models.DateTimeField('通知日')
+
+
+class ChangeLog(models.Model):
+    pub_date = models.DateTimeField('更新日')
+    log = models.TextField(default="")
 
 

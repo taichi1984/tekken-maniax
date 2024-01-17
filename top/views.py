@@ -1,15 +1,15 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 
 from guide.util.make_guide_list import make_guide_list_with_evaluation
 from top.forms import ChangeEmailForm
 from .util import profile_manager
-from .forms import UserProfileUpdateForm, UserCreationForm
-from .models import UserProfile, CustomUser, Notification
+from .forms import UserProfileUpdateForm, UserCreationForm,CreateChangeLogForm,UpdateChangeLogForm
+from .models import UserProfile, CustomUser, Notification,ChangeLog
 
 from guide.models import Character, Guide
 from django.db.utils import IntegrityError
@@ -17,6 +17,10 @@ from django.db.utils import IntegrityError
 # Create your views here.
 from .util.page_initializer import context_initializer
 
+
+#############################
+# index画面
+#############################
 
 def index(request):
     """
@@ -26,7 +30,39 @@ def index(request):
     """
     context = {}
     context = context_initializer(request, context)
+    changeLog = ChangeLog.objects.all().order_by('pub_date')
+    context["changeLog"] = changeLog
     return render(request, "top/index.html", context)
+
+#############################
+# 更新履歴の追加画面
+#############################
+
+class CreateChangeLog(CreateView):
+    model = ChangeLog
+    form_class = CreateChangeLogForm
+    template_name = 'top/create_change_log.html'
+    success_url = reverse_lazy('top:index')
+    
+class ListChangeLog(ListView):
+    model = ChangeLog
+    template_name= 'top/list_change_log.html'
+    context_object_name = 'ChangeLog'
+    pagenate_by = 20
+
+class UpdateChangeLog(UpdateView):
+    model = ChangeLog
+    form_class = UpdateChangeLogForm
+    template_name = 'top/update_change_log.html'
+    success_url = reverse_lazy('top:index')
+
+class DeleteChangeLog(DeleteView):
+    model = ChangeLog
+    success_url = reverse_lazy('top:list_change_log')
+    template_name = 'top/delete_change_log.html'
+    
+
+
 
 
 #############################
@@ -65,6 +101,8 @@ def register(request):
 
     if request.method == 'POST':  # 投稿時処理
         form = UserCreationForm(request.POST)
+        context = {}
+        context = context_initializer(request, context)
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password1')
@@ -75,8 +113,10 @@ def register(request):
             UserProfile(user=user).save()
             login(request, user)
             return redirect("top:initialize_profile")
-
-        form = UserCreationForm(request.POST)
+        else :
+            form = UserCreationForm(request.POST)
+            context['form']  = form
+            return render(request, "top/register.html", context)
 
     else:  # はじめてきたとき
         form = UserCreationForm()
@@ -84,7 +124,10 @@ def register(request):
         context = context_initializer(request, context)
         context['form'] = form
 
-    return render(request, "top/register.html", context)
+        return render(request, "top/register.html", context)
+
+
+
 
 
 # アカウント登録時の初回のみのプロフィール設定画面

@@ -10,7 +10,9 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from .models import Move
 from .form import CreateMoveForm,UpdateMoveForm
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 import re
+from django.urls import reverse
 
 def index(request):
     """
@@ -22,8 +24,18 @@ def index(request):
     context = context_initializer(request, context)
     context["character_list"] = Character.objects.all()
     
-    return render(request, "database/index.html", context)
-# Create your views here.
+    return redirect(reverse("database:frame_data_index"))
+
+
+class FrameDataIndexView(ListView):
+    model = Character
+    template_name = "database/frame_data.html"
+    context_object_name = 'character_list'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
 
 ##以下movelist
 
@@ -127,6 +139,12 @@ class MoveDetail(DetailView):
     template_name = 'database/move_detail.html'
     context_object_name = "move"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+
+
+
 class MoveCreate(CreateView):
     model = Move
     form_class = CreateMoveForm
@@ -143,6 +161,10 @@ class MoveCreate(CreateView):
         chara = Character.objects.filter(id=self.request.GET["character"]).get()
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
 
 
 class MoveUpdate(UpdateView):
@@ -155,6 +177,10 @@ class MoveUpdate(UpdateView):
         instance = form.save()
         success_url=f'/database/move_detail/{self.get_object().id}'
         return HttpResponseRedirect(success_url)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
 
 
 def moveCreateSuccess(request):

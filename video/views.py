@@ -3,6 +3,7 @@
 ##video/views.py
 ##
 
+from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
 from top.util.page_initializer import context_initializer
@@ -16,6 +17,7 @@ import json
 import feedparser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.urls import reverse
 
 def index(request):
     """
@@ -26,7 +28,8 @@ def index(request):
     context = context_initializer(request, context)
     
     
-    return render(request, "video/index.html", context)
+    #return render(request, "video/index.html", context)
+    return redirect(reverse("video:channels"))
 # Create your views here.
 
 class ChannelsList(ListView):
@@ -80,14 +83,12 @@ class ChannelsList(ListView):
         
         context = super().get_context_data(**kwargs)
         context = context_initializer(self.request,context)
-        context['current_sort'] = self.request.GET.get('channel_sort_field','videocount')
+        context['current_sort'] = self.request.GET.get('channel_sort_field','viewcount_desc')
         context['search_form'] = ChannelSearchForm(self.request.GET)
         context['search_order_form'] = ChannelSortForm(self.request.GET)
         
         return context
     
-
-
 
 class ChannelDetail(DetailView):
     """
@@ -104,7 +105,12 @@ class ChannelDetail(DetailView):
         context['video_list'] = Video.objects.filter(video_owner_channel_id = self.object.channel_id).order_by('-published_at')
         tags_data = context['channel'].tags.all()
         context['tags'] = json.dumps(list(tags_data.values()),ensure_ascii = False)
-        context['favorite'] = FavoriteChannel.objects.filter(user=self.request.user,channel_id=self.object.id)
+        
+        if not isinstance(self.request.user, AnonymousUser):
+            context['favorite'] = FavoriteChannel.objects.filter(user=self.request.user, channel_id=self.object.id)
+        else:
+            context['favorite'] = None  # ログインしていない場合、favoriteをNoneに設定するなどのエラーハンドリングを行う
+        
         return context
       
       #TODO ↓　削除していいかチェック

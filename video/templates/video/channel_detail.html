@@ -85,7 +85,7 @@
                                     <button @click="addFavorite()" class="favorite_button">お気に入りに追加</button>
                                 </div>
                                 {% else %}
-                                <a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">ログイン</a>
+                                <a href="{% url 'login' %}?next={% url 'video:channel_detail' channel.id %}">ログイン</a>
                                 するとお気に入りに追加できます。
                                 {% endif %}
 
@@ -144,7 +144,7 @@
                 </div>
             </div>
             <div class="channel_detail_recent_video_title">
-                最近の動画 20件
+                最近の動画
             </div>
             <div class="channel_detail_recent_video_list">
                 {% for video in video_list%}

@@ -3,44 +3,118 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}" />
     <title>
         TEKKEN MANIAX TOP
     </title>
-    <script data-ad-client="ca-pub-7596622095136507" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
-<header class="header">
-    {% include 'top/site_header.html' %}
+    <header class="header">
+        {% include 'top/site_header.html' %}
 
-</header>
+    </header>
 
-<div class="wrapper">
-    <main class="main">
-        <div class="page_title_field">
-            TEKKEN MANIAX
-        </div>
-        <div class="page_introduction_field">
-            <div class="page_introduction_field_section">
-                このサイトは鉄拳に関する情報サイトになる予定です。
+    <div class="wrapper">
+        <main class="main">
+            <div class="page_title_field">
+                TEKKEN8 MANIAX
             </div>
-            <div class="page_introduction_field_section">
-                <div class="title_of_contents_label">
-					<a href="{% url 'guide:index' %}">Tekken GUIDE</a>
+            <div class="page_introduction_field">
+                <div class="page_introduction_field_section">
+                    このサイトは鉄拳に関する情報サイトです。<br>
+                    現在は鉄拳8に関する情報を取り扱っています。
                 </div>
-                <div class="title_of_contents_contents">
-					鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br/>
-					初心者～上級者まで実力問わず、有用な情報を共有できます<br/>
-                </div>
-            </div>
-        </div>
-    </main>
 
-</div>
-<footer>
-	{% include 'top/footer.html' %}
-</footer>
+
+
+
+                <div class="site_menu_title">
+                    <h2>サイトメニュー</h2>
+                </div>
+                <div class="site_menu_contents">
+
+                    <div class="site_menu_content">
+                        <div class="site_menu_content_label">
+                            <a href="{% url 'guide:index' %}">GUIDE</a>
+                        </div>
+                        <div class="title_of_contents_contents">
+                            鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br />
+                            初心者～上級者まで実力問わず、有用な情報を共有できます<br />
+                        </div>
+                    </div>
+
+
+                    <div class="site_menu_content">
+                        <div class="site_menu_content_label">
+                            <a href="{% url 'database:index' %}">Database</a>
+                        </div>
+                        <div class="title_of_contents_contents">
+                            鉄拳に関するデータベースです。<br />
+                            現在は技のフレームデータを掲載しています。<br />
+                        </div>
+                    </div>
+                    <div class="site_menu_content">
+                        <div class="site_menu_content_label">
+                            <a href="{% url 'stream:index' %}">Stream</a>
+                        </div>
+                        <div class="title_of_contents_contents">
+                            現在、鉄拳を配信中のYoutubeとtwitchのチャンネルチェッカーです。<br />
+                            ５分ごとに更新。
+
+                            <br />
+                        </div>
+                    </div>
+                    <div class="site_menu_content">
+                        <div class="site_menu_content_label">
+                            <a href="{% url 'video:index' %}">Video</a>
+                        </div>
+                        <div class="title_of_contents_contents">
+                            鉄拳の動画のアップロードや配信などをやっているYoutubeチャンネルの一覧です。
+                            1日１回更新してます。
+
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                {% if user.is_staff == True %}
+                <div class="change_log_management">
+                    <div class="change_log_management_title">
+                        更新履歴管理用メニュー
+                    </div>
+                    <div class="change_log_management_content">
+                        <ul>
+                            <li><a href="{% url 'top:create_change_log' %}"> 更新履歴作成ページへ </a></li>
+                            <li><a href="{% url 'top:list_change_log' %}">更新履歴一覧ページへ</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                {% endif %}
+                <div class="change_logs">
+                    <div class="change_log_title">
+                        <h2>更新履歴</h2>
+                    </div>
+                    {% for log in changeLog %}
+                    <div class="change_log">
+                        {{log.pub_date}} : {{log.log}}
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
 </body>
 
 </html>

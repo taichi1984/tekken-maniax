@@ -47,3 +47,7 @@ main {
 .form_item_form{
     margin:0px 10px 10px 10px;
 }
+
+input{
+    padding:5px;
+}

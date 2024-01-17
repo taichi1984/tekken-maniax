@@ -1,8 +1,12 @@
 @import url("/static/top/css/site_header.css");
 @import url("/static/top/css/footer.css");
+
+/* 共通スタイル */
+
 * {
     margin:0;
     padding:0;
+  
 }
 
 a{
@@ -11,19 +15,13 @@ a{
 a:hover{
     color:blue;
 }
+
 body {
     padding:0px;
     background-color:white;
     color: black;
 }
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 970px;
-    margin: 30px auto 40px;
-}
-
+    
 main {
     width :100%;
     display: block;
@@ -33,13 +31,107 @@ main {
 .page_title_field{
     font-size:30px;
     font-weight:bolder;
+    margin-bottom:30px;
 }
 
+.change_logs{
+    margin-top:30px;
+    margin-bottom:100px;
+   
+
+}
+.change_log{
+    margin:5px;
+    margin-top:10px;
+    margin-left:5px;
+    line-height:50px;
+    font-size:22px;
+   
+}
+.change_log_title{
+    padding:10px;
+    color:white;
+    background-color:black;
+}
+
+.change_log_manaegement{
+    margin-top:30px;
+    margin-bottom:100px;
+   
+
+}
+.change_log_management_content{
+    margin:5px;
+    margin-top:10px;
+    margin-left:5px;
+    line-height:50px;
+    font-size:22px;
+   
+}
+.change_log_management_title{
+    padding:10px;
+    color:white;
+    background-color:black;
+}
 .page_introduction_field{
-
+    display:flex;
+    flex-direction:column;
 }
-
 .page_introduction_field_section{
     margin:10px 0px 10px 0px;
 
+}
+.site_menu_title{
+    padding:10px;
+    color:white;
+    background-color:black;
+    margin-top:20px;
+    
+}
+.site_menu_contents{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+}
+.site_menu_content{
+    width:600px;
+    margin:20px 20px 20px 20px;
+
+}
+.site_menu_content_label{
+    font-size:40px;
+    margin:20px 20px 20px 20px;
+
+}
+
+@media screen and (orientation: landscape){
+ 
+  
+    
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 1600px;
+        margin: 30px auto 40px;
+    }
+
+}
+
+
+@media screen and (orientation: portrait) {
+
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 970px;
+        margin: 30px auto 40px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+ 
 }

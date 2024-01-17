@@ -1,0 +1,52 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}" />
+    <title>
+        TEKKEN MANIAX TOP
+    </title>
+    <script data-ad-client="ca-pub-7596622095136507" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        {% include 'top/site_header.html' %}
+
+    </header>
+
+    <div class="wrapper">
+        <main class="main">
+            <div class="page_title_field">
+                更新履歴編集ページ
+            </div>
+            <div class="new_log">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">作成する</button>
+                </form>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        更新履歴、編集・削除ページへ
+                    </li>
+            
+                </ul>
+
+
+            </div>
+
+        </main>
+
+    </div>
+    <footer>
+        {% include 'top/footer.html' %}
+    </footer>
+</body>
+
+</html>

@@ -52,3 +52,7 @@ main {
 .forget_password{
     margin-top:10px;
 }
+
+input {
+    padding:5px;
+}

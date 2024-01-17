@@ -7,6 +7,10 @@ app_name = "top"
 urlpatterns = [
     # index page
     path('', views.index, name='index'),
+    path('create_change_log/',views.CreateChangeLog.as_view(),name='create_change_log'),
+    path('list_change_log/',views.ListChangeLog.as_view(),name='list_change_log'),
+    path('update_change_log/<int:pk>',views.UpdateChangeLog.as_view(),name='update_change_log'),
+    path('delete_change_log/<int:pk>' ,views.DeleteChangeLog.as_view(),name='delete_change_log'),
     path('how_to_register/', views.how_to_register, name="how_to_register"),
     path('notation/', views.notation, name="notation"),
     path('register/registration_finish', views.registration_finish, name="registration_finish"),

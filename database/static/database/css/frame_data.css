@@ -1,0 +1,124 @@
+@import url("/static/top/css/site_header.css");
+@import url("database_header.css");
+@import url("/static/top/css/footer.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    padding: 0px;
+    background-color: #FAFAFA;
+    color: black;
+    min-height: 100vh;
+}
+
+
+main {
+
+}
+
+/*サイトのコンテンツ部分、各ガイドに対するリンクなど*/
+
+
+.contents_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:1800px;
+    margin: 30px auto 40px;
+}
+
+/**キャラクターごとのガイド検索へのリンク**/
+.character_guide_container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.character_guide_title {
+    padding-left:10px;
+    color:white;
+    background-color: black;
+    font-size: 30px;
+    font-weight:bold;
+}
+
+.character_guide_area {
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top:15px;
+}
+
+.character_guide_item {
+    display:flex;
+    flex-direction:column;
+    margin: 10px;
+    width: 130px;
+}
+
+.character_guide_item:hover{
+
+    background-color:yellow;
+}
+
+.character_guide_item a{
+    color:black;
+}
+
+.character_guide_icon_img{
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.6);
+}
+
+.character_guide_item a:hover{
+
+    color:blue;
+
+}
+.character_guide_character_name{
+    font-weight: bold;
+}
+.character_guide_num_of_guides{
+    margin-top:auto;
+}
+.num_of_guides{
+    font-weight: bold;
+    color:blue;
+}
+
+
+
+@media screen and (orientation: landscape){
+   
+
+    .contents_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:1800px;
+        margin: 30px auto 40px;
+    }
+
+    
+
+}
+@media screen and (orientation: portrait) {
+
+
+    .contents_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:970px;
+        margin: 30px auto 40px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+ 
+}

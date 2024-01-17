@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script data-ad-client="ca-pub-7596622095136507" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163168954-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163168954-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'top/css/notification.css' %}"/>
+    <title>
+        通知一覧
+    </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{% static 'top/js/notification.js' %}"></script>
+</head>
+
+<body>
+<header class="header">
+    {% include 'top/site_header.html' %}
+</header>
+<div class="wrapper">
+    <main class="main">
+        
+        
+
+        <table class="notification_table" border="3">
+            <tr>
+                <th>日付</th>
+
+                <th>通知内容</th>
+                <th>編集</th>
+                <th>削除</th>
+
+            </tr>
+            {% for log in ChangeLog %}
+                <tr>
+                    <td>{{ log.pub_date }}</td>
+                    <td>{{ log.log }}</td>
+                    <td><a href="{% url 'top:update_change_log' log.id %}">編集する</a></td>
+                    <td><a href="{% url 'top:delete_change_log' log.id %}">削除する</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+        <div class="pagination">
+            <div class="pagination_previous">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" target="_self">>&laquo;</a>　　
+                    <a href="?page={{ page_obj.previous_page_number }}" target="_self">> 前へ </a>
+                {% endif %}
+            </div>
+            <div class="pagination_current">
+                {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ目
+            </div>
+            <div class="pagination_next">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" target="_self"> 次へ </a>　　
+                    <a href="?page={{ page_obj.paginator.num_pages }}" target="_self">>&raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+</div>
+<footer>
+    {% include 'top/footer.html' %}
+</footer>
+</body>
+</html>
