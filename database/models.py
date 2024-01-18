@@ -73,6 +73,12 @@ class Move(models.Model):
     is_combo_hit = models.BooleanField(default=False)
     is_combo_counter = models.BooleanField(default=False)
     is_combo_crouch_hit = models.BooleanField(default=False)
+    is_heat_related = models.BooleanField(default=False)
+    is_10ren = models.BooleanField(default=False)
+    is_rage_related = models.BooleanField(default=False)
+    is_crouch_move = models.BooleanField(default=False)
+    is_basic_move = models.BooleanField(default=False)
+    
     note = models.TextField(null=True, blank=True)
 
     def __str__(self):
