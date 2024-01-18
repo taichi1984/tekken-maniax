@@ -37,10 +37,12 @@
             </div>
 
             <div class="character_guide_area">
-                技作成
+                技更新
                 <form method="post">
+                    <table>
                     {%csrf_token%}
-                    {{form.as_p}}
+                    {{form.as_table}}
+                    </table>
                     <button type="submit">Create</button>
                 </form>
             </div>

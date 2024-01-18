@@ -164,7 +164,10 @@ class MoveCreate(CreateView):
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
     
-    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = context_initializer(self.request, context)
+        return context
 
 
 class MoveUpdate(UpdateView):
@@ -181,6 +184,7 @@ class MoveUpdate(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = context_initializer(self.request, context)
+        return context
 
 
 def moveCreateSuccess(request):
