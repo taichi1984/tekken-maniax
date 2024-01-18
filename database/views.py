@@ -154,7 +154,7 @@ class MoveCreate(CreateView):
 
     def form_valid(self,form):
         instance = form.save()
-        success_url=f'/database/move_list?character={self.request.GET["character"]}'
+        success_url=f'/database/frame_data/move_list?character={self.request.GET["character"]}'
         return HttpResponseRedirect(success_url)
 
 
@@ -178,7 +178,7 @@ class MoveUpdate(UpdateView):
 
     def form_valid(self,form):
         instance = form.save()
-        success_url=f'/database/move_detail/{self.get_object().id}'
+        success_url=f'/database/frame_data/move_detail/{self.get_object().id}'
         return HttpResponseRedirect(success_url)
     
     def get_context_data(self, **kwargs):
