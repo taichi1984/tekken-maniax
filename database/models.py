@@ -29,6 +29,14 @@ class HitLevel(models.Model):
     def __str__(self):
         return self.name
 
+class MoveType(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    character = models.ForeignKey(Character, on_delete=models.SET_NULL, default="",null=True)
+    name = models.CharField(max_length=10)
+    order = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return str(self.id) + " : " + self.name
 
 class Move(models.Model):
     id = models.AutoField(primary_key=True,auto_created=True)
@@ -36,6 +44,7 @@ class Move(models.Model):
     name_jp_ruby = models.CharField(max_length=100,default="",null=True, blank=True)
     name_en = models.CharField(max_length=100,default="",null=True, blank=True)
     character = models.ForeignKey(Character,on_delete=models.SET_NULL,default="",null=True)
+    move_type = models.ForeignKey(MoveType,on_delete=models.SET_NULL,default="",null=True)
     command_jp = models.CharField(max_length=30,default="",null=True, blank=True)
     command_en = models.CharField(max_length=30,default="",null=True, blank=True)
     damage = models.IntegerField(null=True, blank=True)

@@ -7,7 +7,7 @@ from django.db.models import IntegerField,CharField, Value, Case, When, F
 from top.util.page_initializer import context_initializer
 from guide.models import Character
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
-from .models import Move
+from .models import Move,MoveType
 from .form import CreateMoveForm,UpdateMoveForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -132,6 +132,9 @@ class MoveList(ListView):
         context = super().get_context_data(**kwargs)
         context = context_initializer(self.request, context)
         context["character"] = self.request.GET["character"]
+        general = Character.objects.filter(id=1).get()
+        chara = Character.objects.filter(id=self.request.GET["character"]).get()
+        context["move_type_list"] = MoveType.objects.filter(character__in=[general,chara]).order_by('order')
         return context
 
 
@@ -154,6 +157,10 @@ class MoveCreate(CreateView):
     context_object_name = "move"
     #success_url = 'database/move_create/success'
     
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['character'] = self.request.GET.get('character',1)
+        return initial
 
     def form_valid(self,form):
         instance = form.save()
@@ -163,7 +170,9 @@ class MoveCreate(CreateView):
 
     def get_form(self,form_class=None):
         form = super().get_form(form_class)
+        general = Character.objects.filter(id=1).get()
         chara = Character.objects.filter(id=self.request.GET["character"]).get()
+        form.fields['move_type'].queryset = MoveType.objects.filter(character__in=[general,chara])
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
     

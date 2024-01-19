@@ -9,6 +9,7 @@ class CreateMoveForm(forms.ModelForm):
         "name_jp_ruby",
         "name_en",
         "character",
+        "move_type",
         "command_jp",
         "command_en",
         "damage",
@@ -46,8 +47,16 @@ class CreateMoveForm(forms.ModelForm):
         "is_combo_hit",
         "is_combo_counter",
         "is_combo_crouch_hit",
+        "is_heat_related",
+        "is_10ren",
+        "is_rage_related", 
+        "is_crouch_move",
+        "is_basic_move",
         "note"
     ]
+    widgets={
+        'character':forms.HiddenInput(),
+    }
 
 class UpdateMoveForm(forms.ModelForm):
     class Meta:
@@ -57,6 +66,7 @@ class UpdateMoveForm(forms.ModelForm):
         "name_jp_ruby",
         "name_en",
         "character",
+        "move_type",
         "command_jp",
         "command_en",
         "damage",
@@ -94,6 +104,15 @@ class UpdateMoveForm(forms.ModelForm):
         "is_combo_hit",
         "is_combo_counter",
         "is_combo_crouch_hit",
+        "is_heat_related",
+        "is_10ren",
+        "is_rage_related", 
+        "is_crouch_move",
+        "is_basic_move",
         "note"
     ]
+
+        widgets={
+        'character':forms.HiddenInput(),
+    }
 
