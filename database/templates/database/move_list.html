@@ -93,7 +93,7 @@
                     {% if move.move_type == move_type %}
                     <tr>
                         <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
-                        <td>{{move.command_jp}}</td>
+                        <td>{{move.full_command_jp}}</td>
                         <td>{{move.damage}}</td>
                         <td>{{move.hit_level}}</td>
                         <td>{{move.start_up}}</td>

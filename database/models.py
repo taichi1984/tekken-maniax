@@ -32,7 +32,7 @@ class HitLevel(models.Model):
 class MoveType(models.Model):
     id = models.AutoField(primary_key=True,auto_created=True)
     character = models.ForeignKey(Character, on_delete=models.SET_NULL, default="",null=True)
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=50)
     order = models.IntegerField(default=0)
     
     def __str__(self):
