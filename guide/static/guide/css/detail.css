@@ -359,10 +359,6 @@ main {
     background-color: beige;
 }
 
-.section_article img {
-    max-width: 600px;
-    max-height: 600px;
-}
 
 .section_article table {
     margin: 20px 0px 20px 0px;
