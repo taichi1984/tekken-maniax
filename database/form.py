@@ -116,3 +116,24 @@ class UpdateMoveForm(forms.ModelForm):
         'character':forms.HiddenInput(),
     }
 
+class MoveSortForm(forms.Form):
+    move_sort_field = forms.ChoiceField(
+        choices = [
+                ('command','コマンド順'),
+                ('damage_desc','ダメージが高い順'),
+                ('damage_asc','ダメージが低い技順'),
+                ('frame_startup_asc','発生が早い順'),
+                ('frame_startup_desc','発生が遅い順'),
+                ('frame_block_desc','ガード硬直差が有利順'),
+                ('frame_block_asc','ガード硬直差が不利順'),
+                ('frame_hit_desc','ヒット硬直差が有利順'),
+                ('frame_hit_asc','ヒット硬直差が不利順'),
+                ('frame_counter_desc','カウンター硬直差が有利順'),
+                ('frame_counter_asc','カウンター硬直差が不利順'),
+                ],
+
+        widget=forms.Select(attrs={'class': 'sort_select_form'}),
+        label='並び替え',
+        required=False,
+   
+    )

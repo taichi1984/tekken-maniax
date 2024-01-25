@@ -52,6 +52,17 @@
             </div>
             {% endif %}
 
+            <div class="move_sort_form">
+                <form method="get" action="">
+                    {% if request.GET.query %}
+                    <input type="hidden" name="query" value="{{ request.GET.query }}">
+                    {% endif %}
+                    {{ move_order_form }}
+                    <input type ="hidden" name = "character" value="{{request.GET.character}}">
+                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
+                </form>
+            </div>
+
 
          
 

@@ -8,11 +8,13 @@ from top.util.page_initializer import context_initializer
 from guide.models import Character
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from .models import Move,MoveType
-from .form import CreateMoveForm,UpdateMoveForm
+from .form import CreateMoveForm,UpdateMoveForm,MoveSortForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 import re
 from django.urls import reverse
+from operator import itemgetter
+from .util.add_full_command import add_full_command_jp
 
 def index(request):
     """
@@ -108,25 +110,66 @@ class MoveList(ListView):
     context_object_name = 'move_list'
 
 
-   
     def get_queryset(self):
         character_obj = Character.objects.filter(id = self.request.GET["character"]).get()
         queryset= Move.objects.filter(character=character_obj)
 
-        for query in queryset:
-            parent_move = query.parent_move
-            full_command_jp = query.command_jp
+        queryset = add_full_command_jp(queryset)
+        sort = self.request.GET.get('move_sort_field','command')
 
-            while parent_move:
-                full_command_jp = f"{parent_move.command_jp} > {full_command_jp}"
-                parent_move = parent_move.parent_move
-            
-            query.full_command_jp = full_command_jp
-        
-        
-        sorted_queryset = sorted(queryset,key=custom_order_key)
+        if sort =='command':
+            queryset = sorted(queryset,key=custom_order_key)
 
-        return sorted_queryset
+        elif sort == 'damage_desc':
+            queryset = queryset.order_by("-damage")
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'damage_asc':
+            queryset = queryset.order_by('damage')
+            queryset = add_full_command_jp(queryset)
+
+        elif sort == 'frame_startup_desc':
+            queryset = queryset.order_by('-frame_startup')
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'frame_startup_asc':
+            queryset = queryset.order_by('frame_startup')
+            queryset = add_full_command_jp(queryset)
+
+        elif sort == 'frame_block_desc':
+            queryset = queryset.order_by('-frame_block')
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'frame_block_asc':
+            queryset = queryset.order_by('frame_block')
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'frame_hit_desc':
+            queryset = queryset.order_by('-frame_hit')
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'frame_hit_asc':
+            queryset = queryset.order_by('frame_hit')
+            queryset = add_full_command_jp(queryset)
+
+        elif sort == 'frame_counter_desc':
+            queryset = queryset.order_by('-frame_counter')
+            queryset = add_full_command_jp(queryset)
+        
+        elif sort == 'frame_counter_asc':
+            queryset = queryset.order_by('frame_counter')
+            queryset = add_full_command_jp(queryset)
+
+
+        return queryset
+
+
+
+        sort = self.request.GET.get('channel_sort_field','viewcount_desc')
+        
+
+        
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -135,6 +178,7 @@ class MoveList(ListView):
         general = Character.objects.filter(id=1).get()
         chara = Character.objects.filter(id=self.request.GET["character"]).get()
         context["move_type_list"] = MoveType.objects.filter(character__in=[general,chara]).order_by('order')
+        context['move_order_form'] = MoveSortForm(self.request.GET)
         return context
 
 
