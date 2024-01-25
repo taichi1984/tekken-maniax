@@ -27,6 +27,7 @@ urlpatterns = [
     path('database/',include('database.urls')),
     path('stream/',include('stream.urls')),
     path('video/',include('video.urls')),
+    path('news/',include('news.urls'))
 ]
 
 urlpatterns += static(settings.CERT_URL, document_root=settings.CERT_ROOT)

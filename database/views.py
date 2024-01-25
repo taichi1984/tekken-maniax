@@ -193,6 +193,14 @@ class MoveUpdate(UpdateView):
         success_url=f'/database/frame_data/move_detail/{self.get_object().id}'
         return HttpResponseRedirect(success_url)
     
+    def get_form(self,form_class=None):
+        form = super().get_form(form_class)
+        general = Character.objects.filter(id=1).get()
+        chara = self.get_object().character
+        form.fields['move_type'].queryset = MoveType.objects.filter(character__in=[general,chara])
+        form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
+        return form
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = context_initializer(self.request, context)
