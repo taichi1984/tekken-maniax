@@ -87,6 +87,7 @@
                         <th>技名</th>
                         <th>コマンド</th>
                         <th>ダメージ</th>
+                   
                         <th>判定</th>
                         <th>発生</th>
                         <th>投げ抜けコマンド</th>
@@ -106,6 +107,7 @@
                         <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
                         <td>{{move.full_command_jp}}</td>
                         <td>{{move.damage}}</td>
+                   
                         <td>{{move.hit_level}}</td>
                         <td>{{move.start_up}}</td>
                         <td>{{move.throw_tech}}</td>
@@ -153,6 +155,7 @@
                     <th>技名</th>
                     <th>コマンド</th>
                     <th>ダメージ</th>
+                    <th>削りダメージ<br>(ヒート時)</th>
                     <th>判定</th>
                     <th>発生</th>
                     <th>ガード</th>
@@ -173,6 +176,7 @@
                     <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
                     <td>{{move.full_command_jp}}</td>
                     <td>{{move.damage}}</td>
+                    <td>{{move.guard_damage}}({{move.guard_damage_heat}})</td>
                     <td>{{move.hit_level}}</td>
                     <td>
                         {% if move.frame_startup == None%}

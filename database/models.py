@@ -48,6 +48,8 @@ class Move(models.Model):
     command_jp = models.CharField(max_length=30,default="",null=True, blank=True)
     command_en = models.CharField(max_length=30,default="",null=True, blank=True)
     damage = models.IntegerField(null=True, blank=True)
+    guard_damage = models.IntegerField(null=True,blank=True)
+    guard_damage_heat = models.IntegerField(null=True,blank=True)
     hit_level = models.ForeignKey(HitLevel,on_delete=models.SET_NULL,default="",null=True)
     frame_startup = models.IntegerField(null=True, blank=True)
     frame_active = models.IntegerField(null=True, blank=True)
