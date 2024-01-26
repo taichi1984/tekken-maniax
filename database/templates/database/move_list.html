@@ -189,14 +189,17 @@
                         {{move.frame_block}}
                         {% endif %}
                         {% if move.state_enemy_block.name == "足側仰向けダウン" or move.state_enemy_block.name == "足側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" %}
-                        　D
+                        <br>
+                        D
                         {% endif %}
                         {% if move.state_enemy_block.name == "空中浮かせ(通常)" or move.state_enemy_block.name == "空中浮かせ(高)" or move.state_enemy_block.name == "空中浮かせ(高)" %}
-                        　C
+                        <br>
+                        C
                         {% endif %}
 
                         {%if move.state_enemy_block.name == "腹崩れ" %}
-                        　腹崩れ
+                        <br>
+                        腹崩れ
                         {% endif %}
                     </td>
                     <td>
@@ -205,15 +208,18 @@
                         {{move.frame_hit}}
                         {% endif %}
                         {% if move.state_enemy_hit.name == "足側仰向けダウン" or move.state_enemy_hit.name == "足側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" %}
-                        　Down
+                        <br>
+                        Down
                         {% endif %}
                         {% if move.state_enemy_hit.name == "空中浮かせ(通常)" or move.state_enemy_hit.name == "空中浮かせ(高)" or move.state_enemy_hit.name == "空中浮かせ(高)" %}
-                        　Combo
+                        <br>
+                        Combo
                         {% endif %}
 
          
                         {%if move.state_enemy_hit.name == "腹崩れ" %}
-                        　腹崩れ
+                        <br>
+                        腹崩れ
                         {% endif %}
                     </td>
                     <td>
@@ -222,15 +228,18 @@
                         {{move.frame_counter}}
                         {% endif %}
                         {% if move.state_enemy_counter.name == "足側仰向けダウン" or move.state_enemy_counter.name == "足側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" %}
-                        　D
+                        <br>
+                        D
                         {% endif %}
                         {% if move.state_enemy_counter.name == "空中浮かせ(通常)" or move.state_enemy_counter.name == "空中浮かせ(高)" or move.state_enemy_counter.name == "空中浮かせ(高)" %}
-                        　C
+                        <br>
+                        C
                         {% endif %}
 
 
                         {%if move.state_enemy_counter.name == "腹崩れ" %}
-                        　腹崩れ
+                        <br>
+                        腹崩れ
                         {% endif %}
                     
                     </td>
