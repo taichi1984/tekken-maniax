@@ -175,10 +175,11 @@
                     <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
                     <td>{{move.full_command_jp}}</td>
                     <td>{{move.damage}}</td>
-                    <td>{{move.guard_damage}}({{move.guard_damage_heat}})</td>
+                    <td>{{move.guard_damage}} ({{move.guard_damage_heat}})</td>
                     <td>{{move.hit_level}}</td>
                     <td>
-                        {% if move.frame_startup == None%}
+                        {% if move.frame_startup == None %}
+                        -
                         {% else %}
                         {{move.frame_startup}}
                         {% endif %}
@@ -186,7 +187,7 @@
                     </td>
                     <td>
                         {% if move.frame_block == None%}
-                     
+                        -
                         {% else %}
                         {{move.frame_block}}
                         {% endif %}
@@ -194,6 +195,7 @@
                     </td>
                     <td>
                         {% if move.frame_hit == None%}
+                        -
                         {% else %}
                         {{move.frame_hit}}
                         {% endif %}
@@ -202,6 +204,7 @@
                     </td>
                     <td>
                         {% if move.frame_counter == None %}
+                        -
                         {% else %}
                         {{move.frame_counter}}
                         {% endif %}
