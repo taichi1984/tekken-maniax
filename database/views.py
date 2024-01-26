@@ -115,6 +115,7 @@ class MoveList(ListView):
         queryset= Move.objects.filter(character=character_obj)
 
         queryset = add_full_command_jp(queryset)
+        
         sort = self.request.GET.get('move_sort_field','command')
 
         if sort =='command':

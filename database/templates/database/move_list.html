@@ -87,7 +87,6 @@
                         <th>技名</th>
                         <th>コマンド</th>
                         <th>ダメージ</th>
-                   
                         <th>判定</th>
                         <th>発生</th>
                         <th>投げ抜けコマンド</th>
@@ -180,7 +179,6 @@
                     <td>{{move.hit_level}}</td>
                     <td>
                         {% if move.frame_startup == None%}
-                     
                         {% else %}
                         {{move.frame_startup}}
                         {% endif %}
@@ -192,59 +190,23 @@
                         {% else %}
                         {{move.frame_block}}
                         {% endif %}
-                        {% if move.state_enemy_block.name == "足側仰向けダウン" or move.state_enemy_block.name == "足側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" %}
-                        <br>
-                        D
-                        {% endif %}
-                        {% if move.state_enemy_block.name == "空中浮かせ(通常)" or move.state_enemy_block.name == "空中浮かせ(高)" or move.state_enemy_block.name == "空中浮かせ(高)" %}
-                        <br>
-                        C
-                        {% endif %}
-
-                        {%if move.state_enemy_block.name == "腹崩れ" %}
-                        <br>
-                        腹崩れ
-                        {% endif %}
+                    
                     </td>
                     <td>
                         {% if move.frame_hit == None%}
                         {% else %}
                         {{move.frame_hit}}
                         {% endif %}
-                        {% if move.state_enemy_hit.name == "足側仰向けダウン" or move.state_enemy_hit.name == "足側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" %}
                         <br>
-                        Down
-                        {% endif %}
-                        {% if move.state_enemy_hit.name == "空中浮かせ(通常)" or move.state_enemy_hit.name == "空中浮かせ(高)" or move.state_enemy_hit.name == "空中浮かせ(高)" %}
-                        <br>
-                        Combo
-                        {% endif %}
-
-         
-                        {%if move.state_enemy_hit.name == "腹崩れ" %}
-                        <br>
-                        腹崩れ
-                        {% endif %}
+                        {{move.frame_hit_es}}
                     </td>
                     <td>
                         {% if move.frame_counter == None %}
                         {% else %}
                         {{move.frame_counter}}
                         {% endif %}
-                        {% if move.state_enemy_counter.name == "足側仰向けダウン" or move.state_enemy_counter.name == "足側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" %}
-                        <br>
-                        Down
-                        {% endif %}
-                        {% if move.state_enemy_counter.name == "空中浮かせ(通常)" or move.state_enemy_counter.name == "空中浮かせ(高)" or move.state_enemy_counter.name == "空中浮かせ(高)" %}
-                        <br>
-                        Combo
-                        {% endif %}
-
-
-                        {%if move.state_enemy_counter.name == "腹崩れ" %}
-                        <br>
-                        腹崩れ
-                        {% endif %}
+                       <br>
+                       {{move.frame_counter_es}}
                     
                     </td>
                     <td>
