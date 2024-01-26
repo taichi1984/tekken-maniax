@@ -188,14 +188,14 @@
                         {% else %}
                         {{move.frame_block}}
                         {% endif %}
-                        {% if move.state_enemy_block.name == "足側仰向けダウン" ||move.state_enemy_block.name == "足側うつ伏せダウン" || move.state_enemy_block.name == "頭側うつ伏せダウン" || move.state_enemy_block.name == "頭側うつ伏せダウン" %}
+                        {% if move.state_enemy_block.name == "足側仰向けダウン" or move.state_enemy_block.name == "足側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" or move.state_enemy_block.name == "頭側うつ伏せダウン" %}
                         　D
                         {% endif %}　
-                        {% if move.state_enemy_block.name == "空中浮かせ(通常)" ||move.state_enemy_block.name == "空中浮かせ(高)" || move.state_enemy_block.name == "空中浮かせ(高)" %}
+                        {% if move.state_enemy_block.name == "空中浮かせ(通常)" or move.state_enemy_block.name == "空中浮かせ(高)" or move.state_enemy_block.name == "空中浮かせ(高)" %}
                         　C
                         {% endif %}　
 
-                        {% endif %}
+    
                         {%if move.state_enemy_block.name == "腹崩れ" %}
                         　腹
                         {% endif %}
@@ -205,14 +205,14 @@
                         {% else %}
                         {{move.frame_hit}}
                         {% endif %}
-                        {% if move.state_enemy_hit.name == "足側仰向けダウン" ||move.state_enemy_hit.name == "足側うつ伏せダウン" || move.state_enemy_hit.name == "頭側うつ伏せダウン" || move.state_enemy_hit.name == "頭側うつ伏せダウン" %}
+                        {% if move.state_enemy_hit.name == "足側仰向けダウン" or move.state_enemy_hit.name == "足側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" or move.state_enemy_hit.name == "頭側うつ伏せダウン" %}
                         　D
                         {% endif %}　
-                        {% if move.state_enemy_hit.name == "空中浮かせ(通常)" ||move.state_enemy_hit.name == "空中浮かせ(高)" || move.state_enemy_hit.name == "空中浮かせ(高)" %}
+                        {% if move.state_enemy_hit.name == "空中浮かせ(通常)" or move.state_enemy_hit.name == "空中浮かせ(高)" or move.state_enemy_hit.name == "空中浮かせ(高)" %}
                         　C
                         {% endif %}　
 
-                        {% endif %}
+         
                         {%if move.state_enemy_hit.name == "腹崩れ" %}
                         　腹
                         {% endif %}
@@ -222,14 +222,14 @@
                         {% else %}
                         {{move.frame_counter}}
                         {% endif %}
-                        {% if move.state_enemy_counter.name == "足側仰向けダウン" ||move.state_enemy_counter.name == "足側うつ伏せダウン" || move.state_enemy_counter.name == "頭側うつ伏せダウン" || move.state_enemy_counter.name == "頭側うつ伏せダウン" %}
+                        {% if move.state_enemy_counter.name == "足側仰向けダウン" or move.state_enemy_counter.name == "足側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" or move.state_enemy_counter.name == "頭側うつ伏せダウン" %}
                         　D
                         {% endif %}　
-                        {% if move.state_enemy_counter.name == "空中浮かせ(通常)" ||move.state_enemy_counter.name == "空中浮かせ(高)" || move.state_enemy_counter.name == "空中浮かせ(高)" %}
+                        {% if move.state_enemy_counter.name == "空中浮かせ(通常)" or move.state_enemy_counter.name == "空中浮かせ(高)" or move.state_enemy_counter.name == "空中浮かせ(高)" %}
                         　C
                         {% endif %}　
 
-                        {% endif %}
+
                         {%if move.state_enemy_counter.name == "腹崩れ" %}
                         　腹
                         {% endif %}
