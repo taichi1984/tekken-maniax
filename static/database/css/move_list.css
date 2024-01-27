@@ -96,10 +96,39 @@ main {
     padding:5px 5px 5px 5px;
 }
 
+.move_list_character_title{
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top:30px;
+    margin-bottom:30px;
+    width:100%;
+    border-top:solid 10px black;
+    border-bottom:solid 10px black;
+}
+.staff_menu{
+    margin-top:30px;
+    margin-bottom:30px;
+}
 .move_list_index{
     margin-top:10px;
     margin-bottom:10px;
 }
+.move_sort_form{
+    height:50px;
+    padding-top:30px;
+    padding-left:30px;
+    background-color:aqua;
+}
+.move_sort_form input{
+ 
+padding:5px;
+
+}
+.move_sort_form select{
+ 
+    padding:5px;
+    
+    }
 
 @media screen and (orientation: landscape){
  
