@@ -50,7 +50,7 @@ def add_full_command_jp(queryset):
             elif (query.state_enemy_counter.name == "空中浮かせ(通常)"
             or query.state_enemy_counter.name == "空中浮かせ(高)"
             or query.state_enemy_counter.name == "空中浮かせ(低)"
-            or query.state_enemy_counter.name == "空中トルネード"
+            or query.state_enemy_counter.name == "トルネード"
             or query.state_enemy_counter.name == "腹崩れ"):
                 query.frame_counter_es = "Combo"
             elif (query.state_enemy_counter.name == "立ち(ガード可能硬直)"
