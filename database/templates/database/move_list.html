@@ -107,9 +107,23 @@
                         <td>{{move.full_command_jp}}</td>
                         <td>{{move.damage}}</td>
                         <td>{{move.hit_level}}</td>
-                        <td>{{move.frame_startup}}</td>
+                        <td>
+                            {% if move.frame_startup == None %}
+                            -
+                            {% else %}  
+                            {{move.frame_startup}}
+                            {% endif %}
+                    
+
+                        </td>
                         <td>{{move.throw_tech}}</td>
-                        <td>{{move.throw_tech_frame}}</td>
+                        <td>
+                            {% if move.throw_tech_frame == None %}
+                            -
+                            {% else %}  
+                            {{move.throw_tech_frame}}
+                            {% endif %}
+                        </td>
                         <td> {% if move.jump_status %}
                             <span>JS</span>
                             {% endif %}
@@ -173,8 +187,26 @@
                 <tr>
                     <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
                     <td>{{move.full_command_jp}}</td>
-                    <td>{{move.damage}}</td>
-                    <td>{{move.guard_damage}} ({{move.guard_damage_heat}})</td>
+                    <td>
+                        {% if move.damage == None %}
+                        -
+                        {% else %}  
+                        {{move.damage}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if move.guard_damage == None %}
+                        -
+                        {% else %}  
+                        {{move.guard_damage}}
+                        {% endif %}
+                        {% if move.guard_damage_heat == None %}
+                        (-)
+                        {% else %}
+                        ({{move.guard_damage_heat}})
+                        {% endif %}
+                    </td>
+                        
                     <td>{{move.hit_level}}</td>
                     <td>
                         {% if move.frame_startup == None %}
