@@ -28,6 +28,9 @@ def add_full_command_jp(queryset):
             or query.state_enemy_hit.name == "空中トルネード"
             or query.state_enemy_hit.name == "腹崩れ"):
                 query.frame_hit_es = "Combo"
+            elif (query.state_enemy_hit.name == "立ち(ガード可能硬直)"
+            or query.state_enemy_hit.name == "尻餅"):
+                query.frame_hit_es = "Guard"
             else:
                 query.frame_hit_es = ""
         
@@ -50,6 +53,9 @@ def add_full_command_jp(queryset):
             or query.state_enemy_counter.name == "空中トルネード"
             or query.state_enemy_counter.name == "腹崩れ"):
                 query.frame_counter_es = "Combo"
+            elif (query.state_enemy_counter.name == "立ち(ガード可能硬直)"
+            or query.state_enemy_counter.name == "尻餅"):
+                query.frame_counter_es = "Guard"
             else:
                 query.frame_counter_es = ""
         
