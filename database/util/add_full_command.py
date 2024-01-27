@@ -13,7 +13,7 @@ def add_full_command_jp(queryset):
         if query.state_enemy_hit:
             if (query.state_enemy_hit.name == "足側仰向けダウン" 
             or query.state_enemy_hit.name == "足側うつ伏せダウン" 
-            or query.state_enemy_hit.name == "頭側うつ伏せダウン" 
+            or query.state_enemy_hit.name == "頭側仰向けダウン" 
             or query.state_enemy_hit.name == "頭側うつ伏せダウン"
             or query.state_enemy_hit.name == "空中"
             or query.state_enemy_hit.name == "空中吹き飛び"
@@ -25,7 +25,7 @@ def add_full_command_jp(queryset):
             elif (query.state_enemy_hit.name == "空中浮かせ(通常)"
             or query.state_enemy_hit.name == "空中浮かせ(高)"
             or query.state_enemy_hit.name == "空中浮かせ(低)"
-            or query.state_enemy_hit.name == "空中トルネード"
+            or query.state_enemy_hit.name == "トルネード"
             or query.state_enemy_hit.name == "腹崩れ"):
                 query.frame_hit_es = "Combo"
             elif (query.state_enemy_hit.name == "立ち(ガード可能硬直)"
@@ -38,7 +38,7 @@ def add_full_command_jp(queryset):
         if query.state_enemy_counter:
             if (query.state_enemy_counter.name == "足側仰向けダウン" 
             or query.state_enemy_counter.name == "足側うつ伏せダウン" 
-            or query.state_enemy_counter.name == "頭側うつ伏せダウン" 
+            or query.state_enemy_counter.name == "頭側仰向けダウン" 
             or query.state_enemy_counter.name == "頭側うつ伏せダウン"
             or query.state_enemy_counter.name == "空中"
             or query.state_enemy_counter.name == "空中吹き飛び"
