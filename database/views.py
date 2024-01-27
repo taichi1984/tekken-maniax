@@ -178,6 +178,7 @@ class MoveList(ListView):
         context["character"] = self.request.GET["character"]
         general = Character.objects.filter(id=1).get()
         chara = Character.objects.filter(id=self.request.GET["character"]).get()
+        context["character_data"] = chara
         context["move_type_list"] = MoveType.objects.filter(character__in=[general,chara]).order_by('order')
         context['move_order_form'] = MoveSortForm(self.request.GET)
         return context

@@ -35,9 +35,10 @@
             <div class="page_title_field"
                 style="background-image:url('/static/guide/image/character_wp_{{ character }}.jpg')">
 
-
-
-
+            </div>
+            <div class="move_list_character_title">
+            <h1>{{character_data}}  - {{character_data.first_name_en}} {{character_data.family_name_en}}</h1>
+                
             </div>
             {% if user.is_staff %}
             <div class="staff_menu">
@@ -49,6 +50,8 @@
                         <li><a href="{% url 'database:move_create'  %}?character={{character}}">新しい技の追加</a></li>
                     </ul>
                 </div>
+            </div>
+            <div>
             </div>
             {% endif %}
 
