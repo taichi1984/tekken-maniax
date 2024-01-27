@@ -106,11 +106,10 @@
                         <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
                         <td>{{move.full_command_jp}}</td>
                         <td>{{move.damage}}</td>
-                   
                         <td>{{move.hit_level}}</td>
-                        <td>{{move.start_up}}</td>
+                        <td>{{move.frame_startup}}</td>
                         <td>{{move.throw_tech}}</td>
-                        <td>{{move.thorw_tech_frame}}</td>
+                        <td>{{move.throw_tech_frame}}</td>
                         <td> {% if move.jump_status %}
                             <span>JS</span>
                             {% endif %}
