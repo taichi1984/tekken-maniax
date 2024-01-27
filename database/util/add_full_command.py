@@ -18,6 +18,7 @@ def add_full_command_jp(queryset):
             or query.state_enemy_hit.name == "空中"
             or query.state_enemy_hit.name == "空中吹き飛び"
             or query.state_enemy_hit.name == "空中きりもみ"
+            or query.state_enemy_hit.name == "空中きりもみ吹き飛び"
             or query.state_enemy_hit.name == "空中縦回転"
             or query.state_enemy_hit.name == "叩きつけ"
             or query.state_enemy_hit.name == "空中裏返り"):
@@ -43,6 +44,7 @@ def add_full_command_jp(queryset):
             or query.state_enemy_counter.name == "空中"
             or query.state_enemy_counter.name == "空中吹き飛び"
             or query.state_enemy_counter.name == "空中きりもみ"
+            or query.state_enemy_counter.name == "空中きりもみ吹き飛び"
             or query.state_enemy_counter.name == "空中縦回転"
             or query.state_enemy_counter.name == "叩きつけ"
             or query.state_enemy_counter.name == "空中裏返り"):
