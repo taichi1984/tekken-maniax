@@ -145,6 +145,53 @@ padding:5px;
         color: black;
     }
 
+    .move_name{
+        width:200px;
+
+    }
+
+    .move_damage{
+        width:80px;
+    }
+
+    .move_dimdamage{
+        width:80px;
+
+    }
+
+    .move_hit_level{
+        width:100px;
+    }
+
+    .move_startup{
+        width:80px;
+
+    }
+    .move_guard{
+        width:80px;
+
+    }
+
+    .move_hit{
+        width:80px;
+
+    }
+
+    .move_counter{
+        width:80px;
+    }
+    .move_note{
+
+    }
+    .move_throwtech{
+        width:80px;
+
+    }
+    .move_throwtech_frame{
+        width:80px;
+
+    }
+
     
 
 }
@@ -159,8 +206,57 @@ padding:5px;
         margin: 30px auto 40px;
     }
 
+    .move_name{
+        width:200px;
+
+    }
+
+    .move_damage{
+        width:50px;
+    }
+
+    .move_dimdamage{
+        width:50px;
+
+    }
+
+    .move_hit_level{
+        width:100px;
+    }
+
+    .move_startup{
+        width:50px;
+
+    }
+    .move_guard{
+        width:50px;
+
+    }
+
+    .move_hit{
+        width:50px;
+
+    }
+
+    .move_counter{
+        width:50px;
+    }
+    .move_note{
+
+    }
+    .move_throwtech{
+        width:50px;
+
+    }
+    .move_throwtech_frame{
+        width:50px;
+
+    }
+    
+
 }
 
 @media screen and (max-width: 767px) {
  
+    
 }
