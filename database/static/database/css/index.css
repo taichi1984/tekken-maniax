@@ -254,3 +254,14 @@ main {
     flex-direction: row;
 }
 
+input{
+    padding:5px;
+    width:600px;
+}
+
+textarea{
+    padding:20px;
+    width:600px;
+    height:300px;
+    
+}
