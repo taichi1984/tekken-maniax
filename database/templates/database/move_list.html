@@ -87,27 +87,22 @@
                 </div>
                 <table class="throw_move_list_table">
                     <tr>
-                        <th>技名</th>
-                        <th>コマンド</th>
-                        <th>ダメージ</th>
-                        <th>判定</th>
-                        <th>発生</th>
-                        <th>投げ抜けコマンド</th>
-                        <th>投げ抜け後のフレーム</th>
-                        <th>特性</th>
-                        {% if user.is_staff %}
-                        <td>
-                            削除
-                        </td>
-                        {% endif %}
+                        <th class="move_name">技名・コマンド</th>
+                        <th class="move_damage">ダメージ</th>
+                        <th class="move_hit_level">判定</th>
+                        <th class="move_startup">発生</th>
+                        <th class="move_throwtech">投げ抜けコマンド</th>
+                        <th class="move_throwtech_frame">投げ抜け後のフレーム</th>
+                        <th class="move_note">備考</th>
+          
 
                     </tr>
 
                     {% for move in move_list %}
                     {% if move.move_type == move_type %}
                     <tr>
-                        <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
-                        <td>{{move.full_command_jp}}</td>
+                        <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
+            
                         <td>{{move.damage}}</td>
                         <td>{{move.hit_level}}</td>
                         <td>
@@ -127,11 +122,12 @@
                             {{move.throw_tech_frame}}
                             {% endif %}
                         </td>
-                        <td> {% if move.jump_status %}
-                            <span>JS</span>
+                        <td> 
+                            {% if move.jump_status %}
+                            <span>JS:{{move.jump_status_startup}}F</span>
                             {% endif %}
                             {% if move.crouch_status %}
-                            <span>CS</span>
+                            <span>CS : {{move.crouch_status_startup}}</span>
                             {% endif %}
                             {% if move.homing %}
                             <span><img src="{% static 'database/image/homing.png' %}"></span>
@@ -148,12 +144,10 @@
                             {% if move.diminish %}
                             <span><img src="{% static 'database/image/diminish.png' %}"></span>
                             {% endif %}
+                            <br>
+                            {{move.note}}
                         </td>
-                        {% if user.is_staff %}
-                        <td>
-
-                        </td>
-                        {% endif %}
+                     
                     </tr>
                     {% endif %}
                     {% endfor%}
@@ -167,29 +161,23 @@
 
             <table class="strike_move_list_table">
                 <tr>
-                    <th>技名</th>
-                    <th>コマンド</th>
-                    <th>ダメージ</th>
-                    <th>削りダメージ<br>(ヒート時)</th>
-                    <th>判定</th>
-                    <th>発生</th>
-                    <th>ガード</th>
-                    <th>ヒット</th>
-                    <th>カウンター</th>
-                    <th>特性</th>
-                    {% if user.is_staff %}
-                    <td>
-                        削除
-                    </td>
-                    {% endif %}
+                    <th class="move_name">技名・コマンド</th>
+                    <th class="move_damage">ダメージ</th>
+                    <th class="move_dimdamage">削りダメージ<br>(ヒート時)</th>
+                    <th class="move_hit_level">判定</th>
+                    <th class="move_startup">発生</th>
+                    <th class="move_guard">ガード</th>
+                    <th class="move_hit">ヒット</th>
+                    <th class="move_counter">カウンター</th>
+                    <th class="move_note">備考</th>
 
                 </tr>
                 {% for move in move_list %}
   
                 {% if move.move_type == move_type %}
                 <tr>
-                    <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a></td>
-                    <td>{{move.full_command_jp}}</td>
+                    <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
+                  
                     <td>
                         {% if move.damage == None %}
                         -
@@ -248,32 +236,31 @@
                     </td>
                     <td>
                         {% if move.jump_status %}
-                        <span>JS</span>
+                        <span>JS  : {{move.jump_status_startup}}　</span>
                         {% endif %}
                         {% if move.crouch_status %}
-                        <span>CS</span>
+                        <span>CS  : {{move.crouch_status_startup}}　</span>
                         {% endif %}
                         {% if move.homing %}
-                        <span><img src="{% static 'database/image/homing.png' %}"></span>
+                        <span><img src="{% static 'database/image/homing.png' %}">　</span>
+                       
                         {% endif %}
                         {% if move.power_crash %}
-                        <span><img src="{% static 'database/image/powercrash.png' %}"></span>
+                        <span><img src="{% static 'database/image/powercrash.png' %}"> : {{move.power_crash_startup}}F　</span>
                         {% endif %}
                         {% if move.tornado %}
-                        <span><img src="{% static 'database/image/tornado.png' %}"></span>
+                        <span><img src="{% static 'database/image/tornado.png' %}">　</span>
                         {% endif %}
                         {% if move.heat_engager %}
-                        <span><img src="{% static 'database/image/heatengage.png' %}"></span>
+                        <span><img src="{% static 'database/image/heatengage.png' %}">　</span>
                         {% endif %}
                         {% if move.diminish %}
-                        <span><img src="{% static 'database/image/diminish.png' %}"></span>
+                        <span><img src="{% static 'database/image/diminish.png' %}">　</span>
                         {% endif %}
+                        <br>
+                        {{move.note | linebreaks}}
                     </td>
-                    {% if user.is_staff %}
-                    <td>
 
-                    </td>
-                    {% endif %}
 
                 </tr>
 
