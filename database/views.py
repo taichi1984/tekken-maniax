@@ -44,7 +44,8 @@ class FrameDataIndexView(ListView):
 custom_order = {
         "LP+RK":51,
         "RP+LK":52,
-        "LP":0,
+        "ヒート発動可能状態で":1,
+        "LP":5,
         "RP":10,
         "LK":20,
         "RK":30,
