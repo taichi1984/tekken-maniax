@@ -212,6 +212,9 @@
                         -
                         {% else %}
                         {{move.frame_block}}
+                        {% if move.state_enemy_guard.name == "しゃがみ" %}
+                        <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
+                        {% endif %}
                         {% endif %}
                     
                     </td>
@@ -220,6 +223,10 @@
                         -
                         {% else %}
                         {{move.frame_hit}}
+               
+                        {% if move.state_enemy_hit.name == "しゃがみ" %}
+                        <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
+                        {% endif %}
                         {% endif %}
                         <br>
                         {{move.frame_hit_es}}
@@ -229,6 +236,9 @@
                         -
                         {% else %}
                         {{move.frame_counter}}
+                        {% if move.state_enemy_counter.name == "しゃがみ" %}
+                        <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
+                        {% endif %}
                         {% endif %}
                        <br>
                        {{move.frame_counter_es}}
@@ -236,10 +246,14 @@
                     </td>
                     <td>
                         {% if move.jump_status %}
-                        <span>JS  : {{move.jump_status_startup}}　</span>
+                        <span>
+                        <span class="jump_status">JS</span>  : {{move.jump_status_startup}}F
+                        </span>
                         {% endif %}
                         {% if move.crouch_status %}
-                        <span>CS  : {{move.crouch_status_startup}}　</span>
+                        <span>
+                            <span class="crouch_status">CS</span>  : {{move.crouch_status_startup}}F
+                        </span>
                         {% endif %}
                         {% if move.homing %}
                         <span><img src="{% static 'database/image/homing.png' %}">　</span>
@@ -256,6 +270,12 @@
                         {% endif %}
                         {% if move.diminish %}
                         <span><img src="{% static 'database/image/diminish.png' %}">　</span>
+                        {% endif %}
+                        {% if move.is_wall_brake %}
+                        <span><img src="{% static 'database/image/wallbrake.png' %}">　</span>
+                        {% endif %}
+                        {% if move.is_floor_brake %}
+                        <span><img src="{% static 'database/image/floorbrake.png' %}">　</span>
                         {% endif %}
                         <br>
                         {{move.note | linebreaks}}

@@ -39,6 +39,8 @@ class CreateMoveForm(forms.ModelForm):
         "homing",
         "heat_engager",
         "diminish",
+        "is_floor_brake",
+        "is_wall_brake",
         "is_throw",
         "throw_tech",
         "throw_tech_frame",
@@ -49,11 +51,6 @@ class CreateMoveForm(forms.ModelForm):
         "is_combo_hit",
         "is_combo_counter",
         "is_combo_crouch_hit",
-        "is_heat_related",
-        "is_10ren",
-        "is_rage_related", 
-        "is_crouch_move",
-        "is_basic_move",
         "note"
     ]
     widgets={
@@ -98,6 +95,8 @@ class UpdateMoveForm(forms.ModelForm):
         "homing",
         "heat_engager",
         "diminish",
+        "is_floor_brake",
+        "is_wall_brake",
         "is_throw",
         "throw_tech",
         "throw_tech_frame",
@@ -108,11 +107,6 @@ class UpdateMoveForm(forms.ModelForm):
         "is_combo_hit",
         "is_combo_counter",
         "is_combo_crouch_hit",
-        "is_heat_related",
-        "is_10ren",
-        "is_rage_related", 
-        "is_crouch_move",
-        "is_basic_move",
         "note"
     ]
 

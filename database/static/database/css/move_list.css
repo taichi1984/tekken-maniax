@@ -49,7 +49,6 @@ main {
     background-color: black;
     height: 500px;
     width: 100%;
-    background-size: 100%;
 }
 
 .strike_menu{
@@ -130,6 +129,22 @@ padding:5px;
     
     }
 
+.jump_status{
+    background-color:blue;
+    color:white;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
+.crouch_status{
+    background-color:brown;
+    color:white;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
 @media screen and (orientation: landscape){
  
   
@@ -192,7 +207,10 @@ padding:5px;
 
     }
 
-    
+    .img_crouch{
+        width:25px;
+        height:25px;
+    }
 
 }
 @media screen and (orientation: portrait) {
@@ -229,7 +247,7 @@ padding:5px;
 
     }
     .move_guard{
-        width:50px;
+        width:60px;
 
     }
 
@@ -251,6 +269,11 @@ padding:5px;
     .move_throwtech_frame{
         width:50px;
 
+    }
+
+    .img_crouch{
+        width:25px;
+        height:25px;
     }
     
 
