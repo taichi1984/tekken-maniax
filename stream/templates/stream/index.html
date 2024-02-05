@@ -70,6 +70,8 @@
             },
             mounted() {
                 this.getStreamData()
+              
+                
             },
             methods: {
                 getStreamData() {
@@ -83,11 +85,13 @@
                             console.log(response.data["streams"])
                             this.streams = response.data.streams;
                             console.log(response.data.streams);
+                            this.sortStream()
                         })
                         .catch(error => {
                             // エラーハンドリングをここに追加
                             console.error(error);
                         });
+                    
                 },
                 sortStream() {
                     if (this.sortType == 'viewer_asc') {
