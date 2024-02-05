@@ -8,6 +8,7 @@ h1{
 
 blockquote{
     background-color:beige;
+    padding:10px;
 }
 tr:nth-child(odd){
     background-color:white;
