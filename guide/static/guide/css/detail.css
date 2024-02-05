@@ -272,6 +272,9 @@ li.level-3{
     font-weight: bold;
 
 }
+.section_article p{
+    margin-top:10px;
+}
 
 .section_article ul {
     margin: 30px 0px 30px 0px;
@@ -279,7 +282,7 @@ li.level-3{
 
 .section_article {
     height: 90%;
-    
+    line-height:30px;
     background-color: white;
     color: black;
 }
@@ -505,8 +508,7 @@ li.level-3{
 }
 
 iframe{
-    margin-top:20px;
-    margin-bottom:60px;
+
 }
 @media screen and (orientation: landscape){
  
