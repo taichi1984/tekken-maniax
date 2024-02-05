@@ -233,6 +233,17 @@ main {
     padding: 10px 0 0 30px;
 }
 
+li.level-1{
+    margin-left:20px;
+}
+li.level-2{
+
+    margin-left:40px;
+}
+li.level-3{
+    margin-left:60px;
+}
+
 .table_of_contents_list {
     list-style: inside;
     list-style-type: decimal;
@@ -303,7 +314,14 @@ main {
     margin-bottom: 30px;
 }
 
+
 .section_article h2 {
+    padding: 10px;
+    background-color: #eee;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.section_article h3 {
     font-size: 20px;
     padding: 0.25em 0.5em; /*上下 左右の余白*/
     background-color:#eee;
@@ -314,12 +332,6 @@ main {
     margin-bottom: 20px;
 }
 
-.section_article h3 {
-    padding: 10px;
-    background-color: #eee;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
 
 .section_article h4, h5, h6 {
     text-decoration: dotted;

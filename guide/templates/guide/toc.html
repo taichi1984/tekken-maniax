@@ -1,0 +1,9 @@
+{% if toc_list %}
+    <ul>
+    {% for item in toc_list %}
+        <li>
+            <a href="#{{ item.id }}">{{ item.text }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

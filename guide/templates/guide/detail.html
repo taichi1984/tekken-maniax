@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load toc_tags %}
 
 <html lang="en">
 
@@ -64,43 +65,43 @@
 
 
                     <div class="page_summary_vote">
-                        <div id ="evaluation" class="vote_area">
-                            <div  class="good_evaluation_area">
+                        <div id="evaluation" class="vote_area">
+                            <div class="good_evaluation_area">
                                 {% if user.is_authenticated %}
-                                高評価  
-                                <span v-if = "evaluation == 1">
-                                    <button @click = "deleteEvaluation()" class="good_evaluation_pushed_button">
+                                高評価
+                                <span v-if="evaluation == 1">
+                                    <button @click="deleteEvaluation()" class="good_evaluation_pushed_button">
                                         <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
                                     </button>
                                 </span>
                                 <span v-else>
-                                    <button @click = "addEvaluation()" class="good_evaluation_button" >
+                                    <button @click="addEvaluation()" class="good_evaluation_button">
                                         <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="20px">
                                     </button>
                                 </span>
-                      
+
                                 {% else %}
                                 <img src="{% static 'guide/image/good_evaluation.jpg' %}" width="40px">
                                 {% endif %}
                                 : [[ evaluationsCount ]]
                             </div>
-            
+
                         </div>
-                        <div id = "favorite" class="favorite_area">
-                            
+                        <div id="favorite" class="favorite_area">
+
                             <div id="page_summary_favorite" class="page_summary_favorite">
 
-                               
+
                                 {% if user.is_authenticated %}
 
-                                <div class ="favorite_block" v-if="favorite">
-                                
-                                <button @click="deleteFavorite()" class="favorite_pushed_button">
-                                    お気に入り追加済み
-                                </button>
+                                <div class="favorite_block" v-if="favorite">
+
+                                    <button @click="deleteFavorite()" class="favorite_pushed_button">
+                                        お気に入り追加済み
+                                    </button>
                                 </div>
                                 <div v-else>
-                                <button @click="addFavorite()" class="favorite_button">お気に入りに追加</button>
+                                    <button @click="addFavorite()" class="favorite_button">お気に入りに追加</button>
                                 </div>
                                 {% else %}
                                 <a href="{% url 'login' %}?next={% url 'guide:detail' guide.id %}">ログイン</a>
@@ -138,12 +139,19 @@
                     目次
                 </div>
                 <div class="table_of_contents_listdiv">
-                    <ul class="table_of_contents_list">
-                        {% for content in table_of_contents %}
-                        <li><a href="#{{content.id}}" target="_self">{{content.text}}</a><br></li>
-
+                    <ol>
+                    {% for item in table_of_contents %}
+                   
+                    {% ifchanged item.level %}
+                    {% if forloop.counter > 1 %}
+                    </ol>
+                    {% endif %}
+                    <ol>
+                        {% endifchanged %}
+                        <li class="level-{{item.level}}"><a href="#{{ item.id }}" target="_self">{{ item.text }}</a></li>
                         {% endfor %}
-                    </ul>
+                    </ol>
+                </ol>
                 </div>
             </div>
 
@@ -245,13 +253,14 @@
                         </div>
 
                         <div class="comment_comment" v-for="(comment,index) in comments" :key="index">
-                            <div class ="comment_block" v-if="comment.is_deleted == false">
+                            <div class="comment_block" v-if="comment.is_deleted == false">
                                 <hr>
                                 <div class="comment_contributor">
                                     [[comment.contributor.nick_name]] : [[formatDate(comment.pub_date) ]]
                                     <span v-if="[[comment.contributor.id]] == {{user.id}}">
                                         <!--<button class="comment_edit_button" @click="editComment(comment)">編集する</button>-->
-                                        <button class="comment_delete_button" @click="deleteComment(comment)">削除する</button>
+                                        <button class="comment_delete_button"
+                                            @click="deleteComment(comment)">削除する</button>
                                     </span>
                                 </div>
 
@@ -262,7 +271,7 @@
 
 
 
-               
+
                             </div>
 
                         </div>
@@ -276,11 +285,11 @@
                     広告エリア
 
                 </div>
-            {% else %}
-            
-            この記事は非公開です。
+                {% else %}
 
-            {% endif %}
+                この記事は非公開です。
+
+                {% endif %}
 
         </main>
     </div>
@@ -313,7 +322,7 @@
                     }
                 },
                 async addComment() {
-                        await axios.post('/guide/post_comment/' + this.guide_id, {
+                    await axios.post('/guide/post_comment/' + this.guide_id, {
                         method: 'add',
                         guide_id: this.guide_id,
                         comment: this.newCommentText
@@ -325,7 +334,7 @@
                         .catch(error => {
                             console.error('Error:', error);
                         });
-                    
+
                 },
                 editComment(comment) {
                     // コメントの編集ダイアログを表示するロジックを実装
@@ -335,18 +344,18 @@
                 },
                 async deleteComment(comment) {
                     var result = window.confirm("本当に削除してよろしいですか？")
-                    if(result){
-                    await axios.post('/guide/delete_comment/', {
-                        method: 'delete',
-                        guide_id: this.guide_id,
-                        d_comment_id: comment.id,
-                    }).then(response => {
-                        this.comments = response.data.reverse();
-                        this.newCommentText = "";
-                    })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                    if (result) {
+                        await axios.post('/guide/delete_comment/', {
+                            method: 'delete',
+                            guide_id: this.guide_id,
+                            d_comment_id: comment.id,
+                        }).then(response => {
+                            this.comments = response.data.reverse();
+                            this.newCommentText = "";
+                        })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
                     }
                 },
                 formatDate(dateString) {
@@ -367,55 +376,55 @@
                 return {
                     guide_id: '{{ guide.id }}',
                     evaluationsCount: parseInt('{{evaluationsCount}}'),
-                    evaluation:0, //押されている場合true
+                    evaluation: 0, //押されている場合true
 
                 };
-         
-            },
-            methods :{
-                async checkEvaluation(){
-                    if("{{favorite.id}}" !=""){
-           
-                     this.favorite = true
 
-                     }
-                    else{
-                    this.favorite = false
+            },
+            methods: {
+                async checkEvaluation() {
+                    if ("{{favorite.id}}" != "") {
+
+                        this.favorite = true
+
+                    }
+                    else {
+                        this.favorite = false
                     }
 
                 },
                 async addEvaluation() {
-                        this.evaluation = 1;
-                        await axios.post('/guide/vote_evaluation/', {
+                    this.evaluation = 1;
+                    await axios.post('/guide/vote_evaluation/', {
                         guide_id: this.guide_id,
-                        vote : this.evaluation,
+                        vote: this.evaluation,
                     })
                         .then(response => {
                             this.evaluationsCount = response.data["evaluationsCount"];
-             
+
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                        });  
+                        });
                 },
                 async deleteEvaluation() {
-                        this.evaluation = 0;
-                        await axios.post('/guide/vote_evaluation/', {
+                    this.evaluation = 0;
+                    await axios.post('/guide/vote_evaluation/', {
                         guide_id: this.guide_id,
-                        vote : this.evaluation,
+                        vote: this.evaluation,
                     })
                         .then(response => {
                             this.evaluationsCount = response.data["evaluationsCount"];
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                        });  
+                        });
                 },
 
 
             },
-            
-            created(){
+
+            created() {
                 this.checkEvaluation()
             },
         })
@@ -428,53 +437,53 @@
                     guide_id: '{{ guide.id }}',
                     favorite: false,
 
-                    
+
                 };
-         
+
             },
-            methods :{
-                favoriteCheck(){
-                    if("{{favorite.id}}" !=""){
-           
+            methods: {
+                favoriteCheck() {
+                    if ("{{favorite.id}}" != "") {
+
                         this.favorite = true
 
                     }
-                    else{
+                    else {
                         this.favorite = false
                     }
                 },
                 async addFavorite() {
                     this.favorite = 1
                     await axios.post('/guide/add_favorite/', {
-                    guide_id: this.guide_id,
-                    favorite: this.favorite,
-                })
-                    .then(response => {
-
+                        guide_id: this.guide_id,
+                        favorite: this.favorite,
                     })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-                
+                        .then(response => {
+
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+
                 },
                 async deleteFavorite() {
                     this.favorite = 0
-                    await axios.post('/guide/add_favorite/' ,{
-                    guide_id: this.guide_id,
-                    favorite: this.favorite,
+                    await axios.post('/guide/add_favorite/', {
+                        guide_id: this.guide_id,
+                        favorite: this.favorite,
 
                     })
-                    .then(response => {
-                        console.log("")
- 
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+                        .then(response => {
+                            console.log("")
+
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
                 }
 
             },
-            created(){
+            created() {
                 this.favoriteCheck()
             },
         })
