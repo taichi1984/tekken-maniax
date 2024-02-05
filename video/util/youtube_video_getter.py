@@ -122,13 +122,15 @@ def get_channel_info_from_channelids(channel_ids):
 #非同期処理用メソッド
 #
 
-async def fetch_url(url):
-    async with aiohttp.ClientSession() as session:
+semaphore = asyncio.Semaphore(100)
+
+async def fetch_url(url,session):
+    async with semaphore:
         async with session.get(url) as response:
             return await response.text()
 
-async def parse_feed(url):
-    feed_data = await fetch_url(url)
+async def parse_feed(url,session):
+    feed_data = await fetch_url(url,session)
     parsed_feed = feedparser.parse(feed_data)
     return parsed_feed
 
@@ -140,16 +142,19 @@ async def get_latest_video_id_by_channel_ids(channel_ids):
 
     for channel_id in channel_ids:
         feed_url_list.append(youtube_feed_url + channel_id)
+    
+
 
     print("#########################")
     print("ここから非同期処理")
     print("#########################")
-    tasks = [parse_feed(url) for url in feed_url_list]
-    parsed_feeds = await asyncio.gather(*tasks)
+    async with aiohttp.ClientSession() as session:
+        tasks = [parse_feed(url,session) for url in feed_url_list]
+        parsed_feeds = await asyncio.gather(*tasks)
 
-    for parsed_feed in parsed_feeds:
-        print(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
-        video_id_list.append(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
+        for parsed_feed in parsed_feeds:
+            print(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
+            video_id_list.append(parsed_feed["entries"][0]["yt_videoid"] if len(parsed_feed['entries']) != 0 else "")
 
 
     '''
