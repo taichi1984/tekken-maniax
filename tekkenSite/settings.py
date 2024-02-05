@@ -242,11 +242,11 @@ CKEDITOR_CONFIGS = {
         'height':1800,
         'extraPlugins': ','.join([
             'autoembed',
-            'embedsemantic',
+            'embedsemantic', 
             'embedbase',
             'embed',
         ]),
-        'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}&api_key=' + IFRAMELY_API_KEY,
+        'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}&maxwidth=800&maxheight=350&api_key=' + IFRAMELY_API_KEY,
         'contentsCss':['/static/guide/css/ckeditor.css'],
  
           
