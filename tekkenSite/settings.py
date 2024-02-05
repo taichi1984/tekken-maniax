@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'sslserver',
     'ckeditor',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # cookie
@@ -233,13 +235,19 @@ CKEDITOR_CONFIGS = {
             ['Source'],
             ['RemoveFormat', 'Maximize'],
             ['CreatePlaceholder', 'ImageCaption', 'ImageToolbar', 'ImageStyle', 'ImageDimensions', 'ImageAlign'],
+            ['Embed'],
         ],
         'width': 1200,
         'height':1800,
-        'contentsCss':['/static/guide/css/ckeditor.css']
+        'contentsCss':['/static/guide/css/ckeditor.css'],
+        'extraPlugins': ','.join([
+            'embed', # 埋め込み機能を有効にする
+        ]),
     },
 }
+# CORS設定
 
+CORS_ALLOW_ALL_ORIGINS = True
 #LoginRequiredMixinの設定
 
 LOGIN_URL = 'login'
