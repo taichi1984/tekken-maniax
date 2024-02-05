@@ -220,7 +220,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 #CKeditorの設定
-
+IFRAMELY_API_KEY = "14ce4ab66a1762fd0a61c2"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -232,15 +232,23 @@ CKEDITOR_CONFIGS = {
             ['Link', 'Unlink'],
             ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Embed'],
             ['Source'],
             ['RemoveFormat', 'Maximize'],
             ['CreatePlaceholder', 'ImageCaption', 'ImageToolbar', 'ImageStyle', 'ImageDimensions', 'ImageAlign'],
-      
+          
         ],
         'width': 1200,
         'height':1800,
+        'extraPlugins': ','.join([
+            'autoembed',
+            'embedsemantic',
+            'embedbase',
+            'embed',
+        ]),
+        'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}&api_key=' + IFRAMELY_API_KEY,
         'contentsCss':['/static/guide/css/ckeditor.css'],
-        'extraAllowedContent': 'iframe[*]', 
+ 
           
     },
 }
