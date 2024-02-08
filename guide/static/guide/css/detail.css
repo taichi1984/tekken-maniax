@@ -364,10 +364,10 @@ blockquote{
 }
 
 .section_article tr:nth-child(odd) {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }
 .section_article tr:nth-child(even) {
-    background-color: #cacaca;
+    background-color: #ececec;
 }
 
 .section_article table, td {
