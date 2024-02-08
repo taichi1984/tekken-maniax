@@ -14,7 +14,9 @@ dbus-python==1.2.18
 distro==1.7.0
 distro-info==1.1+ubuntu0.1
 Django==4.2.4
-django-ckeditor==6.7.0
+django-ckeditor==6.7.1
+django-ckeditor-youtube-plugin==0.0.1
+django-cors-headers==4.3.1
 django-extensions==3.2.3
 django-js-asset==2.2.0
 django-redis==5.4.0
@@ -46,6 +48,7 @@ pyasn1==0.5.1
 pyasn1-modules==0.3.0
 PyGObject==3.42.1
 PyJWT==2.3.0
+PyMySQL==1.1.0
 pyparsing==2.4.7
 python-apt==2.4.0+ubuntu2
 pytz==2023.3.post1

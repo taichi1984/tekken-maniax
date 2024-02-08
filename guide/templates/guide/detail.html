@@ -243,7 +243,7 @@
                                 <hr>
                                 <div class="comment_contributor">
                                     [[comment.contributor.nick_name]] : [[formatDate(comment.pub_date) ]]
-                                    <span v-if="[[comment.contributor.id]] == {{user.id}}">
+                                    <span v-if="[[comment.contributor.user_id]] == {{user.id}}">
                                         <!--<button class="comment_edit_button" @click="editComment(comment)">編集する</button>-->
                                         <button class="comment_delete_button"
                                             @click="deleteComment(comment)">削除する</button>

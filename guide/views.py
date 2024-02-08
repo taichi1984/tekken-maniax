@@ -264,6 +264,7 @@ def post_comment(request, guide_id):
     if request.method == ('POST'):
         guide = get_object_or_404(Guide, pk=guide_id)
         contributor = request.user
+        print(request.user.id)
         comment = request.data.get("comment",None)
         
         GuideComment(contributor=contributor, comment=comment, guide=guide, pub_date=timezone.now()).save()
