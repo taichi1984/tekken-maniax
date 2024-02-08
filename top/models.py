@@ -28,6 +28,9 @@ class Notification(models.Model):
     alreadyRead = models.BooleanField(default=False)
     pub_date = models.DateTimeField('通知日')
 
+    def __str__(self):
+        return self.user.userprofile.nick_name + " : " + self.notification_text
+
 
 class ChangeLog(models.Model):
     pub_date = models.DateTimeField('更新日')
