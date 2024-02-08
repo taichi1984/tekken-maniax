@@ -237,7 +237,6 @@
                             <button class="comment_submit" @click="addComment">コメントを投稿する</button>
                             {% endif %}
                         </div>
-                        [[ comments ]]
                         <div class="comment_comment" v-for="(comment,index) in comments" :key="index">
                             <div class="comment_block" v-if="comment.is_deleted == false">
                                 <hr>
