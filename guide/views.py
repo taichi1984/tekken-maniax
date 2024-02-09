@@ -322,6 +322,13 @@ class UpdateGuide(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     form_class = UpdateGuideForm
     template_name = "guide/update.html"
     
+    def form_valid(self, form):
+        # フォームのデータが有効な場合にのみ更新日時を設定
+        self.object = form.save(commit=False)
+        self.object.update_date = timezone.now()
+        self.object.save()
+        return super(UpdateGuide, self).form_valid(form)
+        
     def test_func(self):
         # ユーザーが記事の著者かどうかをチェック
         return self.request.user == self.get_object().author

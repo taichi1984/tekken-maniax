@@ -35,7 +35,7 @@ class Guide(models.Model):
     title = models.CharField(max_length=255)
     article = RichTextField()
     pub_date = models.DateTimeField('初回発行日',auto_now_add=True)
-    update_date = models.DateTimeField('最終更新日',auto_now=True)
+    update_date = models.DateTimeField('最終更新日')
     number_of_preview = models.BigIntegerField(default=0)
     publishing_setting = models.BooleanField(default=True)  # 公開設定　 1 = 全体公開 0 = 非公開
     is_deleted = models.BooleanField(default=False)  # 削除フラグ　True = 削除済み falee = 未削除
