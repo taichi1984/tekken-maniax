@@ -89,7 +89,13 @@
                     <tr>
                         <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
             
-                        <td>{{move.damage}}</td>
+                        <td>
+                            {% if move.damage == None %}
+                            -
+                            {% else %}  
+                            {{move.damage}}
+                            {% endif %}
+                        </td>
                         <td>{{move.hit_level}}</td>
                         <td>
                             {% if move.frame_startup == None %}
@@ -130,13 +136,13 @@
                             {% if move.diminish %}
                             <span><img src="{% static 'database/image/diminish.png' %}"></span>
                             {% endif %}
-                            <br>
                             {% if move.is_wall_brake %}
                             <span><img src="{% static 'database/image/wallbrake.png' %}">　</span>
                             {% endif %}
                             {% if move.is_floor_brake %}
                             <span><img src="{% static 'database/image/floorbrake.png' %}">　</span>
                             {% endif %}
+                            <br>
                             {{move.note}}
                         </td>
                      
