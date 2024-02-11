@@ -131,6 +131,12 @@
                             <span><img src="{% static 'database/image/diminish.png' %}"></span>
                             {% endif %}
                             <br>
+                            {% if move.is_wall_brake %}
+                            <span><img src="{% static 'database/image/wallbrake.png' %}">　</span>
+                            {% endif %}
+                            {% if move.is_floor_brake %}
+                            <span><img src="{% static 'database/image/floorbrake.png' %}">　</span>
+                            {% endif %}
                             {{move.note}}
                         </td>
                      
