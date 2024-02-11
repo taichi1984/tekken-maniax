@@ -198,7 +198,7 @@
                         -
                         {% else %}
                         {{move.frame_block}}
-                        {% if move.state_enemy_guard.name == "しゃがみ" %}
+                        {% if move.state_enemy_guard2.name == "しゃがみ" or move.state_enemy_guard2.name == "しゃがみ(ガード可能硬直)" %}
                         <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
                         {% endif %}
                         {% endif %}
@@ -210,7 +210,7 @@
                         {% else %}
                         {{move.frame_hit}}
                
-                        {% if move.state_enemy_hit2.name == "しゃがみ" %}
+                        {% if move.state_enemy_hit2.name == "しゃがみ" or move.state_enemy_hit2.name == "しゃがみ(ガード可能硬直)" %}
                         <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
                         {% endif %}
                         {% endif %}
