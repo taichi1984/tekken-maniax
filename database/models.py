@@ -6,6 +6,61 @@ from guide.models import Character
 #
 #　キャラクターの状態を表す。Guideからの借り物。characterに関しては全キャラのものは総合とする。
 #
+class StatePlayer(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    character = models.ForeignKey(Character, on_delete=models.SET_NULL, default="",null=True)
+    list_display = models.CharField(max_length=50,default="",null=True, blank=True)
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class StateEnemyGuard(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    list_display = models.CharField(max_length=50,default="",null=True, blank=True)
+    name = models.CharField(max_length=100)
+    is_blockable = models.BooleanField(default=False)
+    is_side_ukemi = models.BooleanField(default=False)
+    is_quick_recoverly = models.BooleanField(default=False)
+    is_back_quick_role = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name
+
+class StateEnemyHit(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    list_display = models.CharField(max_length=50,default="",null=True, blank=True)
+    name = models.CharField(max_length=100)
+    is_blockable = models.BooleanField(default=False)
+    is_combo = models.BooleanField(default=False)
+    is_side_ukemi = models.BooleanField(default=False)
+    is_quick_recoverly = models.BooleanField(default=False)
+    is_back_quick_role = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+class StateEnemyAir(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    list_display = models.CharField(max_length=50,default="",null=True, blank=True)
+    name = models.CharField(max_length=100)
+    is_side_ukemi = models.BooleanField(default=False)
+    is_quick_recoverly = models.BooleanField(default=False)
+    is_back_quick_role = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+class StateEnemyDownHit(models.Model):
+    id = models.AutoField(primary_key=True,auto_created=True)
+    list_display = models.CharField(max_length=50,default="",null=True, blank=True)
+    name = models.CharField(max_length=100)
+    is_side_ukemi = models.BooleanField(default=False)
+    is_quick_recoverly = models.BooleanField(default=False)
+    is_back_quick_role = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 class State(models.Model):
     id = models.AutoField(primary_key=True,auto_created=True)
@@ -64,6 +119,13 @@ class Move(models.Model):
     state_enemy_counter = models.ForeignKey(State,on_delete=models.SET_NULL,default="",related_name="moves_enemy_counter",null=True, blank=True)
     state_enemy_crouch_hit = models.ForeignKey(State,on_delete=models.SET_NULL,default="",related_name="moves_enemy_crouch_hit",null=True, blank=True)
     state_enemy_air = models.ForeignKey(State,on_delete=models.SET_NULL,default="",related_name="moves_enemy_air",null=True, blank=True)
+    state_player2 = models.ForeignKey(StatePlayer,on_delete=models.SET_NULL,default="",related_name="moves_player2",null=True, blank=True)
+    state_enemy_guard2 = models.ForeignKey(StateEnemyGuard,on_delete=models.SET_NULL,default="",related_name="moves_enemy_guard2",null=True, blank=True)
+    state_enemy_hit2 = models.ForeignKey(StateEnemyHit,on_delete=models.SET_NULL,default="",related_name="moves_enemy_hit2",null=True, blank=True)
+    state_enemy_counter2 = models.ForeignKey(StateEnemyHit,on_delete=models.SET_NULL,default="",related_name="moves_enemy_counter2",null=True, blank=True)
+    state_enemy_crouch_hit2 = models.ForeignKey(StateEnemyHit,on_delete=models.SET_NULL,default="",related_name="moves_enemy_crouch_hit2",null=True, blank=True)
+    state_enemy_air2 = models.ForeignKey(StateEnemyAir,on_delete=models.SET_NULL,default="",related_name="moves_enemy_air2",null=True, blank=True)
+    state_enemy_downhit2 = models.ForeignKey(StateEnemyDownHit,on_delete=models.SET_NULL,default="",related_name="moves_enemy_downhit2",null=True, blank=True)
     crouch_status = models.BooleanField(default=False)
     crouch_status_startup = models.IntegerField(null=True, blank=True)
     jump_status = models.BooleanField(default=False)

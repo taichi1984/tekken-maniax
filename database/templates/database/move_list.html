@@ -210,24 +210,30 @@
                         {% else %}
                         {{move.frame_hit}}
                
-                        {% if move.state_enemy_hit.name == "しゃがみ" %}
+                        {% if move.state_enemy_hit2.name == "しゃがみ" %}
                         <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
                         {% endif %}
                         {% endif %}
                         <br>
-                        {{move.frame_hit_es}}
+                        {%if move.state_enemy_hit2.list_display%}
+                        {{move.state_enemy_hit2.list_display}}
+                        {% endif %}
+
                     </td>
                     <td>
                         {% if move.frame_counter == None %}
                         -
                         {% else %}
                         {{move.frame_counter}}
-                        {% if move.state_enemy_counter.name == "しゃがみ" %}
+                        {% if move.state_enemy_counter2.name == "しゃがみ" or move.state_enemy_counter2.name == "しゃがみ(ガード可能硬直)" %}
                         <img class="img_crouch" src="{% static 'database/image/crouch.png' %}">
                         {% endif %}
                         {% endif %}
                        <br>
-                       {{move.frame_counter_es}}
+                       {%if move.state_enemy_counter2.list_display%}
+                       {{move.state_enemy_counter2.list_display}}
+                       {% endif %}
+
                     
                     </td>
                     <td>
