@@ -144,6 +144,12 @@ padding:5px;
     padding-right:10px;
 
 }
+.move_list_description{
+    background-color:#fffacd;
+    margin-top :30px;
+    margin-bottom: 30px;
+    padding:10px;
+}
 
 @media screen and (orientation: landscape){
  
@@ -205,6 +211,28 @@ padding:5px;
     .move_throwtech_frame{
         width:80px;
 
+    }
+
+    .move_state_player{
+        width:120px;
+    }
+    .move_state_enemy_guard{
+        width:120px;
+    }
+    .move_state_enemy_hit{
+        width:120px;
+    }
+    .move_state_enemy_counter{
+        width:120px;
+    }
+    .move_state_crouch_hit{
+        width:120px;
+    }
+    .move_state_enemy_air{
+        width:120px;
+    }
+    .move_state_state_enemy_down{
+        width:120px;
     }
 
     .img_crouch{
@@ -269,6 +297,27 @@ padding:5px;
     .move_throwtech_frame{
         width:50px;
 
+    }
+    .move_state_player{
+        width:100px;
+    }
+    .move_state_enemy_guard{
+        width:100px;
+    }
+    .move_state_enemy_hit{
+        width:100px;
+    }
+    .move_state_enemy_counter{
+        width:100px;
+    }
+    .move_state_enemy_crouch_hit{
+        width:100px;
+    }
+    .move_state_enemy_air{
+        width:100px;
+    }
+    .move_state_enemy_down{
+        width:100px;
     }
 
     .img_crouch{
