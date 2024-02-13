@@ -214,25 +214,25 @@ padding:5px;
     }
 
     .move_state_player{
-        width:120px;
+        width:11%;
     }
     .move_state_enemy_guard{
-        width:120px;
+        width:11%;
     }
     .move_state_enemy_hit{
-        width:120px;
+        width:11%;
     }
     .move_state_enemy_counter{
-        width:120px;
+        width:11%;
     }
-    .move_state_crouch_hit{
-        width:120px;
+    .move_state_enemy_crouch_hit{
+        width:11%;
     }
     .move_state_enemy_air{
-        width:120px;
+        width:11%;
     }
-    .move_state_state_enemy_down{
-        width:120px;
+    .move_state_enemy_down{
+        width:11%;
     }
 
     .img_crouch{
