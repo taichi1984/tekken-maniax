@@ -50,28 +50,76 @@
                     <input type ="hidden" name = "character" value="{{request.GET.character}}">
                     <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
                 </form>
+                
             </div>
 
 
-         
-
-         
-
-
-
             <div class="move_list_content">
-            {% for move_type in move_type_list %}
+            {% for move_type in move_type_list %} 
             <div class="move_list_index">
                 {% for move_type in move_type_list %}
-                <a href="#{{move_type.id}}">{{move_type.name}}</a> | 
+                <a href="#{{move_type.id}}">{{move_type.name}}</a> 
                 {% endfor %}
             </div>
 
                 {% if move_type.order >= 701 and move_type.order <= 899 %}
                 <div class="throw_menu" id ="{{move_type.id}}">
-                    {{move_type.name}}
+                    {{move_type.name}} 
                 </div>
+                {% if request.GET.display_type_field == "state_data"%}
                 <table class="throw_move_list_table">
+                    <tr>
+                        <th class="move_name">技名・コマンド</th>
+                        <th class="move_damage">投げ後の自分の状態</th>
+                        <th class="move_hit_level">投げ後の相手の状態</th>
+                        <th class="move_throwtech">投げ抜けコマンド</th>
+                        <th class="move_throwtech_frame">投げ抜け後の硬直差</th>
+                        <th class="move_throwtech_frame">投げ抜け後の相手の状態</th>
+                    </tr>
+
+                    {% for move in move_list %}
+                    {% if move.move_type == move_type %}
+                    <tr>
+                        <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
+            
+                        <td>
+                            {% if move.damage == None %}
+                            -
+                            {% else %}  
+                            {{move.state_player2}}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if move.state_enemy_hit2 == None %}
+                            -
+                            {% else %}  
+                            {{move.state_enemy_hit2}}
+                            {% endif %}
+                        </td>
+                        <td>{{move.throw_tech.name}}</td>
+                        <td>
+                            {% if move.throw_tech_frame == None %}
+                            -
+                            {% else %}  
+                            {{move.throw_tech_frame}}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if move.state_after_throw_tech_enemy == None %}
+                            -
+                            {% else %}  
+                            {{move.state_after_throw_tech_enemy}}
+                            {% endif %}
+                        </td>
+                    
+                     
+                    </tr>
+                    {% endif %}
+                    {% endfor%}
+                </table>
+                {% else %}
+                <table class="throw_move_list_table">
+                    
                     <tr>
                         <th class="move_name">技名・コマンド</th>
                         <th class="move_damage">ダメージ</th>
@@ -80,8 +128,6 @@
                         <th class="move_throwtech">投げ抜けコマンド</th>
                         <th class="move_throwtech_frame">投げ抜け後のフレーム</th>
                         <th class="move_note">備考</th>
-          
-
                     </tr>
 
                     {% for move in move_list %}
@@ -151,12 +197,101 @@
                     {% endfor%}
                 </table>
             
-                {% else %}
+                {% endif %} {#表示の種類のendif#}                
+                {% else %} {# movetype_orderのelse #}
+           
+           
             <div class="strike_menu" id="{{move_type.id}}">
                    {{move_type.name}}
             </div>
 
+            {% if request.GET.display_type_field == "state_data" %} {#状態テーブルの表示 -- ここから --#}
+            {{ move_type.name }}
+            <table class="strike_move_list_table">
+                <tr>
+                    <th class="move_name">技名・コマンド</th>
+                    <th class="move_state_player">技後の自分の状態</th>
+                    <th class="move_state_enemy_guard">ガード</th>
+                    <th class="move_state_enemy_hit">ヒット</th>
+                    <th class="move_state_enemy_counter">カウンター</th>
+                    <th class="move_state_enemy_crouch_hit">しゃがみヒット</th>
+                    <th class="move_state_enemy_air">空中ヒット</th>
+                    <th class="move_state_enemy_down">ダウンヒット</th>
+ 
+                </tr>
 
+                {% for move in move_list %}
+                {% if move.move_type == move_type %}
+                <tr>
+                    <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
+                    <td>
+                        {%if move.state_player2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_player2}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if move.state_enemy_guard2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_enemy_guard2}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if move.state_enemy_hit2 == None%}
+                        -
+                        {% else %}
+                            {{move.state_enemy_hit2}}
+                            {% if move.state_enemy_hit2.list_display %}
+                                <br>
+                                【{{move.state_enemy_hit2.list_display}}】
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if move.state_enemy_counter2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_enemy_counter2}}
+                        {% if move.state_enemy_counter2.list_display %}
+                            <br>
+                            【{{move.state_enemy_counter2.list_display}}】
+                        {% endif %}
+                    {% endif %}
+                    </td>
+                    <td>
+                        {%if move.state_enemy_crouch_hit2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_enemy_crouch_hit2}}
+                        {% if move.state_enemy_crouch_hit2.list_display %}
+                            <br>
+                            【{{move.state_enemy_crouch_hit2.list_display}}】
+                        {% endif %}
+                    {% endif %}
+                    <td>
+                        {%if move.state_enemy_air2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_enemy_air2}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if move.state_enemy_downhit2 == None%}
+                        -
+                        {% else %}
+                        {{move.state_enemy_downhit2}}
+                        {% endif %}
+                    </td>
+
+                </tr>
+                {% endif %}
+                {% endfor %} {# move in move_list#}
+            </table>
+            {% else %} {#frame_data表示#}
+            
+            
             <table class="strike_move_list_table">
                 <tr>
                     <th class="move_name">技名・コマンド</th>
@@ -174,8 +309,8 @@
   
                 {% if move.move_type == move_type %}
                 <tr>
-                    <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
-                  
+                    <td>
+                        <a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
                     <td>
                         {% if move.damage == None %}
                         -
@@ -289,11 +424,14 @@
                 </tr>
 
                 {% endif %}
-                {% endfor %}
+                {% endfor %} {#　各々の技のendfor#}
             </table>
-            {% endif %}
+            {% endif %} {# このendifは状態表示かどうかのendif#}
 
-            {% endfor %}
+            {% endif %} {# 投げか打撃かのendif #}
+            
+
+            {% endfor %}　
            
             </div>
 

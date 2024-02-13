@@ -179,7 +179,6 @@ class MoveList(ListView):
     template_name = 'database/move_list.html'
     context_object_name = 'move_list'
 
-
     def get_queryset(self):
         character_obj = Character.objects.filter(id = self.request.GET["character"]).get()
         queryset= Move.objects.filter(character=character_obj)
@@ -251,6 +250,7 @@ class MoveList(ListView):
         context["character_data"] = chara
         context["move_type_list"] = MoveType.objects.filter(character__in=[general,chara]).order_by('order')
         context['move_order_form'] = MoveSortForm(self.request.GET)
+
         return context
 
 

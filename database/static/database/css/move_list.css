@@ -207,6 +207,28 @@ padding:5px;
 
     }
 
+    .move_state_player{
+        width:120px;
+    }
+    .move_state_enemy_guard{
+        width:120px;
+    }
+    .move_state_enemy_hit{
+        width:120px;
+    }
+    .move_state_enemy_counter{
+        width:120px;
+    }
+    .move_state_crouch_hit{
+        width:120px;
+    }
+    .move_state_enemy_air{
+        width:120px;
+    }
+    .move_state_state_enemy_down{
+        width:120px;
+    }
+
     .img_crouch{
         width:25px;
         height:25px;
@@ -269,6 +291,27 @@ padding:5px;
     .move_throwtech_frame{
         width:50px;
 
+    }
+    .move_state_player{
+        width:100px;
+    }
+    .move_state_enemy_guard{
+        width:100px;
+    }
+    .move_state_enemy_hit{
+        width:100px;
+    }
+    .move_state_enemy_counter{
+        width:100px;
+    }
+    .move_state_enemy_crouch_hit{
+        width:100px;
+    }
+    .move_state_enemy_air{
+        width:100px;
+    }
+    .move_state_enemy_down{
+        width:100px;
     }
 
     .img_crouch{

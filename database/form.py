@@ -137,3 +137,14 @@ class MoveSortForm(forms.Form):
         required=False,
    
     )
+    display_type_field = forms.ChoiceField(
+        choices = [
+                ('frame_data','フレームデータ'),
+                ('state_data','状態データ'),
+                ],
+
+        widget=forms.Select(attrs={'class': 'sort_select_form'}),
+        label='表示',
+        required=False,
+   
+    )
