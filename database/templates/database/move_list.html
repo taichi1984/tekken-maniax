@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'database/css/move_list.css' %}" />
     <title>
-        Tekken MANIAX - DATABASE -
+        Tekken MANIAX - DATABASE - {{character_data}} 
     </title>
 </head>
 
@@ -48,10 +48,12 @@
                     {% endif %}
                     {{ move_order_form }}
                     <input type ="hidden" name = "character" value="{{request.GET.character}}">
-                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="並び替え">
+                    <input class="sort_submit_botton" type="submit" name="sort_submit" value="表示切替">
                 </form>
                 
             </div>
+
+            {% include 'database/move_list_discription.html'%}
 
 
             <div class="move_list_content">

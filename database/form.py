@@ -133,7 +133,7 @@ class MoveSortForm(forms.Form):
                 ],
 
         widget=forms.Select(attrs={'class': 'sort_select_form'}),
-        label='並び替え',
+        label='並び順',
         required=False,
    
     )
@@ -144,7 +144,7 @@ class MoveSortForm(forms.Form):
                 ],
 
         widget=forms.Select(attrs={'class': 'sort_select_form'}),
-        label='表示',
+        label='表示情報',
         required=False,
    
     )
