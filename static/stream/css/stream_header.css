@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 .stream_nav_header {
     line-height:30px;
     display:flex;
@@ -11,6 +13,7 @@
 }
 
 .stream_menu_item {
+    font-family:Oswald;
     margin-left: 10px;
     margin-right: 10px;
     display: inline-block;

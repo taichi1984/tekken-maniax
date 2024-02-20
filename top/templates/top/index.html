@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'top/css/index.css' %}" />
     <title>
-        TEKKEN MANIAX TOP
+        TEKKEN MANIAX TOP - 鉄拳8の攻略情報サイト
     </title>
     
 </head>
@@ -20,20 +20,26 @@
 
     <div class="wrapper">
         <main class="main">
-            <div class="page_title_field">
-                TEKKEN8 MANIAX
-            </div>
+  
             <div class="page_introduction_field">
+
+                
+                <div class="top_image_div">
+                    <img class="top_image" src="{% static 'top/image/top_title.jpg' %}">
+                </div>
+      
+                <div class="page_title_field">
+                    TEKKEN8 MANIAX
+                </div>
                 <div class="page_introduction_field_section">
-                    このサイトは鉄拳に関する情報サイトです。<br>
+                    このサイトは鉄拳に関する非公式情報サイトです。<br>
                     現在は鉄拳8に関する情報を取り扱っています。
                 </div>
 
 
 
-
                 <div class="site_menu_title">
-                    <h2>サイトメニュー</h2>
+                    <h2>MENU</h2>
                 </div>
                 <div class="site_menu_contents">
 
@@ -42,8 +48,8 @@
                             <a href="{% url 'guide:index' %}">GUIDE</a>
                         </div>
                         <div class="title_of_contents_contents">
-                            鉄拳の攻略ガイドをみんなで共有しましょうというサービスです<br />
-                            初心者～上級者まで実力問わず、有用な情報を共有できます<br />
+                            鉄拳の攻略ガイドや面白い情報などをみんなで共有しましょうというサービスです<br />
+                            初心者～上級者まで、どなたでも自由に情報を共有できます<br />
                         </div>
                     </div>
 
@@ -73,7 +79,7 @@
                             <a href="{% url 'video:index' %}">Video</a>
                         </div>
                         <div class="title_of_contents_contents">
-                            鉄拳の動画のアップロードや配信などをやっているYoutubeチャンネルの一覧です。
+                            鉄拳の動画のアップロードや配信などをやっているYoutubeチャンネルの一覧です。<br/>
                             1日１回更新してます。
 
                             <br />
@@ -97,7 +103,7 @@
                 {% endif %}
                 <div class="change_logs">
                     <div class="change_log_title">
-                        <h2>更新履歴</h2>
+                        <h2>What's new</h2>
                     </div>
                     {% for log in changeLog %}
                     <div class="change_log">

@@ -1,6 +1,8 @@
 @import url("/static/top/css/site_header.css");
 @import url("database_header.css");
 @import url("/static/top/css/footer.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 
 * {
     margin: 0;
@@ -47,8 +49,10 @@ main {
     position: relative;
     align-items: center;
     background-color: black;
-    height: 500px;
     width: 100%;
+}
+.page_title_image{
+    width:100%;
 }
 
 .strike_menu{
@@ -64,7 +68,16 @@ main {
     border:solid 1px black;
 }
 
+tr:nth-child(even){
+    background-color: #FFFFFF;
+}
+tr:nth-child(odd){
+    background-color: #f2f2f2;
+}
+
+
 .strike_move_list_table th{
+    background-color:aqua;
     border:solid 1px black;
 }
 
@@ -86,6 +99,7 @@ main {
     border:solid 1px black;
 }
 
+
 .throw_move_list_table th{
     border:solid 1px black;
 }
@@ -96,6 +110,7 @@ main {
 }
 
 .move_list_character_title{
+    font-family:Oswald;
     padding-top:20px;
     padding-bottom:20px;
     margin-top:30px;
@@ -162,7 +177,7 @@ padding:5px;
         min-height: 100vh;
         width: 1800px;
         margin: 0px auto 0px;
-        background-color: #FAFAFA;
+        background-color: white;
         color: black;
     }
 

@@ -1,6 +1,7 @@
 @import url("/static/top/css/site_header.css");
 @import url("database_header.css");
 @import url("/static/top/css/footer.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 * {
     margin: 0;
@@ -39,6 +40,9 @@ main {
 }
 
 .character_guide_title {
+    padding-top:10px;
+    padding-bottom:10px;
+    font-family:Oswald;
     padding-left:10px;
     color:white;
     background-color: black;

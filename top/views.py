@@ -30,7 +30,7 @@ def index(request):
     """
     context = {}
     context = context_initializer(request, context)
-    changeLog = ChangeLog.objects.all().order_by('pub_date')
+    changeLog = ChangeLog.objects.all().order_by('-pub_date')
     context["changeLog"] = changeLog
     return render(request, "top/index.html", context)
 

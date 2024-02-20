@@ -195,7 +195,7 @@ else:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_SSL_HOST = 'taichi'  # 自己署名証明書で使用するドメインを指定
+    SECURE_SSL_HOST = 'testaichi'  # 自己署名証明書で使用するドメインを指定
     SECURE_SSL_CERT = '/home/taichi84/dev/tekkensite/server.crt'  # 証明書ファイルへのパスを指定
     SECURE_SSL_KEY = '/home/taichi84/dev/tekkensite/server.key' # 秘密鍵ファイルへのパスを指定
 
