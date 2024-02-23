@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:1000;
+    
+}
+
+body{
+   margin-top:120px;
+}
 
 .site_header {
     display: flex;
-    line-height:30px;
-    margin-top:0px;
-    padding-top:10px;
+    align-items: center;
     background-color:black;
     color: #FFFFFF;
 }
@@ -24,6 +34,7 @@
 }
 .site_menu_item {
     font-family:Oswald;
+
     margin-left: 10px;
     margin-right: 10px;
     display: inline-block;
@@ -34,14 +45,13 @@
     font-size: 20px;
 }
 .site_menu{
-    position:relative;
-    bottom :1px;
-    float:left;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 .login_menu{
 
-    height:50px;
+
     margin-left:auto;
     margin-right:100px;
     text-align:right;
@@ -54,3 +64,18 @@
 }
 
 
+/*PC向けスタイル*/
+
+@media screen and (min-width: 768px) {
+   
+
+
+}
+
+/* スマートフォン向けのスタイル */
+@media screen and (max-width: 767px) {
+    .site_logo{
+        display:none;
+    }
+
+}
