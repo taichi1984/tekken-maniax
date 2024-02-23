@@ -16,6 +16,8 @@ urlpatterns = [
     path('detail/<int:pk>', views.DetailGuide.as_view(), name='detail'),
     # update_guide
     path('update/<int:pk>', views.UpdateGuide.as_view(), name='update'),
+    #preview_guide
+    path('preview',views.preview_guide,name='preview'),
     # character_guide_list
     path('character_guide/', views.CharacterGuide.as_view(), name='character_guide'),
     # delete_guide

@@ -137,6 +137,13 @@ class CreateGuide(LoginRequiredMixin,CreateView):
         context = context_initializer(self.request, context)
         return context
         
+###########################
+# プレビュー画面表示処理   #
+##########################
+    
+def preview_guide(request):
+    return HttpResponse("aaa")
+
 
 ##########################
 # 　ガイドの閲覧画面の処理  #

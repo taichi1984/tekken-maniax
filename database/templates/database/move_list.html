@@ -133,6 +133,7 @@
                     </tr>
 
                     {% for move in move_list %}
+                
                     {% if move.move_type == move_type %}
                     <tr>
                         <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
@@ -220,9 +221,11 @@
                     <th class="move_state_enemy_down">ダウンヒット</th>
  
                 </tr>
-
+                
+            
                 {% for move in move_list %}
                 {% if move.move_type == move_type %}
+  
                 <tr>
                     <td><a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>
                     <td>
@@ -289,6 +292,7 @@
                 </tr>
                 {% endif %}
                 {% endfor %} {# move in move_list#}
+     
             </table>
             {% else %} {#frame_data表示#}
             
@@ -304,11 +308,10 @@
                     <th class="move_hit">ヒット</th>
                     <th class="move_counter">カウンター</th>
                     <th class="move_note">備考</th>
-
                 </tr>
                 {% for move in move_list %}
-  
                 {% if move.move_type == move_type %}
+                
                 <tr>
                     <td>
                         <a href="{% url 'database:move_detail' move.id %}">{{move.name_jp}}</a><br>{{move.full_command_jp}}</td>

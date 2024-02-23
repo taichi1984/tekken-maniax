@@ -44,18 +44,32 @@
             </div>
 
             <div style="width:1200px;">
-                <form method="post">
+                <form id = "my_form" method="post">
                 {%csrf_token%}
-                {{form.media }}
+                {{form.media}}
                 {{form.as_p}}
-                <button type="submit" class="guide_form_submit">送信</button>
+                <button type="button" id="previewButton" class="guide_form_submit" onclick="previewSubmit()">プレビュー</button>
+                <button type="submit" class="guide_form_submit">作成</button>
                 </form>
             </div>
+
+            <script>
+            function previewSubmit() {
+                var formData = document.getElementById('my_form');
+                var previewWindow = window.open('', 'Form Submit Preview', 'width=400,height=200');
+                previewWindow.document.write('<html><head><title>送信プレビュー</title></head><body>');
+                previewWindow.document.write('<p>送信されたテキスト: ' + formData + '</p>');
+                previewWindow.document.write('</body></html>');
+                previewWindow.document.close();
+
+           }
+            </script>
             <!--
             <footer>
                 {% include 'top/footer.html' %}
             </footer>
             -->
+
 </body>
 
 </html>

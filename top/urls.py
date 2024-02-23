@@ -6,6 +6,7 @@ app_name = "top"
 
 urlpatterns = [
     # index page
+    
     path('', views.index, name='index'),
     path('create_change_log/',views.CreateChangeLog.as_view(),name='create_change_log'),
     path('list_change_log/',views.ListChangeLog.as_view(),name='list_change_log'),
@@ -26,5 +27,5 @@ urlpatterns = [
     path('notification/', views.NotificationPage.as_view(), name="notification"),
     path('notification_check/', views.notification_check, name="notification_check"),
     path('notification_check_all/', views.notification_check_all, name="notification_check_all"),
-    path('ads.txt/', views.ads, name='ads'),
+    path('ads.txt', views.ads, name='ads'),
 ]
