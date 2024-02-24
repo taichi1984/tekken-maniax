@@ -36,33 +36,44 @@
                     ガイドを作ってあなたの知識をみんなと共有しましょう!<br />
                 </div>
 
-                <div class="guide_help_menu">
-                    <div class="guide_help_menu_item">
-                        <a href="{% url 'guide:detail' 1 %}" target="_blank">ガイドの書き方</a>はこちら
-                    </div>
-                </div>
             </div>
 
             <div style="width:1200px;">
-                <form id = "my_form" method="post">
-                {%csrf_token%}
-                {{form.media}}
-                {{form.as_p}}
-                <button type="button" id="previewButton" class="guide_form_submit" onclick="previewSubmit()">プレビュー</button>
-                <button type="submit" class="guide_form_submit">作成</button>
+                <form id="my_form" method="post">
+                    {%csrf_token%}
+                    {{form.media}}
+                    {{form.as_p}}
+                    <button type="button" id="previewButton" class="guide_form_submit" onclick="previewForm()">プレビュー</button>
+                    <button type="button" id="submitButton" class="guide_form_submit" onclick="submitForm()">作成</button>
                 </form>
             </div>
 
             <script>
-            function previewSubmit() {
-                var formData = document.getElementById('my_form');
-                var previewWindow = window.open('', 'Form Submit Preview', 'width=400,height=200');
-                previewWindow.document.write('<html><head><title>送信プレビュー</title></head><body>');
-                previewWindow.document.write('<p>送信されたテキスト: ' + formData + '</p>');
-                previewWindow.document.write('</body></html>');
-                previewWindow.document.close();
 
-           }
+                function submitForm() {
+                    // 通常の送信のためのアクションを設定
+                    var form = document.getElementById('my_form');
+                    form.action = ''; // 通常の送信先URL
+                    form.target = '_self'; // 同じウィンドウで送信
+                    form.submit();
+                }
+
+                function previewForm() {
+                    // プレビューのためのアクションを設定
+                    var form = document.getElementById('my_form');
+                    if(form.title.value == ""){
+                        alert("ガイドのタイトルを設定してください")
+                        return;
+                    }
+                    form.action = '../preview'; // プレビュー送信先URL
+                    form.target = '_blank'; // 新しいウィンドウで開く
+                    form.submit();
+                }
+
+
+
+
+
             </script>
             <!--
             <footer>

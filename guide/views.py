@@ -120,6 +120,8 @@ class CreateGuide(LoginRequiredMixin,CreateView):
     
     def form_valid(self,form):
         form.instance.author = self.request.user
+        form.instance.pub_date = timezone.now()
+        form.instance.update_date = timezone.now()
         self.object = form.save()
         return super().form_valid(form)
 
@@ -142,7 +144,25 @@ class CreateGuide(LoginRequiredMixin,CreateView):
 ##########################
     
 def preview_guide(request):
-    return HttpResponse("aaa")
+    context={}
+    if request.method == 'POST':
+        form = CreateGuideForm(request.POST)
+        
+        if form.is_valid():
+            table_of_contents,soup = generate_table_of_contents(form.cleaned_data['article'])
+
+            context = {
+            'title':form.cleaned_data['title'],
+            'character':form.cleaned_data['character'],
+            'category':form.cleaned_data['category'],
+            'article':form.cleaned_data['article'],
+            'table_of_contents':table_of_contents,
+            }
+
+            return render(request, 'guide/preview.html', context)
+    else:
+        form = CreateGuideForm()
+    return render(request, 'guide/preview.html', context)
 
 
 ##########################

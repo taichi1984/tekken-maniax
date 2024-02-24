@@ -1,6 +1,7 @@
 from django import forms
 from guide.models import Character, Category,Guide
 from ckeditor.widgets import CKEditorWidget
+from datetime import datetime
 
 class CommentSubmitForm(forms.Form):
     comment = forms.CharField(label="コメント", widget=forms.Textarea)
@@ -10,6 +11,7 @@ class SearchGuideForm(forms.Form):
     search_word = forms.CharField(max_length=50)
 
 class CreateGuideForm(forms.ModelForm):
+
     class Meta:
         model = Guide
         fields =[
@@ -49,10 +51,10 @@ class CreateGuideForm(forms.ModelForm):
        
 
         def __init__(self, *args, initial_content=None ,**kwargs):
-            super(MyModelForm, self).__init__(*args, **kwargs)
-
+            super(CreateGuideForm, self).__init__(*args, **kwargs)       
             if initial_content is not None:
                 self.fields['article'].initial = initial_content
+
         
         # 各フィールドにクラスを追加
             self.fields['category'].widget.attrs.update({'class': 'guide_form_category'})
@@ -93,10 +95,10 @@ class UpdateGuideForm(forms.ModelForm):
         }
 
 
-        def __init__(self, *args, initial_content=None ,**kwargs):
-            
-            super(MyModelForm, self).__init__(*args, **kwargs)
-             # 各フィールドにクラスを追加
+        def __init__(self, *args, initial_content=None ,**kwargs):   
+            super(UpdateGuideForm, self).__init__(*args, **kwargs)
+
+              # 各フィールドにクラスを追加
             self.fields['category'].widget.attrs.update({'class': 'guide_form_category'})
             self.fields['character'].widget.attrs.update({'class': 'guide_form_character'})
 

@@ -42,7 +42,7 @@
                         </div>
                         <div class="page_summary_title_page_data">
                             投稿者:<a href="{% url 'top:user_information' guide.author.id %}">
-                                {{guide.author.userprofile.nick_name }}(id:{{ guide.author }})
+                                {{guide.author.userprofile.nick_name }}
                             </a><br>
                             閲覧数:{{ guide.number_of_preview }} view<br>
                             最終更新日:{{ guide.update_date }}
@@ -121,26 +121,22 @@
 
             </div>
 
-            <div class="table_of_contents">
-                <div class="table_of_contents_title">
-                    目次
-                </div>
-                <div class="table_of_contents_listdiv">
-                    <ol>
-                    {% for item in table_of_contents %}
-                   
-                    {% ifchanged item.level %}
-                    {% if forloop.counter > 1 %}
-                    </ol>
-                    {% endif %}
-                    <ol>
-                        {% endifchanged %}
-                        <li class="level-{{item.level}}"><a href="#{{ item.id }}" target="_self">{{ item.text }}</a></li>
+          
+                <div class="table_of_contents">
+                    <div class="table_of_contents_title">
+                        目次
+                    </div>
+                    <div class="table_of_contents_listdiv">
+                        <ul>
+                        {% for item in table_of_contents %}
+                            <li class="level-{{ item.level }}" style="margin-left: {{ item.level|add:'-1'|multiply:30 }}px;">
+                                <a href="#{{ item.id }}" target="_self">{{ item.text }}</a>
+                            </li>
                         {% endfor %}
-                    </ol>
-                </ol>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+
 
             <div class="sections_field">
 
