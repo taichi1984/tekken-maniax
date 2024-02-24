@@ -35,12 +35,6 @@
                 ガイドを作ってあなたの知識をみんなと共有しましょう!<br/>
             </div>
 
-            <div class="guide_help_menu">
-                <div class="guide_help_menu_item">
-                    <a href="{% url 'guide:detail' 1 %}" target="_blank">ガイドの書き方</a>はこちら
-                </div>
-           
-            </div>
         </div>
 
         <div>
@@ -48,9 +42,34 @@
                 {% csrf_token %}
                 {{form.media}}
                 {{form.as_p}}
-                <input class="" type="submit">
+                <button type="button" id="previewButton" class="guide_form_submit" onclick="previewForm()">プレビュー</button>
+                <button type="button" id="submitButton" class="guide_form_submit" onclick="submitForm()">作成</button>
             </form>
         </div>
+
+        <script>
+
+            function submitForm() {
+                // 通常の送信のためのアクションを設定
+                var form = document.getElementById('guide_form');
+                form.action = ''; // 通常の送信先URL
+                form.target = '_self'; // 同じウィンドウで送信
+                form.submit();
+            }
+
+            function previewForm() {
+                // プレビューのためのアクションを設定
+                var form = document.getElementById('guide_form');
+                if(form.id_title.value == ""){
+                    alert("ガイドのタイトルを設定してください")
+                    return;
+                }
+                form.action = '../preview'; // プレビュー送信先URL
+                form.target = '_blank'; // 新しいウィンドウで開く
+                form.submit();
+            }
+
+        </script>
         <!--
         <footer>
             {% include 'top/footer.html' %}
