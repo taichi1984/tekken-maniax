@@ -239,7 +239,7 @@ CKEDITOR_CONFIGS = {
           
         ],
         'width': 1200,
-        'height':1800,
+        'height':800,
         'extraPlugins': ','.join([
             'autoembed',
             'embedsemantic', 
