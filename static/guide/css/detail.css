@@ -34,15 +34,7 @@ main {
 ヘッダー部分　ここから
 */
 
-.page_title_field {
-    color: white;
-    position: relative;
-    align-items: center;
-    background-color: black;
-    height: 500px;
-    width: 100%;
-    background-size: 100%;
-}
+
 
 .page_type {
     padding: 10px;
@@ -538,6 +530,17 @@ iframe{
         margin: 30px auto 40px;
     }
 
+    .page_title_field {
+        color: white;
+        position: relative;
+        align-items: center;
+        background-color: black;
+        height: 500px;
+        width: 100%;
+        background-size: 100%;
+    }
+    
+
 }
 @media screen and (orientation: portrait) {
 
@@ -551,6 +554,15 @@ iframe{
         margin: 0px auto 0px;
         background-color: #FAFAFA;
         color: black;
+    }
+    .page_title_field {
+        color: white;
+        position: relative;
+        align-items: center;
+        background-color: black;
+        height: 400px;
+        width: 100%;
+        background-size: 100%;
     }
 
 
