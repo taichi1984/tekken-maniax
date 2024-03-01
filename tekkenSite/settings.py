@@ -220,7 +220,8 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 #CKeditorの設定
-IFRAMELY_API_KEY = "14ce4ab66a1762fd0a61c2"
+#IFRAMELY_API_KEY = "14ce4ab66a1762fd0a61c2"
+IFRAMELY_API_KEY = "c7df83dde9a0f7d49161a2"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',

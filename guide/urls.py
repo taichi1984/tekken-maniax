@@ -44,5 +44,6 @@ urlpatterns = [
     path('about_guide/', views.about_guide, name="about_guide"),
     path('how_to_write_guides/', views.how_to_write_guides, name="how_to_write_guides"),
     path('guides_for_begineers/', views.guides_for_beginners, name="guides_for_beginners"),
+    path('embed_api' , views.embed_api , name="embed_api"),
 
 ]

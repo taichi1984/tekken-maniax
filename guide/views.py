@@ -15,7 +15,7 @@ from json import JSONDecodeError
 from .constants import GUIDE_INITIAL_DATA
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect,HttpResponseForbidden
+from django.http import HttpResponse,HttpResponseBadRequest, HttpResponseNotFound,HttpResponseRedirect,HttpResponseForbidden
 from django.template import loader
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
@@ -33,7 +33,7 @@ from urllib.parse import urlencode
 import json
 import markdown
 from .util.generate_table_of_contents import generate_table_of_contents
-
+from urllib.parse import urlparse, parse_qs
 
 from .util.make_guide_list import make_guide_list_with_evaluation
 
@@ -568,3 +568,32 @@ def guide_error(request):
     }
     context = context_initializer(request, context)
     return render(request, 'guide/guide_error.html', context)
+
+@api_view(['GET'])
+def embed_api(request):
+    url = request.GET["url"]
+    callback = request.GET["callback"]
+    
+     # URLとコールバックの存在を確認
+    if not url or not callback:
+        return HttpResponseBadRequest("URLまたはcallbackが指定されていません。")
+
+    parsed_url = urlparse(url)
+    query_string = parsed_url.query
+    parameters = parse_qs(query_string)
+
+    print(parameters)
+    video_id = parameters["v"][0]
+    embed_url = f"https://www.youtube.com/embed/{video_id}"
+    res_html = f'''<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="{embed_url}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div>'''
+    name = "thissite"
+    data = {"html" : res_html , "url":url ,"name":name}
+    json_data = json.dumps(data)
+    content= f'{callback}({json_data})'
+
+    if callback:
+        print(content)
+        return HttpResponse(content, content_type='application/javascript')
+    
+    return HttpResponse(json_data, content_type='application/json')
+                             
