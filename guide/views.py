@@ -573,6 +573,7 @@ def guide_error(request):
 def embed_api(request):
     url = request.GET["url"]
     callback = request.GET["callback"]
+    print("url : " + url)
     
      # URLとコールバックの存在を確認
     if not url or not callback:
@@ -585,11 +586,18 @@ def embed_api(request):
     print(parameters)
     video_id = parameters["v"][0]
     embed_url = f"https://www.youtube.com/embed/{video_id}"
-    res_html = f'''<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="{embed_url}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div>'''
+    res_html = f'''<div style="max-width:700px;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="{embed_url}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div></div>'''
     name = "thissite"
-    data = {"html" : res_html , "url":url ,"name":name}
+    data = {
+        "html" : res_html , 
+        "url":url ,
+        "type":"video",
+        "version":"1.0",
+        "max-width":622,
+        "max-height":0,
+        }
     json_data = json.dumps(data)
-    content= f'{callback}({json_data})'
+    content= f'{callback} && {callback}({json_data})'
 
     if callback:
         print(content)

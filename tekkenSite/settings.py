@@ -220,6 +220,11 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 #CKeditorの設定
+if DEBUG == True :
+    EMBED_PROVIDER ="https://localhost:8000/guide/embed_api?url={url}&callback={callback}"
+else:
+    EMBED_PROVIDER ="https://extreme-gamers.info/guide/embed_api?url={url}&callback={callback}"
+
 #IFRAMELY_API_KEY = "14ce4ab66a1762fd0a61c2"
 IFRAMELY_API_KEY = "c7df83dde9a0f7d49161a2"
 CKEDITOR_CONFIGS = {
@@ -247,7 +252,8 @@ CKEDITOR_CONFIGS = {
             'embedbase',
             'embed',
         ]),
-        'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}&maxwidth=800&maxheight=350&api_key=' + IFRAMELY_API_KEY,
+        'embed_provider':EMBED_PROVIDER,
+        #'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}&maxwidth=800&maxheight=350&api_key=' + IFRAMELY_API_KEY,
         'contentsCss':['/static/guide/css/ckeditor.css'],
  
           
