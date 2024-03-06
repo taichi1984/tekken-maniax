@@ -59,7 +59,13 @@
                     </tr>
                     <tr>
                         <th>技の発生</th>
-                        <td>{{move.frame_startup}}</td>
+                        <td>
+                            {% if move.frame_startup == None %}
+                            -
+                            {% else %}  
+                            {{move.frame_startup}}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>攻撃持続</th>
@@ -69,7 +75,13 @@
                     </tr>
                     <tr>
                         <th>技後の硬直</th>
-                        <td>{{move.frame_recovery}}</td>
+                        <td>
+                            {% if move.frame_recovery == None %}
+                            -
+                            {% else %}  
+                            {{move.frame_recovery}}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>全体硬直</th>
@@ -85,7 +97,13 @@
                     </tr>
                     <tr>
                         <th>しゃがみヒット時の硬直差</th>
-                        <td>{{move.frame_crouch_hit}}</td>
+                        <td>
+                            {% if move.frame_crouch_hit == None %}
+                            -
+                            {% else %}  
+                            {{move.frame_crouch_hit}}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>カウンターヒット時の硬直差</th>
@@ -93,27 +111,33 @@
                     </tr>
                     <tr>
                         <th>技後のプレイヤーの状態</th>
-                        <td>{{move.state_player}}</td>
+                        <td>{{move.state_player2}}</td>
                     </tr>
                     <tr>
                         <th>技後の相手の状態(ガード時)</th>
-                        <td>{{move.state_enemy_guard}}</td>
+                        <td>{{move.state_enemy_guard2}}</td>
                     </tr>
                     <tr>
                         <th>技後の相手の状態(ヒット時)</th>
-                        <td>{{move.state_enemy_hit}}</td>
+                        <td>{{move.state_enemy_hit2}}</td>
                     </tr>
                     <tr>
                         <th>技後の相手の状態(カウンターヒット時)</th>
-                        <td>{{move.state_enemy_counter}}</td>
+                        <td>{{move.state_enemy_counter2}}</td>
                     </tr>
                     <tr>
                         <th>技後の相手の状態(しゃがみヒット時)</th>
-                        <td>{{move.state_enemy_crouch_hit}}</td>
+                        <td>
+                            {% if move.state_enemy_crouch_hit2 == None %}
+                            -
+                            {% else %}  
+                            {{move.state_enemy_crouch_hit2}}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>空中ヒット時の相手の状態</th>
-                        <td>{{move.state_enemy_air}}</td>
+                        <td>{{move.state_enemy_air2}}</td>
                     </tr>
                     <tr>
                         <th>各種特性</th>
@@ -138,6 +162,12 @@
                             {% endif %}
                             {% if move.diminish %}
                             <div><img src="{% static 'database/image/diminish.png' %}"></div>
+                            {% endif %}
+                            {% if move.is_wall_brake %}
+                            <span><img src="{% static 'database/image/wallbrake.png' %}">　</span>
+                            {% endif %}
+                            {% if move.is_floor_brake %}
+                            <span><img src="{% static 'database/image/floorbrake.png' %}">　</span>
                             {% endif %}
                         </td>
                     </tr>
