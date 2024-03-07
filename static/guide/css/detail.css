@@ -474,6 +474,7 @@ blockquote{
 }
 .comment_form{
     margin-bottom:30px;
+  
 }
 
 .comment_submit{
@@ -498,6 +499,7 @@ blockquote{
 .comment_content{
     margin-bottom:50px;
     padding: 10px 10px 10px 30px;
+    white-space:pre-line;
 }
 
 .comment_textarea{
@@ -506,7 +508,7 @@ blockquote{
     width:800px;
     height:50px;
     padding:8px;
-    line-height: 10px;
+    line-height: 25px;
     font-size:16px;
 }
 .advertisement {
