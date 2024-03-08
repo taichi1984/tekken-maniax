@@ -15,6 +15,8 @@ import re
 from django.urls import reverse
 from operator import itemgetter
 from .util.add_full_command import add_full_command_jp
+from .util.character_orders import custom_order
+from functools import partial
 
 def index(request):
     """
@@ -41,135 +43,15 @@ class FrameDataIndexView(ListView):
 
 ##以下movelist
 
-custom_order = {
-        "ヒート発動可能":1,
-        "LP+RK":510,
-        "RP+LK":520,
-        "LP":50,
-        "RP":100,
-        "LK":200,
-        "RK":300,
-        "WP":400,
-        "WK":500,
-        "【":600,
-        "641236":2200,
-        "6n23":2100,
-        "44_":1750,
-        "666_":1800,
-        "66_":1700,
-        "6n":1600,
-        "6LP+RK":770,
-        "6RP+LK":780,
-        "6LP":710,
-        "6RP":720,
-        "6LK":730,
-        "6RK":740,
-        "6WP":750,
-        "6WK":760,
-        "6":790,
-        "3LP+RK":870,
-        "3RP+LK":880,
-        "3LP":810,
-        "3RP":820,
-        "3LK":830,
-        "3RK":840,
-        "3WP":850,
-        "3WK":860,
-        "3":890,
-        "236":2000,
-        "2LP+RK":970,
-        "2RP+LK":980,
-        "2LP":910,
-        "2RP":920,
-        "2LK":930,
-        "2RK":940,
-        "2WP":950,
-        "2WK":960,
-        "2":990,
-        "1LP+RK":1070,
-        "1RP+LK":1080,
-        "1LP":1010,
-        "1RP":1020,
-        "1LK":1030,
-        "1RK":1040,
-        "1WP":1050,
-        "1WK":1060,
-        "1":1090,
-        "44_":1900,
-        "4LP+RK":1160,
-        "4RP+LK":1170,
-        "4LP":1100,
-        "4RP":1110,
-        "4LK":1120,
-        "4RK":1130,
-        "4WP":1140,
-        "4WK":1150,
-        "4":1180,
-        "7LP+RK":1270,
-        "7RP+LK":1280,
-        "7LP":1210,
-        "7RP":1220,
-        "7LK":1230,
-        "7RK":1240,
-        "7WP":1250,
-        "7WK":1260,
-        "7":1290,
-        "8LP":1310,
-        "8RP":1320,
-        "8LK":1330,
-        "8RK":1340,
-        "8WP":1350,
-        "8WK":1360,
-        "8LP+RK":1370,
-        "8RP+LK":1380,
-        "8":1390,
-        "9LP+RK":1470,
-        "9RP+LK":1480,
-        "9LP":1410,
-        "9RP":1420,
-        "9LK":1430,
-        "9RK":1440,
-        "9WP":1450,
-        "9WK":1460,
-        "9":1470,
-        "9n":1500,
-        "46":1550,
-        "走り中に":2250,
-        "立ち途中に":2300,
-        "しゃがんだ状態で":2400,
-        "ヒート状態で":2600,
-        "レイジ状態で":2700,
-        "横移動中に":2800,
-        "相手に接近して":2900,
-        "(相手しゃがみ中に)":2950,
-        "(相手壁やられ中に)":2960,
-        "相手の左側面から接近して":3000,
-        "相手の右側面から接近して":3100,
-        "相手の背後から接近して":3200,
-        "(相手ダウン中に)":3300,
-    }
 
+def custom_order_key(character_id,obj):
 
-
-def custom_order_key(obj):
-    '''
-    match = re.match(r'(\d+|[^0-9]+)', obj.full_command_jp)
-    if match:
-        key_part = match.group()
-        print("match : " + key_part)
-        return custom_order.get(key_part, len(custom_order)), key_part
-    else:
-        print("unmatch : " + key_part)
-        return (len(custom_order),obj.full_command_jp)
-    '''
-  
-    for key, value in custom_order.items():
+    for key, value in custom_order[character_id].items():
         if obj.full_command_jp.startswith(key):
             return value
             #return (value,obj.full_command_jp)
 
     return len(custom_order)
-
 
 
 class MoveList(ListView):
@@ -185,11 +67,13 @@ class MoveList(ListView):
         queryset= Move.objects.filter(character=character_obj)
 
         queryset = add_full_command_jp(queryset)
-        
+        print(character_obj.id)
+        custom_order_key_with_id = partial(custom_order_key,character_obj.id)
+
         sort = self.request.GET.get('move_sort_field','command')
 
         if sort =='command':
-            queryset = sorted(queryset,key=custom_order_key)
+            queryset = sorted(queryset,key=custom_order_key_with_id)
 
         elif sort == 'damage_desc':
             queryset = queryset.order_by("-damage")
