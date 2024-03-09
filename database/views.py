@@ -7,7 +7,7 @@ from django.db.models import IntegerField,CharField, Value, Case, When, F
 from top.util.page_initializer import context_initializer
 from guide.models import Character
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
-from .models import Move,MoveType
+from .models import Move,MoveType,StatePlayer
 from .form import CreateMoveForm,UpdateMoveForm,MoveSortForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -167,6 +167,7 @@ class MoveCreate(CreateView):
         general = Character.objects.filter(id=1).get()
         chara = Character.objects.filter(id=self.request.GET["character"]).get()
         form.fields['move_type'].queryset = MoveType.objects.filter(character__in=[general,chara])
+        form.fields['state_player2'].queryset = StatePlayer.objects.filter(character__in=[general,chara])
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
     
@@ -192,6 +193,7 @@ class MoveUpdate(UpdateView):
         general = Character.objects.filter(id=1).get()
         chara = self.get_object().character
         form.fields['move_type'].queryset = MoveType.objects.filter(character__in=[general,chara])
+        form.fields['state_player2'].queryset = StatePlayer.objects.filter(character__in=[general,chara])
         form.fields['parent_move'].queryset =  Move.objects.filter(character=chara)
         return form
     
