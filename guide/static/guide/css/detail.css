@@ -517,9 +517,11 @@ blockquote{
     height: 300px;
 }
 
-iframe{
-
+.youtube_iframe{
+    margin-top:30px;
+    margin-bottom:30px;
 }
+
 @media screen and (orientation: landscape){
  
   

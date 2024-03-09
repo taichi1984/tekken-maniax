@@ -278,7 +278,7 @@
     <footer>
         {% include 'top/footer.html' %}
     </footer>
-
+    <!-- コメント用などのvue-->
     <script>
         const { createApp, ref } = Vue
         //Vue.use(VueRouter);
@@ -473,9 +473,21 @@
         favoriteControl.config.compilerOptions.delimiters = ['[[', ']]'];
         favoriteControl.mount('#favorite')
 
-
+        
     </script>
-
+    <!--コメント用などのvueここまで-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var embeds = document.querySelectorAll('iframe[src*="youtube"]');
+        embeds.forEach(function(embed) {
+        var div = embed.parentElement;
+        if(div && !div.classList.contains('youtube_iframe')) {
+        div.classList.add('youtube_iframe');
+        }
+        });
+    });
+    </script>
+    
 
 </body>
 
