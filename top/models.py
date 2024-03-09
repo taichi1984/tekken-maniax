@@ -20,6 +20,10 @@ class UserProfile(models.Model):
     introduction = models.TextField(default="")
     is_deleted = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.user.userprofile.nick_name
+    
+
 
 # notification
 class Notification(models.Model):
