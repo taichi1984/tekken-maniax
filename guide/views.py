@@ -579,23 +579,30 @@ def embed_api(request):
     if not url or not callback:
         return HttpResponseBadRequest("URLまたはcallbackが指定されていません。")
 
-    parsed_url = urlparse(url)
-    query_string = parsed_url.query
-    parameters = parse_qs(query_string)
+    if "youtube.com" in url:
+        parsed_url = urlparse(url)
+        query_string = parsed_url.query
+        parameters = parse_qs(query_string)
 
-    print(parameters)
-    video_id = parameters["v"][0]
-    embed_url = f"https://www.youtube.com/embed/{video_id}"
-    res_html = f'''<div style="max-width:700px;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="{embed_url}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div></div>'''
-    name = "thissite"
+        print(parameters)
+        video_id = parameters["v"][0]
+        embed_url = f"https://www.youtube.com/embed/{video_id}"
+        res_html = f'''<div style="max-width:700px;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="{embed_url}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div></div>'''
+        embed_type = "video"
+    elif url.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
+        res_html = f'<img src="{url}" style="max-width:100%;" />'
+        embed_type = "photo"
+    else:
+        return HttpResponseBadRequest("サポートされていないURL形式です")
+        
     data = {
-        "html" : res_html , 
-        "url":url ,
-        "type":"video",
-        "version":"1.0",
-        "max-width":622,
-        "max-height":0,
-        }
+            "html" : res_html , 
+            "url":url ,
+            "type":embed_type,
+            "version":"1.0",
+            "max-width":622,
+            "max-height":0,
+            }
     json_data = json.dumps(data)
     content= f'{callback} && {callback}({json_data})'
 

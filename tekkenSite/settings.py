@@ -236,7 +236,7 @@ CKEDITOR_CONFIGS = {
             ['Styles', 'Format', 'Font', 'FontSize'],
             ['TextColor', 'BGColor'],
             ['Link', 'Unlink'],
-            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['Table', 'HorizontalRule', 'SpecialChar'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Embed'],
             ['Source'],
