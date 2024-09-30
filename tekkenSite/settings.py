@@ -23,7 +23,7 @@ SECRET_KEY = '%(kw=*vae_kso9)y#0s66=#ly*&ebb+-#)1c6%!pj_db10-c(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
