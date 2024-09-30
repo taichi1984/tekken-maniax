@@ -69,7 +69,6 @@ class MoveList(ListView):
         queryset = add_full_command_jp(queryset)
         print(character_obj.id)
         custom_order_key_with_id = partial(custom_order_key,character_obj.id)
-
         sort = self.request.GET.get('move_sort_field','command')
 
         if sort =='command':
